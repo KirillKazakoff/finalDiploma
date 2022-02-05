@@ -1,0 +1,69 @@
+.progress-line {
+    display: flex;
+}
+
+.bar {
+    width: 22%;
+    height: 100px;
+    display: flex;
+    column-gap: 25px;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    background-color: #3e3c41;
+    background-image: url('../img/header/progressLineArrow.png');
+    background-repeat: no-repeat;
+    background-position: center right 2px;
+}
+
+.bar:first-child {
+    width: 28%;
+}
+
+.bar:last-child {
+    width: 28%;
+    background-image: none;
+}
+
+.bar:last-child::after {
+    border: none;
+}
+
+.bar-count {
+    border: 3px solid #ffffff;
+    padding: 5px 16px;
+    border-radius: 50px;
+
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.bar-desc {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.bar-active {
+    background-color: var(--bg-main);
+}
+
+.bar-active::after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    content: '';
+    border-top: 50px solid var(--black-light);
+    border-bottom: 50px solid var(--black-light);
+    border-left: 40px solid var(--bg-main);
+}
+
+.bar-active::before {
+    position: absolute;
+    left: calc(var(--progress-border) * -1);
+    top: 0;
+    content: '';
+    border-top: 50px solid var(--bg-main);
+    border-bottom: 50px solid var(--bg-main);
+    border-left: var(--progress-border) solid var(--black-light);
+}
