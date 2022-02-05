@@ -71,6 +71,7 @@ label {
 } */
 
 input {
+    width: 100%;
     font-size: inherit;
 }
 
