@@ -4,7 +4,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
 import { InputField, InputState, PayloadFocus, SearchedCities } from '../../types';
 
-type WayStateT = InputState & SearchedCities;
+export type WayStateT = InputState & SearchedCities & { isActive: boolean };
 
 const initialWayState: WayStateT = {
     value: '',
@@ -12,6 +12,7 @@ const initialWayState: WayStateT = {
     error: undefined,
     wasFocused: false,
     cities: [],
+    isActive: false,
 };
 
 export type CheckoutState = {
@@ -34,9 +35,12 @@ export const searchWaySlice = createSlice({
     reducers: {
         setCities: (state, action: PayloadAction<SetCitiesPayload>) => {
             const { cities, inputName } = action.payload;
-            console.log(cities);
-
             state[inputName].cities = cities;
+
+            if (cities.length === 0) {
+                state[inputName].error = 'Такого города нет';
+                state[inputName].isValid = false;
+            }
         },
         changeInput: (state, action: PayloadAction<InputField>) => {
             const { name, value, isValid, error } = action.payload;

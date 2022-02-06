@@ -2,7 +2,7 @@ import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { Status } from '../types';
 import { AppThunk } from '../redux/store';
 
-const baseUrl = 'http://localhost:7070';
+const baseUrl = 'https://fe-diplom.herokuapp.com';
 
 function timeoutMock() {
     return new Promise((resolve) => {
@@ -24,7 +24,7 @@ export const request: RequestType = (reqObj, setStatus) => async (dispatch) => {
     await timeoutMock();
 
     try {
-        const res = await fetch(`${baseUrl}/api/${reqObj.url}`, reqObj.settings);
+        const res = await fetch(`${baseUrl}/routes/${reqObj.url}`, reqObj.settings);
         if (!res.ok) throw new Error(res.statusText);
         return res;
     } catch (e) {

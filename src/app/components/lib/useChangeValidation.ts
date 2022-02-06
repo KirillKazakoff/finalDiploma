@@ -38,7 +38,7 @@ export default function useChangeValidation() {
         };
     };
 
-    const onChange: OnChangeField = (e) => {
+    const onChangeValidate: OnChangeField = (e) => {
         const validity = getValidity(e.currentTarget);
         const changedInput: InputField = {
             name: e.currentTarget.name,
@@ -50,5 +50,5 @@ export default function useChangeValidation() {
         dispatch(changeInput(changedInput));
     };
 
-    return [onChange];
+    return [onChangeValidate];
 }

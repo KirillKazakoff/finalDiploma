@@ -1,8 +1,8 @@
 import React from 'react';
 import SearchFormBtn from './SearchFormBtn';
 import SearchFormRow from './SearchFormRow';
-import SearchFormWay from './SearchFormWay';
-import SearchFormDate from './SearchFormDate';
+import SearchFormWay from './SearchWay/SearchWayForm';
+import SearchFormDate from './SearchDate/SearchDateForm';
 
 export default function SearchFormMain() {
     return (
