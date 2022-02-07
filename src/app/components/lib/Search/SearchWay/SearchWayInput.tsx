@@ -1,6 +1,6 @@
 import React, { HTMLProps, useRef } from 'react';
 import { setCities, WayStateT } from '../../../../redux/slices/searchWaySlice';
-import { OnChangeT } from '../../../../types';
+// import { OnChangeT } from '../../../../types';
 import InputWrapper from '../../Common/InputWrapper';
 import useChangeValidation from '../../useChangeValidation';
 import SearchWayTips from './SearchWayTips';
@@ -22,12 +22,11 @@ export default function SearchWayInput(props: SearchWayInputProps) {
     const inputEl = useRef<HTMLInputElement>(null);
     const [onChangeValidate] = useChangeValidation();
 
-    // console.log(wayState.cities);
+    const onChange = () => {
+        if (!inputEl.current) return;
+        const { value, name: inputName } = inputEl.current;
 
-    const onChange: OnChangeT = async (e) => {
-        const { value, name: inputName } = e.currentTarget;
-
-        onChangeValidate(e.currentTarget);
+        onChangeValidate(inputEl.current);
         if (!value) {
             dispatch(setCities({ cities: [], inputName }));
         } else {
@@ -53,7 +52,7 @@ export default function SearchWayInput(props: SearchWayInputProps) {
                 cities={wayState.cities}
                 isActive={wayState.isActive}
                 inputRef={inputEl.current}
-                onChange={onChangeValidate}
+                onChange={onChange}
             />
             {children}
         </InputWrapper>

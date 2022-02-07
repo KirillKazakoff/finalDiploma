@@ -9,7 +9,7 @@ import { selectWayInputs } from '../../../../redux/slices/searchWaySlice';
 import SearchWayInput from './SearchWayInput';
 import SearchFormRow from '../SearchFormRow';
 
-export default function SearchFormWay() {
+export default function SearchWay() {
     const inputs = useAppSelector(selectWayInputs);
     const { wayFrom } = inputs;
 

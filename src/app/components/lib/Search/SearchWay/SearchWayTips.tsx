@@ -4,11 +4,10 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { SearchedCities } from '../../../../types';
-import { OnChangeField } from '../../useChangeValidation';
 
 type Props = SearchedCities & {
     inputRef: HTMLInputElement | null;
-    onChange: OnChangeField;
+    onChange: () => void;
     isActive: boolean;
 };
 
@@ -20,7 +19,7 @@ export default function SearchWayTips(props: Props) {
     const onClick = (name: string) => () => {
         if (inputRef) {
             inputRef.value = name;
-            onChange(inputRef);
+            onChange();
         }
     };
 

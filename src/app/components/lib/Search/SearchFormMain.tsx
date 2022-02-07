@@ -1,13 +1,13 @@
 import React from 'react';
 import SearchFormBtn from './SearchFormBtn';
 import SearchFormRow from './SearchFormRow';
-import SearchFormWay from './SearchWay/SearchWayForm';
+import SearchWay from './SearchWay/SearchWay';
 import SearchFormDate from './SearchDate/SearchDateForm';
 
 export default function SearchFormMain() {
     return (
         <form className='search-form'>
-            <SearchFormWay />
+            <SearchWay />
 
             <SearchFormRow>
                 <SearchFormDate />
