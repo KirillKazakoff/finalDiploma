@@ -234,7 +234,36 @@ body {
     flex-grow: 1;
 }
 
-.input-wrapper-small {
+.search-input-wrapper {
+    position: relative;
+}
+
+.search-way-tips {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 110%;
+    min-height: 100%;
+
+    border-radius: 3px;
+    background-color: white;
+}
+
+.search-way-tip {
+    cursor: pointer;
+    padding: 20px;
+    flex: 1;
+    border-radius: 3px;
+}
+
+.search-way-tip:hover {
+    background-color: #ffca62;
+}
+
+.search-way-tip .input-wrapper-small {
     padding: 10px 15px;
 }
 

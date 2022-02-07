@@ -11,9 +11,13 @@ export const getCities: GetCitiesT = (inputName, name) => async (dispatch) => {
     const reqObj = { url, settings: undefined };
     const res = await dispatch(request(reqObj, setSearchWayStatus));
 
+    // add check error response block.
     if (!res) return false;
 
     const resData = await res.json();
+    if (resData.error) return false;
+    // here
+
     dispatch(setCities({ cities: resData, inputName }));
 
     dispatch(setSearchWayStatus('loaded'));

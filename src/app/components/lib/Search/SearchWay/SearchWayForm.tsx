@@ -3,30 +3,25 @@ import InputWrapper from '../../Common/InputWrapper';
 import SvgLocation from '../../Svg/SvgLocation';
 import SvgRefresh from '../../Svg/SvgRefresh';
 import SearchRowTitle from '../SearchRowTitle';
-import { useAppDispatch, useAppSelector } from '../../../../redux/reduxHooks';
-import useChangeValidation from '../../useChangeValidation';
+import { useAppSelector } from '../../../../redux/reduxHooks';
 import { selectWayInputs } from '../../../../redux/slices/searchWaySlice';
-import { getCities } from '../../../../thunk/thunkApi';
-import SearchWayFrom from './SearchWayInput';
+
+import SearchWayInput from './SearchWayInput';
+import SearchFormRow from '../SearchFormRow';
 
 export default function SearchFormWay() {
-    const dispatch = useAppDispatch();
-    const [onChangeValidate] = useChangeValidation();
     const inputs = useAppSelector(selectWayInputs);
     const { wayFrom } = inputs;
 
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        dispatch(getCities(e.currentTarget.name, e.currentTarget.value));
-        onChangeValidate(e);
-    };
-
     return (
-        <>
+        <SearchFormRow>
             <SearchRowTitle>Направление</SearchRowTitle>
-            <InputWrapper>
-                <SearchWayFrom onChange={onChange} wayState={wayFrom} />
+            <SearchWayInput
+                wayState={wayFrom} name='wayFrom'
+                placeholder='Откуда'
+            >
                 <SvgLocation height={32} />
-            </InputWrapper>
+            </SearchWayInput>
 
             <SvgRefresh height={24} />
 
@@ -37,6 +32,6 @@ export default function SearchFormWay() {
                 />
                 <SvgLocation height={32} />
             </InputWrapper>
-        </>
+        </SearchFormRow>
     );
 }

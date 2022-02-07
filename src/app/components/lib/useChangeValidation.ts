@@ -7,7 +7,7 @@ import { changeInput } from '../../redux/slices/searchWaySlice';
 import { InputField } from '../../types';
 
 export type OnSubmitForm = (e: React.FormEvent<HTMLFormElement>) => void;
-export type OnChangeField = (e: React.ChangeEvent<HTMLInputElement>) => void;
+export type OnChangeField = (input: HTMLInputElement) => void;
 export type OnBlurField = (e: React.FocusEvent<HTMLInputElement>) => void;
 
 export default function useChangeValidation() {
@@ -38,15 +38,14 @@ export default function useChangeValidation() {
         };
     };
 
-    const onChangeValidate: OnChangeField = (e) => {
-        const validity = getValidity(e.currentTarget);
+    const onChangeValidate: OnChangeField = (input) => {
+        const validity = getValidity(input);
         const changedInput: InputField = {
-            name: e.currentTarget.name,
-            value: e.currentTarget.value,
+            name: input.name,
+            value: input.value,
             ...validity,
         };
 
-        console.log(changedInput);
         dispatch(changeInput(changedInput));
     };
 

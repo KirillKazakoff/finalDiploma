@@ -7,9 +7,7 @@ import SearchFormDate from './SearchDate/SearchDateForm';
 export default function SearchFormMain() {
     return (
         <form className='search-form'>
-            <SearchFormRow>
-                <SearchFormWay />
-            </SearchFormRow>
+            <SearchFormWay />
 
             <SearchFormRow>
                 <SearchFormDate />

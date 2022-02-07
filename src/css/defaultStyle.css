@@ -86,3 +86,9 @@ input:-webkit-autofill:active {
     background-image: none !important;
     background-color: transparent !important;
 }
+
+input:focus {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
