@@ -259,6 +259,18 @@ body {
     border-radius: 3px;
 }
 
+.submitted:invalid {
+    background-color: red;
+}
+
+.feedback {
+    position: absolute;
+    top: -70%;
+    right: 0;
+    width: 200px;
+    background-color: var(--bg-main);
+}
+
 .search-way-tip:hover {
     background-color: #ffca62;
 }

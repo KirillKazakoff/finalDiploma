@@ -3,10 +3,11 @@ import SearchFormBtn from './SearchFormBtn';
 import SearchFormRow from './SearchFormRow';
 import SearchWay from './SearchWay/SearchWay';
 import SearchFormDate from './SearchDate/SearchDateForm';
+import SearchForm from './SearchForm';
 
 export default function SearchFormMain() {
     return (
-        <form className='search-form'>
+        <SearchForm>
             <SearchWay />
 
             <SearchFormRow>
@@ -14,6 +15,6 @@ export default function SearchFormMain() {
             </SearchFormRow>
 
             <SearchFormBtn>Найти билеты</SearchFormBtn>
-        </form>
+        </SearchForm>
     );
 }

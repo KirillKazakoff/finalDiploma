@@ -40,6 +40,7 @@ export default function useChangeValidation() {
 
     const onChangeValidate: OnChangeField = (input) => {
         const validity = getValidity(input);
+
         const changedInput: InputField = {
             name: input.name,
             value: input.value,

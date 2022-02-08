@@ -19,16 +19,23 @@ export default function SearchWay() {
     const [onBlur, onFocus] = useSearchFocus();
     const delay = inputDelay();
 
-    const onChange: OnChangeNewT = (inputEl) => () => {
+    const onChange: OnChangeNewT = (inputEl, stateCity) => () => {
         if (!inputEl.current) return;
         const { value, name: inputName } = inputEl.current;
 
-        onChangeValidate(inputEl.current);
         if (!value) {
             dispatch(setCities({ cities: [], inputName }));
         } else {
             delay(() => dispatch(getCities(inputName, value)));
         }
+
+        if (stateCity !== value) {
+            inputEl.current?.setCustomValidity('такого города нет');
+        } else {
+            inputEl.current?.setCustomValidity('');
+        }
+
+        onChangeValidate(inputEl.current);
     };
 
     return (

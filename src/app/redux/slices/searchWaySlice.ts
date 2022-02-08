@@ -44,9 +44,8 @@ export const searchWaySlice = createSlice({
 
             state[inputName].cities = cities;
 
-            if (cities.length === 0) {
-                state[inputName].error = 'Такого города нет';
-                state[inputName].isValid = false;
+            if (state[inputName].cities[0]?.name === state[inputName].value) {
+                state[inputName].error = '';
             }
             return state;
         },
