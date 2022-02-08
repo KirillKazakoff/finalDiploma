@@ -11,7 +11,6 @@ export type OnChangeField = (input: HTMLInputElement) => void;
 export type OnBlurField = (e: React.FocusEvent<HTMLInputElement>) => void;
 
 export default function useChangeValidation() {
-    let timerID = 0;
     const dispatch = useAppDispatch();
 
     const getValidity = (input: HTMLInputElement) => {
@@ -40,7 +39,6 @@ export default function useChangeValidation() {
     };
 
     const onChangeValidate: OnChangeField = (input) => {
-        timerID += 1;
         const validity = getValidity(input);
         const changedInput: InputField = {
             name: input.name,
@@ -48,7 +46,6 @@ export default function useChangeValidation() {
             ...validity,
         };
 
-        console.log(timerID);
         dispatch(changeInput(changedInput));
     };
 

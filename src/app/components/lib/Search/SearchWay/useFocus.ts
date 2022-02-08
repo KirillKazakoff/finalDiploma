@@ -1,9 +1,6 @@
-import React from 'react';
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 import { setActive, setBlured } from '../../../../redux/slices/searchWaySlice';
-import { OnBlurT, PayloadFocus } from '../../../../types';
-
-type OnFocusT = (e: React.FocusEvent<HTMLInputElement>) => void;
+import { OnFocusT, PayloadFocus } from '../../../../types';
 
 export default function useSearchFocus() {
     const dispatch = useAppDispatch();
@@ -16,7 +13,7 @@ export default function useSearchFocus() {
         dispatch(setActive(input));
     };
 
-    const onBlur: OnBlurT = (e) => {
+    const onBlur: OnFocusT = (e) => {
         const { name } = e.currentTarget;
         const input: PayloadFocus = {
             name,

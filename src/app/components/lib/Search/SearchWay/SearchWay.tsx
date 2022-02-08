@@ -1,10 +1,7 @@
 import React from 'react';
-import InputWrapper from '../../Common/InputWrapper';
-import SvgLocation from '../../Svg/SvgLocation';
 import SvgRefresh from '../../Svg/SvgRefresh';
 import SearchRowTitle from '../SearchRowTitle';
 
-import SearchWayInput from './SearchWayInput';
 import SearchFormRow from '../SearchFormRow';
 import { setCities } from '../../../../redux/slices/searchWaySlice';
 import { getCities } from '../../../../thunk/thunkApi';
@@ -13,11 +10,14 @@ import useSearchFocus from './useFocus';
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 import { OnChangeNewT } from '../../../../types';
 import SearchWayFrom from './SearchWayFrom';
+import SearchWayTo from './SearchWayTo';
+import inputDelay from '../../inputDelay';
 
 export default function SearchWay() {
     const dispatch = useAppDispatch();
     const [onChangeValidate] = useChangeValidation();
     const [onBlur, onFocus] = useSearchFocus();
+    const delay = inputDelay();
 
     const onChange: OnChangeNewT = (inputEl) => () => {
         if (!inputEl.current) return;
@@ -27,7 +27,7 @@ export default function SearchWay() {
         if (!value) {
             dispatch(setCities({ cities: [], inputName }));
         } else {
-            dispatch(getCities(inputName, value));
+            delay(() => dispatch(getCities(inputName, value)));
         }
     };
 
@@ -41,13 +41,10 @@ export default function SearchWay() {
 
             <SvgRefresh height={24} />
 
-            <InputWrapper>
-                <input
-                    placeholder='Куда' name='wayTo'
-                    required
-                />
-                <SvgLocation height={32} />
-            </InputWrapper>
+            <SearchWayTo
+                onChange={onChange} onBlur={onBlur}
+                onFocus={onFocus}
+            />
         </SearchFormRow>
     );
 }

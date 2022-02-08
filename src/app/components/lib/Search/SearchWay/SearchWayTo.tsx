@@ -4,18 +4,18 @@ import SearchWayInput from './SearchWayInput';
 import { SearchWayProps } from '../../../../types';
 import { useAppSelector } from '../../../../redux/reduxHooks';
 
-export default function SearchWayFrom(props: SearchWayProps) {
+export default function SearchWayTo(props: SearchWayProps) {
     const { onChange, onBlur, onFocus } = props;
-    const wayFrom = useAppSelector((state) => state.searchWay.wayFrom);
+    const wayTo = useAppSelector((state) => state.searchWay.wayTo);
 
     return (
         <SearchWayInput
-            placeholder='Откуда'
-            name='wayFrom'
+            placeholder='Куда'
+            name='wayTo'
             onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}
-            wayState={wayFrom}
+            wayState={wayTo}
         >
             <SvgLocation height={32} />
         </SearchWayInput>

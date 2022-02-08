@@ -26,6 +26,13 @@ export type SearchedCities = { cities: SearchedCity[]; error?: string };
 export type Status = 'idle' | 'loading' | 'loaded' | 'failed';
 
 export type OnChangeT = (e: React.ChangeEvent<HTMLInputElement>) => void;
-export type OnChangeNewT = (inputEl: InputRefT) => void;
-export type OnBlurT = (e: React.FocusEvent<HTMLInputElement>) => void;
+export type OnFocusT = (e: React.FocusEvent<HTMLInputElement>) => void;
+
 export type InputRefT = React.RefObject<HTMLInputElement>;
+export type OnChangeNewT = (inputEl: InputRefT) => () => void;
+
+export type SearchWayProps = {
+    onChange: any;
+    onBlur: OnFocusT;
+    onFocus: OnFocusT;
+};
