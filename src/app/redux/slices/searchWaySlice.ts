@@ -2,7 +2,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
 import {
-    InputField, InputState, PayloadFocus, SearchedCities,
+    InputField,
+    InputState,
+    PayloadFocus,
+    SearchedCities,
+    PayloadError,
 } from '../../types';
 
 export type WayStateT = InputState & SearchedCities & { isActive: boolean };
@@ -42,12 +46,16 @@ export const searchWaySlice = createSlice({
                 return state;
             }
 
-            state[inputName].cities = cities;
-
             if (state[inputName].cities[0]?.name === state[inputName].value) {
                 state[inputName].error = '';
             }
+            state[inputName].cities = cities;
+
             return state;
+        },
+        setError: (state, action: PayloadAction<PayloadError>) => {
+            const { name, error } = action.payload;
+            state[name].error = error;
         },
         changeInput: (state, action: PayloadAction<InputField>) => {
             const {
@@ -74,7 +82,7 @@ export const searchWaySlice = createSlice({
 });
 
 export const {
-    setCities, setActive, setBlured, changeInput,
+    setCities, setActive, setBlured, changeInput, setError,
 } = searchWaySlice.actions;
 
 export const selectWayInputs = (state: RootState) => state.searchWay;

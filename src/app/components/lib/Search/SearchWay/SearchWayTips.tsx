@@ -4,6 +4,8 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { SearchedCities, InputRefT } from '../../../../types';
+import { useAppDispatch } from '../../../../redux/reduxHooks';
+import { setCities } from '../../../../redux/slices/searchWaySlice';
 
 type Props = SearchedCities & {
     inputRef: InputRefT;
@@ -16,9 +18,15 @@ export default function SearchWayTips(props: Props) {
         inputRef, onChange, isActive, cities,
     } = props;
     const input = inputRef.current;
+    const dispatch = useAppDispatch();
 
     const onClick = (name: string) => () => {
         if (input) {
+            if (input.value === name && cities[0]) {
+                dispatch(setCities({ inputName: input.name, cities }));
+                return;
+            }
+
             input.value = name;
             onChange();
         }

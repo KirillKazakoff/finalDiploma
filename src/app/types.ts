@@ -20,6 +20,11 @@ export type PayloadFocus = {
     wasFocused?: boolean;
 };
 
+export type PayloadError = {
+    name: string;
+    error: string;
+};
+
 type SearchedCity = { _id: string; name: string };
 
 export type SearchedCities = { cities: SearchedCity[]; error?: string };

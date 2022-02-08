@@ -1,12 +1,15 @@
 import React from 'react';
 import SvgRefresh from '../../Svg/SvgRefresh';
 import SearchRowTitle from '../SearchRowTitle';
-
 import SearchFormRow from '../SearchFormRow';
-import { setCities } from '../../../../redux/slices/searchWaySlice';
+import {
+    setCities,
+    changeInput,
+    setActive,
+    setBlured,
+} from '../../../../redux/slices/searchWaySlice';
 import { getCities } from '../../../../thunk/thunkApi';
-import useChangeValidation from '../../useChangeValidation';
-import useSearchFocus from './useFocus';
+import useForm from '../../../../forms/useForm';
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 import { OnChangeNewT } from '../../../../types';
 import SearchWayFrom from './SearchWayFrom';
@@ -16,8 +19,11 @@ import validateCity from './validateCity';
 
 export default function SearchWay() {
     const dispatch = useAppDispatch();
-    const [onChangeValidate] = useChangeValidation();
-    const [onBlur, onFocus] = useSearchFocus();
+    const { onChangeValidate, onFocus, onBlur } = useForm(
+        changeInput,
+        setActive,
+        setBlured,
+    );
     const delay = inputDelay();
 
     const onChange: OnChangeNewT = ({ current: input }, stateCity) => () => {
