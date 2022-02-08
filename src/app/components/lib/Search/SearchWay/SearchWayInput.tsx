@@ -1,6 +1,5 @@
-import React, { HTMLProps, useEffect, useRef } from 'react';
+import React, { HTMLProps, useRef } from 'react';
 import { WayStateT } from '../../../../redux/slices/searchWaySlice';
-import { OnChangeNewT } from '../../../../types';
 import InputWrapper from '../../Common/InputWrapper';
 import SearchWayFeedback from './SearchWayFeedback';
 import SearchWayTips from './SearchWayTips';
@@ -19,12 +18,6 @@ export default function SearchWayInput(props: SearchWayInputProps) {
 
     const inputEl = useRef<HTMLInputElement>(null);
 
-    // if (wayState.cities[0]?.name !== wayState.value) {
-    //     inputEl.current?.setCustomValidity('такого города нет');
-    // } else {
-    //     inputEl.current?.setCustomValidity('');
-    // }
-
     const cityName = wayState.cities[0]?.name;
 
     return (
@@ -35,7 +28,7 @@ export default function SearchWayInput(props: SearchWayInputProps) {
                 placeholder={placeholder}
                 name={name}
                 value={wayState.value}
-                onChange={onChange(inputEl, cityName, wayState.value)}
+                onChange={onChange(inputEl, cityName)}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 required
@@ -44,9 +37,9 @@ export default function SearchWayInput(props: SearchWayInputProps) {
                 cities={wayState.cities}
                 isActive={wayState.isActive}
                 inputRef={inputEl}
-                onChange={onChange(inputEl)}
+                onChange={onChange(inputEl, cityName)}
             />
-            <SearchWayFeedback error={wayState.error} name={name} />
+            <SearchWayFeedback wayState={wayState} name={name} />
             {children}
         </InputWrapper>
     );

@@ -12,6 +12,7 @@ import { OnChangeNewT } from '../../../../types';
 import SearchWayFrom from './SearchWayFrom';
 import SearchWayTo from './SearchWayTo';
 import inputDelay from '../../inputDelay';
+import validateCity from './validateCity';
 
 export default function SearchWay() {
     const dispatch = useAppDispatch();
@@ -19,9 +20,9 @@ export default function SearchWay() {
     const [onBlur, onFocus] = useSearchFocus();
     const delay = inputDelay();
 
-    const onChange: OnChangeNewT = (inputEl, stateCity) => () => {
-        if (!inputEl.current) return;
-        const { value, name: inputName } = inputEl.current;
+    const onChange: OnChangeNewT = ({ current: input }, stateCity) => () => {
+        if (!input) return;
+        const { value, name: inputName } = input;
 
         if (!value) {
             dispatch(setCities({ cities: [], inputName }));
@@ -29,13 +30,8 @@ export default function SearchWay() {
             delay(() => dispatch(getCities(inputName, value)));
         }
 
-        if (stateCity !== value) {
-            inputEl.current?.setCustomValidity('такого города нет');
-        } else {
-            inputEl.current?.setCustomValidity('');
-        }
-
-        onChangeValidate(inputEl.current);
+        validateCity(input, stateCity);
+        onChangeValidate(input);
     };
 
     return (

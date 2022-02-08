@@ -25,7 +25,7 @@ export default function useSearchFocus() {
         setTimeout(() => {
             dispatch(setActive(input));
             dispatch(setBlured(input));
-        }, 200);
+        }, 180);
     };
 
     return [onBlur, onFocus];

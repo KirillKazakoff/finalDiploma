@@ -3,11 +3,11 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
-import { SearchedCities, OnChangeNewT, InputRefT } from '../../../../types';
+import { SearchedCities, InputRefT } from '../../../../types';
 
 type Props = SearchedCities & {
     inputRef: InputRefT;
-    onChange: OnChangeNewT;
+    onChange: () => void;
     isActive: boolean;
 };
 
@@ -15,11 +15,12 @@ export default function SearchWayTips(props: Props) {
     const {
         inputRef, onChange, isActive, cities,
     } = props;
+    const input = inputRef.current;
 
     const onClick = (name: string) => () => {
-        if (inputRef.current) {
-            inputRef.current.value = name;
-            onChange(inputRef);
+        if (input) {
+            input.value = name;
+            onChange();
         }
     };
 
@@ -32,8 +33,6 @@ export default function SearchWayTips(props: Props) {
         </li>
     ));
 
-    // console.log(cities);
-    if (cities.length === 0) return null;
-    if (!isActive) return null;
+    if (cities.length === 0 || !isActive) return null;
     return <ul className='search-way-tips'>{citiesHtml}</ul>;
 }

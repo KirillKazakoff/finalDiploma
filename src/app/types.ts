@@ -29,7 +29,7 @@ export type OnChangeT = (e: React.ChangeEvent<HTMLInputElement>) => void;
 export type OnFocusT = (e: React.FocusEvent<HTMLInputElement>) => void;
 
 export type InputRefT = React.RefObject<HTMLInputElement>;
-export type OnChangeNewT = (inputEl: InputRefT) => () => void;
+export type OnChangeNewT = (inputEl: InputRefT, stateCity: string) => () => void;
 
 export type SearchWayProps = {
     onChange: any;

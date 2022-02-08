@@ -6,6 +6,8 @@ import { getCitiesUrl, request } from './thunkUtils';
 type GetCitiesT = (inputName: string, name: string) => AppThunk;
 
 export const getCities: GetCitiesT = (inputName, name) => async (dispatch) => {
+    dispatch(setSearchWayStatus('loading'));
+
     const url = getCitiesUrl(name);
 
     const reqObj = { url, settings: undefined };
