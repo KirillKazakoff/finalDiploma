@@ -5,12 +5,7 @@ export type InputDefault = {
     value: string;
 };
 
-export type InputField = InputDefault & {
-    isValid: boolean | undefined;
-    error: string | undefined;
-};
-
-export type InputState = Omit<InputField, 'name'> & {
+export type InputState = Omit<InputDefault, 'name'> & {
     wasFocused: boolean;
 };
 

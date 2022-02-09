@@ -19,11 +19,12 @@ import validateCity from './validateCity';
 
 export default function SearchWay() {
     const dispatch = useAppDispatch();
-    const { onChangeValidate, onFocus, onBlur } = useForm(
-        changeInput,
-        setActive,
-        setBlured,
-    );
+    const {
+        onChange: onChangeDispatch,
+        onFocus,
+        onBlur,
+    } = useForm(changeInput, setActive, setBlured);
+
     const delay = inputDelay();
 
     const onChange: OnChangeNewT = ({ current: input }, stateCity) => () => {
@@ -36,8 +37,7 @@ export default function SearchWay() {
             delay(() => dispatch(getCities(inputName, value)));
         }
 
-        validateCity(input, stateCity);
-        onChangeValidate(input);
+        onChangeDispatch(input);
     };
 
     return (

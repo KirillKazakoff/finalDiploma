@@ -2,19 +2,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
 import {
-    InputField,
-    InputState,
-    PayloadFocus,
-    SearchedCities,
-    PayloadError,
+    InputState, PayloadFocus, SearchedCities, InputDefault,
 } from '../../types';
 
 export type WayStateT = InputState & SearchedCities & { isActive: boolean };
 
 const initialWayState: WayStateT = {
     value: '',
-    isValid: undefined,
-    error: undefined,
     wasFocused: false,
     cities: [],
     isActive: false,
@@ -40,31 +34,11 @@ export const searchWaySlice = createSlice({
     reducers: {
         setCities: (state, action: PayloadAction<SetCitiesPayload>) => {
             const { cities, inputName } = action.payload;
-
-            if (!state[inputName].value) {
-                state[inputName].cities = [];
-                return state;
-            }
-
             state[inputName].cities = cities;
-            if (cities[0]?.name === state[inputName].value) {
-                state[inputName].error = '';
-            }
-
-            return state;
         },
-        setError: (state, action: PayloadAction<PayloadError>) => {
-            const { name, error } = action.payload;
-            state[name].error = error;
-        },
-        changeInput: (state, action: PayloadAction<InputField>) => {
-            const {
-                name, value, isValid, error,
-            } = action.payload;
-
+        changeInput: (state, action: PayloadAction<InputDefault>) => {
+            const { name, value } = action.payload;
             state[name].value = value;
-            state[name].isValid = isValid;
-            state[name].error = error;
         },
         setActive: (state, action: PayloadAction<PayloadFocus>) => {
             const { name, isActive } = action.payload;
@@ -82,7 +56,7 @@ export const searchWaySlice = createSlice({
 });
 
 export const {
-    setCities, setActive, setBlured, changeInput, setError,
+    setCities, setActive, setBlured, changeInput,
 } = searchWaySlice.actions;
 
 export const selectWayInputs = (state: RootState) => state.searchWay;

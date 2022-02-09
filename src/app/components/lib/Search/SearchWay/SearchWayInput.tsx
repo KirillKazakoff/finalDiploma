@@ -43,7 +43,8 @@ export default function SearchWayInput(props: SearchWayInputProps) {
                 onChange={onChange(inputEl, cityName)}
             />
             <SearchWayFeedback
-                wayState={wayState} name={name}
+                wayState={wayState}
+                input={inputEl.current}
                 status={status}
             />
             {children}

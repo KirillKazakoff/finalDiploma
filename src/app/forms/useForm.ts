@@ -1,21 +1,17 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-restricted-syntax */
 import { useAppDispatch } from '../redux/reduxHooks';
-// import { changeInput, setActive, setBlured } from '../redux/slices/searchWaySlice';
-import { InputField, OnFocusT, PayloadFocus } from '../types';
-import getValidity from './getValidity';
+import { OnFocusT, PayloadFocus, InputDefault } from '../types';
+import validateForm from './validateForm';
 import { OnChangeFieldT, UseFormT } from './typesForms';
 
 const useForm: UseFormT = (changeInput, setActive, setBlured) => {
     const dispatch = useAppDispatch();
 
-    const onChangeValidate: OnChangeFieldT = (input) => {
-        const validity = getValidity(input);
-
-        const changedInput: InputField = {
+    const onChange: OnChangeFieldT = (input) => {
+        const changedInput: InputDefault = {
             name: input.name,
             value: input.value,
-            ...validity,
         };
 
         dispatch(changeInput(changedInput));
@@ -37,16 +33,16 @@ const useForm: UseFormT = (changeInput, setActive, setBlured) => {
             wasFocused: true,
         };
 
-        onChangeValidate(e.currentTarget);
+        onChange(e.currentTarget);
 
         // predict bluring
         setTimeout(() => {
-            dispatch(setActive(input));
             dispatch(setBlured(input));
+            dispatch(setActive(input));
         }, 180);
     };
 
-    return { onChangeValidate, onFocus, onBlur };
+    return { onChange, onFocus, onBlur };
 };
 
 export default useForm;

@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-syntax */
-const getValidity = (input: HTMLInputElement) => {
+const validateForm = (input: HTMLInputElement) => {
     const validity = input.validity as ValidityState & {
         [key: string]: boolean;
     };
@@ -24,4 +24,4 @@ const getValidity = (input: HTMLInputElement) => {
     };
 };
 
-export default getValidity;
+export default validateForm;
