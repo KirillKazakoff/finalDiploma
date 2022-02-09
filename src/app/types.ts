@@ -1,3 +1,4 @@
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import React from 'react';
 // InputState
 export type InputDefault = {
@@ -20,16 +21,23 @@ export type PayloadError = {
     error: string;
 };
 
+export type Status = 'idle' | 'loading' | 'loaded' | 'failed';
+export type PayloadStatus = {
+    inputName: string;
+    status: Status;
+};
+
 type SearchedCity = { _id: string; name: string };
 
 export type SearchedCities = { cities: SearchedCity[]; error?: string };
-export type Status = 'idle' | 'loading' | 'loaded' | 'failed';
 
 export type OnChangeT = (e: React.ChangeEvent<HTMLInputElement>) => void;
 export type OnFocusT = (e: React.FocusEvent<HTMLInputElement>) => void;
 
 export type InputRefT = React.RefObject<HTMLInputElement>;
-export type OnChangeNewT = (inputEl: InputRefT, stateCity: string) => () => void;
+
+export type SetStatusT = ActionCreatorWithPayload<Status, string>;
+export type OnChangeNewT = (inputEl: InputRefT, setStatus: SetStatusT) => () => void;
 
 export type SearchWayProps = {
     onChange: any;

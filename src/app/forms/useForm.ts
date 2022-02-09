@@ -2,7 +2,7 @@
 /* eslint-disable no-restricted-syntax */
 import { useAppDispatch } from '../redux/reduxHooks';
 import { OnFocusT, PayloadFocus, InputDefault } from '../types';
-import validateForm from './validateForm';
+import validateForm from './validateInput';
 import { OnChangeFieldT, UseFormT } from './typesForms';
 
 const useForm: UseFormT = (changeInput, setActive, setBlured) => {
@@ -33,7 +33,7 @@ const useForm: UseFormT = (changeInput, setActive, setBlured) => {
             wasFocused: true,
         };
 
-        onChange(e.currentTarget);
+        // onChange(e.currentTarget);
 
         // predict bluring
         setTimeout(() => {

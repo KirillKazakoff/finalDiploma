@@ -7,6 +7,7 @@ import {
     changeInput,
     setActive,
     setBlured,
+    setWayStatus,
 } from '../../../../redux/slices/searchWaySlice';
 import { getCities } from '../../../../thunk/thunkApi';
 import useForm from '../../../../forms/useForm';
@@ -15,7 +16,6 @@ import { OnChangeNewT } from '../../../../types';
 import SearchWayFrom from './SearchWayFrom';
 import SearchWayTo from './SearchWayTo';
 import inputDelay from '../../inputDelay';
-import validateCity from './validateCity';
 
 export default function SearchWay() {
     const dispatch = useAppDispatch();
@@ -27,13 +27,14 @@ export default function SearchWay() {
 
     const delay = inputDelay();
 
-    const onChange: OnChangeNewT = ({ current: input }, stateCity) => () => {
+    const onChange: OnChangeNewT = ({ current: input }) => () => {
         if (!input) return;
         const { value, name: inputName } = input;
 
         if (!value) {
             dispatch(setCities({ cities: [], inputName }));
         } else {
+            dispatch(setWayStatus({ inputName, status: 'loading' }));
             delay(() => dispatch(getCities(inputName, value)));
         }
 

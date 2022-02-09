@@ -2,16 +2,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
 import {
-    InputState, PayloadFocus, SearchedCities, InputDefault,
+    InputState,
+    PayloadFocus,
+    SearchedCities,
+    InputDefault,
+    Status,
+    PayloadStatus,
 } from '../../types';
 
-export type WayStateT = InputState & SearchedCities & { isActive: boolean };
+export type WayStateT = InputState &
+SearchedCities & { isActive: boolean; status: Status };
 
 const initialWayState: WayStateT = {
     value: '',
     wasFocused: false,
     cities: [],
     isActive: false,
+    status: 'idle',
 };
 
 export type CheckoutState = {
@@ -32,13 +39,17 @@ export const searchWaySlice = createSlice({
     name: 'searchWay',
     initialState,
     reducers: {
+        setWayStatus: (state, action: PayloadAction<PayloadStatus>) => {
+            const { inputName, status } = action.payload;
+            state[inputName].status = status;
+        },
         setCities: (state, action: PayloadAction<SetCitiesPayload>) => {
             const { cities, inputName } = action.payload;
             state[inputName].cities = cities;
         },
         changeInput: (state, action: PayloadAction<InputDefault>) => {
             const { name, value } = action.payload;
-            state[name].value = value;
+            state[name].value = value.trim().toLowerCase();
         },
         setActive: (state, action: PayloadAction<PayloadFocus>) => {
             const { name, isActive } = action.payload;
@@ -50,13 +61,14 @@ export const searchWaySlice = createSlice({
 
             state[name].wasFocused = wasFocused;
         },
+
         updateForm: (state, action: PayloadAction<CheckoutState>) => action.payload,
         refreshCheckout: () => initialState,
     },
 });
 
 export const {
-    setCities, setActive, setBlured, changeInput,
+    setCities, setActive, setBlured, changeInput, setWayStatus,
 } = searchWaySlice.actions;
 
 export const selectWayInputs = (state: RootState) => state.searchWay;

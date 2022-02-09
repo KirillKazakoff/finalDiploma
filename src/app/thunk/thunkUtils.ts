@@ -17,7 +17,8 @@ export type RequestObj = {
 
 type RequestType = (
     reqObj: RequestObj,
-    setStatus: ActionCreatorWithPayload<Status, string>
+    // setStatus: ActionCreatorWithPayload<Status, string>
+    setStatus: any
 ) => AppThunk<Promise<false | Response>>;
 
 export const request: RequestType = (reqObj, setStatus) => async (dispatch) => {
