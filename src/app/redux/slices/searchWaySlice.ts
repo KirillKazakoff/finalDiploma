@@ -46,10 +46,10 @@ export const searchWaySlice = createSlice({
                 return state;
             }
 
-            if (state[inputName].cities[0]?.name === state[inputName].value) {
+            state[inputName].cities = cities;
+            if (cities[0]?.name === state[inputName].value) {
                 state[inputName].error = '';
             }
-            state[inputName].cities = cities;
 
             return state;
         },

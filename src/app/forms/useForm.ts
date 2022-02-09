@@ -18,7 +18,6 @@ const useForm: UseFormT = (changeInput, setActive, setBlured) => {
             ...validity,
         };
 
-        console.log(validity.error);
         dispatch(changeInput(changedInput));
     };
 

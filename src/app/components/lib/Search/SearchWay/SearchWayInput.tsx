@@ -3,6 +3,8 @@ import { WayStateT } from '../../../../redux/slices/searchWaySlice';
 import InputWrapper from '../../Common/InputWrapper';
 import SearchWayFeedback from './SearchWayFeedback';
 import SearchWayTips from './SearchWayTips';
+import { useAppSelector } from '../../../../redux/reduxHooks';
+import { selectSearchWayStatus } from '../../../../redux/slices/statusSlice';
 
 export type SearchWayInputProps = {
     children: React.ReactNode;
@@ -12,6 +14,7 @@ export type SearchWayInputProps = {
 } & HTMLProps<HTMLInputElement>;
 
 export default function SearchWayInput(props: SearchWayInputProps) {
+    const status = useAppSelector(selectSearchWayStatus);
     const {
         wayState, placeholder, name, children, onFocus, onBlur, onChange,
     } = props;
@@ -39,7 +42,10 @@ export default function SearchWayInput(props: SearchWayInputProps) {
                 inputRef={inputEl}
                 onChange={onChange(inputEl, cityName)}
             />
-            <SearchWayFeedback wayState={wayState} name={name} />
+            <SearchWayFeedback
+                wayState={wayState} name={name}
+                status={status}
+            />
             {children}
         </InputWrapper>
     );
