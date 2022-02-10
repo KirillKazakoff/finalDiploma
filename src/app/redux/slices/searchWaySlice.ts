@@ -15,10 +15,11 @@ SearchedCities & { isActive: boolean; status: Status };
 
 const initialWayState: WayStateT = {
     value: '',
-    wasFocused: false,
-    cities: [],
-    isActive: false,
     status: 'idle',
+    error: '',
+    isActive: false,
+    cities: [],
+    wasFocused: false,
 };
 
 export type CheckoutState = {

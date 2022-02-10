@@ -2308,3 +2308,123 @@ body {
         transform: scale(1);
     }
 }
+
+/* date-picker */
+.date-input-wrapper {
+    position: relative;
+}
+
+.date-picker-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -75px;
+}
+
+.date-picker-arrow {
+    margin: auto;
+    width: 1px;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid white;
+}
+
+.date-picker {
+    background-color: white;
+    min-height: 300px;
+    min-width: 350px;
+    border-radius: 5px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.date-picker-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    min-height: 70px;
+
+    color: var(--black-light);
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.date-picker-header::after,
+.date-picker-header::before {
+    content: '';
+    position: absolute;
+    top: 40%;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+}
+
+.date-picker-header::before {
+    border-right: 7px solid var(--black-light);
+    left: 40px;
+}
+
+.date-picker-header::after {
+    border-left: 7px solid var(--black-light);
+    right: 40px;
+}
+
+.date-picker-header-bottom {
+    height: 2px;
+    background-color: var(--secondary-super-light);
+}
+
+/* date-picker-content */
+.date-picker-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    padding: 15px 25px;
+}
+
+.date-picker-content-row {
+    display: flex;
+    column-gap: 20px;
+}
+
+.date-picker-day {
+    color: var(--black-light);
+    position: relative;
+    text-align: center;
+    flex: 1;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.date-picker-day:hover::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    right: -5px;
+    top: -3px;
+    bottom: -3px;
+    background-color: rgba(255, 168, 0, 0.31);
+    border: 2px solid var(--bg-main);
+    border-radius: 5px;
+}
+
+.date-picker-day-non-month:hover::before,
+.date-picker-day-past:hover::before {
+    content: none;
+}
+
+.date-picker-day-non-month {
+    color: var(--secondary-super-light);
+}
+
+.date-picker-day-past {
+    color: var(--secondary-lighter);
+}
+
+.date-picker-day-current {
+    color: tomato;
+}
+
+.date-picker-day-sunday {
+    font-weight: 700;
+}
