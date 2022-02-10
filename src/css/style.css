@@ -2376,22 +2376,19 @@ body {
 
 /* date-picker-content */
 .date-picker-content {
+    justify-content: center;
     display: flex;
-    flex-direction: column;
-    row-gap: 15px;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 15px;
     padding: 15px 25px;
 }
 
-.date-picker-content-row {
-    display: flex;
-    column-gap: 20px;
-}
-
 .date-picker-day {
+    width: 10%;
     color: var(--black-light);
     position: relative;
     text-align: center;
-    flex: 1;
     font-size: 24px;
     font-weight: 400;
 }

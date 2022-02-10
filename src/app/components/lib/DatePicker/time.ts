@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { DateTime, DayNumbers, MonthNumbers } from 'luxon';
 
-export default class Time {
+class Time {
     current: DateTime;
 
     dateInit: {
@@ -99,3 +99,6 @@ export default class Time {
         return this.current.endOf('month').toMillis();
     }
 }
+
+const time = new Time();
+export default time;

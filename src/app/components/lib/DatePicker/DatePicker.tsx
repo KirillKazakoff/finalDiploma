@@ -9,7 +9,7 @@ export default function DatePicker() {
             <div className='date-picker'>
                 <DatePickerHeader />
                 <div className='date-picker-header-bottom' />
-                <div className='date-picker-content'>
+                <ul className='date-picker-content'>
                     <li className='date-picker-day date-picker-day-non-month'>30</li>
                     <li className='date-picker-day date-picker-day-non-month'>31</li>
                     <li className='date-picker-day date-picker-day-past'>1</li>
@@ -49,7 +49,7 @@ export default function DatePicker() {
                     <li className='date-picker-day date-picker-day-non-month date-picker-day-sunday'>
                         2
                     </li>
-                </div>
+                </ul>
             </div>
         </div>
     );
