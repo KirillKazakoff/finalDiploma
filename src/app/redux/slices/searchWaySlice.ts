@@ -22,14 +22,14 @@ const initialWayState: WayStateT = {
     wasFocused: false,
 };
 
-export type CheckoutState = {
+export type WaysStateT = {
     [key: string]: WayStateT;
 
     wayFrom: WayStateT;
     wayTo: WayStateT;
 };
 
-const initialState: CheckoutState = {
+const initialState: WaysStateT = {
     wayFrom: initialWayState,
     wayTo: initialWayState,
 };
@@ -63,7 +63,7 @@ export const searchWaySlice = createSlice({
             state[name].wasFocused = wasFocused;
         },
 
-        updateForm: (state, action: PayloadAction<CheckoutState>) => action.payload,
+        updateForm: (state, action: PayloadAction<WaysStateT>) => action.payload,
         refreshCheckout: () => initialState,
     },
 });

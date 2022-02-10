@@ -2321,7 +2321,7 @@ body {
     top: -75px;
 }
 
-.date-picker-arrow {
+.date-picker-arrow-decor {
     margin: auto;
     width: 1px;
     border-right: 10px solid transparent;
@@ -2348,25 +2348,25 @@ body {
     color: var(--black-light);
     font-size: 36px;
     font-weight: 400;
+
+    padding: 10px 30px;
 }
 
-.date-picker-header::after,
-.date-picker-header::before {
-    content: '';
-    position: absolute;
-    top: 40%;
+.date-picker-month {
+    text-align: center;
+    flex: 1;
+}
+
+.date-picker-arrow {
     border-top: 7px solid transparent;
     border-bottom: 7px solid transparent;
 }
 
-.date-picker-header::before {
+.date-picker-arrow-left {
     border-right: 7px solid var(--black-light);
-    left: 40px;
 }
-
-.date-picker-header::after {
+.date-picker-arrow-right {
     border-left: 7px solid var(--black-light);
-    right: 40px;
 }
 
 .date-picker-header-bottom {
@@ -2422,7 +2422,7 @@ body {
 }
 
 .date-picker-day-current {
-    color: tomato;
+    color: var(--bg-main);
 }
 
 .date-picker-day-sunday {
