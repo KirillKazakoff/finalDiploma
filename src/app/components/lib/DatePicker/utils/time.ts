@@ -15,8 +15,7 @@ class Time {
     data: {
         dateStr: null | string;
         dayData: {
-            oldStart: null | number;
-            oldEnd: null | number;
+            pastDays: number[];
             dayAmount: null | number;
         };
     };
@@ -34,8 +33,7 @@ class Time {
         this.data = {
             dateStr: null,
             dayData: {
-                oldStart: null,
-                oldEnd: null,
+                pastDays: [],
                 dayAmount: null,
             },
         };
@@ -50,16 +48,20 @@ class Time {
         });
     }
 
-    getPreviousData() {
+    getPreviousDays() {
         this.current = this.current.minus({ months: 1 });
 
         const lastWeekday = this.current.endOf('month').weekday;
         const dayAmount = this.current.daysInMonth;
-        const { dayData } = this.data;
 
-        dayData.oldEnd = dayAmount;
-        dayData.oldStart = dayAmount - lastWeekday + 1;
-        console.log(dayData);
+        const pastEnd = dayAmount;
+        const pastStart = dayAmount - lastWeekday + 1;
+
+        const { pastDays } = this.data.dayData;
+        for (let i = pastStart; i <= pastEnd; i += 1) {
+            pastDays.push(i);
+        }
+        console.log(pastDays);
 
         this.current = this.current.plus({ month: 1 });
     }
@@ -71,7 +73,7 @@ class Time {
 
     getData() {
         this.getCurrentData();
-        this.getPreviousData();
+        this.getPreviousDays();
     }
 
     plusMonth() {

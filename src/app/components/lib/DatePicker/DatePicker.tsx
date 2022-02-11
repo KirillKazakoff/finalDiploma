@@ -1,8 +1,11 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import DatePickerHeader from './DatePickerHeader';
+import timeR from './utils/timeR';
 
 export default function DatePicker() {
+    const { getCurrentData } = timeR();
+    getCurrentData();
     return (
         <div className='date-picker-container'>
             <div className='date-picker-arrow-decor' />
@@ -21,7 +24,7 @@ export default function DatePicker() {
                     </li>
                     <li className='date-picker-day date-picker-day-past'>6</li>
                     <li className='date-picker-day date-picker-day-past'>7</li>
-                    <li className='date-picker-day date-picker-day-current'>8</li>
+                    <li className='date-picker-day'>8</li>
                     <li className='date-picker-day'>9</li>
                     <li className='date-picker-day'>10</li>
                     <li className='date-picker-day'>11</li>
