@@ -1,7 +1,16 @@
 import { DateTime } from 'luxon';
+import { useState, useEffect } from 'react';
 
-const timeR = () => {
-    let current = DateTime.now();
+type DaysT = {
+    pastMonthDays: number[];
+    pastDays: number[];
+    availableDays: number[];
+    newMonthDays: number[];
+};
+
+const useTime = () => {
+    const [current, setCurrent] = useState(DateTime.now());
+    const [days, setDays] = useState<DaysT>();
     const dateInit = {
         ms: current.toMillis(),
         day: current.day,
@@ -9,21 +18,16 @@ const timeR = () => {
         year: current.year,
     };
 
-    const getDateString = () => {
-        return current.toFormat('dd/LL/yy');
-    };
+    // const getCurrentData = () => {
+    //     const dayAmount = current.daysInMonth;
 
-    const plusMonth = () => {
-        current = current.plus({ months: 1 });
-    };
+    //     const dateStr = getDateString();
+    //     return { dayAmount, dateStr };
+    // };
 
-    const minusMonth = () => {
-        if (current.month === dateInit.month) {
-            console.log('it is past date bruh');
-            return;
-        }
-        current = current.minus({ months: 1 });
-    };
+    // const getDateString = () => {
+    //     return current.toFormat('dd/LL/yy');
+    // };
 
     const getDaysNonMonth = () => {
         const past = current.minus({ months: 1 }); // past
@@ -66,7 +70,6 @@ const timeR = () => {
             }
         }
 
-        console.log(pastDays, availableDays);
         return { pastDays, availableDays };
     };
 
@@ -74,19 +77,35 @@ const timeR = () => {
         const { pastMonthDays, newMonthDays } = getDaysNonMonth();
         const { pastDays, availableDays } = getDaysInMonth();
 
-        return {
-            pastMonthDays, pastDays, availableDays, newMonthDays,
-        };
+        setDays({
+            pastMonthDays,
+            pastDays,
+            availableDays,
+            newMonthDays,
+        });
     };
 
-    const getCurrentData = () => {
-        const dayAmount = current.daysInMonth;
-
-        const dateStr = getDateString();
-        return { dayAmount, dateStr };
+    const plusMonth = () => {
+        setCurrent(current.plus({ months: 1 }));
+        getAllDays();
     };
 
-    return { getCurrentData };
+    const minusMonth = () => {
+        if (current.month === dateInit.month) {
+            console.log('it is past date bruh');
+            return;
+        }
+        setCurrent(current.minus({ months: 1 }));
+        getAllDays();
+    };
+
+    return {
+        days,
+        current,
+        plusMonth,
+        minusMonth,
+        getAllDays,
+    };
 };
 
-export default timeR;
+export default useTime;

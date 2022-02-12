@@ -1,13 +1,25 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
+import React, { useEffect } from 'react';
 import DatePickerHeader from './DatePickerHeader';
-import timeR from './utils/timeR';
+import useTime from './utils/useTime';
 
 export default function DatePicker() {
-    const { getCurrentData } = timeR();
-    getCurrentData();
+    const {
+        days, current, getAllDays, plusMonth,
+    } = useTime();
+    console.log(days);
+
+    useEffect(() => {
+        getAllDays();
+    }, [current]);
     return (
         <div className='date-picker-container'>
+            <button
+                className='btn' type='button'
+                onClick={() => plusMonth()}
+            >
+                наажажжа
+            </button>
             <div className='date-picker-arrow-decor' />
             <div className='date-picker'>
                 <DatePickerHeader />
