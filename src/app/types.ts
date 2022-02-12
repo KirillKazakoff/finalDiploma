@@ -44,3 +44,9 @@ export type SearchWayProps = {
     onBlur: OnFocusT;
     onFocus: OnFocusT;
 };
+
+// datePickerTypes
+export type PayloadActiveDay = {
+    name: string;
+    id: number;
+};

@@ -4,13 +4,15 @@ import SvgCalendar from '../../Svg/SvgCalendar';
 import SearchRowTitle from '../SearchRowTitle';
 import SearchFormRow from '../SearchFormRow';
 import DatePicker from '../../DatePicker/DatePicker';
+import { time } from '../../DatePicker/utils/time';
 
 export default function SearchDate() {
+    const timeObj = time();
     return (
         <SearchFormRow>
             <SearchRowTitle>Дата</SearchRowTitle>
             <InputWrapper cls='date-input-wrapper'>
-                <DatePicker />
+                <DatePicker time={timeObj} />
                 <input placeholder='ДД/ММ/ГГ' name='fromDate' />
                 <SvgCalendar height={32} />
             </InputWrapper>

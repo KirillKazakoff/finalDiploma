@@ -1,106 +1,105 @@
-/* eslint-disable no-param-reassign */
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { DateTime, DayNumbers, MonthNumbers } from 'luxon';
+import { DateTime } from 'luxon';
+import { DateT, SetFuncT } from './timeTypes';
 
-class Time {
-    current: DateTime;
+export const time = () => {
+    let current = DateTime.now();
 
-    dateInit: {
-        ms: number;
-        day: DayNumbers;
-        month: MonthNumbers;
-        year: number;
+    const dateInit: DateT = {
+        ms: current.toMillis(),
+        day: current.day,
+        month: current.monthLong,
+        year: current.year,
+    };
+    const dateCurrent = { ...dateInit };
+
+    const getDateString = () => {
+        return current.toFormat('dd/LL/yy');
     };
 
-    data: {
-        dateStr: null | string;
-        dayData: {
-            pastDays: number[];
-            dayAmount: null | number;
-        };
-    };
-
-    constructor() {
-        this.current = DateTime.now();
-
-        this.dateInit = {
-            ms: this.current.toMillis(),
-            day: this.current.day,
-            month: this.current.month,
-            year: this.current.year,
-        };
-
-        this.data = {
-            dateStr: null,
-            dayData: {
-                pastDays: [],
-                dayAmount: null,
-            },
-        };
-
-        this.getData();
-    }
-
-    getDateString() {
-        return this.current.toLocaleString({
-            year: 'numeric',
-            month: 'long',
-        });
-    }
-
-    getPreviousDays() {
-        this.current = this.current.minus({ months: 1 });
-
-        const lastWeekday = this.current.endOf('month').weekday;
-        const dayAmount = this.current.daysInMonth;
+    const getDaysNonMonth = () => {
+        const past = current.minus({ months: 1 }); // past
+        const lastWeekdayPast = past.endOf('month').weekday;
+        const dayAmount = past.daysInMonth;
 
         const pastEnd = dayAmount;
-        const pastStart = dayAmount - lastWeekday + 1;
+        const pastStart = dayAmount - lastWeekdayPast + 1;
 
-        const { pastDays } = this.data.dayData;
+        const pastMonthDays = [];
         for (let i = pastStart; i <= pastEnd; i += 1) {
-            pastDays.push(i);
+            pastMonthDays.push(i);
         }
-        console.log(pastDays);
 
-        this.current = this.current.plus({ month: 1 });
-    }
+        const lastWeekday = current.endOf('month').weekday; // new
+        const newEnd = 7 - lastWeekday;
+        const newMonthDays = [];
 
-    getCurrentData() {
-        this.data.dayData.dayAmount = this.current.daysInMonth;
-        this.data.dateStr = this.getDateString();
-    }
-
-    getData() {
-        this.getCurrentData();
-        this.getPreviousDays();
-    }
-
-    plusMonth() {
-        this.current = this.current.plus({ month: 1 });
-        this.getData();
-    }
-
-    minusMonth() {
-        if (this.current.month === this.dateInit.month) {
-            console.log('it is past date bruh');
-            return;
+        for (let i = 1; i <= newEnd; i += 1) {
+            newMonthDays.push(i);
         }
-        this.current = this.current.minus({ months: 1 });
-        this.getData();
-    }
+        return { pastMonthDays, newMonthDays };
+    };
 
-    checkInitDate() {
-        if (this.current.toMillis() === this.dateInit.ms) {
-            return this.dateInit;
+    const getDaysInMonth = () => {
+        const dayAmount = current.daysInMonth;
+        const pastDays = [];
+        const availableDays = [];
+
+        if (current.toMillis() === dateInit.ms) {
+            for (let i = 1; i < dateInit.day; i += 1) {
+                pastDays.push(i);
+            }
+            for (let i = dateInit.day; i <= dayAmount; i += 1) {
+                availableDays.push(i);
+            }
+        } else {
+            for (let i = 1; i <= dayAmount; i += 1) {
+                availableDays.push(i);
+            }
         }
-        return false;
-    }
 
-    getMonthEnd() {
-        return this.current.endOf('month').toMillis();
-    }
-}
+        return { pastDays, availableDays };
+    };
 
-const time = new Time();
-export default time;
+    const getCurrentDate = () => ({
+        year: current.year,
+        month: current.monthLong,
+        day: current.day,
+        ms: current.toMillis(),
+    });
+
+    const setAllDays = (setFunc: SetFuncT) => {
+        const { pastMonthDays, newMonthDays } = getDaysNonMonth();
+        const { pastDays, availableDays } = getDaysInMonth();
+
+        setFunc({
+            days: {
+                pastMonthDays,
+                pastDays,
+                availableDays,
+                newMonthDays,
+            },
+            date: getCurrentDate(),
+        });
+    };
+
+    const plusMonth = (setFunc: SetFuncT) => {
+        current = current.plus({ months: 1 });
+        setAllDays(setFunc);
+    };
+
+    const minusMonth = (setFunc: SetFuncT) => {
+        current = current.minus({ months: 1 });
+        setAllDays(setFunc);
+    };
+
+    return {
+        dateInit,
+        dateCurrent,
+        getDateString,
+        setAllDays,
+        plusMonth,
+        minusMonth,
+    };
+};
+
+export type TimeObjT = ReturnType<typeof time>;

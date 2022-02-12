@@ -2357,6 +2357,10 @@ body {
     flex: 1;
 }
 
+.date-picker-month::first-letter {
+    text-transform: uppercase;
+}
+
 .date-picker-arrow {
     border-top: 7px solid transparent;
     border-bottom: 7px solid transparent;
