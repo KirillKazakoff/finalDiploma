@@ -2397,7 +2397,8 @@ body {
     font-weight: 400;
 }
 
-.date-picker-day:hover::before {
+.date-picker-day:hover::before,
+.date-picker-day-active::before {
     content: '';
     position: absolute;
     left: -5px;

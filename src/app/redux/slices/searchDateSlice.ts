@@ -6,19 +6,12 @@ import type { RootState } from '../store';
 
 type DateStateT = {
     value: string;
-    activeId: number | null;
-    dateInit: any;
-    pickerState: {
-        days: any;
-        date: any;
-    } | null;
+    activeDay: string;
 };
 
 const intialDateState: DateStateT = {
     value: '',
-    activeId: null,
-    dateInit: null,
-    pickerState: null,
+    activeDay: '',
 };
 
 type DatesStateT = {
@@ -41,17 +34,13 @@ export const searchDateSlice = createSlice({
             state[name].value = value.trim().toLowerCase();
         },
         setActiveDay: (state, action: PayloadAction<PayloadActiveDay>) => {
-            const { name, id } = action.payload;
-            state[name].activeId = id;
-        },
-        setPickerState: (state, action: PayloadAction<any>) => {
-            const { name, pickerState } = action.payload;
-            state[name].pickerState = pickerState;
+            const { name, day } = action.payload;
+            state[name].activeDay = day;
         },
     },
 });
 
-export const { setPickerState, setActiveDay, changeInput } = searchDateSlice.actions;
+export const { setActiveDay, changeInput } = searchDateSlice.actions;
 // export const selectDays = (state: RootState) => state.
 
 export default searchDateSlice.reducer;

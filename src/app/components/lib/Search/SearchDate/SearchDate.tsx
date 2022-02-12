@@ -12,8 +12,8 @@ export default function SearchDate() {
         <SearchFormRow>
             <SearchRowTitle>Дата</SearchRowTitle>
             <InputWrapper cls='date-input-wrapper'>
-                <DatePicker time={timeObj} />
-                <input placeholder='ДД/ММ/ГГ' name='fromDate' />
+                <DatePicker time={timeObj} name='dateFrom' />
+                <input placeholder='ДД/ММ/ГГ' name='dateTo' />
                 <SvgCalendar height={32} />
             </InputWrapper>
 

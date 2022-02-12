@@ -1,16 +1,23 @@
 import React from 'react';
 
 type Props = {
-    children: React.ReactNode;
+    children: string;
+    activeDay?: string;
     cls?: string;
 };
 
 export default function DatePickerDay(props: Props) {
-    const { children, cls } = props;
+    const { children, cls, activeDay } = props;
+    const activeCls = children === activeDay ? 'date-picker-day-active' : '';
 
-    return <li className={`date-picker-day date-picker-day-${cls}`}>{children}</li>;
+    return (
+        <li className={`date-picker-day date-picker-day-${cls} ${activeCls}`}>
+            {children}
+        </li>
+    );
 }
 
 DatePickerDay.defaultProps = {
     cls: '',
+    activeDay: '',
 };

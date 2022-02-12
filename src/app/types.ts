@@ -48,5 +48,7 @@ export type SearchWayProps = {
 // datePickerTypes
 export type PayloadActiveDay = {
     name: string;
-    id: number;
+    day: string;
 };
+
+export type OnDayClickT = (value: string) => () => void;
