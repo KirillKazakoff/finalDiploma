@@ -20,7 +20,7 @@ export default function SearchDate() {
         );
         return null;
     }
-    console.log(dateTimeTo);
+
     return (
         <SearchFormRow>
             <SearchRowTitle>Дата</SearchRowTitle>

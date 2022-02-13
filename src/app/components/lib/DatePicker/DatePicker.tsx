@@ -4,7 +4,11 @@ import DatePickerHeader from './DatePickerHeader/DatePickerHeader';
 import { PickerStateT, DateT } from './utils/timeTypes';
 import { TimeObjT } from './utils/time';
 import { useAppDispatch, useAppSelector } from '../../../redux/reduxHooks';
-import { changeInput, setActiveDate } from '../../../redux/slices/searchDateSlice';
+import {
+    changeInput,
+    setActiveDate,
+    setDateTime,
+} from '../../../redux/slices/searchDateSlice';
 import UnavailableList from './DatePickerList/UnavailableList';
 import AvailableList from './DatePickerList/AvailableList';
 
@@ -30,6 +34,16 @@ export default function DatePicker({ time, name }: Props) {
 
         dispatch(changeInput({ name, value: formatedDate }));
         dispatch(setActiveDate({ name, date: { day, year, month } }));
+
+        if (name === 'dateTo') {
+            dispatch(
+                setDateTime({
+                    name: 'dateFrom',
+                    dateTime: time.getDateString(dayNumber).toString(),
+                }),
+            );
+            time.setAllDays(setPickerState);
+        }
     };
 
     const {
