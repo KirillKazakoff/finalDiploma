@@ -3,7 +3,6 @@ import { WayStateT } from '../../../../redux/slices/searchWaySlice';
 import InputWrapper from '../../Common/InputWrapper';
 import SearchWayFeedback from './SearchWayFeedback';
 import SearchWayTips from './SearchWayTips';
-import InputLoader from '../../Common/inputLoader';
 
 export type SearchWayInputProps = {
     children: React.ReactNode;

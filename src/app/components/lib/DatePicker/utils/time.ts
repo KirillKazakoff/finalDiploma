@@ -12,8 +12,9 @@ export const time = () => {
     };
 
     const getDateString = (day: number) => {
-        const { month, year } = current;
-        const dateStr = DateTime.fromObject({ year, month, day }).toFormat('dd/LL/yy');
+        // const { month, year } = current;
+        current = current.set({ day });
+        const dateStr = current.toFormat('dd/LL/yy');
         return dateStr;
     };
 
@@ -61,13 +62,8 @@ export const time = () => {
         return { pastDays, availableDays };
     };
 
-    const getCurrentDate = () => ({
-        year: current.year,
-        month: current.monthLong,
-        day: current.day.toString(),
-    });
-
     const setAllDays = (setFunc: SetFuncT) => {
+        const { year, monthLong: month, day } = current;
         const { pastMonthDays, newMonthDays } = getDaysNonMonth();
         const { pastDays, availableDays } = getDaysInMonth();
 
@@ -78,7 +74,7 @@ export const time = () => {
                 availableDays,
                 newMonthDays,
             },
-            date: getCurrentDate(),
+            date: { year, month, day: day.toString() },
         });
     };
 

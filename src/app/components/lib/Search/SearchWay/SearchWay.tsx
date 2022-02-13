@@ -10,20 +10,19 @@ import {
     setWayStatus,
 } from '../../../../redux/slices/searchWaySlice';
 import { getCities } from '../../../../thunk/thunkApi';
-import useForm from '../../../../forms/useForm';
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 import { OnChangeNewT } from '../../../../types';
 import SearchWayFrom from './SearchWayFrom';
 import SearchWayTo from './SearchWayTo';
 import inputDelay from '../../inputDelay';
+import useChange from '../../../../forms/useChange';
+import useSelect from '../../../../forms/useSelect';
 
 export default function SearchWay() {
     const dispatch = useAppDispatch();
-    const {
-        onChange: onChangeDispatch,
-        onFocus,
-        onBlur,
-    } = useForm(changeInput, setActive, setBlured);
+
+    const onChangeDispatch = useChange(changeInput);
+    const { onFocus, onBlur } = useSelect(setActive, setBlured);
 
     const delay = inputDelay();
 

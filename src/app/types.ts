@@ -1,5 +1,6 @@
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import React from 'react';
+import { OnChangeField } from './components/lib/useChange';
 import { DateT } from './components/lib/DatePicker/utils/timeTypes';
 // InputState
 export type InputDefault = {
@@ -58,3 +59,5 @@ export type PayloadPickerActive = {
 };
 
 export type OnDayClickT = (day: string) => () => void;
+
+export type SearchDateDir = { onChange: OnChangeField };

@@ -1,20 +1,16 @@
+/* eslint-disable object-curly-newline */
 import React from 'react';
 import InputWrapper from '../../Common/InputWrapper';
 import DatePicker from '../../DatePicker/DatePicker';
 import DatePickerIcon from '../../DatePicker/DatePickerIcon';
 import { TimeObjT } from '../../DatePicker/utils/time';
-import { useAppDispatch } from '../../../../redux/reduxHooks';
-import { changeInput } from '../../../../redux/slices/searchDateSlice';
 
-type Props = { time: TimeObjT; value: string; name: string };
+import { SearchDateDir } from '../../../../types';
 
-export default function SearchDateInput({ time, value, name }: Props) {
-    const dispatch = useAppDispatch();
-    const onChange = (e: React.FormEvent<HTMLInputElement>) => {
-        const { value: inputValue } = e.currentTarget;
-        dispatch(changeInput({ name, value: inputValue }));
-    };
+type Props = { time: TimeObjT; value: string; name: string } & SearchDateDir;
 
+export default function SearchDateInput(props: Props) {
+    const { time, value, name, onChange } = props;
     return (
         <InputWrapper cls='date-input-wrapper'>
             <DatePicker time={time} name={name} />

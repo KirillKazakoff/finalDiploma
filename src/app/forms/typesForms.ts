@@ -6,13 +6,24 @@ export type OnSubmitFormT = (e: React.FormEvent<HTMLFormElement>) => void;
 export type OnChangeFieldT = (input: HTMLInputElement) => void;
 export type OnBlurFieldT = (e: React.FocusEvent<HTMLInputElement>) => void;
 
-// setStatus: ActionCreatorWithPayload<Status, string>
-export type UseFormT = (
-    changeInput: ActionCreatorWithPayload<InputDefault>,
+export type UseChangeT = (
+    changeInput: ActionCreatorWithPayload<InputDefault>
+) => OnChangeFieldT;
+
+export type UseSelectT = (
     setActive: ActionCreatorWithPayload<PayloadFocus>,
     setBlured: ActionCreatorWithPayload<PayloadFocus>
 ) => {
-    onChange: OnChangeFieldT;
     onFocus: OnFocusT;
     onBlur: OnFocusT;
 };
+
+// export type UseFormT = (
+//     changeInput: ActionCreatorWithPayload<InputDefault>,
+//     setActive: ActionCreatorWithPayload<PayloadFocus>,
+//     setBlured: ActionCreatorWithPayload<PayloadFocus>
+// ) => {
+//     onChange: OnChangeFieldT;
+//     onFocus: OnFocusT;
+//     onBlur: OnFocusT;
+// };
