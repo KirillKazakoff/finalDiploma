@@ -1,22 +1,34 @@
 import React from 'react';
+import { DateTime } from 'luxon';
 import SearchRowTitle from '../SearchRowTitle';
 import SearchFormRow from '../SearchFormRow';
 import SearchDateFrom from './SearchDateFrom';
 import SearchDateTo from './SearchDateTo';
 import useChange from '../../../../forms/useChange';
-import { changeInput } from '../../../../redux/slices/searchDateSlice';
+import { changeInput, setDateTime } from '../../../../redux/slices/searchDateSlice';
+import { useAppDispatch, useAppSelector } from '../../../../redux/reduxHooks';
 
 export default function SearchDate() {
-    const onChange = useChange(changeInput);
+    const dispatch = useAppDispatch();
+    const dateTimeFrom = useAppSelector((state) => state.searchDate.dateFrom.dateTime);
+    const dateTimeTo = useAppSelector((state) => state.searchDate.dateTo.dateTime);
 
+    const onChange = useChange(changeInput);
+    if (!dateTimeTo) {
+        dispatch(
+            setDateTime({ name: 'dateTo', dateTime: DateTime.now().toFormat('dd/LL/yy') }),
+        );
+        return null;
+    }
+    console.log(dateTimeTo);
     return (
         <SearchFormRow>
             <SearchRowTitle>Дата</SearchRowTitle>
-            <SearchDateFrom onChange={onChange} />
+            <SearchDateTo onChange={onChange} dateTime={dateTimeTo} />
 
             <span className='space25' />
 
-            <SearchDateTo onChange={onChange} />
+            <SearchDateFrom onChange={onChange} dateTime={dateTimeFrom} />
         </SearchFormRow>
     );
 }

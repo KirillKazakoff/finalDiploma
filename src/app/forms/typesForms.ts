@@ -3,7 +3,7 @@ import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { OnFocusT, PayloadFocus, InputDefault } from '../types';
 
 export type OnSubmitFormT = (e: React.FormEvent<HTMLFormElement>) => void;
-export type OnChangeFieldT = (input: HTMLInputElement) => void;
+export type OnChangeFieldT = (e: React.FormEvent<HTMLInputElement>) => void;
 export type OnBlurFieldT = (e: React.FocusEvent<HTMLInputElement>) => void;
 
 export type UseChangeT = (

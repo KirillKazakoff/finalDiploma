@@ -1,9 +1,10 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { DateT } from '../../components/lib/DatePicker/utils/timeTypes';
-import { InputDefault, PayloadActiveDay, PayloadPickerActive } from '../../types';
+import { InputDefault, PayloadActiveDay, PayloadDateTime } from '../../types';
 
 type DateStateT = {
+    dateTime: string;
     value: string;
     isPickerActive: boolean;
     activeDate: DateT | null;
@@ -13,6 +14,7 @@ const intialDateState: DateStateT = {
     value: '',
     isPickerActive: false,
     activeDate: null,
+    dateTime: '',
 };
 
 type DatesStateT = {
@@ -30,6 +32,10 @@ export const searchDateSlice = createSlice({
     name: 'searchDate',
     initialState,
     reducers: {
+        setDateTime: (state, action: PayloadAction<PayloadDateTime>) => {
+            const { name, dateTime } = action.payload;
+            state[name].dateTime = dateTime;
+        },
         changeInput: (state, action: PayloadAction<InputDefault>) => {
             const { name, value } = action.payload;
             state[name].value = value.trim().toLowerCase();
@@ -44,7 +50,8 @@ export const searchDateSlice = createSlice({
     },
 });
 
-export const { setActiveDate, changeInput, togglePickerActive } = searchDateSlice.actions;
-// export const selectDays = (state: RootState) => state.
+export const {
+    setActiveDate, changeInput, togglePickerActive, setDateTime,
+} = searchDateSlice.actions;
 
 export default searchDateSlice.reducer;

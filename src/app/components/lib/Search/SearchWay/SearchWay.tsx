@@ -17,6 +17,7 @@ import SearchWayTo from './SearchWayTo';
 import inputDelay from '../../inputDelay';
 import useChange from '../../../../forms/useChange';
 import useSelect from '../../../../forms/useSelect';
+import { OnChangeFieldT } from '../../../../forms/typesForms';
 
 export default function SearchWay() {
     const dispatch = useAppDispatch();
@@ -26,9 +27,8 @@ export default function SearchWay() {
 
     const delay = inputDelay();
 
-    const onChange: OnChangeNewT = ({ current: input }) => () => {
-        if (!input) return;
-        const { value, name: inputName } = input;
+    const onChange: OnChangeFieldT = (e) => {
+        const { value, name: inputName } = e.currentTarget;
 
         if (!value) {
             dispatch(setCities({ cities: [], inputName }));
@@ -37,7 +37,7 @@ export default function SearchWay() {
             delay(() => dispatch(getCities(inputName, value)));
         }
 
-        onChangeDispatch(input);
+        onChangeDispatch(e);
     };
 
     return (

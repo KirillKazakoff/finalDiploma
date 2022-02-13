@@ -1,3 +1,4 @@
+/* eslint-disable no-unneeded-ternary */
 /* eslint-disable object-curly-newline */
 import React from 'react';
 import InputWrapper from '../../Common/InputWrapper';
@@ -5,18 +6,28 @@ import DatePicker from '../../DatePicker/DatePicker';
 import DatePickerIcon from '../../DatePicker/DatePickerIcon';
 import { TimeObjT } from '../../DatePicker/utils/time';
 
-import { SearchDateDir } from '../../../../types';
+import { OnChangeFieldT } from '../../../../forms/typesForms';
 
-type Props = { time: TimeObjT; value: string; name: string } & SearchDateDir;
+type Props = {
+    time: TimeObjT | null;
+    value: string;
+    name: string;
+    onChange: OnChangeFieldT;
+};
 
 export default function SearchDateInput(props: Props) {
     const { time, value, name, onChange } = props;
+    const disabled = time ? false : true;
+
     return (
         <InputWrapper cls='date-input-wrapper'>
-            <DatePicker time={time} name={name} />
+            {time ? <DatePicker time={time} name={name} /> : null}
             <input
-                placeholder='ДД/ММ/ГГ' name={name}
-                value={value} onChange={onChange}
+                disabled={disabled}
+                placeholder='ДД/ММ/ГГ'
+                name={name}
+                value={value}
+                onChange={onChange}
             />
             <DatePickerIcon name={name} />
         </InputWrapper>

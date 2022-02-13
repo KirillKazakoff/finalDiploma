@@ -4,10 +4,11 @@ import { useAppDispatch } from '../redux/reduxHooks';
 const useChange: UseChangeT = (changeInput) => {
     const dispatch = useAppDispatch();
 
-    return (input) => {
+    return (e) => {
+        const { name, value } = e.currentTarget;
         const changedInput = {
-            name: input.name,
-            value: input.value,
+            name,
+            value,
         };
 
         dispatch(changeInput(changedInput));

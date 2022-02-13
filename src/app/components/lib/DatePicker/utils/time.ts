@@ -1,18 +1,16 @@
 import { DateTime } from 'luxon';
 import { DateT, SetFuncT } from './timeTypes';
 
-export const time = () => {
-    let current = DateTime.now();
+export const time = (dateTime: string) => {
+    let current = DateTime.fromFormat(dateTime, 'dd/LL/yy');
 
     const dateInit = {
-        // ms: current.endOf('month').toMillis(),
         day: current.day,
         month: current.monthLong,
         year: current.year,
     };
 
     const getDateString = (day: number) => {
-        // const { month, year } = current;
         current = current.set({ day });
         const dateStr = current.toFormat('dd/LL/yy');
         return dateStr;

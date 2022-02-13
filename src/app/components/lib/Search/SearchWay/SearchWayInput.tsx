@@ -26,7 +26,7 @@ export default function SearchWayInput(props: SearchWayInputProps) {
                 placeholder={placeholder}
                 name={name}
                 value={wayState.value}
-                onChange={onChange(inputEl)}
+                onChange={onChange}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 required
@@ -35,7 +35,6 @@ export default function SearchWayInput(props: SearchWayInputProps) {
                 cities={wayState.cities}
                 isActive={wayState.isActive}
                 inputRef={inputEl}
-                onChange={onChange(inputEl)}
             />
             <SearchWayFeedback wayState={wayState} input={inputEl.current} />
             {wayState.isActive ? null : children}
