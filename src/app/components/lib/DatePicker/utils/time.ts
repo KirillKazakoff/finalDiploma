@@ -26,7 +26,7 @@ export const time = () => {
 
         const pastMonthDays = [];
         for (let i = pastStart; i <= pastEnd; i += 1) {
-            pastMonthDays.push(i);
+            pastMonthDays.push(i.toString());
         }
 
         const lastWeekday = current.endOf('month').weekday; // new
@@ -34,7 +34,7 @@ export const time = () => {
         const newMonthDays = [];
 
         for (let i = 1; i <= newEnd; i += 1) {
-            newMonthDays.push(i);
+            newMonthDays.push(i.toString());
         }
         return { pastMonthDays, newMonthDays };
     };
@@ -46,14 +46,14 @@ export const time = () => {
 
         if (current.toMillis() === dateInit.ms) {
             for (let i = 1; i < dateInit.day; i += 1) {
-                pastDays.push(i);
+                pastDays.push(i.toString());
             }
             for (let i = dateInit.day; i <= dayAmount; i += 1) {
-                availableDays.push(i);
+                availableDays.push(i.toString());
             }
         } else {
             for (let i = 1; i <= dayAmount; i += 1) {
-                availableDays.push(i);
+                availableDays.push(i.toString());
             }
         }
 

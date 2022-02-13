@@ -2373,6 +2373,14 @@ body {
     border-left: 7px solid var(--black-light);
 }
 
+.date-picker-arrow-left:disabled {
+    border-right-color: var(--secondary-lighter);
+}
+
+.date-picker-arrow-left:disabled {
+    border-left-color: var(--secondary-lighter);
+}
+
 .date-picker-header-bottom {
     height: 2px;
     background-color: var(--secondary-super-light);

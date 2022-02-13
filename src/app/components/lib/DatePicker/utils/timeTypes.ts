@@ -2,10 +2,10 @@ import React from 'react';
 import { DayNumbers } from 'luxon';
 
 export type DaysT = {
-    pastMonthDays: number[];
-    pastDays: number[];
-    availableDays: number[];
-    newMonthDays: number[];
+    pastMonthDays: string[];
+    pastDays: string[];
+    availableDays: string[];
+    newMonthDays: string[];
 };
 
 export type DateT = {
@@ -18,6 +18,6 @@ export type DateT = {
 export type PickerStateT = {
     days: DaysT;
     date: DateT;
-} | null;
+};
 
 export type SetFuncT = React.Dispatch<React.SetStateAction<PickerStateT>>;

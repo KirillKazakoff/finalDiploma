@@ -3,8 +3,8 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import { nanoid } from 'nanoid';
 import React from 'react';
-import { OnDayClickT } from '../../../types';
-import DatePickerDay from './DatePickerDay';
+import { OnDayClickT } from '../../../../types';
+import DatePickerDay from '../DatePickerDay/DatePickerDay';
 
 type Props<T> = {
     days: T[];
@@ -23,7 +23,7 @@ export default function DatePickerList(props: Props<any>) {
         return (
             <li
                 key={nanoid()}
-                onClick={onClick && onClick(day.toString())}
+                onClick={onClick ? onClick(day.toString()) : undefined}
                 className={`date-picker-day date-picker-day-${cls} ${activeCls}`}
             >
                 {day}

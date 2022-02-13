@@ -2,16 +2,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { DateT } from '../../components/lib/DatePicker/utils/timeTypes';
 import { InputDefault, PayloadActiveDay } from '../../types';
-import type { RootState } from '../store';
 
 type DateStateT = {
     value: string;
     activeDay: string;
+    date: DateT | null;
 };
 
 const intialDateState: DateStateT = {
     value: '',
     activeDay: '',
+    date: null,
 };
 
 type DatesStateT = {
@@ -34,8 +35,9 @@ export const searchDateSlice = createSlice({
             state[name].value = value.trim().toLowerCase();
         },
         setActiveDay: (state, action: PayloadAction<PayloadActiveDay>) => {
-            const { name, day } = action.payload;
+            const { name, day, date } = action.payload;
             state[name].activeDay = day;
+            state[name].date = date;
         },
     },
 });

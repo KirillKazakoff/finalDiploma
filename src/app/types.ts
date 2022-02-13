@@ -1,5 +1,6 @@
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import React from 'react';
+import { DateT } from './components/lib/DatePicker/utils/timeTypes';
 // InputState
 export type InputDefault = {
     name: string;
@@ -49,6 +50,7 @@ export type SearchWayProps = {
 export type PayloadActiveDay = {
     name: string;
     day: string;
+    date: DateT;
 };
 
-export type OnDayClickT = (value: string) => () => void;
+export type OnDayClickT = (value: string, date: DateT) => () => void;

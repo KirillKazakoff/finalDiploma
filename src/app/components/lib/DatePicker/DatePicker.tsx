@@ -1,43 +1,41 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useEffect, useState } from 'react';
-import DatePickerHeader from './DatePickerHeader';
+import DatePickerHeader from './DatePickerHeader/DatePickerHeader';
 import { PickerStateT } from './utils/timeTypes';
 import { TimeObjT } from './utils/time';
-import DatePickerList from './DatePickerList';
 import { useAppDispatch, useAppSelector } from '../../../redux/reduxHooks';
 import { changeInput, setActiveDay } from '../../../redux/slices/searchDateSlice';
+import UnavailableList from './DatePickerList/UnavailableList';
+import AvailableList from './DatePickerList/AvailableList';
 
 type Props = { time: TimeObjT; name: string };
 
 export default function DatePicker({ time, name }: Props) {
     const dispatch = useAppDispatch();
     const activeDay = useAppSelector((state) => state.searchDate[name].activeDay);
-    const [pickerState, setPickerState] = useState<PickerStateT>(null);
-
-    console.log(activeDay);
+    const [pickerState, setPickerState] = useState<PickerStateT | null>(null);
 
     useEffect(() => {
         time.setAllDays(setPickerState);
     }, []);
 
-    const onClick = (value: string) => () => {
-        dispatch(changeInput({ name, value }));
-        dispatch(setActiveDay({ name, day: value }));
-    };
-
     if (!pickerState) return null;
     const {
         pastMonthDays, pastDays, availableDays, newMonthDays,
     } = pickerState.days;
-    const { month } = pickerState.date;
 
-    const pastMonthDaysList = <DatePickerList days={pastMonthDays} cls='non-month' />;
-    const newMonthDaysList = <DatePickerList days={newMonthDays} cls='non-month' />;
-    const pastDaysList = <DatePickerList days={pastDays} cls='past' />;
+    const onClickDate = (value: string) => () => {
+        dispatch(changeInput({ name, value }));
+        dispatch(setActiveDay({ name, day: value }));
+    };
+
+    const pastMonthDaysList = <UnavailableList days={pastMonthDays} cls='non-month' />;
+    const newMonthDaysList = <UnavailableList days={newMonthDays} cls='non-month' />;
+    const pastDaysList = <UnavailableList days={pastDays} cls='past' />;
     const availableDaysList = (
-        <DatePickerList
+        <AvailableList
             activeDay={activeDay} days={availableDays}
-            onClick={onClick}
+            onClick={onClickDate}
         />
     );
 
@@ -45,7 +43,11 @@ export default function DatePicker({ time, name }: Props) {
         <div className='date-picker-container'>
             <div className='date-picker-arrow-decor' />
             <div className='date-picker'>
-                <DatePickerHeader month={month} />
+                <DatePickerHeader
+                    dateCurrent={pickerState.date}
+                    setFunc={setPickerState}
+                    time={time}
+                />
                 <div className='date-picker-header-bottom' />
                 <ul className='date-picker-content'>
                     {pastMonthDaysList}
