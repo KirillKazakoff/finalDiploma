@@ -9,8 +9,8 @@ export type DaysT = {
 };
 
 export type DateT = {
-    ms: number;
-    day: DayNumbers;
+    // ms: number;
+    day: string;
     month: string;
     year: number;
 };

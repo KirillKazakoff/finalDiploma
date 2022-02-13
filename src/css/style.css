@@ -2318,7 +2318,7 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    top: -75px;
+    top: 75px;
 }
 
 .date-picker-arrow-decor {

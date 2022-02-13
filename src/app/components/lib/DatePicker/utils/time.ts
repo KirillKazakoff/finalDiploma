@@ -4,16 +4,17 @@ import { DateT, SetFuncT } from './timeTypes';
 export const time = () => {
     let current = DateTime.now();
 
-    const dateInit: DateT = {
-        ms: current.toMillis(),
+    const dateInit = {
+        // ms: current.endOf('month').toMillis(),
         day: current.day,
         month: current.monthLong,
         year: current.year,
     };
-    const dateCurrent = { ...dateInit };
 
-    const getDateString = () => {
-        return current.toFormat('dd/LL/yy');
+    const getDateString = (day: number) => {
+        const { month, year } = current;
+        const dateStr = DateTime.fromObject({ year, month, day }).toFormat('dd/LL/yy');
+        return dateStr;
     };
 
     const getDaysNonMonth = () => {
@@ -44,7 +45,7 @@ export const time = () => {
         const pastDays = [];
         const availableDays = [];
 
-        if (current.toMillis() === dateInit.ms) {
+        if (current.year === dateInit.year && current.monthLong === dateInit.month) {
             for (let i = 1; i < dateInit.day; i += 1) {
                 pastDays.push(i.toString());
             }
@@ -63,8 +64,7 @@ export const time = () => {
     const getCurrentDate = () => ({
         year: current.year,
         month: current.monthLong,
-        day: current.day,
-        ms: current.toMillis(),
+        day: current.day.toString(),
     });
 
     const setAllDays = (setFunc: SetFuncT) => {
@@ -94,7 +94,6 @@ export const time = () => {
 
     return {
         dateInit,
-        dateCurrent,
         getDateString,
         setAllDays,
         plusMonth,

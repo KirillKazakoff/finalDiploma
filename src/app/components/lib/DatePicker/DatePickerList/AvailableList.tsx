@@ -4,12 +4,28 @@
 import { nanoid } from 'nanoid';
 import React from 'react';
 import { OnDayClickT } from '../../../../types';
+import { DateT } from '../utils/timeTypes';
+import isEqualDate from '../utils/isEqualDate';
 
-type Props = { days: string[]; activeDay?: string; onClick: OnDayClickT };
+type Props = {
+    days: string[];
+    activeDate: DateT | null;
+    dateCurrent: DateT;
+    onClick: OnDayClickT;
+};
 
-export default function AvailableList({ days, activeDay, onClick }: Props) {
+export default function AvailableList(props: Props) {
+    const {
+        days, activeDate, dateCurrent, onClick,
+    } = props;
+
     const list = days.map((day) => {
-        const activeCls = day === activeDay ? 'date-picker-day-active' : '';
+        let activeCls;
+        if (activeDate) {
+            activeCls = isEqualDate(dateCurrent, activeDate, day)
+                ? 'date-picker-day-active'
+                : '';
+        }
         return (
             <li
                 key={nanoid()}
@@ -22,7 +38,3 @@ export default function AvailableList({ days, activeDay, onClick }: Props) {
     });
     return <>{list}</>;
 }
-
-AvailableList.defaultProps = {
-    activeDay: '',
-};

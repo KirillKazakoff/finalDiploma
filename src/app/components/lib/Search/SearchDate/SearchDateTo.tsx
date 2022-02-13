@@ -3,8 +3,8 @@ import { time } from '../../DatePicker/utils/time';
 import { useAppSelector } from '../../../../redux/reduxHooks';
 import SearchDateInput from './SearchDateInput';
 
-export default function SearchDateFrom() {
-    const name = 'dateFrom';
+export default function SearchDateTo() {
+    const name = 'dateTo';
     const value = useAppSelector((state) => state.searchDate[name].value);
     const timeObj = time();
 
