@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import DatePickerHeader from './DatePickerHeader/DatePickerHeader';
-import { PickerStateT, DateT } from './utils/timeTypes';
-import { TimeObjT } from './utils/time';
+import { TimeObjT } from './utils/useTime';
 import { useAppDispatch, useAppSelector } from '../../../redux/reduxHooks';
 import {
     changeInput,
@@ -20,11 +19,8 @@ export default function DatePicker({ time, name }: Props) {
     const isPickerActive = useAppSelector(
         (state) => state.searchDate[name].isPickerActive,
     );
-    const [pickerState, setPickerState] = useState<PickerStateT | null>(null);
+    const pickerState = useAppSelector((state) => state.searchDate[name].pickerState);
 
-    useEffect(() => {
-        time.setAllDays(setPickerState);
-    }, []);
     if (!pickerState || !isPickerActive) return null;
 
     const { year, month } = pickerState.date;
@@ -42,7 +38,6 @@ export default function DatePicker({ time, name }: Props) {
                     dateTime: time.getDateString(dayNumber).toString(),
                 }),
             );
-            time.setAllDays(setPickerState);
         }
     };
 
@@ -66,11 +61,7 @@ export default function DatePicker({ time, name }: Props) {
         <div className='date-picker-container'>
             <div className='date-picker-arrow-decor' />
             <div className='date-picker'>
-                <DatePickerHeader
-                    dateCurrent={pickerState.date}
-                    setFunc={setPickerState}
-                    time={time}
-                />
+                <DatePickerHeader dateCurrent={pickerState.date} time={time} />
                 <div className='date-picker-header-bottom' />
                 <ul className='date-picker-content'>
                     {pastMonthDaysList}

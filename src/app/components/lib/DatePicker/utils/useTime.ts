@@ -1,110 +1,111 @@
-// import { DateTime } from 'luxon';
-// import { DateT } from './timeTypes';
-// import { useAppDispatch } from '../../../../redux/reduxHooks';
-// import { setPickerState } from '../../../../redux/slices/searchDateSlice';
+import { useEffect } from 'react';
+import { DateTime } from 'luxon';
+import { useAppDispatch, useAppSelector } from '../../../../redux/reduxHooks';
+import { setPickerState } from '../../../../redux/slices/searchDateSlice';
 
-// export const useTime = () => {
-//     const dispatch = useAppDispatch();
-//     let current = DateTime.now();
+export const useTime = (name: string) => {
+    const dispatch = useAppDispatch();
+    const dateTimeStr = useAppSelector((state) => state.searchDate[name].dateTime);
 
-//     const dateInit: DateT = {
-//         ms: current.toMillis(),
-//         day: current.day,
-//         month: current.monthLong,
-//         year: current.year,
-//     };
-//     const dateCurrent = { ...dateInit };
+    let current = DateTime.fromFormat(dateTimeStr, 'dd/LL/yy');
 
-//     const getDateString = () => {
-//         return current.toFormat('dd/LL/yy');
-//     };
+    const dateInit = {
+        day: current.day,
+        month: current.monthLong,
+        year: current.year,
+    };
+    const dateCurrent = { ...dateInit };
 
-//     const getDaysNonMonth = () => {
-//         const past = current.minus({ months: 1 }); // past
-//         const lastWeekdayPast = past.endOf('month').weekday;
-//         const dayAmount = past.daysInMonth;
+    const getDateString = (day: number) => {
+        const activeDate = current.set({ day });
+        const dateStr = activeDate.toFormat('dd/LL/yy');
+        return dateStr;
+    };
 
-//         const pastEnd = dayAmount;
-//         const pastStart = dayAmount - lastWeekdayPast + 1;
+    const getDaysNonMonth = () => {
+        const past = current.minus({ months: 1 }); // past
+        const lastWeekdayPast = past.endOf('month').weekday;
+        const dayAmount = past.daysInMonth;
 
-//         const pastMonthDays = [];
-//         for (let i = pastStart; i <= pastEnd; i += 1) {
-//             pastMonthDays.push(i);
-//         }
+        const pastEnd = dayAmount;
+        const pastStart = dayAmount - lastWeekdayPast + 1;
 
-//         const lastWeekday = current.endOf('month').weekday; // new
-//         const newEnd = 7 - lastWeekday;
-//         const newMonthDays = [];
+        const pastMonthDays = [];
+        for (let i = pastStart; i <= pastEnd; i += 1) {
+            pastMonthDays.push(i);
+        }
 
-//         for (let i = 1; i <= newEnd; i += 1) {
-//             newMonthDays.push(i);
-//         }
-//         return { pastMonthDays, newMonthDays };
-//     };
+        const lastWeekday = current.endOf('month').weekday; // new
+        const newEnd = 7 - lastWeekday;
+        const newMonthDays = [];
 
-//     const getDaysInMonth = () => {
-//         const dayAmount = current.daysInMonth;
-//         const pastDays = [];
-//         const availableDays = [];
+        for (let i = 1; i <= newEnd; i += 1) {
+            newMonthDays.push(i);
+        }
+        return { pastMonthDays, newMonthDays };
+    };
 
-//         if (current.toMillis() === dateInit.ms) {
-//             for (let i = 1; i < dateInit.day; i += 1) {
-//                 pastDays.push(i);
-//             }
-//             for (let i = dateInit.day; i <= dayAmount; i += 1) {
-//                 availableDays.push(i);
-//             }
-//         } else {
-//             for (let i = 1; i <= dayAmount; i += 1) {
-//                 availableDays.push(i);
-//             }
-//         }
+    const getDaysInMonth = () => {
+        const dayAmount = current.daysInMonth;
+        const pastDays = [];
+        const availableDays = [];
 
-//         return { pastDays, availableDays };
-//     };
+        if (current.year === dateInit.year && current.monthLong === dateInit.month) {
+            for (let i = 1; i < dateInit.day; i += 1) {
+                pastDays.push(i);
+            }
+            for (let i = dateInit.day; i <= dayAmount; i += 1) {
+                availableDays.push(i);
+            }
+        } else {
+            for (let i = 1; i <= dayAmount; i += 1) {
+                availableDays.push(i);
+            }
+        }
 
-//     const getCurrentDate = () => ({
-//         year: current.year,
-//         month: current.monthLong,
-//         day: current.day,
-//         ms: current.toMillis(),
-//     });
+        return { pastDays, availableDays };
+    };
 
-//     const setAllDays = () => {
-//         const { pastMonthDays, newMonthDays } = getDaysNonMonth();
-//         const { pastDays, availableDays } = getDaysInMonth();
+    const setPicker = () => {
+        const { pastMonthDays, newMonthDays } = getDaysNonMonth();
+        const { pastDays, availableDays } = getDaysInMonth();
 
-//         dispatch(
-//             setPickerState({
-//                 days: {
-//                     pastMonthDays,
-//                     pastDays,
-//                     availableDays,
-//                     newMonthDays,
-//                 },
-//                 date: getCurrentDate(),
-//             }),
-//         );
-//     };
+        const { year, monthLong: month, day } = current;
+        const date = { year, month, day: day.toString() };
+        const days = {
+            pastMonthDays,
+            newMonthDays,
+            pastDays,
+            availableDays,
+        };
+        const pickerState = { date, days };
 
-//     const plusMonth = () => {
-//         current = current.plus({ months: 1 });
-//         setAllDays();
-//     };
+        if (!current.isValid) return;
+        dispatch(setPickerState({ name, pickerState }));
+    };
 
-//     const minusMonth = () => {
-//         current = current.minus({ months: 1 });
-//         setAllDays();
-//     };
+    const plusMonth = () => {
+        current = current.plus({ months: 1 });
+        setPicker();
+    };
 
-//     setAllDays();
+    const minusMonth = () => {
+        current = current.minus({ months: 1 });
+        setPicker();
+    };
 
-//     return {
-//         dateInit,
-//         dateCurrent,
-//         getDateString,
-//         setAllDays,
-//         plusMonth,
-//         minusMonth,
-//     };
-// };
+    useEffect(() => {
+        setPicker();
+    }, [current]);
+
+    return {
+        dateInit,
+        dateCurrent,
+        getDateString,
+        setPicker,
+        plusMonth,
+        minusMonth,
+    };
+};
+
+export type TimeObjT = ReturnType<typeof useTime>;

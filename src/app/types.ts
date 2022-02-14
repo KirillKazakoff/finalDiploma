@@ -2,7 +2,8 @@ import React from 'react';
 import type { DateTime } from 'luxon';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import type { OnChangeFieldT } from './forms/typesForms';
-import { DateT } from './components/lib/DatePicker/utils/timeTypes';
+import { DateT, DaysT, PickerStateT } from './components/lib/DatePicker/utils/timeTypes';
+import type { TimeObjT } from './components/lib/DatePicker/utils/useTime';
 // InputState
 export type InputDefault = {
     name: string;
@@ -64,6 +65,10 @@ export type PayloadDateTime = {
     dateTime: string;
 };
 
+export type PayloadPickerState = {
+    name: string;
+    pickerState: PickerStateT;
+};
 export type OnDayClickT = (day: string) => () => void;
 
-export type SearchDateDir = { onChange: OnChangeFieldT; dateTime: string };
+export type SearchDateDir = { onChange: OnChangeFieldT };

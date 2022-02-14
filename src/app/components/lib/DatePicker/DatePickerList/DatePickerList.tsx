@@ -4,16 +4,15 @@
 import { nanoid } from 'nanoid';
 import React from 'react';
 import { OnDayClickT } from '../../../../types';
-import DatePickerDay from '../DatePickerDay/DatePickerDay';
 
-type Props<T> = {
-    days: T[];
+type Props = {
+    days: number[];
     cls?: string;
     activeDay?: string;
     onClick?: OnDayClickT | null;
 };
 
-export default function DatePickerList(props: Props<any>) {
+export default function DatePickerList(props: Props) {
     const {
         days, cls, activeDay, onClick,
     } = props;
@@ -38,12 +37,3 @@ DatePickerList.defaultProps = {
     activeDay: '',
     onClick: null,
 };
-
-// const list = days.map((day) => (
-//     <DatePickerDay
-//         key={nanoid()} cls={cls}
-//         activeDay={activeDay}
-//     >
-//         {day}
-//     </DatePickerDay>
-// ));

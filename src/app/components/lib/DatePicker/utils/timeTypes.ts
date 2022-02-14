@@ -2,10 +2,10 @@ import React from 'react';
 import { DayNumbers } from 'luxon';
 
 export type DaysT = {
-    pastMonthDays: string[];
-    pastDays: string[];
-    availableDays: string[];
-    newMonthDays: string[];
+    pastMonthDays: number[];
+    pastDays: number[];
+    availableDays: number[];
+    newMonthDays: number[];
 };
 
 export type DateT = {

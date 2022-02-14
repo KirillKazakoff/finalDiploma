@@ -2,7 +2,7 @@
 import { nanoid } from 'nanoid';
 import React from 'react';
 
-type Props = { days: string[]; cls: string };
+type Props = { days: number[]; cls: string };
 
 export default function UnavailableList({ days, cls }: Props) {
     const list = days.map((day) => (
