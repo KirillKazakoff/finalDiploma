@@ -43,13 +43,17 @@ export const searchDateSlice = createSlice({
     name: 'searchDate',
     initialState,
     reducers: {
+        changeInput: (state, action: PayloadAction<InputDefault>) => {
+            const { name, value } = action.payload;
+            state[name].value = value.trim().toLowerCase();
+        },
         setDateTime: (state, action: PayloadAction<PayloadDateTime>) => {
             const { name, dateTime } = action.payload;
             state[name].dateTime = dateTime;
         },
-        changeInput: (state, action: PayloadAction<InputDefault>) => {
-            const { name, value } = action.payload;
-            state[name].value = value.trim().toLowerCase();
+        setPickerState: (state, action: PayloadAction<PayloadPickerState>) => {
+            const { name, pickerState } = action.payload;
+            state[name].pickerState = pickerState;
         },
         setActiveDate: (state, action: PayloadAction<PayloadActiveDay>) => {
             const { name, date } = action.payload;
@@ -57,10 +61,6 @@ export const searchDateSlice = createSlice({
         },
         togglePickerActive: (state, action: PayloadAction<string>) => {
             state[action.payload].isPickerActive = !state[action.payload].isPickerActive;
-        },
-        setPickerState: (state, action: PayloadAction<PayloadPickerState>) => {
-            const { name, pickerState } = action.payload;
-            state[name].pickerState = pickerState;
         },
     },
 });

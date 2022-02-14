@@ -18,13 +18,13 @@ type Props = {
 export default function SearchDateInput(props: Props) {
     const { time, name, onChange } = props;
     const disabled = time ? false : true;
-
     const value = useAppSelector((state) => state.searchDate[name].value);
-    console.log(time);
+
     return (
         <InputWrapper cls='date-input-wrapper'>
             {time ? <DatePicker time={time} name={name} /> : null}
             <input
+                autoComplete='off'
                 disabled={disabled}
                 placeholder='ДД/ММ/ГГ'
                 name={name}

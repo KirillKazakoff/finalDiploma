@@ -174,6 +174,36 @@ body {
     font-weight: 700;
 }
 
+.form {
+    position: relative;
+}
+
+.form-feedback {
+    display: flex;
+    align-items: center;
+    position: absolute;
+
+    background-color: rgba(255, 181, 158, 1);
+    height: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 15px;
+}
+
+.form-feedback-collapse {
+    border-radius: 50px;
+    padding: 10px;
+    background-color: white;
+    margin-right: 15px;
+}
+
+.form-feedback-desc-error {
+    color: black;
+}
+
 .search-form {
     font-weight: 100;
     min-width: 600px;
@@ -262,9 +292,9 @@ body {
     border-radius: 3px;
 }
 
-.submitted:invalid {
+/* .submitted:invalid {
     background-color: red;
-}
+} */
 
 .feedback {
     position: absolute;

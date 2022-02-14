@@ -62,9 +62,6 @@ export const searchWaySlice = createSlice({
 
             state[name].wasFocused = wasFocused;
         },
-
-        updateForm: (state, action: PayloadAction<WaysStateT>) => action.payload,
-        refreshCheckout: () => initialState,
     },
 });
 

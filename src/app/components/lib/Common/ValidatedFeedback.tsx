@@ -12,7 +12,9 @@ export default function ValidatedFeedback({ input, validMsg }: FeedbackProps) {
         return null;
     }
 
-    const errMsg = errorMessages[input.name][error];
+    let errMsg = errorMessages[input.name][error];
+    console.log(errMsg);
+    if (errMsg === 'customError') errMsg = input.validationMessage;
     return <Feedback type='invalid'>{errMsg}</Feedback>;
 }
 

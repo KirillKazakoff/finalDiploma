@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { WayStateT } from '../../../../redux/slices/searchWaySlice';
 import validateCity from './validateCity';
 import InputLoader from '../../Common/inputLoader';
 import ValidatedFeedback from '../../Common/ValidatedFeedback';
+import { useAppDispatch } from '../../../../redux/reduxHooks';
+import { setFormMsg, setFormStatus } from '../../../../redux/slices/searchFormSlice';
 
 type SearchWayProps = {
     wayState: WayStateT;
@@ -10,18 +12,30 @@ type SearchWayProps = {
 };
 
 export default function SearchWayFeedback({ wayState, input }: SearchWayProps) {
+    const dispatch = useAppDispatch();
     const { wasFocused, cities, status } = wayState;
 
+    useEffect(() => {
+        if (status === 'loading') {
+            dispatch(setFormStatus('error'));
+            dispatch(setFormMsg('Города еще не загрузились, подождите пожалуйста'));
+        }
+        if (status === 'loaded') {
+            dispatch(setFormStatus('success'));
+        }
+    }, [status]);
+
     if (!input) return null;
+    const cityCheck = cities[0]?.name;
+    validateCity(input, cityCheck, status);
 
     if (cities.some((city) => city.name === input.value)) {
         return null;
     }
-    if (status === 'loading') return <InputLoader />;
+    if (status === 'loading') {
+        return <InputLoader />;
+    }
     if (!wasFocused) return null;
-
-    const city = cities[0]?.name;
-    validateCity(input, city);
 
     return <ValidatedFeedback input={input} validMsg='ok' />;
 }

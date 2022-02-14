@@ -13,6 +13,9 @@
 
     --secondary-arrow-filter: invert(67%) sepia(8%) saturate(137%) hue-rotate(233deg)
         brightness(83%) contrast(92%);
+
+    --error-filter: brightness(0) saturate(100%) invert(74%) sepia(65%) saturate(471%)
+        hue-rotate(309deg) brightness(106%) contrast(108%);
 }
 
 .ic-refresh {
@@ -67,4 +70,8 @@
 
 .filter-main {
     filter: var(--bg-main-filter);
+}
+
+.filter-error {
+    filter: var(--error-filter);
 }

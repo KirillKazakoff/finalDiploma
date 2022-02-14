@@ -1,3 +1,3 @@
-type SvgType = { height?: number };
+type SvgType = { height?: number; filter?: string };
 
 export default SvgType;
