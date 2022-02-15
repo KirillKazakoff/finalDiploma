@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { WayStateT } from '../../../../redux/slices/searchWaySlice';
 import InputLoader from '../../Common/inputLoader';
-import ValidatedFeedback from '../../Common/ValidatedFeedback';
+import Feedback from '../../Common/Feedback';
 
 type SearchWayProps = {
     wayState: WayStateT;
@@ -21,5 +21,5 @@ export default function SearchWayFeedback({ wayState, input }: SearchWayProps) {
     }
     if (!wasFocused) return null;
 
-    return <ValidatedFeedback input={input} />;
+    return <Feedback input={input} />;
 }

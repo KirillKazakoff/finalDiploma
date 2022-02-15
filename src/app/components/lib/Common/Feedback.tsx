@@ -1,9 +1,11 @@
 import React from 'react';
+import { useAppSelector } from '../../../redux/reduxHooks';
 
-type FeedbackProps = { children: React.ReactNode; type: string };
+type FeedbackProps = { input: HTMLInputElement };
 
-export default function Feedback({ children, type }: FeedbackProps) {
-    const validCls = type === 'valid' ? 'feedback-valid' : 'feedback-invalid';
+export default function Feedback({ input }: FeedbackProps) {
+    const error = useAppSelector((state) => state.searchWay[input.name].error);
 
-    return <div className={`feedback ${validCls}`}>{children}</div>;
+    if (!error) return null;
+    return <div className='feedback feedback-invalid'>{error}</div>;
 }
