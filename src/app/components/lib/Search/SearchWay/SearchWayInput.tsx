@@ -4,6 +4,7 @@ import Input from '../../Common/Input';
 import InputWrapper from '../../Common/InputWrapper';
 import SearchWayFeedback from './SearchWayFeedback';
 import SearchWayTips from './SearchWayTips';
+import validateCity from './validateCity';
 
 export type SearchWayInputProps = {
     children: React.ReactNode;
@@ -19,9 +20,16 @@ export default function SearchWayInput(props: SearchWayInputProps) {
 
     const inputEl = useRef<HTMLInputElement>(null);
 
+    const customValidate = (input: HTMLInputElement) => {
+        console.log('validating');
+        const cityCheck = wayState.cities[0]?.name;
+        validateCity(input, cityCheck);
+    };
+
     return (
         <InputWrapper cls='search-input-wrapper'>
             <Input
+                customValidate={customValidate}
                 parentRef={inputEl}
                 placeholder={placeholder}
                 name={name}

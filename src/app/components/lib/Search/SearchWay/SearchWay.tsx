@@ -11,7 +11,6 @@ import {
 } from '../../../../redux/slices/searchWaySlice';
 import { getCities } from '../../../../thunk/thunkApi';
 import { useAppDispatch } from '../../../../redux/reduxHooks';
-import { OnChangeNewT } from '../../../../types';
 import SearchWayFrom from './SearchWayFrom';
 import SearchWayTo from './SearchWayTo';
 import inputDelay from '../../inputDelay';
