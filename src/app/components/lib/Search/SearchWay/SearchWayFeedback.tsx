@@ -37,5 +37,5 @@ export default function SearchWayFeedback({ wayState, input }: SearchWayProps) {
     }
     if (!wasFocused) return null;
 
-    return <ValidatedFeedback input={input} validMsg='ok' />;
+    return <ValidatedFeedback input={input} />;
 }

@@ -18,6 +18,7 @@ const validateForm = (input: HTMLInputElement) => {
         }
     }
 
+    console.log(error);
     return {
         isValid: false,
         error,

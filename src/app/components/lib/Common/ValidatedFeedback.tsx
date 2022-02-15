@@ -2,22 +2,21 @@ import React from 'react';
 import validateInput from '../../../forms/validateInput';
 import errorMessages from '../Search/errorMsg';
 import Feedback from './Feedback';
+import { useAppDispatch } from '../../../redux/reduxHooks';
+import { setError } from '../../../redux/slices/searchWaySlice';
 
-type FeedbackProps = { input: HTMLInputElement; validMsg?: string };
+type FeedbackProps = { input: HTMLInputElement };
 
-export default function ValidatedFeedback({ input, validMsg }: FeedbackProps) {
+export default function ValidatedFeedback({ input }: FeedbackProps) {
+    const dispatch = useAppDispatch();
     const { error } = validateInput(input);
-    if (!error) {
-        if (validMsg) return <Feedback type='valid'>{validMsg}</Feedback>;
-        return null;
-    }
+    if (!error) return null;
 
     let errMsg = errorMessages[input.name][error];
-    console.log(errMsg);
     if (errMsg === 'customError') errMsg = input.validationMessage;
+
+    if (!errMsg) return null;
+    dispatch(setError({ name: input.name, error: errMsg }));
+
     return <Feedback type='invalid'>{errMsg}</Feedback>;
 }
-
-ValidatedFeedback.defaultProps = {
-    validMsg: '',
-};
