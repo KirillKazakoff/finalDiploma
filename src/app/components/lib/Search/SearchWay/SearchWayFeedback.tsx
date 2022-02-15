@@ -15,16 +15,6 @@ export default function SearchWayFeedback({ wayState, input }: SearchWayProps) {
     const dispatch = useAppDispatch();
     const { wasFocused, cities, status } = wayState;
 
-    useEffect(() => {
-        if (status === 'loading') {
-            dispatch(setFormStatus('error'));
-            dispatch(setFormMsg('Города еще не загрузились, подождите пожалуйста'));
-        }
-        if (status === 'loaded') {
-            dispatch(setFormStatus('success'));
-        }
-    }, [status]);
-
     if (!input) return null;
     const cityCheck = cities[0]?.name;
     validateCity(input, cityCheck, status);

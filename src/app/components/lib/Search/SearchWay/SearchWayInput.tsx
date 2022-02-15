@@ -1,5 +1,6 @@
 import React, { HTMLProps, useRef } from 'react';
 import { WayStateT } from '../../../../redux/slices/searchWaySlice';
+import Input from '../../Common/Input';
 import InputWrapper from '../../Common/InputWrapper';
 import SearchWayFeedback from './SearchWayFeedback';
 import SearchWayTips from './SearchWayTips';
@@ -20,9 +21,8 @@ export default function SearchWayInput(props: SearchWayInputProps) {
 
     return (
         <InputWrapper cls='search-input-wrapper'>
-            <input
-                autoComplete='off'
-                ref={inputEl}
+            <Input
+                parentRef={inputEl}
                 placeholder={placeholder}
                 name={name}
                 value={wayState.value}
