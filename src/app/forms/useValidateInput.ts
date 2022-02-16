@@ -1,8 +1,8 @@
 import { useAppDispatch } from '../redux/reduxHooks';
 import errorMessages from '../components/lib/Search/errorMsg';
-import { setError } from '../redux/slices/searchWaySlice';
+import { SetErrorT } from '../types';
 
-const useValidateInput = () => {
+const useValidateInput = (setError: SetErrorT) => {
     const dispatch = useAppDispatch();
 
     return (input: HTMLInputElement) => {

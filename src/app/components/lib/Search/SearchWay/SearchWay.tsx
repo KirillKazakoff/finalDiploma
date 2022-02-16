@@ -8,6 +8,7 @@ import {
     setActive,
     setBlured,
     setWayStatus,
+    setError,
 } from '../../../../redux/slices/searchWaySlice';
 import { getCities } from '../../../../thunk/thunkApi';
 import { useAppDispatch } from '../../../../redux/reduxHooks';
@@ -17,6 +18,7 @@ import inputDelay from '../../inputDelay';
 import useChange from '../../../../forms/useChange';
 import useSelect from '../../../../forms/useSelect';
 import { OnChangeFieldT } from '../../../../forms/typesForms';
+import useValidateInput from '../../../../forms/useValidateInput';
 
 export default function SearchWay() {
     const dispatch = useAppDispatch();
@@ -25,6 +27,8 @@ export default function SearchWay() {
     const { onFocus, onBlur } = useSelect(setActive, setBlured);
 
     const delay = inputDelay();
+
+    const validate = useValidateInput(setError);
 
     const onChange: OnChangeFieldT = (e) => {
         const { value, name: inputName } = e.currentTarget;
@@ -43,15 +47,19 @@ export default function SearchWay() {
         <SearchFormRow>
             <SearchRowTitle>Направление</SearchRowTitle>
             <SearchWayFrom
-                onChange={onChange} onBlur={onBlur}
+                onChange={onChange}
+                onBlur={onBlur}
                 onFocus={onFocus}
+                validate={validate}
             />
 
             <SvgRefresh height={24} />
 
             <SearchWayTo
-                onChange={onChange} onBlur={onBlur}
+                onChange={onChange}
+                onBlur={onBlur}
                 onFocus={onFocus}
+                validate={validate}
             />
         </SearchFormRow>
     );

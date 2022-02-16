@@ -5,7 +5,9 @@ import { SearchWayProps } from '../../../../types';
 import { useAppSelector } from '../../../../redux/reduxHooks';
 
 export default function SearchWayFrom(props: SearchWayProps) {
-    const { onChange, onBlur, onFocus } = props;
+    const {
+        onChange, onBlur, onFocus, validate,
+    } = props;
     const wayFrom = useAppSelector((state) => state.searchWay.wayFrom);
 
     return (
@@ -16,6 +18,7 @@ export default function SearchWayFrom(props: SearchWayProps) {
             onFocus={onFocus}
             onBlur={onBlur}
             wayState={wayFrom}
+            validate={validate}
         >
             <SvgLocation height={32} />
         </SearchWayInput>

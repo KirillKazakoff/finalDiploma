@@ -1,22 +1,17 @@
 import React, { HTMLProps, useEffect } from 'react';
-import useValidateInput from '../../../forms/useValidateInput';
 
-type Props = HTMLProps<HTMLInputElement> & { parentRef: any; customValidate: any };
+type Props = HTMLProps<HTMLInputElement> & { parentRef: any; validate: any };
 
 export default function Input({
-    parentRef, value, customValidate, ...props
+    parentRef, value, validate, ...props
 }: Props) {
-    const validateInput = useValidateInput();
     const input = parentRef.current;
 
     useEffect(() => {
         if (!input) return;
-        if (customValidate) {
-            customValidate(input);
-        }
 
-        validateInput(input);
-    }, [value, customValidate]);
+        validate(input);
+    }, [value, validate]);
 
     return (
         <input
