@@ -26,9 +26,12 @@ export default function SearchWayInput(props: SearchWayInputProps) {
         validateCity(input, cityCheck);
     };
 
+    const validityCls = wayState.error ? 'invalid' : 'valid';
+
     return (
-        <InputWrapper cls='search-input-wrapper'>
+        <InputWrapper cls={`search-input-wrapper input-${validityCls}`}>
             <Input
+                className='search-input'
                 customValidate={customValidate}
                 parentRef={inputEl}
                 placeholder={placeholder}

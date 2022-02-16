@@ -292,9 +292,18 @@ body {
     border-radius: 3px;
 }
 
-/* .submitted:invalid {
-    background-color: red;
-} */
+.input-loader-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.submitted .input-valid {
+    border: 2px solid rgb(132, 238, 132);
+}
+
+.submitted .input-invalid {
+    border: 2px solid rgb(218, 86, 86);
+}
 
 .feedback {
     position: absolute;

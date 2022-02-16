@@ -21,5 +21,5 @@ export default function SearchWayFeedback({ wayState, input }: SearchWayProps) {
     }
     if (!wasFocused) return null;
 
-    return <Feedback input={input} />;
+    return <Feedback type='error' input={input} />;
 }
