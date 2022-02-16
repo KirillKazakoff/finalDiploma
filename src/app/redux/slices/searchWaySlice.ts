@@ -11,16 +11,16 @@ import {
     PayloadStatus,
 } from '../../types';
 
-export type WayStateT = InputState &
-SearchedCities & { isActive: boolean; status: Status; error: string };
+export type WayStateT = InputState & SearchedCities & { status: Status };
 
 const initialWayState: WayStateT = {
     value: '',
-    status: 'idle',
     error: '',
     isActive: false,
-    cities: [],
     wasFocused: false,
+
+    status: 'idle',
+    cities: [],
 };
 
 export type WaysStateT = {
@@ -41,17 +41,13 @@ export const searchWaySlice = createSlice({
     name: 'searchWay',
     initialState,
     reducers: {
-        setWayStatus: (state, action: PayloadAction<PayloadStatus>) => {
-            const { inputName, status } = action.payload;
-            state[inputName].status = status;
-        },
-        setCities: (state, action: PayloadAction<SetCitiesPayload>) => {
-            const { cities, inputName } = action.payload;
-            state[inputName].cities = cities;
-        },
-        changeInput: (state, action: PayloadAction<InputDefault>) => {
+        setInput: (state, action: PayloadAction<InputDefault>) => {
             const { name, value } = action.payload;
             state[name].value = value.trim().toLowerCase();
+        },
+        setError: (state, action: PayloadAction<PayloadError>) => {
+            const { name, error } = action.payload;
+            state[name].error = error;
         },
         setActive: (state, action: PayloadAction<PayloadFocus>) => {
             const { name, isActive } = action.payload;
@@ -63,15 +59,19 @@ export const searchWaySlice = createSlice({
 
             state[name].wasFocused = wasFocused;
         },
-        setError: (state, action: PayloadAction<PayloadError>) => {
-            const { name, error } = action.payload;
-            state[name].error = error;
+        setWayStatus: (state, action: PayloadAction<PayloadStatus>) => {
+            const { inputName, status } = action.payload;
+            state[inputName].status = status;
+        },
+        setCities: (state, action: PayloadAction<SetCitiesPayload>) => {
+            const { cities, inputName } = action.payload;
+            state[inputName].cities = cities;
         },
     },
 });
 
 export const {
-    setCities, setActive, setBlured, changeInput, setWayStatus, setError,
+    setCities, setActive, setBlured, setInput, setWayStatus, setError,
 } = searchWaySlice.actions;
 
 export const selectWayInputs = (state: RootState) => state.searchWay;

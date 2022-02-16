@@ -13,16 +13,22 @@ import type {
 } from '../../components/lib/DatePicker/utils/timeTypes';
 
 type DateStateT = {
-    dateTime: string;
     value: string;
+    error: string;
+    wasFocused: boolean;
     isPickerActive: boolean;
+
+    dateTime: string;
     activeDate: DateT | null;
     pickerState: PickerStateT | null;
 };
 
 const intialDateState: DateStateT = {
     value: '',
+    error: '',
     isPickerActive: false,
+    wasFocused: false,
+
     activeDate: null,
     dateTime: '',
     pickerState: null,
@@ -43,7 +49,7 @@ export const searchDateSlice = createSlice({
     name: 'searchDate',
     initialState,
     reducers: {
-        changeInput: (state, action: PayloadAction<InputDefault>) => {
+        setInput: (state, action: PayloadAction<InputDefault>) => {
             const { name, value } = action.payload;
             state[name].value = value.trim().toLowerCase();
         },
@@ -67,7 +73,7 @@ export const searchDateSlice = createSlice({
 
 export const {
     setActiveDate,
-    changeInput,
+    setInput,
     togglePickerActive,
     setDateTime,
     setPickerState,

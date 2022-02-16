@@ -5,7 +5,7 @@ import SearchFormRow from '../SearchFormRow';
 import SearchDateFrom from './SearchDateFrom';
 import SearchDateTo from './SearchDateTo';
 import useChange from '../../../../forms/useChange';
-import { changeInput, setDateTime } from '../../../../redux/slices/searchDateSlice';
+import { setInput, setDateTime } from '../../../../redux/slices/searchDateSlice';
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 
 export default function SearchDate() {
@@ -16,7 +16,8 @@ export default function SearchDate() {
         );
     }, []);
 
-    const onChange = useChange(changeInput);
+    const onChange = useChange(setInput);
+    // const validate = useValidateInput(setError);
 
     return (
         <SearchFormRow>

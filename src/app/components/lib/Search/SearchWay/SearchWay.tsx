@@ -4,7 +4,7 @@ import SearchRowTitle from '../SearchRowTitle';
 import SearchFormRow from '../SearchFormRow';
 import {
     setCities,
-    changeInput,
+    setInput,
     setActive,
     setBlured,
     setWayStatus,
@@ -23,12 +23,10 @@ import useValidateInput from '../../../../forms/useValidateInput';
 export default function SearchWay() {
     const dispatch = useAppDispatch();
 
-    const onChangeDispatch = useChange(changeInput);
+    const onChangeDispatch = useChange(setInput);
     const { onFocus, onBlur } = useSelect(setActive, setBlured);
-
-    const delay = inputDelay();
-
     const validate = useValidateInput(setError);
+    const delay = inputDelay();
 
     const onChange: OnChangeFieldT = (e) => {
         const { value, name: inputName } = e.currentTarget;

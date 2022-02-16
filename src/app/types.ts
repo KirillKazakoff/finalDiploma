@@ -8,8 +8,11 @@ export type InputDefault = {
     value: string;
 };
 
-export type InputState = Omit<InputDefault, 'name'> & {
+export type InputState = {
+    value: string;
     wasFocused: boolean;
+    error: string;
+    isActive: boolean;
 };
 
 export type PayloadFocus = {
