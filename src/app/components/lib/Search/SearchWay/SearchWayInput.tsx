@@ -23,13 +23,13 @@ export default function SearchWayInput(props: SearchWayInputProps) {
     const inputEl = useRef<HTMLInputElement>(null);
 
     const validateWay: ValidateInputT = (input) => {
-        console.log('validating');
         const cityCheck = wayState.cities[0]?.name;
         validateCity(input, cityCheck);
         validate(input);
     };
 
-    const validityCls = wayState.error ? 'invalid' : 'valid';
+    const { error, isFormError } = wayState;
+    const validityCls = error || !isFormError ? 'invalid' : 'valid';
 
     return (
         <InputWrapper cls={`search-input-wrapper input-${validityCls}`}>

@@ -292,12 +292,7 @@ body {
     border-radius: 3px;
 }
 
-.input-loader-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.submitted .input-valid {
+.submitted:valid .input-valid {
     border: 2px solid rgb(132, 238, 132);
 }
 

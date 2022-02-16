@@ -24,7 +24,6 @@ export default function SearchDateInput(props: Props) {
         <InputWrapper cls='date-input-wrapper'>
             {time ? <DatePicker time={time} name={name} /> : null}
             <input
-                required
                 autoComplete='off'
                 disabled={disabled}
                 placeholder='ДД/ММ/ГГ'

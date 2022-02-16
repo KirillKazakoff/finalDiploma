@@ -8,13 +8,6 @@ export type InputDefault = {
     value: string;
 };
 
-export type InputState = {
-    value: string;
-    wasFocused: boolean;
-    error: string;
-    isActive: boolean;
-};
-
 export type PayloadFocus = {
     name: string;
     isActive: boolean;
@@ -24,6 +17,11 @@ export type PayloadFocus = {
 export type PayloadError = {
     name: string;
     error: string;
+};
+
+export type PayloadIsFormError = {
+    name: string;
+    isFormError: boolean;
 };
 
 export type Status = 'idle' | 'loading' | 'loaded' | 'failed';

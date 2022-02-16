@@ -1,5 +1,5 @@
 import { useAppDispatch } from '../redux/reduxHooks';
-import errorMessages from '../components/lib/Search/errorMsg';
+import inputMessages from '../components/lib/Search/messages';
 import { SetErrorT } from '../types';
 
 const useValidateInput = (setError: SetErrorT) => {
@@ -24,7 +24,7 @@ const useValidateInput = (setError: SetErrorT) => {
             }
         }
 
-        let errMsg = errorMessages[input.name][error as string];
+        let errMsg = inputMessages[input.name][error as string];
         if (errMsg === 'customError') errMsg = input.validationMessage;
 
         dispatch(setError({ name: input.name, error: errMsg as string }));

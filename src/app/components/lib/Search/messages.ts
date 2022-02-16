@@ -5,11 +5,11 @@ type Validation = {
     patternMismatch?: string | undefined;
 };
 
-type ErrorMessages = {
+type InputMessages = {
     [key: string]: Validation;
 };
 
-const errorMessages: ErrorMessages = {
+const inputMessages: InputMessages = {
     wayTo: {
         valueMissing: 'Введите город, откуда вы собираетесь отправиться',
         customError: 'Такого города нет в базе данных',
@@ -20,4 +20,10 @@ const errorMessages: ErrorMessages = {
     },
 };
 
-export default errorMessages;
+export const searchMessages = {
+    sameCities: 'Введите разные города',
+    loading: 'Города еще не загрузились, подождите',
+    success: 'Успех',
+};
+
+export default inputMessages;

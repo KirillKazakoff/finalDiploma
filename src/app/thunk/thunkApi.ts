@@ -9,7 +9,7 @@ export const getCities: GetCitiesT = (inputName, name) => async (dispatch) => {
     const setStatus = (status: Status) => setWayStatus({ inputName, status });
     dispatch(setStatus('loading'));
 
-    const url = getCitiesUrl(name);
+    const url = getCitiesUrl(name.trim());
 
     const reqObj = { url, settings: undefined };
     const res = await dispatch(request(reqObj, setStatus));

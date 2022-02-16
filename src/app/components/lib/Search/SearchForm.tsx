@@ -1,7 +1,6 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../../redux/reduxHooks';
 import { setFormValidated, selectFormState } from '../../../redux/slices/searchFormSlice';
-import FormFeedback from '../Common/FormFeedback';
 import SearchFormFeedback from './SearchFormFeedback';
 
 type SearchFormProps = { cls?: string; children: React.ReactNode };

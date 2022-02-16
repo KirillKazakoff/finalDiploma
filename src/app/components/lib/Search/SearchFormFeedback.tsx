@@ -1,30 +1,48 @@
 import React, { useEffect } from 'react';
 import FormFeedback from '../Common/FormFeedback';
 import { useAppSelector, useAppDispatch } from '../../../redux/reduxHooks';
-import { setFormMsg, setFormStatus } from '../../../redux/slices/searchFormSlice';
+import { searchMessages } from './messages';
+import {
+    FormStatusT,
+    setFormMsg,
+    setFormStatus,
+} from '../../../redux/slices/searchFormSlice';
+import { setFormError } from '../../../redux/slices/searchWaySlice';
 
 export default function SearchFormFeedback() {
     const dispatch = useAppDispatch();
     const { wayFrom, wayTo } = useAppSelector((state) => state.searchWay);
+    const { sameCities, loading, success } = searchMessages;
 
     useEffect(() => {
-        if (wayFrom.value === wayTo.value) {
-            dispatch(setFormMsg('Введите разные города'));
-            dispatch(setFormStatus('error'));
-        } else if (wayFrom.status === 'loading' || wayTo.status === 'loading') {
-            dispatch(setFormMsg('Города еще не загрузились, подождите пожалуйста'));
-            dispatch(setFormStatus('error'));
-        } else if (wayFrom.error) {
-            dispatch(setFormMsg(wayFrom.error));
-            dispatch(setFormStatus('error'));
-        } else if (wayTo.error) {
-            dispatch(setFormMsg(wayTo.error));
-            dispatch(setFormStatus('error'));
-        } else {
-            dispatch(setFormMsg('Успех'));
-            dispatch(setFormStatus('success'));
+        let msg = success;
+        let status: FormStatusT = 'success';
+
+        if (wayFrom.error) {
+            msg = wayFrom.error;
         }
-    }, [wayFrom, wayTo]);
+        if (wayTo.error) {
+            msg = wayTo.error;
+        }
+        if (wayFrom.status === 'loading' || wayTo.status === 'loading') {
+            msg = loading;
+        }
+        if (wayFrom.value === wayTo.value) {
+            dispatch(setFormError({ name: 'wayFrom', isFormError: false }));
+            dispatch(setFormError({ name: 'wayTo', isFormError: false }));
+            msg = sameCities;
+        } else {
+            dispatch(setFormError({ name: 'wayFrom', isFormError: true }));
+            dispatch(setFormError({ name: 'wayTo', isFormError: true }));
+        }
+
+        if (msg !== success) {
+            status = 'error';
+        }
+
+        dispatch(setFormMsg(msg));
+        dispatch(setFormStatus(status));
+    }, [wayFrom.error, wayTo.error, wayFrom.status, wayTo.status]);
 
     return <FormFeedback />;
 }

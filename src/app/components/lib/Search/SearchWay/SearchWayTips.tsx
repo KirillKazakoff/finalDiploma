@@ -17,15 +17,14 @@ export default function SearchWayTips(props: Props) {
     const dispatch = useAppDispatch();
 
     const onClick = (name: string) => () => {
-        if (input) {
-            if (input.value === name && cities[0]) {
-                dispatch(setCities({ inputName: input.name, cities }));
-                return;
-            }
+        if (!input) return;
 
-            input.value = name;
-            dispatch(setInput({ name: input.name, value: input.value }));
-        }
+        input.value = name;
+        const selectedCity = cities.find((city) => city.name === name);
+        if (!selectedCity) return;
+
+        dispatch(setCities({ inputName: input.name, cities: [selectedCity] }));
+        dispatch(setInput({ name: input.name, value: input.value }));
     };
 
     const citiesHtml = cities.map((city) => (
