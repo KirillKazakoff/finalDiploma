@@ -13,7 +13,9 @@ import useSameCity from './useSameCity';
 export default function SearchFormFeedback() {
     const dispatch = useAppDispatch();
     const { wayFrom, wayTo } = useAppSelector((state) => state.searchWay);
-    const { sameCities, loading, success } = searchMessages;
+    const {
+        sameCities, loading, success, emptyForm,
+    } = searchMessages;
     const setSameError = useSameCity(setFormError);
 
     useEffect(() => {
@@ -34,6 +36,10 @@ export default function SearchFormFeedback() {
             msg = sameCities;
         } else {
             setSameError(false);
+        }
+
+        if (!wayFrom.value && !wayTo.value) {
+            msg = emptyForm;
         }
 
         if (msg !== success) {

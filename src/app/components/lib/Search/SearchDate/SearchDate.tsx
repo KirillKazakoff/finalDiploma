@@ -20,7 +20,7 @@ export default function SearchDate() {
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(
-            setDateTime({ name: 'dateTo', dateTime: DateTime.now().toFormat('dd/LL/yy') })
+            setDateTime({ name: 'dateTo', dateTime: DateTime.now().toFormat('dd/LL/yy') }),
         );
     }, []);
 
@@ -31,11 +31,21 @@ export default function SearchDate() {
     return (
         <SearchFormRow>
             <SearchRowTitle>Дата</SearchRowTitle>
-            <SearchDateTo validate={validate} onChange={onChange} />
+            <SearchDateTo
+                validate={validate}
+                onChange={onChange}
+                onBlur={onBlur}
+                onFocus={onFocus}
+            />
 
-            <span className="space25" />
+            <span className='space25' />
 
-            <SearchDateFrom validate={validate} onChange={onChange} />
+            <SearchDateFrom
+                validate={validate}
+                onChange={onChange}
+                onBlur={onBlur}
+                onFocus={onFocus}
+            />
         </SearchFormRow>
     );
 }

@@ -7,7 +7,9 @@ import {
 import SvgCrossMark from '../Svg/Actions/SvgCrossMark';
 import { useAppDispatch, useAppSelector } from '../../../redux/reduxHooks';
 
-export default function FormFeedback() {
+type Props = { states: any[] };
+
+export default function FormFeedback({ states }) {
     const { msg, status, isValidated } = useAppSelector(selectFormState);
 
     const dispatch = useAppDispatch();

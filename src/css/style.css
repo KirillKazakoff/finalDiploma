@@ -301,7 +301,7 @@ body {
     border-radius: 3px;
 }
 
-.submitted:valid .input-valid {
+.submitted .input-valid {
     border: 2px solid rgb(132, 238, 132);
 }
 

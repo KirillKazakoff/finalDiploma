@@ -20,9 +20,16 @@ const inputMessages: InputMessages = {
         noCity: 'такого города нет в базе данных',
         patternMismatch: 'Введите без знаков препинания',
     },
+    dateTo: {
+        valueMissing: 'Введите дату (туда)',
+    },
+    dateFrom: {
+        valueMissing: 'Введите дату (обратно)',
+    },
 };
 
 export const searchMessages = {
+    emptyForm: 'Введите города',
     sameCities: 'Введите разные города',
     loading: 'Города еще не загрузились, подождите',
     success: 'Успех',

@@ -3,7 +3,7 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import { nanoid } from 'nanoid';
 import React from 'react';
-import { OnDayClickT } from '../../../../types';
+import { OnDayClickT } from '../../../../types/types';
 import { DateT } from '../utils/timeTypes';
 import isEqualDate from '../utils/isEqualDate';
 
