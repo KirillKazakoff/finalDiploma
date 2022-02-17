@@ -12,11 +12,13 @@ type InputMessages = {
 const inputMessages: InputMessages = {
     wayTo: {
         valueMissing: 'Введите город, откуда вы собираетесь отправиться',
-        customError: 'Такого города нет в базе данных',
+        noCity: 'такого города нет в базе данных',
+        patternMismatch: 'Введите без знаков препинания',
     },
     wayFrom: {
         valueMissing: 'Введите город, в который вы собираетесь отправиться',
-        customError: 'Такого города нет в базе данных',
+        noCity: 'такого города нет в базе данных',
+        patternMismatch: 'Введите без знаков препинания',
     },
 };
 

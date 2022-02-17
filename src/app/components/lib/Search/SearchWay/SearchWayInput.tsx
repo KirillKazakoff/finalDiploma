@@ -29,7 +29,7 @@ export default function SearchWayInput(props: SearchWayInputProps) {
     };
 
     const { error, isFormError } = wayState;
-    const validityCls = error || !isFormError ? 'invalid' : 'valid';
+    const validityCls = error || isFormError ? 'invalid' : 'valid';
 
     return (
         <InputWrapper cls={`search-input-wrapper input-${validityCls}`}>

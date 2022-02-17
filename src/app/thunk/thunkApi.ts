@@ -9,7 +9,8 @@ export const getCities: GetCitiesT = (inputName, name) => async (dispatch) => {
     const setStatus = (status: Status) => setWayStatus({ inputName, status });
     dispatch(setStatus('loading'));
 
-    const url = getCitiesUrl(name.trim());
+    console.log(name);
+    const url = getCitiesUrl(name);
 
     const reqObj = { url, settings: undefined };
     const res = await dispatch(request(reqObj, setStatus));
@@ -18,6 +19,7 @@ export const getCities: GetCitiesT = (inputName, name) => async (dispatch) => {
     if (!res) return false;
 
     const resData = await res.json();
+    console.log(resData);
     if (resData.error) return false;
     // here
 

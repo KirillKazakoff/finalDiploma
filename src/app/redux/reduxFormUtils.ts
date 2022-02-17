@@ -23,7 +23,7 @@ export const initialInput: InputState = {
 export const inputReducers = {
     setInput: (state: any, action: PayloadAction<InputDefault>) => {
         const { name, value } = action.payload;
-        state[name].value = value.toLowerCase().trim();
+        state[name].value = value.toLowerCase();
     },
     setError: (state: any, action: PayloadAction<PayloadError>) => {
         const { name, error } = action.payload;

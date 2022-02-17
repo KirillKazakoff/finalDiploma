@@ -24,8 +24,8 @@ const useValidateInput = (setError: SetErrorT) => {
             }
         }
 
-        let errMsg = inputMessages[input.name][error as string];
-        if (errMsg === 'customError') errMsg = input.validationMessage;
+        if (error === 'customError') error = input.validationMessage;
+        const errMsg = inputMessages[input.name][error as string];
 
         dispatch(setError({ name: input.name, error: errMsg as string }));
     };

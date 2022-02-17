@@ -41,6 +41,8 @@ export type InputRefT = React.RefObject<HTMLInputElement>;
 
 export type SetStatusT = ActionCreatorWithPayload<Status, string>;
 export type SetErrorT = ActionCreatorWithPayload<PayloadError>;
+export type SetFormErrorT = ActionCreatorWithPayload<PayloadIsFormError>;
+
 export type OnChangeNewT = (inputEl: InputRefT, setStatus: SetStatusT) => OnChangeFieldT;
 
 export type ValidateInputT = (input: HTMLInputElement) => void;

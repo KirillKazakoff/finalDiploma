@@ -8,11 +8,13 @@ import {
     setFormStatus,
 } from '../../../redux/slices/searchFormSlice';
 import { setFormError } from '../../../redux/slices/searchWaySlice';
+import useSameCity from './useSameCity';
 
 export default function SearchFormFeedback() {
     const dispatch = useAppDispatch();
     const { wayFrom, wayTo } = useAppSelector((state) => state.searchWay);
     const { sameCities, loading, success } = searchMessages;
+    const setSameError = useSameCity(setFormError);
 
     useEffect(() => {
         let msg = success;
@@ -28,12 +30,10 @@ export default function SearchFormFeedback() {
             msg = loading;
         }
         if (wayFrom.value === wayTo.value) {
-            dispatch(setFormError({ name: 'wayFrom', isFormError: false }));
-            dispatch(setFormError({ name: 'wayTo', isFormError: false }));
+            setSameError(true);
             msg = sameCities;
         } else {
-            dispatch(setFormError({ name: 'wayFrom', isFormError: true }));
-            dispatch(setFormError({ name: 'wayTo', isFormError: true }));
+            setSameError(false);
         }
 
         if (msg !== success) {

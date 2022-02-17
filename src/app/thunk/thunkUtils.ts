@@ -1,6 +1,7 @@
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { Status } from '../types';
 import { AppThunk } from '../redux/store';
+import trimCity from '../components/lib/Search/SearchWay/trimCity';
 
 const baseUrl = 'https://fe-diplom.herokuapp.com';
 
