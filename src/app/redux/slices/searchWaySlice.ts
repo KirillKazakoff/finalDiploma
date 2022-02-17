@@ -4,11 +4,13 @@ import type { RootState } from '../store';
 import { SearchedCities, Status, PayloadStatus } from '../../types';
 import { initialInput, inputReducers, InputState } from '../reduxFormUtils';
 
-export type WayStateT = InputState & SearchedCities & { status: Status };
+export type WayStateT = InputState &
+SearchedCities & { status: Status; isTipsActive: boolean };
 
 const initialWayState: WayStateT = {
     ...initialInput,
     status: 'idle',
+    isTipsActive: false,
     cities: [],
 };
 
@@ -25,6 +27,7 @@ const initialState: WaysStateT = {
 };
 
 type SetCitiesPayload = SearchedCities & { inputName: string };
+type SetTipsActivePayload = { name: string; isTipsActive: false };
 
 export const searchWaySlice = createSlice({
     name: 'searchWay',
@@ -39,6 +42,10 @@ export const searchWaySlice = createSlice({
             const { cities, inputName } = action.payload;
             state[inputName].cities = cities;
         },
+        setTipsActive: (state, action: PayloadAction<SetTipsActivePayload>) => {
+            const { name, isTipsActive } = action.payload;
+            state[name].isTipsActive = isTipsActive;
+        },
     },
 });
 
@@ -50,6 +57,7 @@ export const {
     setWayStatus,
     setError,
     setFormError,
+    setTipsActive,
 } = searchWaySlice.actions;
 
 export const selectWayInputs = (state: RootState) => state.searchWay;

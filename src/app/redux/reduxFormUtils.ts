@@ -1,8 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { PayloadAction } from '@reduxjs/toolkit';
-import {
-    InputDefault, PayloadError, PayloadFocus, PayloadIsFormError,
-} from '../types';
+import { PayloadError, PayloadFocus, PayloadIsFormError } from '../types';
+import { InputDefaultT } from '../forms/typesForms';
 
 export type InputState = {
     value: string;
@@ -21,7 +20,7 @@ export const initialInput: InputState = {
 };
 
 export const inputReducers = {
-    setInput: (state: any, action: PayloadAction<InputDefault>) => {
+    setInput: (state: any, action: PayloadAction<InputDefaultT>) => {
         const { name, value } = action.payload;
         state[name].value = value.toLowerCase();
     },
@@ -36,6 +35,10 @@ export const inputReducers = {
     setActive: (state: any, action: PayloadAction<PayloadFocus>) => {
         const { name, isActive } = action.payload;
         state[name].isActive = isActive;
+    },
+    toggleActive: (state: any, action: PayloadAction<string>) => {
+        const name = action.payload;
+        state[name].isActive = !state[name].isActive;
     },
     setBlured: (state: any, action: PayloadAction<PayloadFocus>) => {
         const { name, wasFocused } = action.payload;

@@ -1,12 +1,8 @@
 import React from 'react';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import type { OnChangeFieldT } from './forms/typesForms';
-import { DateT, DaysT, PickerStateT } from './components/lib/DatePicker/utils/timeTypes';
+import { DateT, PickerStateT } from './components/lib/DatePicker/utils/timeTypes';
 // InputState
-export type InputDefault = {
-    name: string;
-    value: string;
-};
 
 export type PayloadFocus = {
     name: string;
@@ -36,6 +32,7 @@ export type SearchedCities = { cities: SearchedCity[]; error?: string };
 
 export type OnChangeT = (e: React.ChangeEvent<HTMLInputElement>) => void;
 export type OnFocusT = (e: React.FocusEvent<HTMLInputElement>) => void;
+export type OnBlurWayT = (isTipsActive: boolean) => OnFocusT;
 
 export type InputRefT = React.RefObject<HTMLInputElement>;
 

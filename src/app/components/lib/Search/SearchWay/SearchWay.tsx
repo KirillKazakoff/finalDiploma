@@ -19,6 +19,7 @@ import useChange from '../../../../forms/useChange';
 import useSelect from '../../../../forms/useSelect';
 import { OnChangeFieldT } from '../../../../forms/typesForms';
 import useValidateInput from '../../../../forms/useValidateInput';
+import { OnBlurWayT } from '../../../../types';
 
 export default function SearchWay() {
     const dispatch = useAppDispatch();
@@ -39,6 +40,10 @@ export default function SearchWay() {
         }
 
         onChangeDispatch(e);
+    };
+
+    const onBlurWay: OnBlurWayT = (isTipsActive) => (e) => {
+        if (!isTipsActive) onBlur(e);
     };
 
     return (

@@ -37,5 +37,9 @@ export default function SearchWayTips(props: Props) {
     ));
 
     if (cities.length === 0 || !isActive) return null;
-    return <ul className='search-way-tips'>{citiesHtml}</ul>;
+    return (
+        <ul className='search-way-tips' onBlur={() => console.log('blured')}>
+            {citiesHtml}
+        </ul>
+    );
 }

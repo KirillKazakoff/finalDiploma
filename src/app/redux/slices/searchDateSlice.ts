@@ -1,33 +1,21 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {
-    InputDefault,
-    PayloadActiveDay,
-    PayloadDateTime,
-    PayloadPickerState,
-} from '../../types';
+import { PayloadActiveDay, PayloadDateTime, PayloadPickerState } from '../../types';
 
 import type {
     DateT,
     PickerStateT,
 } from '../../components/lib/DatePicker/utils/timeTypes';
+import { InputState, initialInput, inputReducers } from '../reduxFormUtils';
 
-type DateStateT = {
-    value: string;
-    error: string;
-    wasFocused: boolean;
-    isPickerActive: boolean;
-
+type DateStateT = InputState & {
     dateTime: string;
     activeDate: DateT | null;
     pickerState: PickerStateT | null;
 };
 
 const intialDateState: DateStateT = {
-    value: '',
-    error: '',
-    isPickerActive: false,
-    wasFocused: false,
+    ...initialInput,
 
     activeDate: null,
     dateTime: '',
@@ -49,10 +37,7 @@ export const searchDateSlice = createSlice({
     name: 'searchDate',
     initialState,
     reducers: {
-        setInput: (state, action: PayloadAction<InputDefault>) => {
-            const { name, value } = action.payload;
-            state[name].value = value.trim().toLowerCase();
-        },
+        ...inputReducers,
         setDateTime: (state, action: PayloadAction<PayloadDateTime>) => {
             const { name, dateTime } = action.payload;
             state[name].dateTime = dateTime;
@@ -65,18 +50,11 @@ export const searchDateSlice = createSlice({
             const { name, date } = action.payload;
             state[name].activeDate = date;
         },
-        togglePickerActive: (state, action: PayloadAction<string>) => {
-            state[action.payload].isPickerActive = !state[action.payload].isPickerActive;
-        },
     },
 });
 
 export const {
-    setActiveDate,
-    setInput,
-    togglePickerActive,
-    setDateTime,
-    setPickerState,
+    setActiveDate, setInput, toggleActive, setDateTime, setPickerState,
 } = searchDateSlice.actions;
 
 export default searchDateSlice.reducer;
