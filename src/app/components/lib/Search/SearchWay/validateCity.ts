@@ -1,7 +1,7 @@
 export default function validateCity(inputEl: HTMLInputElement, stateCity: string) {
     const { value } = inputEl;
 
-    const isPatternValid = /^[а-я][а-я-]+[а-я]$/.test(value);
+    const isPatternValid = /[а-я]*[-]?[а-я]*[а-я]$/.test(value);
 
     let customValidity = '';
 
@@ -9,7 +9,7 @@ export default function validateCity(inputEl: HTMLInputElement, stateCity: strin
         customValidity = 'noCity';
     }
     if (!isPatternValid) {
-        customValidity = 'patternMismatch';
+        customValidity = '';
     }
 
     inputEl.setCustomValidity(customValidity);

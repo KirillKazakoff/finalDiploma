@@ -58,7 +58,14 @@ export const searchDateSlice = createSlice({
 });
 
 export const {
-    setActiveDate, setInput, toggleActive, setDateTime, setPickerState,
+    setActiveDate,
+    setInput,
+    toggleActive,
+    setActive,
+    setDateTime,
+    setPickerState,
+    setError,
+    setBlured,
 } = searchDateSlice.actions;
 
 export default searchDateSlice.reducer;

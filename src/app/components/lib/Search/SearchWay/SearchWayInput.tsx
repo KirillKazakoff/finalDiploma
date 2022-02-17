@@ -31,6 +31,7 @@ export default function SearchWayInput(props: SearchWayInputProps) {
                 inputRef={inputEl}
             />
             <Input
+                pattern='[а-я]*[-]?[а-я]*[а-я]$'
                 validate={validateWay}
                 className='search-input'
                 parentRef={inputEl}

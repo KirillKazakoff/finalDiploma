@@ -5,9 +5,16 @@ import SearchFormRow from '../SearchFormRow';
 import SearchDateFrom from './SearchDateFrom';
 import SearchDateTo from './SearchDateTo';
 import useChange from '../../../../form/useChange';
-import { setInput, setDateTime } from '../../../../redux/slices/searchDateSlice';
+import {
+    setInput,
+    setDateTime,
+    setError,
+    setActive,
+    setBlured,
+} from '../../../../redux/slices/searchDateSlice';
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 import useValidateInput from '../../../../form/useValidateInput';
+import useSelect from '../../../../form/useSelect';
 
 export default function SearchDate() {
     const dispatch = useAppDispatch();
@@ -18,16 +25,17 @@ export default function SearchDate() {
     }, []);
 
     const onChange = useChange(setInput);
-    // const validate = useValidateInput();
+    const { onBlur, onFocus } = useSelect(setActive, setBlured);
+    const validate = useValidateInput(setError);
 
     return (
         <SearchFormRow>
             <SearchRowTitle>Дата</SearchRowTitle>
-            <SearchDateTo onChange={onChange} />
+            <SearchDateTo validate={validate} onChange={onChange} />
 
             <span className="space25" />
 
-            <SearchDateFrom onChange={onChange} />
+            <SearchDateFrom validate={validate} onChange={onChange} />
         </SearchFormRow>
     );
 }

@@ -4,9 +4,17 @@ import SearchDateInput from './SearchDateInput';
 import { useTime } from '../../DatePicker/utils/useTime';
 import { SearchDateDir } from '../../../../types/typesSearch';
 
-export default function SearchDateFrom({ onChange }: SearchDateDir) {
+export default function SearchDateFrom(props: SearchDateDir) {
+    const { onChange, validate, onFocus, onBlur } = props;
     const name = 'dateFrom';
     const timeObj = useTime(name);
 
-    return <SearchDateInput time={timeObj} name={name} onChange={onChange} />;
+    return (
+        <SearchDateInput
+            time={timeObj}
+            name={name}
+            onChange={onChange}
+            validate={validate}
+        />
+    );
 }
