@@ -3,7 +3,11 @@ import React, { HTMLProps, useEffect } from 'react';
 type Props = HTMLProps<HTMLInputElement> & { parentRef: any; validate: any };
 
 export default function Input({
-    parentRef, value, validate, ...props
+    parentRef,
+    value,
+    validate,
+    className,
+    ...props
 }: Props) {
     const input = parentRef.current;
 
@@ -15,7 +19,9 @@ export default function Input({
 
     return (
         <input
-            autoComplete='off' ref={parentRef}
+            autoComplete='off'
+            ref={parentRef}
+            className={`input ${className}`}
             {...props}
         />
     );

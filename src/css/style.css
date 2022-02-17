@@ -249,19 +249,27 @@ body {
     margin-bottom: 15px;
 }
 
-/* !changed! */
 .search-row-title-small {
     padding-left: 0;
+}
+
+.search-input {
+    padding: 15px 0 15px 20px;
+    align-self: stretch;
+}
+
+.input::placeholder {
+    color: var(--secondary-lighter);
 }
 
 .input-wrapper {
     color: var(--black);
     display: flex;
     align-items: center;
-    padding: 15px 20px;
+    padding-right: 20px;
     background: #ffffff;
     border-radius: 3px;
-    flex-grow: 1;
+    flex: 1;
 }
 
 .search-input-wrapper {
@@ -314,14 +322,6 @@ body {
 
 .search-way-tip .input-wrapper-small {
     padding: 10px 15px;
-}
-
-.input {
-    width: 100%;
-}
-
-.input::placeholder {
-    color: var(--secondary-lighter);
 }
 
 .search-tickets-btn {
