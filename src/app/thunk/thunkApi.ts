@@ -1,12 +1,12 @@
 import { setCities, setWayStatus } from '../redux/slices/searchWaySlice';
 import { AppThunk } from '../redux/store';
+import { FetchStatusT } from '../types/typesPayload';
 import { getCitiesUrl, request } from './thunkUtils';
-import { Status } from '../types';
 
 type GetCitiesT = (inputName: string, name: string) => AppThunk;
 
-export const getCities: GetCitiesT = (inputName, name) => async (dispatch) => {
-    const setStatus = (status: Status) => setWayStatus({ inputName, status });
+export const fetchCities: GetCitiesT = (inputName, name) => async (dispatch) => {
+    const setStatus = (status: FetchStatusT) => setWayStatus({ inputName, status });
     dispatch(setStatus('loading'));
 
     console.log(name);

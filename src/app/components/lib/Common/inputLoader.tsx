@@ -1,7 +1,4 @@
 import React from 'react';
-import { Status } from '../../../types';
-
-type Props = { status: Status };
 
 export default function InputLoader() {
     return (

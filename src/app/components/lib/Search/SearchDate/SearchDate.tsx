@@ -4,16 +4,16 @@ import SearchRowTitle from '../SearchRowTitle';
 import SearchFormRow from '../SearchFormRow';
 import SearchDateFrom from './SearchDateFrom';
 import SearchDateTo from './SearchDateTo';
-import useChange from '../../../../forms/useChange';
+import useChange from '../../../../form/useChange';
 import { setInput, setDateTime } from '../../../../redux/slices/searchDateSlice';
 import { useAppDispatch } from '../../../../redux/reduxHooks';
-import useValidateInput from '../../../../forms/useValidateInput';
+import useValidateInput from '../../../../form/useValidateInput';
 
 export default function SearchDate() {
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(
-            setDateTime({ name: 'dateTo', dateTime: DateTime.now().toFormat('dd/LL/yy') }),
+            setDateTime({ name: 'dateTo', dateTime: DateTime.now().toFormat('dd/LL/yy') })
         );
     }, []);
 
@@ -25,7 +25,7 @@ export default function SearchDate() {
             <SearchRowTitle>Дата</SearchRowTitle>
             <SearchDateTo onChange={onChange} />
 
-            <span className='space25' />
+            <span className="space25" />
 
             <SearchDateFrom onChange={onChange} />
         </SearchFormRow>

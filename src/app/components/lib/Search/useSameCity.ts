@@ -1,5 +1,5 @@
 import { useAppDispatch } from '../../../redux/reduxHooks';
-import { SetFormErrorT } from '../../../types';
+import { SetFormErrorT } from '../../../types/typesPayload';
 
 const useSameCity = (setFormError: SetFormErrorT) => {
     const dispatch = useAppDispatch();

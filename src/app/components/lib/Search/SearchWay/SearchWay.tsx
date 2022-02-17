@@ -10,16 +10,15 @@ import {
     setWayStatus,
     setError,
 } from '../../../../redux/slices/searchWaySlice';
-import { getCities } from '../../../../thunk/thunkApi';
+import { fetchCities } from '../../../../thunk/thunkApi';
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 import SearchWayFrom from './SearchWayFrom';
 import SearchWayTo from './SearchWayTo';
-import inputDelay from '../../inputDelay';
-import useChange from '../../../../forms/useChange';
-import useSelect from '../../../../forms/useSelect';
-import { OnChangeFieldT } from '../../../../forms/typesForms';
-import useValidateInput from '../../../../forms/useValidateInput';
-import { OnBlurWayT } from '../../../../types';
+import inputDelay from '../../../../form/inputDelay';
+import useChange from '../../../../form/useChange';
+import useSelect from '../../../../form/useSelect';
+import { OnChangeT } from '../../../../types/typesForms';
+import useValidateInput from '../../../../form/useValidateInput';
 
 export default function SearchWay() {
     const dispatch = useAppDispatch();
@@ -29,21 +28,17 @@ export default function SearchWay() {
     const validate = useValidateInput(setError);
     const delay = inputDelay();
 
-    const onChange: OnChangeFieldT = (e) => {
+    const onChange: OnChangeT = (e) => {
         const { value, name: inputName } = e.currentTarget;
 
         if (!value) {
             dispatch(setCities({ cities: [], inputName }));
         } else {
             dispatch(setWayStatus({ inputName, status: 'loading' }));
-            delay(() => dispatch(getCities(inputName, value)));
+            delay(() => dispatch(fetchCities(inputName, value)));
         }
 
         onChangeDispatch(e);
-    };
-
-    const onBlurWay: OnBlurWayT = (isTipsActive) => (e) => {
-        if (!isTipsActive) onBlur(e);
     };
 
     return (

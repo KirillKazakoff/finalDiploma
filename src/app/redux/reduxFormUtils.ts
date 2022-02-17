@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { PayloadAction } from '@reduxjs/toolkit';
-import { PayloadError, PayloadFocus, PayloadIsFormError } from '../types';
-import { InputDefaultT } from '../forms/typesForms';
+import { PayloadError, PayloadFocus, PayloadIsFormError } from '../types/typesPayload';
+import { InputDefaultT } from '../types/typesForms';
 
 export type InputState = {
     value: string;

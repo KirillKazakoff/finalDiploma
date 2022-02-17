@@ -1,5 +1,5 @@
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
-import { Status } from '../types';
+import { FetchStatusT } from '../types/typesPayload';
 import { AppThunk } from '../redux/store';
 
 const baseUrl = 'https://fe-diplom.herokuapp.com';
@@ -17,7 +17,7 @@ export type RequestObj = {
 
 type RequestType = (
     reqObj: RequestObj,
-    // setStatus: ActionCreatorWithPayload<Status, string>
+    // setStatus: ActionCreatorWithPayload<FetchStatusT, string>
     setStatus: any
 ) => AppThunk<Promise<false | Response>>;
 

@@ -6,13 +6,13 @@ import DatePicker from '../../DatePicker/DatePicker';
 import DatePickerIcon from '../../DatePicker/DatePickerIcon';
 import { TimeObjT } from '../../DatePicker/utils/useTime';
 
-import { OnChangeFieldT } from '../../../../forms/typesForms';
+import { OnChangeT } from '../../../../types/typesForms';
 import { useAppSelector } from '../../../../redux/reduxHooks';
 
 type Props = {
     time: TimeObjT | null;
     name: string;
-    onChange: OnChangeFieldT;
+    onChange: OnChangeT;
 };
 
 export default function SearchDateInput(props: Props) {
@@ -21,12 +21,12 @@ export default function SearchDateInput(props: Props) {
     const value = useAppSelector((state) => state.searchDate[name].value);
 
     return (
-        <InputWrapper cls='date-input-wrapper'>
+        <InputWrapper cls="date-input-wrapper">
             {time ? <DatePicker time={time} name={name} /> : null}
             <input
-                autoComplete='off'
+                autoComplete="off"
                 disabled={disabled}
-                placeholder='ДД/ММ/ГГ'
+                placeholder="ДД/ММ/ГГ"
                 name={name}
                 value={value}
                 onChange={onChange}

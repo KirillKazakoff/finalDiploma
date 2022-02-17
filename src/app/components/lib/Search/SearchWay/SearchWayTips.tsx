@@ -2,9 +2,11 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
-import { SearchedCities, InputRefT } from '../../../../types';
+
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 import { setInput, setCities } from '../../../../redux/slices/searchWaySlice';
+import { InputRefT } from '../../../../types/typesForms';
+import { SearchedCities } from '../../../../types/typesSearch';
 
 type Props = SearchedCities & {
     inputRef: InputRefT;

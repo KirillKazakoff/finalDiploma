@@ -1,8 +1,9 @@
 import React from 'react';
 import SvgLocation from '../../Svg/SvgLocation';
 import SearchWayInput from './SearchWayInput';
-import { SearchWayProps } from '../../../../types';
+
 import { useAppSelector } from '../../../../redux/reduxHooks';
+import { SearchWayProps } from '../../../../types/typesSearch';
 
 export default function SearchWayFrom(props: SearchWayProps) {
     const {

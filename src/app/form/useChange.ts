@@ -1,4 +1,4 @@
-import { UseChangeT } from './typesForms';
+import { UseChangeT } from '../types/typesForms';
 import { useAppDispatch } from '../redux/reduxHooks';
 
 const useChange: UseChangeT = (changeInput) => {

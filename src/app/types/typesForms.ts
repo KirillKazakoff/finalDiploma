@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
-import { OnFocusT, PayloadFocus } from '../types';
+import type { PayloadFocus } from './typesPayload';
 
 export type InputDefaultT = {
     name: string;
@@ -8,12 +8,13 @@ export type InputDefaultT = {
 };
 
 export type OnSubmitFormT = (e: React.FormEvent<HTMLFormElement>) => void;
-export type OnChangeFieldT = (e: React.FormEvent<HTMLInputElement>) => void;
-export type OnBlurFieldT = (e: React.FocusEvent<HTMLInputElement>) => void;
+export type OnChangeT = (e: React.FormEvent<HTMLInputElement>) => void;
+export type OnFocusT = (e: React.FocusEvent<HTMLInputElement>) => void;
+export type InputRefT = React.RefObject<HTMLInputElement>;
 
 export type UseChangeT = (
     changeInput: ActionCreatorWithPayload<InputDefaultT>
-) => OnChangeFieldT;
+) => OnChangeT;
 
 export type UseSelectT = (
     setActive: ActionCreatorWithPayload<PayloadFocus>,
@@ -22,3 +23,6 @@ export type UseSelectT = (
     onFocus: OnFocusT;
     onBlur: OnFocusT;
 };
+
+export type ValidateInputT = (input: HTMLInputElement) => void;
+export type ValidateWayT = (input: HTMLInputElement, cityCheck: string) => void;

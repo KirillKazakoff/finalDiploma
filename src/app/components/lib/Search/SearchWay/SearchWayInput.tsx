@@ -1,19 +1,11 @@
-import React, { HTMLProps, useRef } from 'react';
-import { WayStateT } from '../../../../redux/slices/searchWaySlice';
+import React, { useRef } from 'react';
+import { ValidateInputT } from '../../../../types/typesForms';
+import { SearchWayInputProps } from '../../../../types/typesSearch';
 import Input from '../../Common/Input';
 import InputWrapper from '../../Common/InputWrapper';
 import SearchWayFeedback from './SearchWayFeedback';
 import SearchWayTips from './SearchWayTips';
 import validateCity from './validateCity';
-import { ValidateInputT } from '../../../../types';
-
-export type SearchWayInputProps = {
-    children: React.ReactNode;
-    wayState: WayStateT;
-    onChange: any;
-    validate: ValidateInputT;
-    name: string;
-} & HTMLProps<HTMLInputElement>;
 
 export default function SearchWayInput(props: SearchWayInputProps) {
     const {
@@ -33,6 +25,11 @@ export default function SearchWayInput(props: SearchWayInputProps) {
 
     return (
         <InputWrapper cls={`search-input-wrapper input-${validityCls}`}>
+            <SearchWayTips
+                cities={wayState.cities}
+                isActive={wayState.isActive}
+                inputRef={inputEl}
+            />
             <Input
                 validate={validateWay}
                 className='search-input'
@@ -44,11 +41,6 @@ export default function SearchWayInput(props: SearchWayInputProps) {
                 onFocus={onFocus}
                 onBlur={onBlur}
                 required
-            />
-            <SearchWayTips
-                cities={wayState.cities}
-                isActive={wayState.isActive}
-                inputRef={inputEl}
             />
             <SearchWayFeedback wayState={wayState} input={inputEl.current} />
             {wayState.isActive ? null : children}
