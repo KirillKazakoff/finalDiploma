@@ -1,7 +1,5 @@
-import React, { useRef } from 'react';
-import { ValidateInputT } from '../../../../types/typesForms';
+import React, { useRef, useEffect } from 'react';
 import { SearchWayInputProps } from '../../../../types/typesSearch';
-import Input from '../../Common/Input';
 import InputWrapper from '../../Common/InputWrapper';
 import SearchWayFeedback from './SearchWayFeedback';
 import SearchWayTips from './SearchWayTips';
@@ -14,11 +12,14 @@ export default function SearchWayInput(props: SearchWayInputProps) {
 
     const inputEl = useRef<HTMLInputElement>(null);
 
-    const validateWay: ValidateInputT = (input) => {
+    useEffect(() => {
+        if (!inputEl.current) return;
+
+        const input = inputEl.current;
         const cityCheck = wayState.cities[0]?.name;
         validateCity(input, cityCheck);
         validate(input);
-    };
+    }, [wayState.cities]);
 
     const { error, isFormError } = wayState;
     const validityCls = error || isFormError ? 'invalid' : 'valid';
@@ -30,11 +31,11 @@ export default function SearchWayInput(props: SearchWayInputProps) {
                 isActive={wayState.isActive}
                 inputRef={inputEl}
             />
-            <Input
+            <input
+                ref={inputEl}
+                autoComplete='off'
                 pattern='[а-я]*[-]?[а-я]*[а-я]$'
-                validate={validateWay}
-                className='search-input'
-                parentRef={inputEl}
+                className='input search-input'
                 placeholder={placeholder}
                 name={name}
                 value={wayState.value}

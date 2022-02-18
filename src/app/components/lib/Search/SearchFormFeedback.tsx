@@ -19,6 +19,10 @@ export default function SearchFormFeedback() {
     const setSameError = useSameCity(setFormError);
 
     useEffect(() => {
+        console.log(wayFrom.isFormError);
+        console.log(wayTo.isFormError);
+        console.log(wayFrom.error);
+        console.log(wayTo.error);
         let msg = success;
         let status: FormStatusT = 'success';
 

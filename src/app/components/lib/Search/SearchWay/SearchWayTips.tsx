@@ -21,12 +21,12 @@ export default function SearchWayTips(props: Props) {
     const onClick = (name: string) => () => {
         if (!input) return;
 
-        input.value = name;
+        // input.value = name;
         const selectedCity = cities.find((city) => city.name === name);
         if (!selectedCity) return;
 
         dispatch(setCities({ inputName: input.name, cities: [selectedCity] }));
-        dispatch(setInput({ name: input.name, value: input.value }));
+        dispatch(setInput({ name: input.name, value: name }));
     };
 
     const citiesHtml = cities.map((city) => (

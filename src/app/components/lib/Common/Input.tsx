@@ -15,7 +15,8 @@ export default function Input({
         if (!input) return;
 
         validate(input);
-    }, [value, validate]);
+        console.log(input.name);
+    }, [validate]);
 
     return (
         <input

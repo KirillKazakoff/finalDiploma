@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from '../../../redux/reduxHooks';
 
 type Props = { states: any[] };
 
-export default function FormFeedback({ states }) {
+export default function FormFeedback() {
     const { msg, status, isValidated } = useAppSelector(selectFormState);
 
     const dispatch = useAppDispatch();
