@@ -1,24 +1,19 @@
 import { FetchStatusT } from '../../../../types/typesPayload';
 
-type ValidateCity = (
+type ValidateCityT = (
     inputEl: HTMLInputElement,
     stateCity: string,
     status: FetchStatusT
 ) => void;
 
-const validateCity = (inputEl: HTMLInputElement, stateCity: string) => {
+const validateCity: ValidateCityT = (inputEl, stateCity, status) => {
     const { value, validity } = inputEl;
-
-    // const isPatternValid = /[а-я]*[-]?[а-я]*[а-я]$/.test(value);
 
     let customValidity = '';
 
-    if (value && stateCity !== value.trim() && validity.valid) {
+    if (value && stateCity !== value.trim() && validity.valid && status === 'loaded') {
         customValidity = 'noCity';
     }
-    // if (!isPatternValid) {
-    //     customValidity = '';
-    // }
 
     inputEl.setCustomValidity(customValidity);
 };

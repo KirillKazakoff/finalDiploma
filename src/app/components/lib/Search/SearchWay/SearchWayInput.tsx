@@ -11,18 +11,17 @@ export default function SearchWayInput(props: SearchWayInputProps) {
     } = props;
 
     const inputEl = useRef<HTMLInputElement>(null);
+    const { error, isFormError, status } = wayState;
+    const validityCls = error || isFormError ? 'invalid' : 'valid';
 
     useEffect(() => {
         if (!inputEl.current) return;
 
         const input = inputEl.current;
         const cityCheck = wayState.cities[0]?.name;
-        validateCity(input, cityCheck);
+        validateCity(input, cityCheck, status);
         validate(input);
-    }, [wayState.cities, wayState.value]);
-
-    const { error, isFormError } = wayState;
-    const validityCls = error || isFormError ? 'invalid' : 'valid';
+    }, [wayState.value, status]);
 
     return (
         <InputWrapper cls={`search-input-wrapper input-${validityCls}`}>
