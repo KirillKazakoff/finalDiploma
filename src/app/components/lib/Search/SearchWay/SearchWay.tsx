@@ -17,7 +17,7 @@ import SearchWayTo from './SearchWayTo';
 import inputDelay from '../../../../form/inputDelay';
 import useChange from '../../../../form/useChange';
 import useSelect from '../../../../form/useSelect';
-import { OnChangeT } from '../../../../types/typesForms';
+import { OnChangeFetchT } from '../../../../types/typesForms';
 import useValidateInput from '../../../../form/useValidateInput';
 import useAbortFetch from './useAbort';
 
@@ -30,7 +30,7 @@ export default function SearchWay() {
     const delay = inputDelay();
     const checkCityMatch = useAbortFetch();
 
-    const onChange: OnChangeT = (aborter) => (e) => {
+    const onChange: OnChangeFetchT = (aborter) => (e) => {
         const { value, name: inputName } = e.currentTarget;
 
         if (!value) {

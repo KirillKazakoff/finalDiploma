@@ -15,9 +15,9 @@ export default function SearchWayFeedback({ wayState, input }: SearchWayProps) {
 
     if (!input) return null;
 
-    if (cities.some((city) => city.name === input.value.trim())) {
-        return null;
-    }
+    // if (cities.some((city) => city.name === input.value.trim())) {
+    //     return null;
+    // }
     if (status === 'loading' && !error) {
         return <InputLoader />;
     }

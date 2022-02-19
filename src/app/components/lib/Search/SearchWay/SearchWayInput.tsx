@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { SearchWayInputProps } from '../../../../types/typesSearch';
 import InputWrapper from '../../Common/InputWrapper';
-import getValidityCls from './getValidityCls';
+import { getWayValidityCls } from './getValidityCls';
 import SearchWayFeedback from './SearchWayFeedback';
 import SearchWayTips from './SearchWayTips';
 import validateCity from './validateCity';
@@ -10,7 +10,7 @@ export default function SearchWayInput(props: SearchWayInputProps) {
     const {
         onFocus,
         onBlur,
-        onChange: onChangeMy,
+        onChange,
         wayState,
         children,
         placeholder,
@@ -21,9 +21,8 @@ export default function SearchWayInput(props: SearchWayInputProps) {
 
     const inputEl = useRef<HTMLInputElement>(null);
     const { status } = wayState;
-    const validityCls = getValidityCls(wayState);
+    const validityCls = getWayValidityCls(wayState);
     const aborter = new AbortController();
-    const onChange = onChangeMy(aborter);
 
     useEffect(() => {
         if (!inputEl.current) return;
@@ -51,7 +50,7 @@ export default function SearchWayInput(props: SearchWayInputProps) {
                 placeholder={placeholder}
                 name={name}
                 value={wayState.value}
-                onChange={onChange}
+                onChange={onChange(aborter)}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 required

@@ -9,6 +9,7 @@ export type InputDefaultT = {
 
 export type OnSubmitFormT = (e: React.FormEvent<HTMLFormElement>) => void;
 export type OnChangeT = (e: React.FormEvent<HTMLInputElement>) => void;
+export type OnChangeFetchT = (aborter: AbortController) => OnChangeT;
 export type OnFocusT = (e: React.FocusEvent<HTMLInputElement>) => void;
 export type InputRefT = React.RefObject<HTMLInputElement>;
 

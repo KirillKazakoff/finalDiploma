@@ -34,5 +34,6 @@ export const searchFormSlice = createSlice({
 
 export const { setFormValidated, setFormMsg, setFormStatus } = searchFormSlice.actions;
 export const selectFormState = (state: RootState) => state.searchForm;
+export const selectFormStatus = (state: RootState) => state.searchForm.isValidated;
 
 export default searchFormSlice.reducer;

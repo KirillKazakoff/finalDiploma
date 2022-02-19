@@ -26,7 +26,7 @@ export default function SearchFormFeedback() {
     if (wayFrom.status === 'loading' || wayTo.status === 'loading') {
         msg = loading;
     }
-    if (wayFrom.value === wayTo.value) {
+    if (wayFrom.value === wayTo.value && wayFrom.value && wayTo.value) {
         msg = sameCities;
     }
 
