@@ -8,18 +8,30 @@ import validateCity from './validateCity';
 
 export default function SearchWayInput(props: SearchWayInputProps) {
     const {
-        onFocus, onBlur, onChange, wayState, children, placeholder, name, validate,
+        onFocus,
+        onBlur,
+        onChange: onChangeMy,
+        wayState,
+        children,
+        placeholder,
+        name,
+        validate,
+        checkCityMatch,
     } = props;
 
     const inputEl = useRef<HTMLInputElement>(null);
     const { status } = wayState;
     const validityCls = getValidityCls(wayState);
+    const aborter = new AbortController();
+    const onChange = onChangeMy(aborter);
 
     useEffect(() => {
         if (!inputEl.current) return;
 
         const input = inputEl.current;
         const cityCheck = wayState.cities[0]?.name;
+
+        checkCityMatch(input, wayState.cities, aborter);
         validateCity(input, cityCheck, status);
         validate(input);
     }, [wayState.value, status]);

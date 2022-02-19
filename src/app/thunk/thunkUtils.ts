@@ -19,7 +19,7 @@ type RequestType = (
     reqObj: RequestObj,
     // setStatus: ActionCreatorWithPayload<FetchStatusT, string>
     setStatus: any
-) => AppThunk<Promise<false | Response>>;
+) => AppThunk<Promise<false | Response | 'aborted'>>;
 
 export const request: RequestType = (reqObj, setStatus) => async (dispatch) => {
     await timeoutMock();
@@ -29,6 +29,9 @@ export const request: RequestType = (reqObj, setStatus) => async (dispatch) => {
         if (!res.ok) throw new Error(res.statusText);
         return res;
     } catch (e) {
+        if (e.name === 'AbortError') {
+            return 'aborted';
+        }
         dispatch(setStatus('failed'));
         return false;
     }

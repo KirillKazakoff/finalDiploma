@@ -7,12 +7,13 @@ import { SearchWayProps } from '../../../../types/typesSearch';
 
 export default function SearchWayTo(props: SearchWayProps) {
     const {
-        onChange, onBlur, onFocus, validate,
+        onChange, onBlur, onFocus, validate, checkCityMatch,
     } = props;
     const wayTo = useAppSelector((state) => state.searchWay.wayTo);
 
     return (
         <SearchWayInput
+            checkCityMatch={checkCityMatch}
             validate={validate}
             placeholder='Куда'
             name='wayTo'

@@ -3,20 +3,21 @@ import { AppThunk } from '../redux/store';
 import { FetchStatusT } from '../types/typesPayload';
 import { getCitiesUrl, request } from './thunkUtils';
 
-type GetCitiesT = (inputName: string, name: string) => AppThunk;
+type GetCitiesT = (inputName: string, name: string, signal: AbortSignal) => AppThunk;
 
-export const fetchCities: GetCitiesT = (inputName, name) => async (dispatch) => {
+export const fetchCities: GetCitiesT = (inputName, name, signal) => async (dispatch) => {
     const setStatus = (status: FetchStatusT) => setWayStatus({ inputName, status });
     dispatch(setStatus('loading'));
 
     console.log(name);
     const url = getCitiesUrl(name);
 
-    const reqObj = { url, settings: undefined };
+    const reqObj = { url, settings: { signal } };
     const res = await dispatch(request(reqObj, setStatus));
 
     // add check error response block.
     if (!res) return false;
+    if (res === 'aborted') return false;
 
     const resData = await res.json();
     console.log(resData);

@@ -19,6 +19,7 @@ import useChange from '../../../../form/useChange';
 import useSelect from '../../../../form/useSelect';
 import { OnChangeT } from '../../../../types/typesForms';
 import useValidateInput from '../../../../form/useValidateInput';
+import useAbortFetch from './useAbort';
 
 export default function SearchWay() {
     const dispatch = useAppDispatch();
@@ -27,15 +28,16 @@ export default function SearchWay() {
     const { onFocus, onBlur } = useSelect(setActive, setBlured);
     const validate = useValidateInput(setError);
     const delay = inputDelay();
+    const checkCityMatch = useAbortFetch();
 
-    const onChange: OnChangeT = (e) => {
+    const onChange: OnChangeT = (aborter) => (e) => {
         const { value, name: inputName } = e.currentTarget;
 
         if (!value) {
             dispatch(setCities({ cities: [], inputName }));
         } else {
             dispatch(setWayStatus({ inputName, status: 'loading' }));
-            delay(() => dispatch(fetchCities(inputName, value)));
+            delay(() => dispatch(fetchCities(inputName, value, aborter.signal)));
         }
 
         onChangeDispatch(e);
@@ -45,6 +47,7 @@ export default function SearchWay() {
         <SearchFormRow>
             <SearchRowTitle>Направление</SearchRowTitle>
             <SearchWayFrom
+                checkCityMatch={checkCityMatch}
                 onChange={onChange}
                 onBlur={onBlur}
                 onFocus={onFocus}
@@ -54,6 +57,7 @@ export default function SearchWay() {
             <SvgRefresh height={24} />
 
             <SearchWayTo
+                checkCityMatch={checkCityMatch}
                 onChange={onChange}
                 onBlur={onBlur}
                 onFocus={onFocus}
