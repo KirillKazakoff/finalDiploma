@@ -14,7 +14,7 @@ export type InputState = {
 export const initialInput: InputState = {
     value: '',
     error: '',
-    isFormError: true,
+    isFormError: false,
     isActive: false,
     wasFocused: false,
 };

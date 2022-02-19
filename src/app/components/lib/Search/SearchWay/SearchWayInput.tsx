@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { SearchWayInputProps } from '../../../../types/typesSearch';
 import InputWrapper from '../../Common/InputWrapper';
+import getValidityCls from './getValidityCls';
 import SearchWayFeedback from './SearchWayFeedback';
 import SearchWayTips from './SearchWayTips';
 import validateCity from './validateCity';
@@ -11,8 +12,8 @@ export default function SearchWayInput(props: SearchWayInputProps) {
     } = props;
 
     const inputEl = useRef<HTMLInputElement>(null);
-    const { error, isFormError, status } = wayState;
-    const validityCls = error || isFormError ? 'invalid' : 'valid';
+    const { status } = wayState;
+    const validityCls = getValidityCls(wayState);
 
     useEffect(() => {
         if (!inputEl.current) return;

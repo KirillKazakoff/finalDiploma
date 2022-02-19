@@ -1,25 +1,28 @@
 import React from 'react';
-import {
-    selectFormState,
-    setFormStatus,
-    setFormValidated,
-} from '../../../redux/slices/searchFormSlice';
+import { selectFormState, setFormValidated } from '../../../redux/slices/searchFormSlice';
 import SvgCrossMark from '../Svg/Actions/SvgCrossMark';
 import { useAppDispatch, useAppSelector } from '../../../redux/reduxHooks';
 
-type Props = { states: any[] };
+type Props = { errors: string[]; msg: string };
 
-export default function FormFeedback() {
-    const { msg, status, isValidated } = useAppSelector(selectFormState);
-
+export default function FormFeedback({ errors, msg }: Props) {
     const dispatch = useAppDispatch();
+    let feedback = msg;
+
+    if (feedback === 'Успех') {
+        errors.forEach((error) => {
+            if (error) feedback = error;
+        });
+    }
+
+    const status = feedback === 'Успех' ? 'success' : 'error';
     const className = `form-feedback form-feedback-${status}`;
 
     const onClick = () => {
-        dispatch(setFormStatus('idle'));
         dispatch(setFormValidated(false));
     };
 
+    const { isValidated } = useAppSelector(selectFormState);
     if (!isValidated) return null;
 
     return (
@@ -31,7 +34,9 @@ export default function FormFeedback() {
             >
                 <SvgCrossMark filter='filter-error' />
             </button>
-            <span className='form-feedback-desc form-feedback-desc-error'>{msg}</span>
+            <span className='form-feedback-desc form-feedback-desc-error'>
+                {feedback}
+            </span>
         </div>
     );
 }
