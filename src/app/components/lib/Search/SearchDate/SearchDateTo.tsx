@@ -4,12 +4,7 @@ import SearchDateInput from './SearchDateInput';
 import { useTime } from '../../DatePicker/utils/useTime';
 import { SearchDateDir } from '../../../../types/typesSearch';
 
-export default function SearchDateTo({
-    onChange,
-    validate,
-    onBlur,
-    onFocus,
-}: SearchDateDir) {
+export default function SearchDateTo({ onChange, onBlur, onFocus }: SearchDateDir) {
     const name = 'dateTo';
     const timeObj = useTime(name);
 
@@ -20,7 +15,6 @@ export default function SearchDateTo({
             onChange={onChange}
             onBlur={onBlur}
             onFocus={onFocus}
-            validate={validate}
         />
     );
 }

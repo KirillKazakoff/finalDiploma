@@ -12,9 +12,11 @@ import {
     setActive,
     setBlured,
 } from '../../../../redux/slices/searchDateSlice';
+
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 import useValidateInput from '../../../../form/useValidateInput';
 import useSelect from '../../../../form/useSelect';
+import { OnChangeT } from '../../../../types/typesForms';
 
 export default function SearchDate() {
     const dispatch = useAppDispatch();
@@ -24,26 +26,26 @@ export default function SearchDate() {
         );
     }, []);
 
-    const onChange = useChange(setInput);
-    const { onBlur, onFocus } = useSelect(setActive, setBlured);
+    const onChangeDispatch = useChange(setInput);
     const validate = useValidateInput(setError);
+    const onChange: OnChangeT = (e) => {
+        onChangeDispatch(e);
+        validate(e.currentTarget);
+    };
+    const { onBlur, onFocus } = useSelect(setActive, setBlured);
 
     return (
         <SearchFormRow>
             <SearchRowTitle>Дата</SearchRowTitle>
             <SearchDateTo
-                validate={validate}
-                onChange={onChange}
-                onBlur={onBlur}
+                onChange={onChange} onBlur={onBlur}
                 onFocus={onFocus}
             />
 
             <span className='space25' />
 
             <SearchDateFrom
-                validate={validate}
-                onChange={onChange}
-                onBlur={onBlur}
+                onChange={onChange} onBlur={onBlur}
                 onFocus={onFocus}
             />
         </SearchFormRow>

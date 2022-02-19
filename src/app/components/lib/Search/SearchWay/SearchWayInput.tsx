@@ -19,7 +19,7 @@ export default function SearchWayInput(props: SearchWayInputProps) {
         const cityCheck = wayState.cities[0]?.name;
         validateCity(input, cityCheck);
         validate(input);
-    }, [wayState.cities]);
+    }, [wayState.cities, wayState.value]);
 
     const { error, isFormError } = wayState;
     const validityCls = error || isFormError ? 'invalid' : 'valid';

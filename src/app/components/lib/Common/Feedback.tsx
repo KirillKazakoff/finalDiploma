@@ -1,11 +1,9 @@
 import React from 'react';
-import { useAppSelector } from '../../../redux/reduxHooks';
 
-type FeedbackProps = { input: HTMLInputElement; type: string };
+type FeedbackProps = { type: string; error: string; wasFocused: boolean };
 
-export default function Feedback({ input, type }: FeedbackProps) {
-    const error = useAppSelector((state) => state.searchWay[input.name].error);
+export default function Feedback({ type, error, wasFocused }: FeedbackProps) {
+    if (!error || !wasFocused) return null;
 
-    if (!error) return null;
     return <div className={`feedback feedback-${type}`}>{error}</div>;
 }

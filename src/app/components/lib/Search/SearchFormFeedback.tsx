@@ -13,16 +13,18 @@ import useSameCity from './useSameCity';
 export default function SearchFormFeedback() {
     const dispatch = useAppDispatch();
     const { wayFrom, wayTo } = useAppSelector((state) => state.searchWay);
+    const { dateFrom, dateTo } = useAppSelector((state) => state.searchDate);
+
     const {
         sameCities, loading, success, emptyForm,
     } = searchMessages;
     const setSameError = useSameCity(setFormError);
 
     useEffect(() => {
-        console.log(wayFrom.isFormError);
-        console.log(wayTo.isFormError);
-        console.log(wayFrom.error);
-        console.log(wayTo.error);
+        console.log(dateFrom.isFormError);
+        console.log(dateTo.isFormError);
+        console.log(dateFrom.error);
+        console.log(dateTo.error);
         let msg = success;
         let status: FormStatusT = 'success';
 

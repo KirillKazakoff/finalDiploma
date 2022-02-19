@@ -1,40 +1,41 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import InputWrapper from '../../Common/InputWrapper';
 import DatePicker from '../../DatePicker/DatePicker';
 import DatePickerIcon from '../../DatePicker/DatePickerIcon';
 
 import { useAppSelector } from '../../../../redux/reduxHooks';
 import { SearchDateInputProps } from '../../../../types/typesSearch';
-import Input from '../../Common/Input';
+import Feedback from '../../Common/Feedback';
 
 export default function SearchDateInput(props: SearchDateInputProps) {
     const {
-        time, name, onChange, onFocus, onBlur, validate,
+        time, name, onChange, onFocus, onBlur,
     } = props;
 
     const disabled = !time;
-    const value = useAppSelector((state) => state.searchDate[name].value);
-    console.log(value);
-
-    const inputEl = useRef<HTMLInputElement>(null);
+    const dateState = useAppSelector((state) => state.searchDate[name]);
 
     return (
         <InputWrapper cls='search-input-wrapper'>
             {time ? <DatePicker time={time} name={name} /> : null}
-            <Input
-                parentRef={inputEl}
-                validate={validate}
+            <input
                 className='search-input'
                 disabled={disabled}
                 placeholder='ДД/ММ/ГГ'
                 name={name}
-                value={value}
+                value={dateState.value}
                 onChange={onChange}
                 onFocus={onFocus}
                 onBlur={onBlur}
+                pattern='[0-9]{2}\/[0-9]{2}\/[0-9]{2}'
                 required
             />
             <DatePickerIcon name={name} />
+            <Feedback
+                type='error'
+                error={dateState.error}
+                wasFocused={dateState.wasFocused}
+            />
         </InputWrapper>
     );
 }

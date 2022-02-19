@@ -22,9 +22,11 @@ const inputMessages: InputMessages = {
     },
     dateTo: {
         valueMissing: 'Введите дату (туда)',
+        patternMismatch: 'Введите дату в формате ДД/ММ/ГГ цифрами',
     },
     dateFrom: {
         valueMissing: 'Введите дату (обратно)',
+        patternMismatch: 'Введите дату в формате ДД/ММ/ГГ цифрами',
     },
 };
 

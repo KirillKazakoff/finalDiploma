@@ -5,7 +5,7 @@ import { useTime } from '../../DatePicker/utils/useTime';
 import { SearchDateDir } from '../../../../types/typesSearch';
 
 export default function SearchDateFrom(props: SearchDateDir) {
-    const { onChange, validate, onFocus, onBlur } = props;
+    const { onChange, onFocus, onBlur } = props;
     const name = 'dateFrom';
     const timeObj = useTime(name);
 
@@ -14,7 +14,8 @@ export default function SearchDateFrom(props: SearchDateDir) {
             time={timeObj}
             name={name}
             onChange={onChange}
-            validate={validate}
+            onFocus={onFocus}
+            onBlur={onBlur}
         />
     );
 }

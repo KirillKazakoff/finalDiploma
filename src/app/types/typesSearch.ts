@@ -20,7 +20,6 @@ export type SearchWayInputProps = {
 export type SearchDateInputProps = {
     time: TimeObjT | null;
     name: string;
-    validate: ValidateInputT;
 } & HTMLProps<HTMLInputElement>;
 
-export type SearchDateDir = { validate: ValidateInputT } & HTMLProps<HTMLInputElement>;
+export type SearchDateDir = HTMLProps<HTMLInputElement>;

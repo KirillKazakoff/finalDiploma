@@ -4,7 +4,6 @@ import {
     PayloadActiveDay,
     PayloadDateTime,
     PayloadPickerState,
-    PayloadFocus,
 } from '../../types/typesPayload';
 
 import type {
