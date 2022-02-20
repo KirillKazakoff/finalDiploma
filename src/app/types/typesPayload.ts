@@ -48,3 +48,4 @@ export type PayloadPickerState = {
 export type SetStatusT = ActionCreatorWithPayload<FetchStatusT, string>;
 export type SetErrorT = ActionCreatorWithPayload<PayloadError>;
 export type SetFormErrorT = ActionCreatorWithPayload<PayloadIsFormError>;
+export type SetFormMsgHidden = ActionCreatorWithPayload<boolean>;

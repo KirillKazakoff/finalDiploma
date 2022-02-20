@@ -2,11 +2,17 @@ import React, { HTMLProps } from 'react';
 import type { TimeObjT } from '../components/lib/DatePicker/utils/useTime';
 import type { CheckCityMatchT } from '../components/lib/Search/SearchWay/useAbort';
 import type { WayStateT } from '../redux/slices/searchWaySlice';
-import type { ValidateInputT } from './typesForms';
-import { OnChangeFetchT } from './typesForms';
+import type { ValidateInputT, OnChangeFetchT } from './typesForms';
+import type { SetFormMsgHiddenT } from './typesPayload';
 
 export type SearchedCity = { _id: string; name: string };
 export type SearchedCities = { cities: SearchedCity[]; error?: string };
+
+export type SearchFormProps = {
+    cls?: string;
+    children: React.ReactNode;
+    setFormMsgHidden: SetFormMsgHiddenT;
+};
 
 export type SearchWayProps = {
     onChange: OnChangeFetchT;
