@@ -1,17 +1,19 @@
 import { DateTime } from 'luxon';
 
-export default function validateCity(inputEl: HTMLInputElement) {
+export default function validateDate(inputEl: HTMLInputElement) {
     const { value } = inputEl;
 
     const dateTime = DateTime.fromFormat(value, 'dd/LL/yy');
     const dateTimeNow = DateTime.now();
 
+    let customValidity = '';
+
     if (!dateTime.isValid) {
-        inputEl.setCustomValidity('неверный формат, введите в формате 10/10/10');
+        customValidity = 'patternMismatch';
     }
     if (dateTime.toMillis() < dateTimeNow.toMillis()) {
-        inputEl.setCustomValidity('вы пытаетесь ввести прошлую дату');
-    } else {
-        inputEl.setCustomValidity('');
+        customValidity = 'pastDate';
     }
+
+    inputEl.setCustomValidity(customValidity);
 }

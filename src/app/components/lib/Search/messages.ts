@@ -23,16 +23,18 @@ const inputMessages: InputMessages = {
     dateTo: {
         valueMissing: 'Введите дату (туда)',
         patternMismatch: 'Введите дату в формате ДД/ММ/ГГ цифрами',
+        pastDate: 'Вы пытаетесь ввести прошедшую дату',
     },
     dateFrom: {
         valueMissing: 'Введите дату (обратно)',
         patternMismatch: 'Введите дату в формате ДД/ММ/ГГ цифрами',
+        pastDate: 'Вы пытаетесь ввести прошедшую дату',
     },
 };
 
 export const searchMessages = {
-    emptyForm: 'Введите города',
     sameCities: 'Введите разные города',
+    dateMismatch: 'Дата начала путешествия позже даты возвращения',
     loading: 'Города еще не загрузились, подождите',
     success: 'Успех',
 };

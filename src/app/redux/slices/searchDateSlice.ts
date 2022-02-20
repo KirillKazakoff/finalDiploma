@@ -12,7 +12,7 @@ import type {
 } from '../../components/lib/DatePicker/utils/timeTypes';
 import { InputState, initialInput, inputReducers } from '../reduxFormUtils';
 
-type DateStateT = InputState & {
+export type DateStateT = InputState & {
     dateTime: string;
     activeDate: DateT | null;
     pickerState: PickerStateT | null;
@@ -73,6 +73,7 @@ export const {
     setPickerState,
     setError,
     setBlured,
+    setFormError,
 } = searchDateSlice.actions;
 
 export default searchDateSlice.reducer;

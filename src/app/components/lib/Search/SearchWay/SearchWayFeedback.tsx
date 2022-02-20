@@ -9,15 +9,10 @@ type SearchWayProps = {
 };
 
 export default function SearchWayFeedback({ wayState, input }: SearchWayProps) {
-    const {
-        wasFocused, cities, status, error,
-    } = wayState;
+    const { wasFocused, status, error } = wayState;
 
     if (!input) return null;
 
-    // if (cities.some((city) => city.name === input.value.trim())) {
-    //     return null;
-    // }
     if (status === 'loading' && !error) {
         return <InputLoader />;
     }

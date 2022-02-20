@@ -8,6 +8,7 @@ import { useAppSelector } from '../../../../redux/reduxHooks';
 import { SearchDateInputProps } from '../../../../types/typesSearch';
 import Feedback from '../../Common/Feedback';
 import { getValidityCls } from '../SearchWay/getValidityCls';
+import validateDate from './validateDate';
 
 export default function SearchDateInput(props: SearchDateInputProps) {
     const {
@@ -23,6 +24,7 @@ export default function SearchDateInput(props: SearchDateInputProps) {
         if (!inputEl.current) return;
         const input = inputEl.current;
 
+        validateDate(input);
         validate(input);
     }, [dateState.value]);
 
@@ -39,7 +41,6 @@ export default function SearchDateInput(props: SearchDateInputProps) {
                 onChange={onChange}
                 onFocus={onFocus}
                 onBlur={onBlur}
-                pattern='[0-9]{2}\/[0-9]{2}\/[0-9]{2}'
                 required
             />
             <DatePickerIcon name={name} />
