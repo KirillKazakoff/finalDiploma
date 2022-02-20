@@ -18,7 +18,7 @@ export default function FormFeedback({ errors, msg, children }: Props) {
     const className = `form-feedback form-feedback-${status}`;
 
     const { isMsgHidden } = useAppSelector(selectFormState);
-    if (isMsgHidden) return null;
+    if (isMsgHidden) return <div className='form-feedback'>{children}</div>;
 
     return (
         <div className={className}>

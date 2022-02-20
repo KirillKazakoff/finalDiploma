@@ -10,7 +10,6 @@ export default function SearchFormMain() {
         <SearchForm>
             <SearchWay />
             <SearchDate />
-
             <SearchFormFeedback>
                 <SearchFormBtn>Найти билеты</SearchFormBtn>
             </SearchFormFeedback>

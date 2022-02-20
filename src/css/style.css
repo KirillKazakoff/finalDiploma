@@ -180,6 +180,7 @@ body {
 
 /* form-feedback */
 .form-feedback {
+    margin-top: 30px;
     display: flex;
     align-items: center;
     /* position: absolute; */
@@ -338,7 +339,6 @@ body {
 }
 
 .search-tickets-btn {
-    margin-top: 30px;
     font-weight: 700;
     width: 47%;
     margin-left: auto;
