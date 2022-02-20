@@ -294,12 +294,13 @@ body {
 }
 
 .search-way-tips {
+    z-index: 10;
     display: flex;
     flex-direction: column;
 
     position: absolute;
-    left: 0;
-    right: 0;
+    left: -2px;
+    right: -2px;
     top: 110%;
     min-height: 100%;
 
@@ -312,6 +313,14 @@ body {
     padding: 20px;
     flex: 1;
     border-radius: 3px;
+}
+
+.search-way-tip:hover {
+    background-color: #ffca62;
+}
+
+.search-way-tip .input-wrapper-small {
+    padding: 10px 15px;
 }
 
 .submitted .input-valid {
@@ -328,14 +337,6 @@ body {
     right: 0;
     width: 200px;
     background-color: var(--bg-main);
-}
-
-.search-way-tip:hover {
-    background-color: #ffca62;
-}
-
-.search-way-tip .input-wrapper-small {
-    padding: 10px 15px;
 }
 
 .search-tickets-btn {
