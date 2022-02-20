@@ -36,6 +36,7 @@ export default function SearchDateInput(props: SearchDateInputProps) {
                 className='search-input'
                 disabled={disabled}
                 placeholder='ДД/ММ/ГГ'
+                autoComplete='off'
                 name={name}
                 value={dateState.value}
                 onChange={onChange}

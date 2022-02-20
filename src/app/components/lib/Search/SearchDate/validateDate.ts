@@ -4,7 +4,7 @@ export default function validateDate(inputEl: HTMLInputElement) {
     const { value } = inputEl;
 
     const dateTime = DateTime.fromFormat(value, 'dd/LL/yy');
-    const dateTimeNow = DateTime.now();
+    const dateTimeNow = DateTime.now().startOf('day');
 
     let customValidity = '';
 

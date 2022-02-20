@@ -1,5 +1,4 @@
 import React from 'react';
-import SvgRefresh from '../../Svg/SvgRefresh';
 import SearchRowTitle from '../SearchRowTitle';
 import SearchFormRow from '../SearchFormRow';
 import {
@@ -20,6 +19,7 @@ import useSelect from '../../../../form/useSelect';
 import { OnChangeFetchT } from '../../../../types/typesForms';
 import useValidateInput from '../../../../form/useValidateInput';
 import useAbortFetch from './useAbort';
+import SearchWayUno from './SearchWayUno';
 
 export default function SearchWay() {
     const dispatch = useAppDispatch();
@@ -54,7 +54,7 @@ export default function SearchWay() {
                 validate={validate}
             />
 
-            <SvgRefresh height={24} />
+            <SearchWayUno />
 
             <SearchWayTo
                 checkCityMatch={checkCityMatch}

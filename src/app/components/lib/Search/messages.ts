@@ -9,26 +9,32 @@ type InputMessages = {
     [key: string]: Validation;
 };
 
+const wayState = {
+    noCity: 'такого города нет в базе данных',
+    patternMismatch: 'Введите без знаков препинания',
+};
+
+const dateState = {
+    patternMismatch: 'Введите дату в формате ДД/ММ/ГГ цифрами',
+    pastDate: 'Вы пытаетесь ввести прошедшую дату',
+};
+
 const inputMessages: InputMessages = {
     wayFrom: {
         valueMissing: 'Введите город, откуда вы собираетесь отправиться',
-        noCity: 'такого города нет в базе данных',
-        patternMismatch: 'Введите без знаков препинания',
+        ...wayState,
     },
     wayTo: {
         valueMissing: 'Введите город, в который вы собираетесь отправиться',
-        noCity: 'такого города нет в базе данных',
-        patternMismatch: 'Введите без знаков препинания',
+        ...wayState,
     },
     dateTo: {
         valueMissing: 'Введите дату (туда)',
-        patternMismatch: 'Введите дату в формате ДД/ММ/ГГ цифрами',
-        pastDate: 'Вы пытаетесь ввести прошедшую дату',
+        ...dateState,
     },
     dateFrom: {
         valueMissing: 'Введите дату (обратно)',
-        patternMismatch: 'Введите дату в формате ДД/ММ/ГГ цифрами',
-        pastDate: 'Вы пытаетесь ввести прошедшую дату',
+        ...dateState,
     },
 };
 

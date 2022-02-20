@@ -27,3 +27,5 @@ export type UseSelectT = (
 
 export type ValidateInputT = (input: HTMLInputElement) => void;
 export type ValidateWayT = (input: HTMLInputElement, cityCheck: string) => void;
+
+export type FormFeedbackT = { children: React.ReactNode };

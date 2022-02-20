@@ -16,6 +16,9 @@
 
     --error-filter: brightness(0) saturate(100%) invert(74%) sepia(65%) saturate(471%)
         hue-rotate(309deg) brightness(106%) contrast(108%);
+
+    --success-filter: brightness(0) saturate(100%) invert(91%) sepia(15%) saturate(957%)
+        hue-rotate(51deg) brightness(101%) contrast(93%);
 }
 
 .ic-refresh {
@@ -74,4 +77,8 @@
 
 .filter-error {
     filter: var(--error-filter);
+}
+
+.filter-success {
+    filter: var(--success-filter);
 }

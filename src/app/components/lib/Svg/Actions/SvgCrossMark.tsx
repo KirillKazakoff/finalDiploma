@@ -7,7 +7,7 @@ export default function SvgCrossMark({ height, filter }: SvgType) {
         <Svg
             src='./svg/actions/cross-mark.svg'
             height={height}
-            alt='mail'
+            alt='cross-mark'
             filter={filter}
         />
     );

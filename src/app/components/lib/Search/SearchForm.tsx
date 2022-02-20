@@ -1,7 +1,6 @@
 import React from 'react';
-import { useAppDispatch, useAppSelector } from '../../../redux/reduxHooks';
-import { setFormValidated, selectFormState } from '../../../redux/slices/searchFormSlice';
-import SearchFormFeedback from './SearchFormFeedback';
+import { useAppDispatch } from '../../../redux/reduxHooks';
+import { setFormMsgHidden } from '../../../redux/slices/searchFormSlice';
 
 type SearchFormProps = { cls?: string; children: React.ReactNode };
 
@@ -12,14 +11,8 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
         const form = e.currentTarget as HTMLFormElement;
         form.classList.add('submitted');
 
-        dispatch(setFormValidated(true));
+        dispatch(setFormMsgHidden(false));
         e.preventDefault();
-
-        if (form.checkValidity() === false) {
-            return false;
-        }
-        console.log('ok');
-        return true;
     };
 
     return (
@@ -28,7 +21,6 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
             className={`form search-form ${cls}`}
         >
             {children}
-            <SearchFormFeedback />
         </form>
     );
 }
