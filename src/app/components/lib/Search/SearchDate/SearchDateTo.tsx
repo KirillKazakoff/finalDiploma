@@ -9,12 +9,14 @@ export default function SearchDateTo({
     onBlur,
     onFocus,
     validate,
+    onClickCheck,
 }: SearchDateDir) {
     const name = 'dateTo';
     const timeObj = useTime(name);
 
     return (
         <SearchDateInput
+            onClickCheck={onClickCheck}
             validate={validate}
             time={timeObj}
             name={name}

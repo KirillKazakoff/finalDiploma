@@ -2,12 +2,12 @@ import { InputState } from '../../../../redux/reduxFormUtils';
 import { WayStateT } from '../../../../redux/slices/searchWaySlice';
 
 export const getValidityCls = (inputState: InputState) => {
-    const { error, isFormError } = inputState;
+    const { error, formError } = inputState;
     let validityCls = 'valid';
 
     if (error) validityCls = 'invalid';
 
-    if (isFormError) {
+    if (formError) {
         validityCls = 'invalid';
     }
     return validityCls;

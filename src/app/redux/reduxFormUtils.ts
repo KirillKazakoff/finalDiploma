@@ -1,20 +1,20 @@
 /* eslint-disable no-param-reassign */
 import { PayloadAction } from '@reduxjs/toolkit';
-import { PayloadError, PayloadFocus, PayloadIsFormError } from '../types/typesPayload';
+import { PayloadError, PayloadFocus, PayloadFormError } from '../types/typesPayload';
 import { InputDefaultT } from '../types/typesForms';
 
 export type InputState = {
     value: string;
     wasFocused: boolean;
     error: string;
-    isFormError: boolean;
+    formError: string;
     isActive: boolean;
 };
 
 export const initialInput: InputState = {
     value: '',
     error: '',
-    isFormError: false,
+    formError: '',
     isActive: false,
     wasFocused: false,
 };
@@ -28,9 +28,9 @@ export const inputReducers = {
         const { name, error } = action.payload;
         state[name].error = error;
     },
-    setFormError: (state: any, action: PayloadAction<PayloadIsFormError>) => {
-        const { name, isFormError } = action.payload;
-        state[name].isFormError = isFormError;
+    setFormError: (state: any, action: PayloadAction<PayloadFormError>) => {
+        const { name, formError } = action.payload;
+        state[name].formError = formError;
     },
     setActive: (state: any, action: PayloadAction<PayloadFocus>) => {
         const { name, isActive } = action.payload;

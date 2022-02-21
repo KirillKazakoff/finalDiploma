@@ -1,5 +1,6 @@
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { DateT, PickerStateT } from '../components/lib/DatePicker/utils/timeTypes';
+import { SearchedCities } from './typesSearch';
 
 export type FetchStatusT = 'idle' | 'loading' | 'loaded' | 'failed';
 
@@ -14,15 +15,18 @@ export type PayloadError = {
     error: string;
 };
 
-export type PayloadIsFormError = {
+export type PayloadFormError = {
     name: string;
-    isFormError: boolean;
+    formError: string;
 };
 
 export type PayloadStatus = {
     inputName: string;
     status: FetchStatusT;
 };
+
+// wayTypes
+export type PayloadSetCities = SearchedCities & { inputName: string };
 
 // datePickerTypes
 export type PayloadActiveDay = {
@@ -47,5 +51,5 @@ export type PayloadPickerState = {
 
 export type SetStatusT = ActionCreatorWithPayload<FetchStatusT, string>;
 export type SetErrorT = ActionCreatorWithPayload<PayloadError>;
-export type SetFormErrorT = ActionCreatorWithPayload<PayloadIsFormError>;
-export type SetFormMsgHidden = ActionCreatorWithPayload<boolean>;
+export type SetFormErrorT = ActionCreatorWithPayload<PayloadFormError>;
+export type SetFormMsgHiddenT = ActionCreatorWithPayload<boolean>;

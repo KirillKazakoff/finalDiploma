@@ -16,6 +16,7 @@ import {
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 import useValidateInput from '../../../../form/useValidateInput';
 import useSelect from '../../../../form/useSelect';
+import useCheckDisabled from './useCheckDisabled';
 
 export default function SearchDate() {
     const dispatch = useAppDispatch();
@@ -28,11 +29,13 @@ export default function SearchDate() {
     const onChange = useChange(setInput);
     const validate = useValidateInput(setError);
     const { onBlur, onFocus } = useSelect(setActive, setBlured);
+    const { onClickCheck } = useCheckDisabled();
 
     return (
         <SearchFormRow>
             <SearchRowTitle>Дата</SearchRowTitle>
             <SearchDateTo
+                onClickCheck={onClickCheck}
                 onChange={onChange}
                 onBlur={onBlur}
                 onFocus={onFocus}
@@ -42,6 +45,7 @@ export default function SearchDate() {
             <span className='space25' />
 
             <SearchDateFrom
+                onClickCheck={onClickCheck}
                 onChange={onChange}
                 onBlur={onBlur}
                 onFocus={onFocus}

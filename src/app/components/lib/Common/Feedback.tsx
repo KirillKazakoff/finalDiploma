@@ -2,12 +2,12 @@ import React from 'react';
 import { useAppSelector } from '../../../redux/reduxHooks';
 import { selectFormStatus } from '../../../redux/slices/searchFormSlice';
 
-type FeedbackProps = { type: string; error: string; wasFocused: boolean };
+type FeedbackProps = { error: string; formError: string; wasFocused: boolean };
 
-export default function Feedback({ type, error, wasFocused }: FeedbackProps) {
+export default function Feedback({ error, formError, wasFocused }: FeedbackProps) {
     const isFormHidden = useAppSelector(selectFormStatus);
-    if (!error) return null;
-    if (!wasFocused && isFormHidden) return null;
+    if (!error && !formError) return null;
+    if (!wasFocused && isFormHidden && !formError) return null;
 
-    return <div className={`feedback feedback-${type}`}>{error}</div>;
+    return <div className='feedback feedback-error'>{formError || error}</div>;
 }

@@ -9,7 +9,9 @@ type SearchWayProps = {
 };
 
 export default function SearchWayFeedback({ wayState, input }: SearchWayProps) {
-    const { wasFocused, status, error } = wayState;
+    const {
+        wasFocused, status, error, formError,
+    } = wayState;
 
     if (!input) return null;
 
@@ -19,7 +21,7 @@ export default function SearchWayFeedback({ wayState, input }: SearchWayProps) {
 
     return (
         <Feedback
-            type='error' error={error}
+            error={error} formError={formError}
             wasFocused={wasFocused}
         />
     );

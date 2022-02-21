@@ -327,7 +327,7 @@ body {
 }
 
 .submitted .input-valid {
-    border: 2px solid rgb(132, 238, 132);
+    /* border: 2px solid rgb(132, 238, 132); */
 }
 
 .submitted .input-invalid {

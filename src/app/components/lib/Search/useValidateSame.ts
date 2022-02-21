@@ -1,26 +1,27 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../../redux/reduxHooks';
 import { setFormError, WayStateT } from '../../../redux/slices/searchWaySlice';
+import { searchMessages } from './messages';
 
-type UseValidateSameT = (wayFrom: WayStateT, wayTo: WayStateT) => boolean;
+type UseValidateSameT = (wayFrom: WayStateT, wayTo: WayStateT) => string;
 
 const useValidateSame: UseValidateSameT = (wayFrom, wayTo) => {
     const dispatch = useAppDispatch();
-    const [stateError, setStateError] = useState(false);
+    const [stateError, setStateError] = useState('');
 
-    const setSameError = (isFormError: boolean) => {
-        dispatch(setFormError({ name: 'wayFrom', isFormError }));
-        dispatch(setFormError({ name: 'wayTo', isFormError }));
-        setStateError(isFormError);
+    const setSameError = (formError: string) => {
+        dispatch(setFormError({ name: 'wayFrom', formError }));
+        dispatch(setFormError({ name: 'wayTo', formError }));
+        setStateError(formError);
     };
 
     useEffect(() => {
-        let error = false;
+        let formError = '';
         if (wayFrom.value === wayTo.value && wayFrom.value && wayTo.value) {
-            error = true;
+            formError = searchMessages.sameCities;
         }
 
-        setSameError(error);
+        setSameError(formError);
     }, [wayFrom.error, wayTo.error, wayFrom.status, wayTo.status]);
 
     return stateError;

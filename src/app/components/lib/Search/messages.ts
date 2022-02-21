@@ -10,7 +10,6 @@ type InputMessages = {
 };
 
 const wayState = {
-    sameCities: 'Введите разные города',
     noCity: 'такого города нет в базе данных',
     patternMismatch: 'Введите без знаков препинания, кириллицей',
 };
@@ -34,16 +33,17 @@ const inputMessages: InputMessages = {
         ...dateState,
     },
     dateFrom: {
-        noDateTo: 'Сначала введите дату начала путешествия',
         valueMissing: 'Введите дату (обратно)',
         ...dateState,
     },
 };
 
 export const searchMessages = {
+    noDateTo: 'Сначала введите дату начала путешествия',
     sameCities: 'Введите разные города',
     dateMismatch: 'Дата начала путешествия позже даты возвращения',
     loading: 'Города еще не загрузились, подождите',
+
     success: 'Успех',
 };
 

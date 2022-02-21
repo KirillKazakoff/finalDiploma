@@ -9,25 +9,22 @@ import { FormFeedbackT } from '../../../types/typesForms';
 export default function SearchFormFeedback({ children }: FormFeedbackT) {
     const { wayFrom, wayTo } = useAppSelector((state) => state.searchWay);
     const { dateFrom, dateTo } = useAppSelector((state) => state.searchDate);
-    const errors = [wayFrom, wayTo, dateFrom, dateTo].map((state) => state.error);
 
-    const {
-        sameCities, loading, success, dateMismatch,
-    } = searchMessages;
+    const errors = [wayFrom, wayTo, dateFrom, dateTo].reduce<string[]>((total, state) => {
+        total.push(state.error);
+        total.push(state.formError);
+        return total;
+    }, []);
 
-    const isSameError = useValidateSame(wayFrom, wayTo);
-    const isDateCompareError = useValidateCompare(dateTo, dateFrom);
+    const { loading, success } = searchMessages;
+
+    useValidateSame(wayFrom, wayTo);
+    useValidateCompare(dateTo, dateFrom);
 
     let msg = success;
 
     if (wayFrom.status === 'loading' || wayTo.status === 'loading') {
         msg = loading;
-    }
-    if (isSameError) {
-        msg = sameCities;
-    }
-    if (isDateCompareError) {
-        msg = dateMismatch;
     }
 
     return (

@@ -4,6 +4,7 @@ import type { CheckCityMatchT } from '../components/lib/Search/SearchWay/useAbor
 import type { WayStateT } from '../redux/slices/searchWaySlice';
 import type { ValidateInputT, OnChangeFetchT } from './typesForms';
 import type { SetFormMsgHiddenT } from './typesPayload';
+import type { OnClickCheckT } from '../components/lib/Search/SearchDate/useCheckDisabled';
 
 export type SearchedCity = { _id: string; name: string };
 export type SearchedCities = { cities: SearchedCity[]; error?: string };
@@ -26,7 +27,10 @@ export type SearchWayInputProps = {
     name: string;
 } & SearchWayProps;
 
-export type SearchDateDir = HTMLProps<HTMLInputElement> & { validate: ValidateInputT };
+export type SearchDateDir = HTMLProps<HTMLInputElement> & {
+    validate: ValidateInputT;
+    onClickCheck: OnClickCheckT;
+};
 
 export type SearchDateInputProps = {
     time: TimeObjT | null;
