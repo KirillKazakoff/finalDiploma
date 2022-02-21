@@ -21,6 +21,7 @@ export default function SearchDateTo({
             onChange={onChange}
             onBlur={onBlur}
             onFocus={onFocus}
+            required
         />
     );
 }

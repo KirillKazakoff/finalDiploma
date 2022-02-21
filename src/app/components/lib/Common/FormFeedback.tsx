@@ -2,6 +2,7 @@ import React from 'react';
 import { selectFormState } from '../../../redux/slices/searchFormSlice';
 import { useAppSelector } from '../../../redux/reduxHooks';
 import FormFeedbackCollapse from './FormFeedbackCollapse';
+import FormFeedbackDesc from './FormFeedbackDesc';
 
 type Props = { errors: string[]; msg: string; children: React.ReactNode };
 
@@ -23,9 +24,7 @@ export default function FormFeedback({ errors, msg, children }: Props) {
     return (
         <div className={className}>
             <FormFeedbackCollapse status={status} />
-            <span className='form-feedback-desc form-feedback-desc-error'>
-                {feedback}
-            </span>
+            <FormFeedbackDesc status={status}>{feedback}</FormFeedbackDesc>
             {status === 'success' ? children : null}
         </div>
     );

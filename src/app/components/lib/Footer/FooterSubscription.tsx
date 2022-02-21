@@ -12,10 +12,10 @@ export default function FooterSubscription() {
                 </label>
 
                 <div className='subscribe-form-row'>
-                    <InputWrapper cls='input-wrapper-subscription'>
+                    <InputWrapper cls='subscription-input-wrapper'>
                         <input
                             id='subscribe'
-                            className='input input-subscription'
+                            className='input subscription-input'
                             type='mail'
                             placeholder='e-mail'
                         />

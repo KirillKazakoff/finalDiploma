@@ -271,6 +271,10 @@ body {
     align-self: stretch;
 }
 
+.input {
+    padding-left: 20px;
+}
+
 .input::placeholder {
     color: var(--secondary-lighter);
 }
@@ -279,8 +283,7 @@ body {
     color: var(--black);
     display: flex;
     align-items: center;
-    /* padding-right: 20px; */
-    padding: 0px 20px;
+    padding-right: 20px;
     background: #ffffff;
     border-radius: 3px;
     flex: 1;
@@ -2219,8 +2222,14 @@ body {
     margin-bottom: 15px;
 }
 
-.input-wrapper-subscription {
+.subscription-input-wrapper {
     flex-grow: 1;
+}
+
+.subscription-input {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    align-self: stretch;
 }
 
 .btn-subscribe {

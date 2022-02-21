@@ -12,12 +12,12 @@ import validateDate from './validateDate';
 
 export default function SearchDateInput(props: SearchDateInputProps) {
     const {
-        time, name, onChange, onFocus, onBlur, validate,
+        time, name, onChange, onFocus, onBlur, validate, required,
     } = props;
 
     const dateState = useAppSelector((state) => state.searchDate[name]);
     const inputEl = useRef<HTMLInputElement>(null);
-    const disabled = !time;
+    const disabled = !time?.dateInit.month;
     const validityCls = getValidityCls(dateState);
 
     useEffect(() => {
@@ -26,14 +26,15 @@ export default function SearchDateInput(props: SearchDateInputProps) {
 
         validateDate(input);
         validate(input);
-    }, [dateState.value]);
+    }, [dateState.value, disabled]);
 
+    console.log(disabled);
     return (
         <InputWrapper cls={`search-input-wrapper input-${validityCls}`}>
-            {time ? <DatePicker time={time} name={name} /> : null}
+            {!disabled ? <DatePicker time={time} name={name} /> : null}
             <input
                 ref={inputEl}
-                className='search-input'
+                className='input search-input'
                 disabled={disabled}
                 placeholder='ДД/ММ/ГГ'
                 autoComplete='off'
@@ -42,9 +43,9 @@ export default function SearchDateInput(props: SearchDateInputProps) {
                 onChange={onChange}
                 onFocus={onFocus}
                 onBlur={onBlur}
-                required
+                required={required}
             />
-            <DatePickerIcon name={name} />
+            <DatePickerIcon name={name} disabled={disabled} />
             <Feedback
                 type='error'
                 error={dateState.error}
