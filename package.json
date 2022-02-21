@@ -27,6 +27,7 @@
         "webpack-dev-server": "^4.5.0"
     },
     "devDependencies": {
+        "push-dir": "^0.4.1",
         "@babel/core": "^7.16.0",
         "@babel/eslint-parser": "^7.16.3",
         "@babel/plugin-transform-runtime": "^7.16.8",
