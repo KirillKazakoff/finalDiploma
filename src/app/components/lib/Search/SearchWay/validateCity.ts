@@ -11,7 +11,7 @@ const validateCity: ValidateCityT = (inputEl, stateCity, status) => {
 
     let customValidity = '';
 
-    if (value && stateCity !== value.trim() && validity.valid && status === 'loaded') {
+    if (value && stateCity !== value.trim() && validity.valid && status !== 'loading') {
         customValidity = 'noCity';
     }
 

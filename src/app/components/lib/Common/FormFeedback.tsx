@@ -26,7 +26,7 @@ export default function FormFeedback({ errors, msg, children }: Props) {
             <span className='form-feedback-desc form-feedback-desc-error'>
                 {feedback}
             </span>
-            {children}
+            {status === 'success' ? children : null}
         </div>
     );
 }
