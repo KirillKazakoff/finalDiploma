@@ -27,8 +27,8 @@ export default function SearchWay() {
     const onChangeDispatch = useChange(setInput);
     const { onFocus, onBlur } = useSelect(setActive, setBlured);
     const validate = useValidateInput(setError);
-    const delay = inputDelay();
     const checkCityMatch = useAbortFetch();
+    const delay = inputDelay();
 
     const onChange: OnChangeFetchT = (aborter) => (e) => {
         const { value, name: inputName } = e.currentTarget;

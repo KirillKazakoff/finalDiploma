@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
-import type { PayloadFocus } from './typesPayload';
+import type { PayloadFocus, SetFormMsgHiddenT } from './typesPayload';
 
 export type InputDefaultT = {
     name: string;
@@ -28,4 +28,10 @@ export type UseSelectT = (
 export type ValidateInputT = (input: HTMLInputElement) => void;
 export type ValidateWayT = (input: HTMLInputElement, cityCheck: string) => void;
 
+export type FormPropsT = {
+    cls?: string;
+    children: React.ReactNode;
+    setFormMsgHidden: SetFormMsgHiddenT;
+    onSubmitForm: OnSubmitFormT;
+};
 export type FormFeedbackT = { children: React.ReactNode };

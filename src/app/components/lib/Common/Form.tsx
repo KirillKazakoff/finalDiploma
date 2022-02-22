@@ -1,22 +1,27 @@
 import React from 'react';
 import { useAppDispatch } from '../../../redux/reduxHooks';
-import { SearchFormProps } from '../../../types/typesSearch';
+import { FormPropsT, OnSubmitFormT } from '../../../types/typesForms';
 
-export default function Form({ cls, children, setFormMsgHidden }: SearchFormProps) {
+export default function Form(props: FormPropsT) {
     const dispatch = useAppDispatch();
+    const {
+        cls, children, setFormMsgHidden, onSubmitForm,
+    } = props;
 
-    const onSubmit = (e: React.FormEvent) => {
+    const onSubmit: OnSubmitFormT = (e) => {
+        e.preventDefault();
+
         const form = e.currentTarget as HTMLFormElement;
         form.classList.add('submitted');
-
         dispatch(setFormMsgHidden(false));
-        e.preventDefault();
+
+        onSubmitForm(e);
     };
 
     return (
         <form
             noValidate onSubmit={onSubmit}
-            className={`form search-form ${cls}`}
+            className={`form ${cls}`}
         >
             {children}
         </form>

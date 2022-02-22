@@ -36,15 +36,16 @@ export default function SearchDateInput(props: SearchDateInputProps) {
         validate(input);
     }, [dateState.value, disabled]);
 
+    console.log('dateInput');
     return (
         <InputWrapper cls={`search-input-wrapper input-${validityCls}`} onClick={onClick}>
             {!disabled ? <DatePicker time={time} name={name} /> : null}
             <input
                 ref={inputEl}
-                className="input search-input"
+                className='input search-input'
                 disabled={disabled}
-                placeholder="ДД/ММ/ГГ"
-                autoComplete="off"
+                placeholder='ДД/ММ/ГГ'
+                autoComplete='off'
                 name={name}
                 value={dateState.value}
                 onChange={onChange}

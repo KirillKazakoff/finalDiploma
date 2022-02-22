@@ -28,3 +28,8 @@ export const fetchCities: GetCitiesT = (inputName, name, signal) => async (dispa
     dispatch(setStatus('loaded'));
     return true;
 };
+
+type FetchDirectionsT = (from_city_id: string, to_city_id: string) => AppThunk;
+export const fetchDirections: FetchDirectionsT = (from_city_id, to_city_id) => async (dispatch) => {
+    console.log('hello');
+};

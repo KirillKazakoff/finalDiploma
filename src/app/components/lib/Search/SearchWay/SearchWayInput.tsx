@@ -35,6 +35,7 @@ export default function SearchWayInput(props: SearchWayInputProps) {
         validate(input);
     }, [wayState.value, status]);
 
+    console.log('wayInput');
     return (
         <InputWrapper cls={`search-input-wrapper input-${validityCls}`}>
             <SearchWayTips
@@ -44,9 +45,9 @@ export default function SearchWayInput(props: SearchWayInputProps) {
             />
             <input
                 ref={inputEl}
-                autoComplete="off"
-                pattern="[а-я]*[-]?[а-я]*[а-я]$"
-                className="input search-input"
+                autoComplete='off'
+                pattern='[а-я]*[-]?[а-я]*[а-я]$'
+                className='input search-input'
                 placeholder={placeholder}
                 name={name}
                 value={wayState.value}
