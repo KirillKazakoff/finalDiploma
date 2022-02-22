@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { setCities, setWayStatus } from '../redux/slices/searchWaySlice';
 import { AppThunk } from '../redux/store';
 import { FetchStatusT } from '../types/typesPayload';
@@ -9,7 +10,6 @@ export const fetchCities: GetCitiesT = (inputName, name, signal) => async (dispa
     const setStatus = (status: FetchStatusT) => setWayStatus({ inputName, status });
     dispatch(setStatus('loading'));
 
-    console.log(name);
     const url = getCitiesUrl(name);
 
     const reqObj = { url, settings: { signal } };
@@ -20,7 +20,6 @@ export const fetchCities: GetCitiesT = (inputName, name, signal) => async (dispa
     if (res === 'aborted') return false;
 
     const resData = await res.json();
-    console.log(resData);
     if (resData.error) return false;
     // here
 

@@ -2,7 +2,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
 
-export type FormStatusT = 'error' | 'warning' | 'success' | 'idle';
+export type FormStatusT = 'error' | 'loading' | 'success' | 'idle';
 
 type FormStateT = {
     isMsgHidden: boolean;

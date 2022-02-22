@@ -22,7 +22,7 @@ type RequestType = (
 ) => AppThunk<Promise<false | Response | 'aborted'>>;
 
 export const request: RequestType = (reqObj, setStatus) => async (dispatch) => {
-    await timeoutMock();
+    // await timeoutMock();
 
     try {
         const res = await fetch(`${baseUrl}/routes/${reqObj.url}`, reqObj.settings);
@@ -37,9 +37,7 @@ export const request: RequestType = (reqObj, setStatus) => async (dispatch) => {
     }
 };
 
-export function getCitiesUrl(name: string) {
-    const params = [{ name }];
-
+function getUrl<T>(params: T[], query: string) {
     const searchParams = new URLSearchParams();
     params.forEach((param) => {
         const [[key, value]] = Object.entries(param);
@@ -49,8 +47,15 @@ export function getCitiesUrl(name: string) {
         }
     }, '');
 
-    let url = 'cities';
+    let url = query;
     if (searchParams) url += `?${searchParams.toString()}`;
+    return url;
+}
 
+export function getCitiesUrl(name: string) {
+    type ParamT = { name: string };
+    const params = [{ name }];
+
+    const url = getUrl<ParamT>(params, 'cities');
     return url;
 }
