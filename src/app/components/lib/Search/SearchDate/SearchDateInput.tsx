@@ -41,10 +41,10 @@ export default function SearchDateInput(props: SearchDateInputProps) {
             {!disabled ? <DatePicker time={time} name={name} /> : null}
             <input
                 ref={inputEl}
-                className='input search-input'
+                className="input search-input"
                 disabled={disabled}
-                placeholder='ДД/ММ/ГГ'
-                autoComplete='off'
+                placeholder="ДД/ММ/ГГ"
+                autoComplete="off"
                 name={name}
                 value={dateState.value}
                 onChange={onChange}

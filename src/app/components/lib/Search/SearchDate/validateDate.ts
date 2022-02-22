@@ -19,5 +19,4 @@ export default function validateDate(inputEl: HTMLInputElement) {
     }
 
     inputEl.setCustomValidity(customValidity);
-    console.log(inputEl.validationMessage);
 }

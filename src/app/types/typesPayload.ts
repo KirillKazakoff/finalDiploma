@@ -1,6 +1,7 @@
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { DateT, PickerStateT } from '../components/lib/DatePicker/utils/timeTypes';
 import { SearchedCities } from './typesSearch';
+import { FormStatusT } from '../redux/slices/searchFormSlice';
 
 export type FetchStatusT = 'idle' | 'loading' | 'loaded' | 'failed';
 
@@ -49,7 +50,8 @@ export type PayloadPickerState = {
     pickerState: PickerStateT;
 };
 
-export type SetStatusT = ActionCreatorWithPayload<FetchStatusT, string>;
+export type SetFormStatusT = ActionCreatorWithPayload<FormStatusT>;
+export type SetStatusT = ActionCreatorWithPayload<FetchStatusT>;
 export type SetErrorT = ActionCreatorWithPayload<PayloadError>;
 export type SetFormErrorT = ActionCreatorWithPayload<PayloadFormError>;
 export type SetFormMsgHiddenT = ActionCreatorWithPayload<boolean>;

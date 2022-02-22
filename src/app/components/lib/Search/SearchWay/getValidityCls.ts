@@ -1,4 +1,4 @@
-import { InputState } from '../../../../redux/reduxFormUtils';
+import { InputState } from '../../../../redux/reduxInputUtils';
 import { WayStateT } from '../../../../redux/slices/searchWaySlice';
 
 export const getValidityCls = (inputState: InputState) => {

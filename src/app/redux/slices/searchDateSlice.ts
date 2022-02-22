@@ -10,7 +10,7 @@ import type {
     DateT,
     PickerStateT,
 } from '../../components/lib/DatePicker/utils/timeTypes';
-import { InputState, initialInput, inputReducers } from '../reduxFormUtils';
+import { InputState, initialInput, inputReducers } from '../reduxInputUtils';
 
 export type DateStateT = InputState & {
     dateTime: string;

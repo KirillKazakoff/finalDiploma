@@ -1,12 +1,20 @@
 import React from 'react';
-import { selectFormState } from '../../../redux/slices/searchFormSlice';
-import { useAppSelector } from '../../../redux/reduxHooks';
 import FormFeedbackCollapse from './FormFeedbackCollapse';
 import FormFeedbackDesc from './FormFeedbackDesc';
+import { SetFormStatusT } from '../../../types/typesPayload';
 
-type Props = { errors: string[]; msg: string; children: React.ReactNode };
+type FormFeedbackPropsT = {
+    setFormStatus: SetFormStatusT;
+    errors: string[];
+    msg: string;
+    children: React.ReactNode;
+    isMsgHidden: boolean;
+};
 
-export default function FormFeedback({ errors, msg, children }: Props) {
+export default function FormFeedback(props: FormFeedbackPropsT) {
+    const {
+        errors, msg, isMsgHidden, children, setFormStatus,
+    } = props;
     let feedback = msg;
 
     if (feedback === 'Успех') {
@@ -17,8 +25,8 @@ export default function FormFeedback({ errors, msg, children }: Props) {
 
     const status = feedback === 'Успех' ? 'success' : 'error';
     const className = `form-feedback form-feedback-${status}`;
+    setFormStatus(status);
 
-    const { isMsgHidden } = useAppSelector(selectFormState);
     if (isMsgHidden) return <div className='form-feedback'>{children}</div>;
 
     return (
