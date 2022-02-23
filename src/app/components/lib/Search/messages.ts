@@ -25,7 +25,7 @@ const inputMessages: InputMessages = {
         ...wayState,
     },
     wayTo: {
-        valueMissing: 'Введите город, в который вы собираетесь отправиться',
+        valueMissing: 'Введите город, куда вы собираетесь отправиться',
         ...wayState,
     },
     dateTo: {

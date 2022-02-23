@@ -18,30 +18,85 @@ export default function Header() {
             <div className='header-line' />
         </>
     );
-
     const HeaderOutletContent = (
         <>
             <SearchFormInline />
             <HeaderProgressBar />
         </>
     );
-
     const HeaderOutletSuccess = null;
-
     const HeaderOutletError = <div>Error</div>;
 
-    const HeaderOutlet = () => {
-        if (pathname === '/') return HeaderOutletMain;
-        if (pathname === '/success') return HeaderOutletSuccess;
-        if (pathname === '/error') return HeaderOutletError;
+    let className = 'central';
+    let HeaderOutlet = HeaderOutletContent;
 
-        return HeaderOutletContent;
-    };
+    if (pathname === '/') {
+        HeaderOutlet = HeaderOutletMain;
+        className = 'main';
+    }
+    if (pathname === '/success') {
+        HeaderOutlet = HeaderOutletSuccess as any;
+        className = 'success';
+    }
+    if (pathname === '/error') {
+        HeaderOutlet = HeaderOutletError;
+        className = 'error';
+    }
 
     return (
-        <header className='header'>
+        <header className={`header header-${className}`}>
             <HeaderNav />
-            <HeaderOutlet />
+            {HeaderOutlet}
         </header>
     );
 }
+
+// import React from 'react';
+// import { useLocation } from 'react-router-dom';
+// import SearchFormMain from '../Search/SearchFormMain';
+// import HeaderNav from './HeaderNav';
+// import HeaderTitleMain from './HeaderTitleMain';
+// import SearchFormInline from '../Search/SearchFormInline';
+// import HeaderProgressBar from './HeaderProgressBar';
+
+// export default function Header() {
+//     const { pathname } = useLocation();
+
+//     const HeaderOutletMain = (
+//         <>
+//             <section className='header-content framed'>
+//                 <HeaderTitleMain plain='Вся жизнь -' bold='путешествие !' />
+//                 <SearchFormMain />
+//             </section>
+//             <div className='header-line' />
+//         </>
+//     );
+
+//     const HeaderOutletContent = (
+//         <>
+//             <SearchFormInline />
+//             <HeaderProgressBar />
+//         </>
+//     );
+
+//     const HeaderOutletSuccess = null;
+
+//     const HeaderOutletError = <div>Error</div>;
+
+//     const HeaderOutlet = () => {
+//         if (pathname === '/') return HeaderOutletMain;
+//         if (pathname === '/success') return HeaderOutletSuccess;
+//         if (pathname === '/error') return HeaderOutletError;
+
+//         return HeaderOutletContent;
+//     };
+
+//     const className = 'header';
+
+//     return (
+//         <header className='header'>
+//             <HeaderNav />
+//             <HeaderOutlet />
+//         </header>
+//     );
+// }
