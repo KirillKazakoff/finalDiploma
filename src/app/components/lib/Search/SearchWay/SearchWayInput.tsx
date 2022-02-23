@@ -56,7 +56,7 @@ export default function SearchWayInput(props: SearchWayInputProps) {
                 onBlur={onBlur}
                 required
             />
-            <SearchWayFeedback wayState={wayState} input={inputEl.current} />
+            <SearchWayFeedback wayState={wayState} />
             {wayState.isActive ? null : children}
         </InputWrapper>
     );

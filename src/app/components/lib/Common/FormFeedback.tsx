@@ -1,17 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import FormFeedbackCollapse from './FormFeedbackCollapse';
 import FormFeedbackDesc from './FormFeedbackDesc';
-import { SetFormStatusT } from '../../../types/typesPayload';
-
-type FormFeedbackPropsT = {
-    setFormStatus: SetFormStatusT;
-    errors: string[];
-    msg: string;
-    children: React.ReactNode;
-    isMsgHidden: boolean;
-};
+import { useAppDispatch } from '../../../redux/reduxHooks';
+import type { FormFeedbackPropsT } from '../../../types/typesForms';
 
 export default function FormFeedback(props: FormFeedbackPropsT) {
+    const dispatch = useAppDispatch();
     const {
         errors, msg, isMsgHidden, children, setFormStatus,
     } = props;
@@ -25,7 +19,10 @@ export default function FormFeedback(props: FormFeedbackPropsT) {
 
     const status = feedback === 'Успех' ? 'success' : 'error';
     const className = `form-feedback form-feedback-${status}`;
-    setFormStatus(status);
+
+    useEffect(() => {
+        dispatch(setFormStatus(status));
+    }, [status]);
 
     if (isMsgHidden) return <div className='form-feedback'>{children}</div>;
 

@@ -1,16 +1,18 @@
 import React from 'react';
 import FormFeedback from '../Common/FormFeedback';
-import { useAppSelector } from '../../../redux/reduxHooks';
-import { selectFormState, setFormStatus } from '../../../redux/slices/searchFormSlice';
+import { setFormStatus } from '../../../redux/slices/searchFormSlice';
 import { searchMessages } from './messages';
 import useValidateSame from './useValidateSame';
 import useValidateCompare from './useValidateCompare';
-import { FormFeedbackT } from '../../../types/typesForms';
+import { SearchFormFeedbackT } from '../../../types/typesSearch';
 
-export default function SearchFormFeedback({ children }: FormFeedbackT) {
-    const { isMsgHidden } = useAppSelector(selectFormState);
-    const { wayFrom, wayTo } = useAppSelector((state) => state.searchWay);
-    const { dateFrom, dateTo } = useAppSelector((state) => state.searchDate);
+export default function SearchFormFeedback(props: SearchFormFeedbackT) {
+    const {
+        waysState, datesState, isMsgHidden, children,
+    } = props;
+
+    const { wayFrom, wayTo } = waysState;
+    const { dateFrom, dateTo } = datesState;
 
     const errors = [wayFrom, wayTo, dateFrom, dateTo].reduce<string[]>((total, state) => {
         total.push(state.error);

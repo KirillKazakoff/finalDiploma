@@ -1,12 +1,15 @@
 import React, { HTMLProps } from 'react';
 import type { TimeObjT } from '../components/lib/DatePicker/utils/useTime';
 import type { CheckCityMatchT } from '../components/lib/Search/SearchWay/useAbort';
-import type { WayStateT } from '../redux/slices/searchWaySlice';
-import type { ValidateInputT, OnChangeFetchT } from './typesForms';
+import type { WayStateT, WaysStateT } from '../redux/slices/searchWaySlice';
+import type { ValidateInputT, OnChangeFetchT, FormFeedbackT } from './typesForms';
 import type { OnClickCheckT } from '../components/lib/Search/SearchDate/useCheckDisabled';
+import type { DatesStateT } from '../redux/slices/searchDateSlice';
 
 export type SearchedCity = { _id: string; name: string };
 export type SearchedCities = { cities: SearchedCity[]; error?: string };
+
+export type SearchSectionProps = { cls?: string };
 
 export type SearchWayProps = {
     onChange: OnChangeFetchT;
@@ -31,3 +34,7 @@ export type SearchDateInputProps = {
 } & SearchDateDir;
 
 export type SearchFormProps = { cls?: string; children: React.ReactNode };
+export type SearchFormFeedbackT = FormFeedbackT & {
+    waysState: WaysStateT;
+    datesState: DatesStateT;
+};

@@ -20,8 +20,9 @@ import { OnChangeFetchT } from '../../../../types/typesForms';
 import useValidateInput from '../../../../form/useValidateInput';
 import useAbortFetch from './useAbort';
 import SearchWayUno from './SearchWayUno';
+import { SearchSectionProps } from '../../../../types/typesSearch';
 
-export default function SearchWay() {
+export default function SearchWay({ cls = '' }: SearchSectionProps) {
     const dispatch = useAppDispatch();
 
     const onChangeDispatch = useChange(setInput);
@@ -44,7 +45,7 @@ export default function SearchWay() {
     };
 
     return (
-        <SearchFormRow>
+        <SearchFormRow cls={cls}>
             <SearchRowTitle>Направление</SearchRowTitle>
             <SearchWayFrom
                 checkCityMatch={checkCityMatch}

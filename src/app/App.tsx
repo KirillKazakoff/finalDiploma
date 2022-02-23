@@ -3,6 +3,7 @@ import React from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import PageRoute from './components/routes/PageRoute';
 import MainRoute from './components/routes/MainRoute';
+import TicketsRoute from './components/routes/TicketsRoute';
 
 export default function App() {
     return (
@@ -10,6 +11,7 @@ export default function App() {
             <Routes>
                 <Route path='/' element={<PageRoute />}>
                     <Route path='/' element={<MainRoute />} />
+                    <Route path='/tickets' element={<TicketsRoute />} />
                 </Route>
             </Routes>
         </Router>

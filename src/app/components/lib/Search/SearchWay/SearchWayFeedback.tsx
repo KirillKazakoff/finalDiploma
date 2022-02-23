@@ -5,15 +5,12 @@ import Feedback from '../../Common/Feedback';
 
 type SearchWayProps = {
     wayState: WayStateT;
-    input: HTMLInputElement | null;
 };
 
-export default function SearchWayFeedback({ wayState, input }: SearchWayProps) {
+export default function SearchWayFeedback({ wayState }: SearchWayProps) {
     const {
         wasFocused, status, error, formError,
     } = wayState;
-
-    if (!input) return null;
 
     if (status === 'loading' && !error) {
         return <InputLoader />;

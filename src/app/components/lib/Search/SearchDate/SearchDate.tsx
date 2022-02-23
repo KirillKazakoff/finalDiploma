@@ -17,8 +17,9 @@ import { useAppDispatch } from '../../../../redux/reduxHooks';
 import useValidateInput from '../../../../form/useValidateInput';
 import useSelect from '../../../../form/useSelect';
 import useCheckDisabled from './useCheckDisabled';
+import { SearchSectionProps } from '../../../../types/typesSearch';
 
-export default function SearchDate() {
+export default function SearchDate({ cls = '' }: SearchSectionProps) {
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(
@@ -32,7 +33,7 @@ export default function SearchDate() {
     const { onClickCheck } = useCheckDisabled();
 
     return (
-        <SearchFormRow>
+        <SearchFormRow cls={cls}>
             <SearchRowTitle>Дата</SearchRowTitle>
             <SearchDateTo
                 onClickCheck={onClickCheck}
