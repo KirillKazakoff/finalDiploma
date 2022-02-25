@@ -259,16 +259,15 @@ body {
     width: 47%;
 }
 
-.search-row-title {
+.row-title {
     font-weight: inherit;
     width: 100%;
-    padding-left: 10px;
     font-size: 30px;
     margin-bottom: 15px;
 }
 
-.search-row-title-small {
-    padding-left: 0;
+.search-row-title {
+    padding-left: 10px;
 }
 
 .search-input {
@@ -277,6 +276,7 @@ body {
 
 .input {
     padding-left: 20px;
+    align-self: stretch;
 }
 
 .input::placeholder {
@@ -298,6 +298,11 @@ body {
     position: relative;
     min-height: 62px;
     max-height: 62px;
+}
+
+.filter-input-wrapper {
+    min-height: 45px;
+    max-height: 45px;
 }
 
 /* search-way-tips */
@@ -414,7 +419,7 @@ body {
     border-bottom: 1px solid #e5e5e5;
 }
 
-.trip-form {
+.trip-date {
     display: flex;
     flex-direction: column;
     row-gap: 30px;

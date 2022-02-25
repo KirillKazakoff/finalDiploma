@@ -11,14 +11,14 @@ import {
 import UnavailableList from './DatePickerList/UnavailableList';
 import AvailableList from './DatePickerList/AvailableList';
 
-type Props = { time: TimeObjT; name: string };
+type Props = { time: TimeObjT; name: string; isPickerActive: boolean };
 
-export default function DatePicker({ time, name }: Props) {
+export default function DatePicker({ time, name, isPickerActive }: Props) {
     const dispatch = useAppDispatch();
     const activeDate = useAppSelector((state) => state.searchDate[name].activeDate);
-    const isPickerActive = useAppSelector(
-        (state) => state.searchDate[name].isPickerActive,
-    );
+    // const isPickerActive = useAppSelector(
+    //     (state) => state.searchDate[name].isPickerActive,
+    // );
     const pickerState = useAppSelector((state) => state.searchDate[name].pickerState);
 
     if (!pickerState || !isPickerActive) return null;

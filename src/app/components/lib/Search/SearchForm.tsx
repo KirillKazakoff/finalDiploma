@@ -26,13 +26,11 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
             dispatch(setFormStatus('loading'));
             navigate('/tickets');
         }
-        // console.log(elements.wayTo);
     };
-
-    // селектор для примера
 
     let className = 'search-form';
     if (cls) className = `${className} ${className}-${cls}`;
+
     return (
         <Form
             cls={className} setFormMsgHidden={setFormMsgHidden}

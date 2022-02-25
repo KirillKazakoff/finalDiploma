@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import InputWrapper from '../../Common/InputWrapper';
 import DatePicker from '../../DatePicker/DatePicker';
@@ -12,21 +12,15 @@ import validateDate from './validateDate';
 
 export default function SearchDateInput(props: SearchDateInputProps) {
     const {
-        time,
-        name,
-        onChange,
-        onFocus,
-        onBlur,
-        validate,
-        required,
-        onClickCheck: onClickDate,
+        time, name, onChange, onFocus, onBlur, validate, required, onClickCheck,
     } = props;
 
     const disabled = !time?.dateInit.month;
     const dateState = useAppSelector((state) => state.searchDate[name]);
     const inputEl = useRef<HTMLInputElement>(null);
     const validityCls = getValidityCls(dateState);
-    const onClick = onClickDate(disabled, name);
+    const onClick = onClickCheck(disabled, name);
+    const [isPickerActive, setIsPickerActive] = useState(false);
 
     useEffect(() => {
         if (!inputEl.current) return;
@@ -36,7 +30,6 @@ export default function SearchDateInput(props: SearchDateInputProps) {
         validate(input);
     }, [dateState.value, disabled]);
 
-    console.log('dateInput');
     return (
         <InputWrapper cls={`search-input-wrapper input-${validityCls}`} onClick={onClick}>
             {!disabled ? <DatePicker time={time} name={name} /> : null}
@@ -53,7 +46,10 @@ export default function SearchDateInput(props: SearchDateInputProps) {
                 onBlur={onBlur}
                 required={required}
             />
-            <DatePickerIcon name={name} onClickDate={onClick} />
+            <DatePickerIcon
+                name={name} onClickCheck={onClick}
+                height={32}
+            />
             <Feedback
                 formError={dateState.formError}
                 error={dateState.error}

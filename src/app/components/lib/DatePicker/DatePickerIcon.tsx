@@ -3,19 +3,23 @@ import SvgCalendar from '../Svg/SvgCalendar';
 import { useAppDispatch } from '../../../redux/reduxHooks';
 import { togglePickerActive } from '../../../redux/slices/searchDateSlice';
 
-type Props = { name: string; onClickDate: () => void };
+type Props = { name: string; onClickCheck?: () => void | null; height: number };
 
-export default function DatePickerIcon({ name, onClickDate }: Props) {
+export default function DatePickerIcon({ name, onClickCheck, height }: Props) {
     const dispatch = useAppDispatch();
 
     const onClick = () => {
-        onClickDate();
+        if (onClickCheck) onClickCheck();
         dispatch(togglePickerActive(name));
     };
 
     return (
         <button type='button' onClick={onClick}>
-            <SvgCalendar height={32} />
+            <SvgCalendar height={height} />
         </button>
     );
 }
+
+DatePickerIcon.defaultProps = {
+    onClickCheck: null,
+};

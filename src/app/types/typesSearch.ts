@@ -38,3 +38,8 @@ export type SearchFormFeedbackT = FormFeedbackT & {
     waysState: WaysStateT;
     datesState: DatesStateT;
 };
+
+export type TripDateInputProps = {
+    name: string;
+    time: TimeObjT | null;
+} & HTMLProps<HTMLInputElement>;
