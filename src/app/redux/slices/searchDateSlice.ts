@@ -17,7 +17,6 @@ export type DateStateT = InputState & {
     dateTime: string;
     activeDate: DateT | null;
     pickerState: PickerStateT | null;
-    isPickerActive: boolean;
 };
 
 const intialDateState: DateStateT = {
@@ -26,7 +25,6 @@ const intialDateState: DateStateT = {
     activeDate: null,
     dateTime: '',
     pickerState: null,
-    isPickerActive: false,
 };
 
 export type DatesStateT = {
@@ -57,18 +55,12 @@ export const searchDateSlice = createSlice({
             const { name, date } = action.payload;
             state[name].activeDate = date;
         },
-        togglePickerActive: (state, action: PayloadAction<string>) => {
-            const name = action.payload;
-            state[name].isPickerActive = !state[name].isPickerActive;
-        },
     },
 });
 
 export const {
     setActiveDate,
     setInput,
-    togglePickerActive,
-    toggleActive,
     setActive,
     setDateTime,
     setPickerState,

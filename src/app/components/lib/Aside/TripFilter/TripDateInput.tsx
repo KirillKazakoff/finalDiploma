@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DatePickerIcon from '../../DatePicker/DatePickerIcon';
 import { TripDateInputProps } from '../../../../types/typesSearch';
 import { useAppSelector } from '../../../../redux/reduxHooks';
@@ -8,11 +8,16 @@ import InputWrapper from '../../Common/InputWrapper';
 export default function TripDateInput(props: TripDateInputProps) {
     const { name, onChange, time } = props;
     const { value } = useAppSelector((state) => state.searchDate[name]);
+    const [isPickerActive, setPickerActive] = useState(false);
 
-    console.log(value);
     return (
-        <InputWrapper cls='search-input-wrapper'>
-            <DatePicker time={time} name={name} />
+        <InputWrapper cls='filter-input-wrapper'>
+            <DatePicker
+                time={time}
+                name={name}
+                isPickerActive={isPickerActive}
+                cls='filter'
+            />
             <input
                 placeholder='ДД/ММ/ГГ'
                 className='input filter-input'
@@ -22,7 +27,7 @@ export default function TripDateInput(props: TripDateInputProps) {
                 name={name}
             />
 
-            <DatePickerIcon name={name} height={22} />
+            <DatePickerIcon height={22} setActive={setPickerActive} />
         </InputWrapper>
     );
 }

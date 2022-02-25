@@ -1,16 +1,17 @@
 import React from 'react';
 import SvgCalendar from '../Svg/SvgCalendar';
-import { useAppDispatch } from '../../../redux/reduxHooks';
-import { togglePickerActive } from '../../../redux/slices/searchDateSlice';
+import { SetPickerActiveT } from '../../../types/typesSearch';
 
-type Props = { name: string; onClickCheck?: () => void | null; height: number };
+type Props = {
+    onClickCheck?: () => void | null;
+    height: number;
+    setActive: SetPickerActiveT;
+};
 
-export default function DatePickerIcon({ name, onClickCheck, height }: Props) {
-    const dispatch = useAppDispatch();
-
+export default function DatePickerIcon({ onClickCheck, height, setActive }: Props) {
     const onClick = () => {
         if (onClickCheck) onClickCheck();
-        dispatch(togglePickerActive(name));
+        setActive((prev) => !prev);
     };
 
     return (

@@ -20,7 +20,7 @@ export default function SearchDateInput(props: SearchDateInputProps) {
     const inputEl = useRef<HTMLInputElement>(null);
     const validityCls = getValidityCls(dateState);
     const onClick = onClickCheck(disabled, name);
-    const [isPickerActive, setIsPickerActive] = useState(false);
+    const [isPickerActive, setPickerActive] = useState(false);
 
     useEffect(() => {
         if (!inputEl.current) return;
@@ -32,7 +32,14 @@ export default function SearchDateInput(props: SearchDateInputProps) {
 
     return (
         <InputWrapper cls={`search-input-wrapper input-${validityCls}`} onClick={onClick}>
-            {!disabled ? <DatePicker time={time} name={name} /> : null}
+            {!disabled ? (
+                <DatePicker
+                    time={time}
+                    name={name}
+                    isPickerActive={isPickerActive}
+                    cls='form'
+                />
+            ) : null}
             <input
                 ref={inputEl}
                 className='input search-input'
@@ -47,8 +54,9 @@ export default function SearchDateInput(props: SearchDateInputProps) {
                 required={required}
             />
             <DatePickerIcon
-                name={name} onClickCheck={onClick}
+                onClickCheck={onClick}
                 height={32}
+                setActive={setPickerActive}
             />
             <Feedback
                 formError={dateState.formError}

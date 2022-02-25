@@ -41,5 +41,13 @@ export type SearchFormFeedbackT = FormFeedbackT & {
 
 export type TripDateInputProps = {
     name: string;
-    time: TimeObjT | null;
+    time: TimeObjT;
 } & HTMLProps<HTMLInputElement>;
+
+export type DatePickerProps = {
+    time: TimeObjT;
+    name: string;
+    isPickerActive: boolean;
+    cls: string;
+};
+export type SetPickerActiveT = React.Dispatch<React.SetStateAction<boolean>>;

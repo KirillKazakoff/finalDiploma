@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import DatePickerHeader from './DatePickerHeader/DatePickerHeader';
-import { TimeObjT } from './utils/useTime';
 import { useAppDispatch, useAppSelector } from '../../../redux/reduxHooks';
 import {
     setInput,
@@ -10,16 +9,14 @@ import {
 } from '../../../redux/slices/searchDateSlice';
 import UnavailableList from './DatePickerList/UnavailableList';
 import AvailableList from './DatePickerList/AvailableList';
+import { DatePickerProps } from '../../../types/typesSearch';
 
-type Props = { time: TimeObjT; name: string; isPickerActive: boolean };
-
-export default function DatePicker({ time, name, isPickerActive }: Props) {
+export default function DatePicker(props: DatePickerProps) {
+    const {
+        time, name, isPickerActive, cls,
+    } = props;
     const dispatch = useAppDispatch();
-    const activeDate = useAppSelector((state) => state.searchDate[name].activeDate);
-    // const isPickerActive = useAppSelector(
-    //     (state) => state.searchDate[name].isPickerActive,
-    // );
-    const pickerState = useAppSelector((state) => state.searchDate[name].pickerState);
+    const { activeDate, pickerState } = useAppSelector((state) => state.searchDate[name]);
 
     if (!pickerState || !isPickerActive) return null;
 
@@ -58,7 +55,7 @@ export default function DatePicker({ time, name, isPickerActive }: Props) {
     );
 
     return (
-        <div className='date-picker-container'>
+        <div className={`date-picker-container date-picker-container-${cls}`}>
             <div className='date-picker-arrow-decor' />
             <div className='date-picker'>
                 <DatePickerHeader dateCurrent={pickerState.date} time={time} />
