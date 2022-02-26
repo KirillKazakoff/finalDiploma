@@ -12,20 +12,11 @@ export const fetchCities: GetCitiesT = (inputName, name, signal) => async (dispa
     dispatch(setStatus('loading'));
 
     const url = getCitiesUrl({ name });
-
     const reqObj = { url, settings: { signal } };
-    const res = await dispatch(request(reqObj, setStatus));
-
-    // add check error response block.
-    if (!res) return false;
-    if (res === 'aborted') return false;
-
-    const resData = await res.json();
-    if (resData.error) return false;
-    // here
+    const resData = await dispatch(request(reqObj, setStatus));
+    if (!resData) return false;
 
     dispatch(setCities({ cities: resData, inputName }));
-
     dispatch(setStatus('loaded'));
     return true;
 };

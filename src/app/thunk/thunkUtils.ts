@@ -13,10 +13,7 @@ export type RequestObj = {
     settings: RequestInit | undefined;
 };
 
-type RequestType = (
-    reqObj: RequestObj,
-    setStatus: any
-) => AppThunk<Promise<false | Response | 'aborted'>>;
+type RequestType = (reqObj: RequestObj, setStatus: any) => AppThunk<any | false>;
 
 export const request: RequestType = (reqObj, setStatus) => async (dispatch) => {
     // await timeoutMock();
@@ -24,12 +21,14 @@ export const request: RequestType = (reqObj, setStatus) => async (dispatch) => {
     try {
         const res = await fetch(`${baseUrl}/routes/${reqObj.url}`, reqObj.settings);
         if (!res.ok) throw new Error(res.statusText);
-        return res;
+
+        const resData = await res.json();
+        if (resData.error) return false;
+        return resData;
     } catch (e) {
-        if (e.name === 'AbortError') {
-            return 'aborted';
+        if (e.name !== 'AbortError') {
+            dispatch(setStatus('failed'));
         }
-        dispatch(setStatus('failed'));
         return false;
     }
 };
