@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import DatePickerIcon from '../../DatePicker/DatePickerIcon';
-import { TripDateInputProps } from '../../../../types/typesSearch';
-import { useAppSelector } from '../../../../redux/reduxHooks';
-import DatePicker from '../../DatePicker/DatePicker';
-import InputWrapper from '../../Common/InputWrapper';
+import { useAppSelector } from '../../../../../redux/reduxHooks';
+import { TripDateInputProps } from '../../../../../types/typesSearch';
+import InputWrapper from '../../../Common/InputWrapper';
+import DatePicker from '../../../DatePicker/DatePicker';
+import DatePickerIcon from '../../../DatePicker/DatePickerIcon';
 
 export default function TripDateInput(props: TripDateInputProps) {
     const { name, onChange, time } = props;

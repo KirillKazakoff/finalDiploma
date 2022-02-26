@@ -1,7 +1,7 @@
 import React from 'react';
-import useChange from '../../../../form/useChange';
-import { setInput } from '../../../../redux/slices/searchDateSlice';
-import SearchFormRow from '../../Search/SearchFormRow';
+import useChange from '../../../../../form/useChange';
+import { setInput } from '../../../../../redux/slices/searchDateSlice';
+import SearchFormRow from '../../../Search/SearchFormRow';
 import TripDateFrom from './TripDateFrom';
 import TripDateTo from './TripDateTo';
 

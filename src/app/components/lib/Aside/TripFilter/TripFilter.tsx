@@ -1,5 +1,5 @@
 import React from 'react';
-import TripForm from './TripDate';
+import TripForm from './TripDate/TripDate';
 
 export default function TripFilter() {
     return (

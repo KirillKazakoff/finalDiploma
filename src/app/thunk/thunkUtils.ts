@@ -59,3 +59,8 @@ export function getCitiesUrl(name: string) {
     const url = getUrl<ParamT>(params, 'cities');
     return url;
 }
+
+type GetRouteParam = { from_city_id: string; to_city_id: string };
+export function getRoutesUrl({ from_city_id, to_city_id }: GetRouteParam) {
+    console.log(from_city_id);
+}

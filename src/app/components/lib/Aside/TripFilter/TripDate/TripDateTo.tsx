@@ -1,5 +1,5 @@
 import React, { HTMLProps } from 'react';
-import { useTime } from '../../DatePicker/utils/useTime';
+import { useTime } from '../../../DatePicker/utils/useTime';
 import TripDateInput from './TripDateInput';
 
 export default function TripDateTo({ onChange }: HTMLProps<HTMLInputElement>) {
