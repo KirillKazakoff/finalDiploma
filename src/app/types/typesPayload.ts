@@ -21,13 +21,13 @@ export type PayloadFormError = {
     formError: string;
 };
 
-export type PayloadStatus = {
+// wayTypes
+export type PayloadSetCities = SearchedCities & { inputName: string };
+
+export type PayloadFetchWayStatus = {
     inputName: string;
     status: FetchStatusT;
 };
-
-// wayTypes
-export type PayloadSetCities = SearchedCities & { inputName: string };
 
 // datePickerTypes
 export type PayloadActiveDay = {

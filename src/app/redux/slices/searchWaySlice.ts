@@ -2,7 +2,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
 
-import { PayloadStatus, FetchStatusT, PayloadSetCities } from '../../types/typesPayload';
+import {
+    FetchStatusT,
+    PayloadSetCities,
+    PayloadFetchWayStatus,
+} from '../../types/typesPayload';
 import { initialInput, inputReducers, InputState } from '../reduxInputUtils';
 import { SearchedCities } from '../../types/typesSearch';
 
@@ -31,7 +35,7 @@ export const searchWaySlice = createSlice({
     initialState,
     reducers: {
         ...inputReducers,
-        setWayStatus: (state, action: PayloadAction<PayloadStatus>) => {
+        setWayStatus: (state, action: PayloadAction<PayloadFetchWayStatus>) => {
             const { inputName, status } = action.payload;
             state[inputName].status = status;
         },

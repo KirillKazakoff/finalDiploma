@@ -9,7 +9,7 @@ import {
     setWayStatus,
     setError,
 } from '../../../../redux/slices/searchWaySlice';
-import { fetchCities } from '../../../../thunk/thunkApi';
+
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 import SearchWayFrom from './SearchWayFrom';
 import SearchWayTo from './SearchWayTo';
@@ -21,6 +21,7 @@ import useValidateInput from '../../../../form/useValidateInput';
 import useAbortFetch from './useAbort';
 import SearchWayUno from './SearchWayUno';
 import { SearchSectionProps } from '../../../../types/typesSearch';
+import { fetchCities } from '../../../../thunk/api/fetchCities';
 
 export default function SearchWay({ cls = '' }: SearchSectionProps) {
     const dispatch = useAppDispatch();
