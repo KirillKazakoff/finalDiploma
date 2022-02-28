@@ -1,6 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAppSelector, useAppDispatch } from '../../../redux/reduxHooks';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useAppSelector } from '../../../redux/reduxHooks';
 import { selectFormState, setFormMsgHidden } from '../../../redux/slices/searchFormSlice';
 import { OnSubmitFormT } from '../../../types/typesForms';
 import { SearchFormProps } from '../../../types/typesSearch';
@@ -11,14 +11,14 @@ import SearchFormFeedback from './SearchFormFeedback';
 import { selectDateInputs } from '../../../redux/slices/searchDateSlice';
 
 export default function SearchForm({ cls, children }: SearchFormProps) {
-    const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const { pathname } = useLocation();
     const waysState = useAppSelector(selectWayInputs);
     const datesState = useAppSelector(selectDateInputs);
     const { isMsgHidden, statusValidity } = useAppSelector(selectFormState);
 
     const onSubmit: OnSubmitFormT = (e) => {
-        if (statusValidity === 'success') {
+        if (statusValidity === 'success' && pathname !== '/tickets') {
             navigate('/tickets');
         }
     };

@@ -21,8 +21,6 @@ const useAbortFetch: UseAbortFetchT = () => {
             aborter.abort();
             dispatch(setCities({ inputName, cities: [selectedCity] }));
             dispatch(setWayStatus({ inputName, status: 'loaded' }));
-
-            console.log('aborted');
         }
     };
 

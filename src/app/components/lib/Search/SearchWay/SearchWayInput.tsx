@@ -35,7 +35,6 @@ export default function SearchWayInput(props: SearchWayInputProps) {
         validate(input);
     }, [wayState.value, status]);
 
-    console.log('wayInput');
     return (
         <InputWrapper cls={`search-input-wrapper input-${validityCls}`}>
             <SearchWayTips
