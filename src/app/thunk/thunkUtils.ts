@@ -1,6 +1,6 @@
 import { AppThunk } from '../redux/store';
 
-const baseUrl = 'https://fe-diplom.herokuapp.com';
+const baseUrl = 'http://80.87.192.113:3001';
 
 function timeoutMock() {
     return new Promise((resolve) => {

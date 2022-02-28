@@ -26,8 +26,22 @@ export type WaysStateT = {
 };
 
 const initialState: WaysStateT = {
-    wayFrom: initialWayState,
-    wayTo: initialWayState,
+    wayFrom: { ...initialWayState },
+    wayTo: { ...initialWayState },
+};
+
+initialState.wayTo.value = 'санкт-петербург';
+initialState.wayTo.cities = [];
+initialState.wayTo.cities[0] = {
+    name: 'санкт-петербург',
+    _id: '6212d3c15fc56b48553d43bd',
+};
+
+initialState.wayFrom.value = 'москва';
+initialState.wayFrom.cities = [];
+initialState.wayFrom.cities[0] = {
+    name: 'москва',
+    _id: '6212d3c15fc56b48553d43bc',
 };
 
 export const searchWaySlice = createSlice({

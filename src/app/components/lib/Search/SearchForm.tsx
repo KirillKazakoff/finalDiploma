@@ -1,6 +1,7 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useAppSelector } from '../../../redux/reduxHooks';
+import { useAppSelector, useAppDispatch } from '../../../redux/reduxHooks';
 import { selectFormState, setFormMsgHidden } from '../../../redux/slices/searchFormSlice';
 import { OnSubmitFormT } from '../../../types/typesForms';
 import { SearchFormProps } from '../../../types/typesSearch';
@@ -9,6 +10,8 @@ import { selectWayInputs } from '../../../redux/slices/searchWaySlice';
 import SearchFormBtn from './SearchFormBtn';
 import SearchFormFeedback from './SearchFormFeedback';
 import { selectDateInputs } from '../../../redux/slices/searchDateSlice';
+import { fetchRoutes } from '../../../thunk/api/fetchRoutes';
+import formatDate from './SearchDate/formatDate';
 
 export default function SearchForm({ cls, children }: SearchFormProps) {
     const navigate = useNavigate();
@@ -17,10 +20,17 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
     const datesState = useAppSelector(selectDateInputs);
     const { isMsgHidden, statusValidity } = useAppSelector(selectFormState);
 
+    const dispatch = useAppDispatch();
     const onSubmit: OnSubmitFormT = (e) => {
-        if (statusValidity === 'success' && pathname !== '/tickets') {
-            navigate('/tickets');
-        }
+        // if (statusValidity === 'success' && pathname !== '/tickets') {
+        //     navigate('/tickets');
+        // }
+        const searchSettings = {
+            from_city_id: waysState.wayFrom.cities[0]._id,
+            to_city_id: waysState.wayTo.cities[0]._id,
+            date_start: formatDate(datesState.dateTo.value),
+        };
+        dispatch(fetchRoutes(searchSettings));
     };
 
     let className = 'search-form';

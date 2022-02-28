@@ -25,6 +25,6 @@ export function getCitiesUrl(params: GetCitiesParams) {
 
 type GetRouteParams = { from_city_id: string; to_city_id: string };
 export function getRoutesUrl(params: GetRouteParams) {
-    const url = getUrl(params, 'routes');
+    const url = getUrl(params, '');
     return url;
 }

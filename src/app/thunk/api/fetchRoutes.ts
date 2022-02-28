@@ -4,16 +4,17 @@ import { AppThunk } from '../../redux/store';
 import { getRoutesUrl } from '../getUrl';
 import { request } from '../thunkUtils';
 
-type FetchRoutesT = (from_city_id: string, to_city_id: string) => AppThunk;
+type FetchRoutesT = (settings: any) => AppThunk;
 
-export const fetchRoutes: FetchRoutesT = (from_city_id, to_city_id) => async (dispatch) => {
+export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
     dispatch(setFetchStatus('loading'));
 
-    const url = getRoutesUrl({ from_city_id, to_city_id });
+    const url = getRoutesUrl(settings);
     const reqObj = { url };
     const resData = await dispatch(request(reqObj, setFetchStatus));
     if (!resData) return false;
 
+    console.log(resData);
     dispatch(setFetchStatus('loaded'));
     return true;
 };
