@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import { setFetchStatus } from '../../redux/slices/searchFormSlice';
+import { setTickets } from '../../redux/slices/ticketsSlice';
 import { AppThunk } from '../../redux/store';
 import { getRoutesUrl } from '../getUrl';
 import { request } from '../thunkUtils';
@@ -15,6 +16,7 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
     if (!resData) return false;
 
     console.log(resData);
+    dispatch(setTickets(resData));
     dispatch(setFetchStatus('loaded'));
     return true;
 };
