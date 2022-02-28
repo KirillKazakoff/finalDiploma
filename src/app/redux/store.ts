@@ -3,12 +3,15 @@ import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import searchWayReducer from './slices/searchWaySlice';
 import searchDateReducer from './slices/searchDateSlice';
 import searchFormReducer from './slices/searchFormSlice';
+import ticketsReducer from './slices/ticketsSlice';
 
 export const store = configureStore({
     reducer: {
         searchForm: searchFormReducer,
         searchWay: searchWayReducer,
         searchDate: searchDateReducer,
+
+        tickets: ticketsReducer,
     },
 });
 
