@@ -13,7 +13,10 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
     const url = getRoutesUrl(settings);
     const reqObj = { url };
     const resData = await dispatch(request(reqObj, setFetchStatus));
-    if (!resData) return false;
+    if (!resData) {
+        console.log('uhhh');
+        return false;
+    }
 
     console.log(resData);
     dispatch(setTickets(resData));

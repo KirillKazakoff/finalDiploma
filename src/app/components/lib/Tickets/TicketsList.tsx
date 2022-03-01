@@ -5,8 +5,7 @@ import { selectTickets } from '../../../redux/slices/ticketsSlice';
 import { selectFetchStatus } from '../../../redux/slices/searchFormSlice';
 
 export default function TicketsList() {
-    // const tickets = useAppSelector(selectTickets);
-    const tickets = useAppSelector((state) => state.tickets);
+    const tickets = useAppSelector(selectTickets);
     const status = useAppSelector(selectFetchStatus);
     console.log(tickets);
     console.log(status);

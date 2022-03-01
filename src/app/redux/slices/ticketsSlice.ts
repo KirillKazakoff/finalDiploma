@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { TicketsStateT, TicketsT } from '../../types/typesTicket';
+import type { TicketsStateT, TicketsT } from '../../components/lib/Tickets/ticketsModel';
 import type { RootState } from '../store';
 
 const initialState: TicketsStateT = null;
