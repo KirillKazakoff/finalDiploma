@@ -1,5 +1,6 @@
 import React from 'react';
-import Ticket from './Ticket';
+import { nanoid } from 'nanoid';
+import Ticket from './TicketRoute';
 import { useAppSelector } from '../../../redux/reduxHooks';
 import { selectTickets } from '../../../redux/slices/ticketsSlice';
 import { selectFetchStatus } from '../../../redux/slices/searchFormSlice';
@@ -7,12 +8,13 @@ import { selectFetchStatus } from '../../../redux/slices/searchFormSlice';
 export default function TicketsList() {
     const tickets = useAppSelector(selectTickets);
     const status = useAppSelector(selectFetchStatus);
-    console.log(tickets);
     console.log(status);
+    if (status !== 'loaded') return null;
 
-    return (
-        <ul className='tickets'>
-            <Ticket />
-        </ul>
-    );
+    console.log(tickets);
+    const ticketsList = tickets.items.map((ticket) => (
+        <Ticket key={nanoid()} ticket={ticket} />
+    ));
+
+    return <ul className='tickets'>{ticketsList}</ul>;
 }

@@ -23,12 +23,13 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
     const dispatch = useAppDispatch();
     const onSubmit: OnSubmitFormT = (e) => {
         // if (statusValidity === 'success' && pathname !== '/tickets') {
-        //     navigate('/tickets');
+        // navigate('/tickets');
         // }
         const searchSettings = {
             from_city_id: waysState.wayFrom.cities[0]._id,
             to_city_id: waysState.wayTo.cities[0]._id,
             date_start: formatDate(datesState.dateTo.value),
+            date_end: formatDate(datesState.dateFrom.value),
         };
         dispatch(fetchRoutes(searchSettings));
     };

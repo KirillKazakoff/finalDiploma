@@ -18,7 +18,7 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
         return false;
     }
 
-    console.log(resData);
+    // console.log(resData);
     dispatch(setTickets(resData));
     dispatch(setFetchStatus('loaded'));
     return true;

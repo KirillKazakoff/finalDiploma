@@ -1,6 +1,9 @@
 import React from 'react';
+import { TicketRightProps } from '../../../types/typesTicket';
 
-export default function TicketRight() {
+export default function TicketRight({ routes }: TicketRightProps) {
+    const { departure, arrival } = routes;
+
     return (
         <aside className='ticket-aside-right'>
             <ul className='ticket-types'>

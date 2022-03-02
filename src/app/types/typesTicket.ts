@@ -1,9 +1,5 @@
-import {
-    StationT,
-    SeatsInfoT,
-    PriceInfoT,
-    TicketExtrasT,
-} from '../components/lib/Tickets/ticketsModel';
+import type { TicketRouteT, TrainRouteT } from '../components/lib/Tickets/ticketsModel';
+import { StationT } from '../components/lib/Tickets/ticketsModel';
 
 export type ShortTrainRouteT = {
     from: StationT;
@@ -11,19 +7,26 @@ export type ShortTrainRouteT = {
     duration: number;
 };
 
+export type TicketProps = { ticket: TicketRouteT };
+
 export type TicketLeftProps = {
-    trainName: string;
-    cityFrom: string;
-    cityTo: string;
+    departure: TrainRouteT;
 };
 
 export type TicketCenterProps = {
-    departure: ShortTrainRouteT;
-    arrival?: ShortTrainRouteT;
+    routes: {
+        departure: TrainRouteT;
+        arrival?: TrainRouteT;
+    };
 };
 
 export type TicketRightProps = {
-    seats_info: SeatsInfoT;
-    price_info: PriceInfoT;
-    ticket_extras: TicketExtrasT;
+    routes: {
+        departure: TrainRouteT;
+        arrival?: TrainRouteT;
+    };
+};
+
+export type TrainRouteProps = {
+    route: TrainRouteT;
 };
