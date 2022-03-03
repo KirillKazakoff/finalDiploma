@@ -1,6 +1,6 @@
 import React from 'react';
 import { TrainRouteProps } from '../../../types/typesTicket';
-import { getTrainRouteTime, getDurationTime } from './getTrainTime';
+import { getTrainRouteTime, getDurationTime } from './Ticket/getTrainTime';
 
 export default function TrainRoute({ route }: TrainRouteProps) {
     const { from, to, duration } = route;

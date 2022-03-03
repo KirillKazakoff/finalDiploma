@@ -69,6 +69,11 @@ body {
     padding-right: var(--success-popup-padding);
 }
 
+.framed-ticket-right {
+    padding-left: 25px;
+    padding-right: 20px;
+}
+
 .text-left {
     text-align: left;
 }
@@ -738,30 +743,80 @@ body {
     min-width: 285px;
 
     align-self: stretch;
-    padding: 35px 25px 25px 25px;
+    padding-top: 25px;
+    padding-bottom: 35px;
     border-left: 1px dashed #e5e5e5;
 }
 
 .ticket-types {
     display: flex;
     flex-direction: column;
-    row-gap: 25px;
+    row-gap: 15px;
+    flex: 1;
 }
 
 .ticket-type {
+    position: relative;
     width: 100%;
     display: flex;
 
     align-items: center;
-    column-gap: 20px;
+    column-gap: 10px;
     font-size: 16px;
+    padding-top: 10px;
+}
+
+.ticket-type-desc {
+    width: 70px;
+}
+
+.ticket-type-tips {
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    background-color: var(--secondary-super-light);
+    border-radius: 5px;
+    row-gap: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.ticket-type-tips-arrow-decor {
+    position: absolute;
+    left: 45%;
+    top: -10px;
+    margin: auto;
+    width: 1px;
+
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 15px solid var(--secondary-super-light);
+}
+
+.ticket-type:hover .ticket-type-tips {
+    display: flex;
+}
+
+.ticket-type-tip {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
 }
 
 .ticket-amount-left {
+    margin-left: 23px;
     color: var(--bg-main);
 }
 
 .main-cost {
+    flex: 1;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -770,6 +825,8 @@ body {
 }
 
 .main-cost-count-container {
+    display: flex;
+    column-gap: 5px;
     font-size: 24px;
 }
 
@@ -2401,6 +2458,26 @@ body {
     left: -20px;
     right: 0;
 }
+
+/* .ticket-type {
+    width: 100%;
+    display: flex;
+
+    align-items: center;
+    column-gap: 20px;
+    font-size: 16px;
+} */
+
+/* .ticket-type:hover::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--secondary-super-light);
+    border-radius: 5px;
+    min-height: 100px;
+} */
 
 .date-picker-arrow-decor {
     margin: auto;

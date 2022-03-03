@@ -1,12 +1,12 @@
 import React from 'react';
-import { TicketCenterProps } from '../../../types/typesTicket';
-import TrainRoute from './TrainRoute';
+import { TicketCenterProps } from '../../../../types/typesTicket';
+import TrainRoute from '../TrainRoute';
 
 export default function TicketCenter({ routes }: TicketCenterProps) {
     const { departure, arrival } = routes;
 
-    return (
-        <div className='ticket-center'>
+return (
+        <div className="ticket-center">
             <TrainRoute route={departure} />
             {arrival ? <TrainRoute route={arrival} /> : null}
         </div>

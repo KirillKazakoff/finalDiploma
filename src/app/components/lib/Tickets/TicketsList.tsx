@@ -8,7 +8,6 @@ import { selectFetchStatus } from '../../../redux/slices/searchFormSlice';
 export default function TicketsList() {
     const tickets = useAppSelector(selectTickets);
     const status = useAppSelector(selectFetchStatus);
-    console.log(status);
     if (status !== 'loaded') return null;
 
     console.log(tickets);
