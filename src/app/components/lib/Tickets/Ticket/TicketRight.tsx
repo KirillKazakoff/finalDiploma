@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable camelcase */
 import React from 'react';
-import { TicketRightProps } from '../../../types/typesTicket';
-import { PriceInfoCarriageT } from './ticketsModel';
+import { TicketRightProps } from '../../../../types/typesTicket';
+import { PriceInfoCoachT } from '../../../../types/models/modelTickets';
+
 import TicketType from './TicketType';
 
 export default function TicketRight({ routes, available_seats_info }: TicketRightProps) {
@@ -15,7 +16,7 @@ export default function TicketRight({ routes, available_seats_info }: TicketRigh
     Object.keys(depPrices).forEach((carriageKey) => {
         const arrObj = arrPrices[carriageKey];
         const depObj = depPrices[carriageKey];
-        const minObj: PriceInfoCarriageT = {};
+        const minObj: PriceInfoCoachT = {};
 
         Object.keys(depObj).forEach((priceKey) => {
             let minPrice = depObj[priceKey];
@@ -29,38 +30,39 @@ export default function TicketRight({ routes, available_seats_info }: TicketRigh
         minPrices[carriageKey] = minObj;
     });
 
-    console.log(minPrices);
+    // console.log(minPrices);
+    // console.log(available_seats_info);
     // const ticketTypes = Object.keys(available_seats_info).map((carriageKey) => {
-    //     carriageKey;
+
     // });
 
     return (
-        <aside className='ticket-aside-right'>
-            <ul className='ticket-types'>
+        <aside className="ticket-aside-right">
+            <ul className="ticket-types">
                 <TicketType />
                 <TicketType />
                 <TicketType />
                 <TicketType />
             </ul>
-            <footer className='ticket-footer framed-ticket-right'>
-                <div className='extra-options'>
+            <footer className="ticket-footer framed-ticket-right">
+                <div className="extra-options">
                     <img
-                        className='filter-secondary'
-                        src='./svg/features/wireless.svg'
-                        alt='wireless'
+                        className="filter-secondary"
+                        src="./svg/features/wireless.svg"
+                        alt="wireless"
                     />
                     <img
-                        className='filter-secondary'
-                        src='./svg/features/rocket.svg'
-                        alt='rocket'
+                        className="filter-secondary"
+                        src="./svg/features/rocket.svg"
+                        alt="rocket"
                     />
                     <img
-                        className='filter-secondary'
-                        src='./svg/features/cup.svg'
-                        alt='cup'
+                        className="filter-secondary"
+                        src="./svg/features/cup.svg"
+                        alt="cup"
                     />
                 </div>
-                <button type='submit' className='btn btn-choose-places'>
+                <button type="submit" className="btn btn-choose-places">
                     Выбрать места
                 </button>
             </footer>

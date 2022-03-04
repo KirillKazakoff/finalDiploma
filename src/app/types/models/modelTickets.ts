@@ -1,12 +1,19 @@
 // TrainRouteT
-export type SeatsInfoT = {
-    first?: number;
-    second?: number;
-    third?: number;
-    fourth?: number;
+export type SeatsCoachInfoT = {
+    all: number;
+    side?: number;
+    bottom?: number;
+    top?: number;
 };
 
-export type PriceInfoCarriageT = {
+export type SeatsTrainInfoT = {
+    first?: SeatsCoachInfoT;
+    second?: SeatsCoachInfoT;
+    third?: SeatsCoachInfoT;
+    fourth?: SeatsCoachInfoT;
+};
+
+export type PriceInfoCoachT = {
     [index: string]: number;
 
     price?: number;
@@ -18,12 +25,12 @@ export type PriceInfoCarriageT = {
 };
 
 export type PriceInfoT = {
-    [index: string]: PriceInfoCarriageT;
+    [index: string]: PriceInfoCoachT;
 
-    first: PriceInfoCarriageT;
-    second: PriceInfoCarriageT;
-    third: PriceInfoCarriageT;
-    fourth: PriceInfoCarriageT;
+    first: PriceInfoCoachT;
+    second: PriceInfoCoachT;
+    third: PriceInfoCoachT;
+    fourth: PriceInfoCoachT;
 };
 
 export type StationT = {
@@ -52,7 +59,7 @@ export type TrainRouteT = {
     min_price: number;
     duration: number;
     price_info: PriceInfoT;
-    available_seats_info: SeatsInfoT;
+    available_seats_info: SeatsTrainInfoT;
 };
 
 // TicketRouteT
@@ -62,7 +69,7 @@ export type TicketExtrasT = {
     is_express: boolean;
 };
 
-export type TicketCarriagesT = {
+export type TicketCoachsT = {
     have_first_class: boolean;
     have_second_class: boolean;
     have_third_class: boolean;
@@ -73,10 +80,10 @@ export type TicketRouteT = {
     min_price: number;
     departure: TrainRouteT;
     arrival?: TrainRouteT;
-    available_seats_info: SeatsInfoT;
+    available_seats_info: SeatsTrainInfoT;
     avaliable_seats: number;
 } & TicketExtrasT &
-TicketCarriagesT;
+TicketCoachsT;
 
 // TicketsT
 export type TicketsT = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TicketLeftProps } from '../../../types/typesTicket';
+import { TicketLeftProps } from '../../../../types/typesTicket';
 
 export default function TicketLeft({ departure }: TicketLeftProps) {
     const { train, from, to } = departure;

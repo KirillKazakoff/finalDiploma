@@ -23,8 +23,14 @@ export function getCitiesUrl(params: GetCitiesParams) {
     return url;
 }
 
-type GetRouteParams = { from_city_id: string; to_city_id: string };
+type GetRouteParams = any;
 export function getRoutesUrl(params: GetRouteParams) {
     const url = getUrl(params, '');
+    return url;
+}
+
+type GetSeatsParams = any;
+export function getSeatsUrl(params: GetSeatsParams) {
+    const url = getUrl(params, `${params.id}/seats`);
     return url;
 }
