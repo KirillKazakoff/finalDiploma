@@ -2,10 +2,9 @@ import { setFetchStatus } from '../../redux/slices/searchFormSlice';
 import { AppThunk } from '../../redux/store';
 import { getSeatsUrl } from '../getUrl';
 import { request } from '../thunkUtils';
-import { CoachesSeatsT } from '../../types/models/modelSeats';
-import getSeats from '../../components/lib/Tickets/getSeats';
+import { getTrainInfo, TrainInfoT } from '../../components/lib/Tickets/getTrainInfo';
 
-type FetchSeatsT = (settings: any) => AppThunk<Promise<false | CoachesSeatsT>>;
+type FetchSeatsT = (settings: any) => AppThunk<Promise<false | TrainInfoT>>;
 
 export const fetchSeats: FetchSeatsT = (settings) => async (dispatch) => {
     const url = getSeatsUrl(settings);
@@ -15,6 +14,6 @@ export const fetchSeats: FetchSeatsT = (settings) => async (dispatch) => {
         console.log('uhhh');
         return false;
     }
-    getSeats(resData);
-    return resData;
+    const trainInfo = getTrainInfo(resData);
+    return trainInfo;
 };

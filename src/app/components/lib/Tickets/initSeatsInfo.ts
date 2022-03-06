@@ -1,5 +1,4 @@
-import { SeatFullT, SeatT } from '../../../types/models/modelSeats';
-import { SeatsCoachInfoT } from '../../../types/models/modelTickets';
+import { SeatFullT, SeatsCoachInfoT, SeatT } from '../../../types/models/modelSeats';
 
 const initSeatsInfo = (type: string, seats: SeatT[]) => {
     const seatsFull: SeatFullT[] = seats.map((seat) => ({

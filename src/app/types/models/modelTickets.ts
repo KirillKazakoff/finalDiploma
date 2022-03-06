@@ -1,29 +1,6 @@
+import { SeatsTypesInfoT, CoachSeatsFullT } from './modelSeats';
+
 // TrainRouteT
-
-import type { SeatFullT } from './modelSeats';
-
-export type SeatsTypesT = {
-    // all: number;
-    side?: number;
-    bottom?: number;
-    top?: number;
-    nochoice?: number;
-};
-
-export type SeatsCoachInfoT = {
-    available: SeatsTypesT;
-    seatsFull: SeatFullT[];
-};
-
-export type SeatsTrainInfoT = {
-    [key: string]: SeatsCoachInfoT;
-
-    first?: SeatsCoachInfoT;
-    second?: SeatsCoachInfoT;
-    third?: SeatsCoachInfoT;
-    fourth?: SeatsCoachInfoT;
-};
-
 export type PriceInfoCoachT = {
     [index: string]: number;
 
@@ -70,7 +47,8 @@ export type TrainRouteT = {
     min_price: number;
     duration: number;
     price_info: PriceInfoT;
-    available_seats_info: SeatsTrainInfoT;
+    available_seats_info: SeatsTypesInfoT;
+    coaches: CoachSeatsFullT;
 };
 
 // TicketRouteT
@@ -91,7 +69,7 @@ export type TicketRouteT = {
     min_price: number;
     departure: TrainRouteT;
     arrival?: TrainRouteT;
-    available_seats_info: SeatsTrainInfoT;
+    available_seats_info: SeatsTypesInfoT;
     avaliable_seats: number;
 } & TicketExtrasT &
 TicketCoachsT;

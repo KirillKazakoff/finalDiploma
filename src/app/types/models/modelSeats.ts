@@ -25,9 +25,31 @@ export type SeatFullT = SeatT & {
     disabled: boolean;
 };
 
-export type CoachSeatsT = {
+export type SeatsCoachT = {
     coach: CoachFeaturesT;
     seats: SeatT[];
 };
 
-export type CoachesSeatsT = CoachSeatsT[];
+export type SeatsTypesT = {
+    [key: string]: number;
+
+    side?: number;
+    bottom?: number;
+    top?: number;
+    nochoice?: number;
+};
+
+export type SeatsTypesInfoT = {
+    [key: string]: SeatsTypesT;
+
+    first?: SeatsTypesT;
+    second?: SeatsTypesT;
+    third?: SeatsTypesT;
+    fourth?: SeatsTypesT;
+};
+
+export type SeatsCoachInfoT = {
+    available: SeatsTypesT;
+    seatsFull: SeatFullT[];
+};
+export type CoachSeatsFullT = { coach: CoachFeaturesT; seatsInfo: SeatsCoachInfoT };
