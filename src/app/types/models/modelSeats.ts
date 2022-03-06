@@ -20,6 +20,11 @@ export type SeatT = {
     available: boolean;
 };
 
+export type SeatFullT = SeatT & {
+    selected: boolean;
+    disabled: boolean;
+};
+
 export type CoachSeatsT = {
     coach: CoachFeaturesT;
     seats: SeatT[];

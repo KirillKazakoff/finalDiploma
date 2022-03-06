@@ -1,9 +1,19 @@
 // TrainRouteT
-export type SeatsCoachInfoT = {
+
+import type { SeatFullT } from './modelSeats';
+
+export type SeatsTypesT = {
     all: number;
     side?: number;
     bottom?: number;
     top?: number;
+    nochoice?: number;
+};
+
+export type SeatsCoachInfoT = {
+    all: number;
+    available: SeatsTypesT;
+    seatsFull: SeatFullT[];
 };
 
 export type SeatsTrainInfoT = {

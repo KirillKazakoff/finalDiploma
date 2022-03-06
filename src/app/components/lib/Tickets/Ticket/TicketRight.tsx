@@ -10,6 +10,8 @@ export default function TicketRight({ routes, available_seats_info }: TicketRigh
     const { departure, arrival } = routes;
 
     const depPrices = departure.price_info;
+    if (!arrival) return null;
+
     const arrPrices = arrival.price_info;
     const minPrices = { ...arrPrices };
 
@@ -21,7 +23,7 @@ export default function TicketRight({ routes, available_seats_info }: TicketRigh
         Object.keys(depObj).forEach((priceKey) => {
             let minPrice = depObj[priceKey];
 
-            if (arrObj[priceKey] < depObj[priceKey]) {
+            if (arrObj && arrObj[priceKey] < depObj[priceKey]) {
                 minPrice = arrObj[priceKey];
             }
             minObj[priceKey] = minPrice;
@@ -37,32 +39,32 @@ export default function TicketRight({ routes, available_seats_info }: TicketRigh
     // });
 
     return (
-        <aside className="ticket-aside-right">
-            <ul className="ticket-types">
+        <aside className='ticket-aside-right'>
+            <ul className='ticket-types'>
                 <TicketType />
                 <TicketType />
                 <TicketType />
                 <TicketType />
             </ul>
-            <footer className="ticket-footer framed-ticket-right">
-                <div className="extra-options">
+            <footer className='ticket-footer framed-ticket-right'>
+                <div className='extra-options'>
                     <img
-                        className="filter-secondary"
-                        src="./svg/features/wireless.svg"
-                        alt="wireless"
+                        className='filter-secondary'
+                        src='./svg/features/wireless.svg'
+                        alt='wireless'
                     />
                     <img
-                        className="filter-secondary"
-                        src="./svg/features/rocket.svg"
-                        alt="rocket"
+                        className='filter-secondary'
+                        src='./svg/features/rocket.svg'
+                        alt='rocket'
                     />
                     <img
-                        className="filter-secondary"
-                        src="./svg/features/cup.svg"
-                        alt="cup"
+                        className='filter-secondary'
+                        src='./svg/features/cup.svg'
+                        alt='cup'
                     />
                 </div>
-                <button type="submit" className="btn btn-choose-places">
+                <button type='submit' className='btn btn-choose-places'>
                     Выбрать места
                 </button>
             </footer>

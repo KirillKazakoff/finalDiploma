@@ -30,6 +30,7 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
         for await (const id of idArr) {
             const seats = await dispatch(fetchSeats({ id }));
             if (!seats) return false;
+
             console.log(seats);
         }
     }
