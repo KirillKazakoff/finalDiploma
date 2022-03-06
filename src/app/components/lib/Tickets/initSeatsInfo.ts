@@ -1,7 +1,7 @@
 import { SeatFullT, SeatT } from '../../../types/models/modelSeats';
 import { SeatsCoachInfoT } from '../../../types/models/modelTickets';
 
-const initSeatsInfo = (type: string, allAvailable: number, seats: SeatT[]) => {
+const initSeatsInfo = (type: string, seats: SeatT[]) => {
     const seatsFull: SeatFullT[] = seats.map((seat) => ({
         ...seat,
         selected: false,
@@ -41,9 +41,7 @@ const initSeatsInfo = (type: string, allAvailable: number, seats: SeatT[]) => {
     }
 
     const seatsInfo: SeatsCoachInfoT = {
-        all: allSeats,
         available: {
-            all: allAvailable,
             top: 0,
             bottom: 0,
             side: 0,

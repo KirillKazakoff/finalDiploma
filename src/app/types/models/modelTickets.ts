@@ -3,7 +3,7 @@
 import type { SeatFullT } from './modelSeats';
 
 export type SeatsTypesT = {
-    all: number;
+    // all: number;
     side?: number;
     bottom?: number;
     top?: number;
@@ -11,12 +11,13 @@ export type SeatsTypesT = {
 };
 
 export type SeatsCoachInfoT = {
-    all: number;
     available: SeatsTypesT;
     seatsFull: SeatFullT[];
 };
 
 export type SeatsTrainInfoT = {
+    [key: string]: SeatsCoachInfoT;
+
     first?: SeatsCoachInfoT;
     second?: SeatsCoachInfoT;
     third?: SeatsCoachInfoT;
