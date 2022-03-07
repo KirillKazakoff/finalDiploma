@@ -776,7 +776,7 @@ body {
     flex-direction: column;
 
     position: absolute;
-    top: 50px;
+    top: 60px;
     left: 0px;
     right: 0px;
     background-color: var(--secondary-super-light);

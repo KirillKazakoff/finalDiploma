@@ -2,21 +2,7 @@
 
 import initSeatsInfo from './initSeatsInfo';
 import type { SeatsCoachT, SeatsTypesInfoT } from '../../../types/models/modelSeats';
-import { SeatsTypesT } from '../../../types/models/modelSeats';
-
-export const sumAvailable = (
-    total: SeatsTypesInfoT,
-    type: string,
-    available: SeatsTypesT,
-) => {
-    if (!total[type]) {
-        total[type] = available;
-    } else {
-        Object.keys(total[type]).forEach((key) => {
-            total[type][key] += available[key];
-        });
-    }
-};
+import { sumAvailable } from '../../../thunk/seatsUtils';
 
 export const getTrainInfo = (coachesSeats: SeatsCoachT[]) => {
     const seatsTrainInfo = coachesSeats.map((coachSeat) => {

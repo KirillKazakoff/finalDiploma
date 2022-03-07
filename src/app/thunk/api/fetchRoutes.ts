@@ -15,8 +15,8 @@ import { request } from '../thunkUtils';
 import { fetchSeats } from './fetchSeats';
 import getMinPrices from '../../components/lib/Tickets/getMinPrices';
 import { SeatsTypesInfoT } from '../../types/models/modelSeats';
-import { sumAvailable } from '../../components/lib/Tickets/getTrainInfo';
 import { TrainRoutesT } from '../../types/typesTicket';
+import { sumAvailable, getTotalSeatsInfo } from '../seatsUtils';
 
 type FetchRoutesT = (settings: any) => AppThunk;
 
@@ -54,12 +54,12 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
             });
         }
 
-        const minPrices = getMinPrices(routes);
         const ticketId = nanoid();
+        const minPrices = getMinPrices(routes);
+        const seatsInfoAux = getTotalSeatsInfo(minPrices, available);
         const ticketInfo: TicketInfoT = {
             id: ticketId,
-            minPrices,
-            available,
+            seatsInfoAux,
             trainsInfo,
             ticketRoute: item,
         };
@@ -70,10 +70,10 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
         total_count: resData.total_count,
         tickets: ticketsInfo,
     };
-    console.log(tickets);
-    console.log(resData);
 
-    dispatch(setTickets(resData));
+    dispatch(setTickets(tickets));
     dispatch(setFetchStatus('loaded'));
+
+    console.log(resData);
     return true;
 };

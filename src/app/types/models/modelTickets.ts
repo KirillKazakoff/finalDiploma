@@ -1,4 +1,4 @@
-import { SeatsTypesInfoT, CoachSeatsFullT } from './modelSeats';
+import { SeatsTypesInfoT, CoachSeatsFullT, TotalSeatsInfoT } from './modelSeats';
 import { TrainInfoT } from '../../components/lib/Tickets/getTrainInfo';
 
 // TrainRouteT
@@ -16,10 +16,10 @@ export type PriceInfoCoachT = {
 export type PriceInfoT = {
     [index: string]: PriceInfoCoachT;
 
-    first: PriceInfoCoachT;
-    second: PriceInfoCoachT;
-    third: PriceInfoCoachT;
-    fourth: PriceInfoCoachT;
+    first?: PriceInfoCoachT;
+    second?: PriceInfoCoachT;
+    third?: PriceInfoCoachT;
+    fourth?: PriceInfoCoachT;
 };
 
 export type StationT = {
@@ -78,8 +78,7 @@ TicketCoachsT;
 export type TrainInfoFullT = { routeName: string; trainInfo: TrainInfoT };
 export type TicketInfoT = {
     id: string;
-    available: SeatsTypesInfoT;
-    minPrices: PriceInfoT;
+    seatsInfoAux: TotalSeatsInfoT;
     trainsInfo: TrainInfoFullT[];
     ticketRoute: TicketRouteT;
 };
@@ -94,4 +93,4 @@ export type TicketsT = {
     tickets: TicketInfoT[];
 };
 
-export type TicketsStateT = TicketsResponseT | null;
+export type TicketsStateT = TicketsT | null;

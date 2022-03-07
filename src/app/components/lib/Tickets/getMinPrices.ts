@@ -1,11 +1,31 @@
-import { PriceInfoCoachT } from '../../../types/models/modelTickets';
+/* eslint-disable no-param-reassign */
+import { PriceInfoCoachT, PriceInfoT } from '../../../types/models/modelTickets';
 import { TrainRoutesT } from '../../../types/typesTicket';
+
+const getNochoicePrice = (minPrices: PriceInfoT) => {
+    const prices = { ...minPrices };
+
+    Object.keys(prices).forEach((carriageKey) => {
+        if (carriageKey === 'first') {
+            Object.keys(prices[carriageKey]).forEach((priceKey) => {
+                if (priceKey !== 'price') delete prices.first[priceKey];
+            });
+        }
+        if (carriageKey === 'fourth') {
+            Object.keys(prices[carriageKey]).forEach((priceKey) => {
+                if (priceKey !== 'bottom_price') delete prices.fourth[priceKey];
+            });
+        }
+    });
+
+    return prices;
+};
 
 const getMinPrices = (routes: TrainRoutesT) => {
     const { departure, arrival } = routes;
 
     const depPrices = departure.price_info;
-    if (!arrival) return null;
+    if (!arrival) return depPrices;
 
     const arrPrices = arrival.price_info;
     const minPrices = { ...arrPrices };
@@ -27,7 +47,20 @@ const getMinPrices = (routes: TrainRoutesT) => {
         minPrices[carriageKey] = minObj;
     });
 
-    return minPrices;
+    return getNochoicePrice(minPrices);
+};
+
+export const getMinFromTypes = (minPriceType: PriceInfoCoachT) => {
+    let minPrice = 0;
+    Object.keys(minPriceType).forEach((priceKey) => {
+        const newMinPrice = minPriceType[priceKey];
+        if (!minPrice) minPrice = newMinPrice;
+        if (minPrice && newMinPrice < minPrice) {
+            minPrice = newMinPrice;
+        }
+    });
+
+    return minPrice;
 };
 
 export default getMinPrices;

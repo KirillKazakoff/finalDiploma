@@ -1,3 +1,5 @@
+import type { PriceInfoCoachT } from './modelTickets';
+
 export type CoachFeaturesT = {
     _id: string;
     name: string;
@@ -46,6 +48,19 @@ export type SeatsTypesInfoT = {
     second?: SeatsTypesT;
     third?: SeatsTypesT;
     fourth?: SeatsTypesT;
+};
+
+export type TotalSeatsTypeT = {
+    minPriceType: PriceInfoCoachT;
+    availableType: SeatsTypesT;
+};
+export type TotalSeatsInfoT = {
+    [key: string]: TotalSeatsTypeT;
+
+    first?: TotalSeatsTypeT;
+    second?: TotalSeatsTypeT;
+    third?: TotalSeatsTypeT;
+    fourth?: TotalSeatsTypeT;
 };
 
 export type SeatsCoachInfoT = {

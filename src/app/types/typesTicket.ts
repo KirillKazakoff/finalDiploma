@@ -1,6 +1,6 @@
-import type { SeatsTypesInfoT } from './models/modelSeats';
 import type { TicketRouteT, TrainRouteT } from './models/modelTickets';
-import { StationT } from './models/modelTickets';
+import { StationT, TicketInfoT } from './models/modelTickets';
+import { TotalSeatsInfoT, TotalSeatsTypeT } from './models/modelSeats';
 
 export type ShortTrainRouteT = {
     from: StationT;
@@ -8,7 +8,7 @@ export type ShortTrainRouteT = {
     duration: number;
 };
 
-export type TicketProps = { ticket: TicketRouteT };
+export type TicketProps = { ticket: TicketInfoT };
 
 export type TicketLeftProps = {
     departure: TrainRouteT;
@@ -26,11 +26,16 @@ export type TicketCenterProps = {
 
 export type TicketRightProps = {
     routes: TrainRoutesT;
-    available_seats_info: SeatsTypesInfoT;
+    seatsInfoAux: TotalSeatsInfoT;
 };
 
 export type TrainRouteProps = {
     route: TrainRouteT;
+};
+
+export type TicketTypeProps = {
+    typeKey: string;
+    typeInfo: TotalSeatsTypeT;
 };
 
 export type TicketTypeTipProps = {
