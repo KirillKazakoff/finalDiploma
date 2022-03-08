@@ -5,19 +5,10 @@ import {
     PayloadDateTime,
     PayloadPickerState,
 } from '../../types/typesPayload';
+import { DateStateT, DatesStateT } from '../../types/typesSlices';
 
-import type {
-    DateT,
-    PickerStateT,
-} from '../../components/lib/DatePicker/utils/timeTypes';
-import { InputState, initialInput, inputReducers } from '../reduxInputUtils';
+import { initialInput, inputReducers } from '../reduxInputUtils';
 import type { RootState } from '../store';
-
-export type DateStateT = InputState & {
-    dateTime: string;
-    activeDate: DateT | null;
-    pickerState: PickerStateT | null;
-};
 
 const intialDateState: DateStateT = {
     ...initialInput,
@@ -25,12 +16,6 @@ const intialDateState: DateStateT = {
     activeDate: null,
     dateTime: '',
     pickerState: null,
-};
-
-export type DatesStateT = {
-    [key: string]: DateStateT;
-    dateTo: DateStateT;
-    dateFrom: DateStateT;
 };
 
 const initialState: DatesStateT = {

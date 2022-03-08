@@ -30,6 +30,7 @@ export type TicketRightProps = {
 };
 
 export type TrainRouteProps = {
+    arrowCls: string;
     route: TrainRouteT;
 };
 

@@ -5,10 +5,10 @@ import TrainRoute from '../TrainRoute';
 export default function TicketCenter({ routes }: TicketCenterProps) {
     const { departure, arrival } = routes;
 
-return (
-        <div className="ticket-center">
-            <TrainRoute route={departure} />
-            {arrival ? <TrainRoute route={arrival} /> : null}
+    return (
+        <div className='ticket-center'>
+            <TrainRoute route={departure} arrowCls='to' />
+            {arrival ? <TrainRoute route={arrival} arrowCls='from' /> : null}
         </div>
     );
 }

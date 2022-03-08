@@ -1,3 +1,4 @@
+/* eslint-disable no-continue */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-underscore-dangle */
 
@@ -17,6 +18,7 @@ import getMinPrices from '../../components/lib/Tickets/getMinPrices';
 import { SeatsTypesInfoT } from '../../types/models/modelSeats';
 import { TrainRoutesT } from '../../types/typesTicket';
 import { sumAvailable, getTotalSeatsInfo } from '../seatsUtils';
+import setInitCost from '../../components/lib/Aside/TripFilter/setInitCost';
 
 type FetchRoutesT = (settings: any) => AppThunk;
 
@@ -41,6 +43,8 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
 
         const trainsInfo = [];
         for await (const key of routeKeys) {
+            if (!routes[key]) continue;
+
             const id = routes[key]._id;
             const trainInfo = await dispatch(fetchSeats({ id }));
             if (!trainInfo) return false;
@@ -71,9 +75,10 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
         tickets: ticketsInfo,
     };
 
+    dispatch(setInitCost(resData));
+
     dispatch(setTickets(tickets));
     dispatch(setFetchStatus('loaded'));
 
-    console.log(resData);
     return true;
 };

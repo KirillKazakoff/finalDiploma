@@ -50,6 +50,12 @@ export type PayloadPickerState = {
     pickerState: PickerStateT;
 };
 
+// filterTypes
+export type PayloadPrice = {
+    name: string;
+    price: number;
+};
+
 export type SetFormStatusT = ActionCreatorWithPayload<FormStatusT>;
 export type SetStatusT = ActionCreatorWithPayload<FetchStatusT>;
 export type SetErrorT = ActionCreatorWithPayload<PayloadError>;

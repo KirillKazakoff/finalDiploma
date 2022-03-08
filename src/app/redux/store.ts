@@ -4,10 +4,12 @@ import searchWayReducer from './slices/searchWaySlice';
 import searchDateReducer from './slices/searchDateSlice';
 import searchFormReducer from './slices/searchFormSlice';
 import ticketsReducer from './slices/ticketsSlice';
+import searchFilterReducer from './slices/searchFilterSlice';
 
 export const store = configureStore({
     reducer: {
         searchForm: searchFormReducer,
+        searchFilter: searchFilterReducer,
         searchWay: searchWayReducer,
         searchDate: searchDateReducer,
 

@@ -9,7 +9,6 @@ export default function Ticket({ ticket }: TicketProps) {
     const { departure, arrival } = ticket.ticketRoute;
     const routes = { departure, arrival };
 
-    console.log(ticket.seatsInfoAux);
     return (
         <li className='ticket shadowed'>
             <TicketLeft departure={routes.departure} />

@@ -4,7 +4,7 @@ import type { CheckCityMatchT } from '../components/lib/Search/SearchWay/useAbor
 import type { WayStateT, WaysStateT } from '../redux/slices/searchWaySlice';
 import type { ValidateInputT, OnChangeFetchT, FormFeedbackT } from './typesForms';
 import type { OnClickCheckT } from '../components/lib/Search/SearchDate/useCheckDisabled';
-import type { DatesStateT } from '../redux/slices/searchDateSlice';
+import { DatesStateT } from './typesSlices';
 
 export type SearchedCity = { _id: string; name: string };
 export type SearchedCities = { cities: SearchedCity[]; error?: string };

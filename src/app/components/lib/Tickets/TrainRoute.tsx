@@ -2,7 +2,7 @@ import React from 'react';
 import { TrainRouteProps } from '../../../types/typesTicket';
 import { getTrainRouteTime, getDurationTime } from './Ticket/getTrainTime';
 
-export default function TrainRoute({ route }: TrainRouteProps) {
+export default function TrainRoute({ route, arrowCls }: TrainRouteProps) {
     const { from, to, duration } = route;
 
     return (
@@ -19,7 +19,7 @@ export default function TrainRoute({ route }: TrainRouteProps) {
 
             <div className='travel-time'>
                 <span className='travel-time-desc'>{getDurationTime(duration)}</span>
-                <img src='./svg/arrows/arrow-travel-time-to.svg' alt='arrow-to' />
+                <img src={`./svg/arrows/arrow-travel-time-${arrowCls}.svg`} alt='arrow' />
             </div>
 
             <div className='ticket-info ticket-right'>
