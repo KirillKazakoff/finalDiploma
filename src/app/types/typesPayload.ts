@@ -56,6 +56,11 @@ export type PayloadPrice = {
     price: number;
 };
 
+export type PayloadToggler = {
+    name: string;
+    isActive: boolean;
+};
+
 export type SetFormStatusT = ActionCreatorWithPayload<FormStatusT>;
 export type SetStatusT = ActionCreatorWithPayload<FetchStatusT>;
 export type SetErrorT = ActionCreatorWithPayload<PayloadError>;

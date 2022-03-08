@@ -18,7 +18,7 @@ import getMinPrices from '../../components/lib/Tickets/getMinPrices';
 import { SeatsTypesInfoT } from '../../types/models/modelSeats';
 import { TrainRoutesT } from '../../types/typesTicket';
 import { sumAvailable, getTotalSeatsInfo } from '../seatsUtils';
-import setInitCost from '../../components/lib/Aside/TripFilter/setInitCost';
+import initLimitCosts from '../../components/lib/Aside/TripFilter/initLimitCosts';
 
 type FetchRoutesT = (settings: any) => AppThunk;
 
@@ -75,7 +75,7 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
         tickets: ticketsInfo,
     };
 
-    dispatch(setInitCost(resData));
+    dispatch(initLimitCosts(resData));
 
     dispatch(setTickets(tickets));
     dispatch(setFetchStatus('loaded'));

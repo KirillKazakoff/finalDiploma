@@ -1,15 +1,15 @@
 /* eslint-disable no-param-reassign */
-/* eslint-disable no-continue */
 /* eslint-disable no-restricted-syntax */
 import { TicketsResponseT } from '../../../../types/models/modelTickets';
 import { AppThunk } from '../../../../redux/store';
-import { getMinPriceTrain, getMaxPriceTrain } from './setInitCostUtils';
+import { getMinPriceTrain, getMaxPriceTrain } from './initLimitUtils';
+import { setPrice } from '../../../../redux/slices/searchFilterSlice';
 
-type SetInitCostT = (resData: TicketsResponseT) => AppThunk;
+type InitLimitCostsT = (resData: TicketsResponseT) => AppThunk;
 
-const setInitCost: SetInitCostT = (resData: TicketsResponseT) => async (dispatch) => {
-    let minPrice;
-    let maxPrice;
+const initLimitCosts: InitLimitCostsT = (resData) => async (dispatch) => {
+    let price_from;
+    let price_to;
 
     for (const item of resData.items) {
         let minTicketPrice;
@@ -33,10 +33,13 @@ const setInitCost: SetInitCostT = (resData: TicketsResponseT) => async (dispatch
             }
         }
 
-        if (!minPrice || minTicketPrice < minPrice) minPrice = minTicketPrice;
-        if (!maxPrice || maxTicketPrice > maxPrice) maxPrice = maxTicketPrice;
+        if (!price_from || minTicketPrice < price_from) price_from = minTicketPrice;
+        if (!price_to || maxTicketPrice > price_to) price_to = maxTicketPrice;
     }
-    console.log(maxPrice, minPrice);
+
+    Object.entries({ price_from, price_to }).forEach(([name, price]) => {
+        dispatch(setPrice({ name, price }));
+    });
 };
 
-export default setInitCost;
+export default initLimitCosts;

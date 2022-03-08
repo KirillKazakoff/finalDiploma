@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { PayloadPrice } from '../../types/typesPayload';
+import { PayloadPrice, PayloadToggler } from '../../types/typesPayload';
 import { FilterStateT } from '../../types/typesSlices';
 
 const initialState: FilterStateT = {
@@ -10,12 +10,22 @@ const initialState: FilterStateT = {
         have_third_class: false,
         have_fourth_class: false,
         have_wifi: false,
-        have_air_conditioning: false,
         have_express: false,
     },
     cost: {
         price_from: 0,
         price_to: 0,
+    },
+    time: {
+        start_departure_hour_from: 0,
+        end_departure_hour_from: 0,
+        start_departure_hour_to: 24,
+        end_departure_hour_to: 24,
+
+        start_arrival_hour_from: 0,
+        end_arrival_hour_from: 0,
+        start_arrival_hour_to: 24,
+        end_arrival_hour_to: 24,
     },
 };
 
@@ -27,9 +37,13 @@ export const searchFilterSlice = createSlice({
             const { name, price } = action.payload;
             state.cost[name] = price;
         },
+        setToggler: (state, action: PayloadAction<PayloadToggler>) => {
+            const { name, isActive } = action.payload;
+            state.togglers[name] = isActive;
+        },
     },
 });
 
-export const { setPrice } = searchFilterSlice.actions;
+export const { setPrice, setToggler } = searchFilterSlice.actions;
 
 export default searchFilterSlice.reducer;
