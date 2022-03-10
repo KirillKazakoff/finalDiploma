@@ -2,6 +2,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { PayloadPrice, PayloadToggler } from '../../types/typesPayload';
 import { FilterStateT } from '../../types/typesSlices';
+import type { RootState } from '../store';
 
 const initialState: FilterStateT = {
     togglers: {
@@ -15,6 +16,8 @@ const initialState: FilterStateT = {
     cost: {
         price_from: 0,
         price_to: 0,
+        minTotal: 0,
+        maxTotal: 0,
     },
     time: {
         start_departure_hour_from: 0,
@@ -45,5 +48,7 @@ export const searchFilterSlice = createSlice({
 });
 
 export const { setPrice, setToggler } = searchFilterSlice.actions;
+
+export const selectCost = (state: RootState) => state.searchFilter.cost;
 
 export default searchFilterSlice.reducer;
