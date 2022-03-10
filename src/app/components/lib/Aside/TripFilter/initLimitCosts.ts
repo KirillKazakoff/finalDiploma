@@ -8,8 +8,8 @@ import { setPrice } from '../../../../redux/slices/searchFilterSlice';
 type InitLimitCostsT = (resData: TicketsResponseT) => AppThunk;
 
 const initLimitCosts: InitLimitCostsT = (resData) => async (dispatch) => {
-    let price_from;
-    let price_to;
+    let minTotal;
+    let maxTotal;
 
     for (const item of resData.items) {
         let minTicketPrice;
@@ -33,11 +33,11 @@ const initLimitCosts: InitLimitCostsT = (resData) => async (dispatch) => {
             }
         }
 
-        if (!price_from || minTicketPrice < price_from) price_from = minTicketPrice;
-        if (!price_to || maxTicketPrice > price_to) price_to = maxTicketPrice;
+        if (!minTotal || minTicketPrice < minTotal) minTotal = minTicketPrice;
+        if (!maxTotal || maxTicketPrice > maxTotal) maxTotal = maxTicketPrice;
     }
 
-    Object.entries({ price_from, price_to }).forEach(([name, price]) => {
+    Object.entries({ minTotal, maxTotal }).forEach(([name, price]) => {
         dispatch(setPrice({ name, price }));
     });
 };
