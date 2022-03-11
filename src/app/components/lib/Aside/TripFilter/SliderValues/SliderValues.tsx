@@ -1,15 +1,21 @@
 /* eslint-disable prefer-template */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import { useAppDispatch } from '../../../../../redux/reduxHooks';
+import { setPrice } from '../../../../../redux/slices/searchFilterSlice';
 
-type SliderValuesT = { fromValue: number; toValue: number; maxValue: number };
+type SliderValuesT = { min: number; max: number };
 
 export default function SliderValues(props: SliderValuesT) {
+    const dispatch = useAppDispatch();
     const bar = useRef<HTMLDivElement>(null);
     const circleFrom = useRef<HTMLDivElement>(null);
     const circleTo = useRef<HTMLDivElement>(null);
 
-    const { fromValue, toValue, maxValue } = props;
+    const { min, max } = props;
+
+    const [fromValue, setFrom] = useState(min);
+    const [toValue, setTo] = useState(max);
 
     const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
         e.preventDefault();
@@ -18,7 +24,11 @@ export default function SliderValues(props: SliderValuesT) {
         const circleClient = circle.getBoundingClientRect();
         const barClient = bar.current.getBoundingClientRect();
 
-        const { left, right } = circleClient;
+        const diffValue = max - min;
+        const pxAmount = barClient.width;
+        const coefValue = diffValue / pxAmount;
+
+        const { left, right, width: circleWidth } = circleClient;
         const { left: barStartX, right: barEndX, width: barWidth } = barClient;
         const shiftLeft = e.clientX - left;
         const shiftRight = -(e.clientX - right);
@@ -45,16 +55,30 @@ export default function SliderValues(props: SliderValuesT) {
             }
 
             const newPosition = pageX - barStartX - shiftLeft;
-
             circle.style.left = `${newPosition}px`;
+
+            const toActualPosition = newPosition + circleWidth;
+            const newFromValue = +(newPosition * coefValue + min).toFixed();
+            let newToValue = +(toActualPosition * coefValue + min).toFixed();
+
+            if (toActualPosition + 1 > barWidth) newToValue = max;
+
+            if (circle.id === 'from') {
+                setFrom(newFromValue);
+            } else {
+                setTo(newToValue);
+            }
         };
 
         document.addEventListener('mousemove', onMouseMove);
 
-        document.onmouseup = () => {
+        const onMouseUp = () => {
             document.removeEventListener('mousemove', onMouseMove);
-            circle.onmouseup = null;
+            document.removeEventListener('mouseup', onMouseUp);
+            document.removeEventListener('contextmenu', onMouseUp);
         };
+        document.addEventListener('mouseup', onMouseUp);
+        document.addEventListener('contextmenu', onMouseUp);
     };
 
     const onDragStart = (e: React.DragEvent) => e.preventDefault();
@@ -70,7 +94,7 @@ export default function SliderValues(props: SliderValuesT) {
                     className='slider-value-container slider-value-container-from'
                     onMouseDown={onMouseDown}
                     onDragStart={onDragStart}
-                    id='1'
+                    id='from'
                     ref={circleFrom}
                 >
                     <div className='slider-value-circle' />
@@ -80,14 +104,14 @@ export default function SliderValues(props: SliderValuesT) {
                     className='slider-value-container slider-value-container-to'
                     onMouseDown={onMouseDown}
                     onDragStart={onDragStart}
-                    id='2'
+                    id='to'
                     ref={circleTo}
                 >
                     <div className='slider-value-circle' />
                     <span className='slider-value-desc'>{toValue}</span>
                 </div>
             </div>
-            <span className='slider-flag-value'>{maxValue}</span>
+            {/* <span className='slider-flag-value'>{max}</span> */}
         </div>
     );
 }
