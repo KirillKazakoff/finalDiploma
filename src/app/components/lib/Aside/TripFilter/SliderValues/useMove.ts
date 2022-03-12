@@ -2,22 +2,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useAppDispatch } from '../../../../../redux/reduxHooks';
+import { UseMoveT } from '../../../../../types/typesTripFilter';
 import { SetStateT } from '../../../../../types/typesReact';
-
-export type OnMouseDownT = (e: React.MouseEvent<HTMLDivElement>) => void;
-
-export type UseMoveT = (
-    refs: {
-        bar: any;
-        circleFrom: any;
-        circleTo: any;
-        progressBar: any;
-    },
-    limits: {
-        max: number;
-        min: number;
-    }
-) => { onMouseDown: OnMouseDownT; fromValue: number; toValue: number };
 
 const useMove: UseMoveT = (refs, limits) => {
     const dispatch = useAppDispatch();
@@ -98,7 +84,9 @@ const useMove: UseMoveT = (refs, limits) => {
         document.addEventListener('mouseup', onMouseUp);
         document.addEventListener('contextmenu', onMouseUp);
     };
-    return { onMouseDown, fromValue, toValue };
+
+    const values = { fromValue, toValue };
+    return { onMouseDown, values };
 };
 
 export default useMove;

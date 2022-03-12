@@ -1,10 +1,6 @@
 import React from 'react';
-import SliderLabels from './SliderLabels';
+import { SliderValuesContainerProps } from '../../../../../types/typesTripFilter';
 
-export default function SliderValuesContainer() {
-    return (
-        <div className='slider-values-container'>
-            <SliderLabels />
-        </div>
-    );
+export default function SliderValuesContainer({ children }: SliderValuesContainerProps) {
+    return <div className='slider-values-container'>{children}</div>;
 }
