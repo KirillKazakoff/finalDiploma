@@ -20,13 +20,13 @@ export default function CostSlider() {
             <SliderValues sliderRef={refs.bar} progressRef={refs.progressBar}>
                 <SliderValue
                     circleRef={refs.circleFrom}
-                    type='from'
+                    type='from price_from'
                     value={values.fromValue}
                     onMouseDown={onMouseDown}
                 />
                 <SliderValue
                     circleRef={refs.circleTo}
-                    type='to'
+                    type='to price_to'
                     value={values.toValue}
                     onMouseDown={onMouseDown}
                 />

@@ -5,31 +5,27 @@ import { FilterStateT } from '../../types/typesSlices';
 import type { RootState } from '../store';
 
 const initialState: FilterStateT = {
-    togglers: {
-        have_first_class: false,
-        have_second_class: false,
-        have_third_class: false,
-        have_fourth_class: false,
-        have_wifi: false,
-        have_express: false,
-    },
-    cost: {
-        price_from: 0,
-        price_to: 0,
-        minTotal: 0,
-        maxTotal: 0,
-    },
-    time: {
-        start_departure_hour_from: 0,
-        end_departure_hour_from: 0,
-        start_departure_hour_to: 24,
-        end_departure_hour_to: 24,
+    have_first_class: false,
+    have_second_class: false,
+    have_third_class: false,
+    have_fourth_class: false,
+    have_wifi: false,
+    have_express: false,
 
-        start_arrival_hour_from: 0,
-        end_arrival_hour_from: 0,
-        start_arrival_hour_to: 24,
-        end_arrival_hour_to: 24,
-    },
+    price_from: 0,
+    price_to: 0,
+    minTotal: 0,
+    maxTotal: 0,
+
+    start_departure_hour_from: 0,
+    end_departure_hour_from: 0,
+    start_departure_hour_to: 24,
+    end_departure_hour_to: 24,
+
+    start_arrival_hour_from: 0,
+    end_arrival_hour_from: 0,
+    start_arrival_hour_to: 24,
+    end_arrival_hour_to: 24,
 };
 
 export const searchFilterSlice = createSlice({

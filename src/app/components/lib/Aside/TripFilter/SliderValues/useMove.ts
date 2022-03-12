@@ -18,6 +18,10 @@ const useMove: UseMoveT = (refs, limits) => {
         const circleTo = refs.circleTo.current;
 
         const circle = e.currentTarget;
+        const { id } = circle;
+        const idInfo = id.split(' ');
+        const name = idInfo[1];
+
         const barClient = bar.getBoundingClientRect();
         const circleClient = circle.getBoundingClientRect();
 
@@ -67,7 +71,7 @@ const useMove: UseMoveT = (refs, limits) => {
             progressBar.style.left = progressLeft;
             progressBar.style.right = progressRight;
 
-            if (circle.id === 'from') {
+            if (circle.id.includes('from')) {
                 setFrom(newFromValue);
             } else {
                 setTo(newToValue);
