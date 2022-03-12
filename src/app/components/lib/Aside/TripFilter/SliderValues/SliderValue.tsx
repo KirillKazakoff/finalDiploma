@@ -1,13 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useState } from 'react';
-import { OnMouseDownT, RefDivT } from '../../../../../types/typesReact';
-
-type SliderValueProps = {
-    circleRef: RefDivT;
-    type: string;
-    onMouseDown: OnMouseDownT;
-    value: number;
-};
+import React from 'react';
+import type { SliderValueProps } from '../../../../../types/typesTripFilter';
 
 export default function SliderValue(props: SliderValueProps) {
     const {

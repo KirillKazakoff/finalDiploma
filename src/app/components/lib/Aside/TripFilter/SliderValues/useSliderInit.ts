@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { SliderLimitsT } from '../../../../../types/typesTripFilter';
 import useMove from './useMove';
 
-const useRefsInit = (limits: SliderLimitsT) => {
+const useSliderInit = (limits: SliderLimitsT) => {
     const bar = useRef<HTMLDivElement>(null);
     const progressBar = useRef<HTMLDivElement>(null);
     const circleFrom = useRef<HTMLDivElement>(null);
@@ -19,4 +19,4 @@ const useRefsInit = (limits: SliderLimitsT) => {
     return { refs, onMouseDown, values };
 };
 
-export default useRefsInit;
+export default useSliderInit;

@@ -1,40 +1,13 @@
-import React, { useRef } from 'react';
-import useMove from './useMove';
-import SliderValue from './SliderValue';
-import type { SliderLimitsT } from '../../../../../types/typesTripFilter';
+import React from 'react';
+import type { SliderValuesProps } from '../../../../../types/typesTripFilter';
 
-export default function SliderValues(props: SliderLimitsT) {
-    const bar = useRef<HTMLDivElement>(null);
-    const progressBar = useRef<HTMLDivElement>(null);
-    const circleFrom = useRef<HTMLDivElement>(null);
-    const circleTo = useRef<HTMLDivElement>(null);
-
-    const { min, max } = props;
-
-    const refs = {
-        bar,
-        circleFrom,
-        circleTo,
-        progressBar,
-    };
-    const limits = { min, max };
-    const { onMouseDown, values } = useMove(refs, limits);
+export default function SliderValues(props: SliderValuesProps) {
+    const { sliderRef, progressRef, children } = props;
 
     return (
-        <div className='slider-values slider-cost' ref={bar}>
-            <div className='slider-progress' ref={progressBar} />
-            <SliderValue
-                circleRef={circleFrom}
-                type='from'
-                value={values.fromValue}
-                onMouseDown={onMouseDown}
-            />
-            <SliderValue
-                circleRef={circleTo}
-                type='to'
-                value={values.toValue}
-                onMouseDown={onMouseDown}
-            />
+        <div className='slider-values slider-cost' ref={sliderRef}>
+            <div className='slider-progress' ref={progressRef} />
+            {children}
         </div>
     );
 }
