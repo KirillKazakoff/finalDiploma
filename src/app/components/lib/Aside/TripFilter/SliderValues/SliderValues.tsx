@@ -8,7 +8,9 @@ type SliderValuesT = { min: number; max: number };
 
 export default function SliderValues(props: SliderValuesT) {
     const dispatch = useAppDispatch();
+
     const bar = useRef<HTMLDivElement>(null);
+    const progressBar = useRef<HTMLDivElement>(null);
     const circleFrom = useRef<HTMLDivElement>(null);
     const circleTo = useRef<HTMLDivElement>(null);
 
@@ -63,6 +65,16 @@ export default function SliderValues(props: SliderValuesT) {
 
             if (toActualPosition + 1 > barWidth) newToValue = max;
 
+            const fromClient = circleFrom.current.getBoundingClientRect();
+            const toClient = circleTo.current.getBoundingClientRect();
+
+            const progressLeft = `${fromClient.left - barStartX}px`;
+            const progressRight = `${barEndX - toClient.right}px`;
+            console.log(progressLeft, progressRight);
+
+            progressBar.current.style.left = progressLeft;
+            progressBar.current.style.right = progressRight;
+
             if (circle.id === 'from') {
                 setFrom(newFromValue);
             } else {
@@ -90,6 +102,7 @@ export default function SliderValues(props: SliderValuesT) {
                 <span className='slider-label'>до</span>
             </div>
             <div className='slider-values slider-cost' ref={bar}>
+                <div className='slider-progress' ref={progressBar} />
                 <div
                     className='slider-value-container slider-value-container-from'
                     onMouseDown={onMouseDown}
