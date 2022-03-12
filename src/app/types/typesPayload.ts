@@ -51,15 +51,20 @@ export type PayloadPickerState = {
 };
 
 // filterTypes
-export type PayloadPrice = {
+export type PayloadFilter = {
     name: string;
-    price: number;
+    value: number | boolean;
 };
 
-export type PayloadToggler = {
-    name: string;
-    isActive: boolean;
-};
+// export type PayloadPrice = {
+//     name: string;
+//     price: number;
+// };
+
+// export type PayloadToggler = {
+//     name: string;
+//     isActive: boolean;
+// };
 
 export type SetFormStatusT = ActionCreatorWithPayload<FormStatusT>;
 export type SetStatusT = ActionCreatorWithPayload<FetchStatusT>;

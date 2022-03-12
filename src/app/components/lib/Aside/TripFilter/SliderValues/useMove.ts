@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useAppDispatch } from '../../../../../redux/reduxHooks';
 import { UseMoveT } from '../../../../../types/typesTripFilter';
-import { SetStateT } from '../../../../../types/typesReact';
+import { setFilter } from '../../../../../redux/slices/searchFilterSlice';
 
 const useMove: UseMoveT = (refs, limits) => {
     const dispatch = useAppDispatch();
@@ -21,6 +21,7 @@ const useMove: UseMoveT = (refs, limits) => {
         const { id } = circle;
         const idInfo = id.split(' ');
         const name = idInfo[1];
+        let dispatchValue = 0;
 
         const barClient = bar.getBoundingClientRect();
         const circleClient = circle.getBoundingClientRect();
@@ -73,14 +74,17 @@ const useMove: UseMoveT = (refs, limits) => {
 
             if (circle.id.includes('from')) {
                 setFrom(newFromValue);
+                dispatchValue = fromValue;
             } else {
                 setTo(newToValue);
+                dispatchValue = toValue;
             }
         };
 
         document.addEventListener('mousemove', onMouseMove);
 
         const onMouseUp = () => {
+            // dispatch(setFilter({ name, value: dispatchValue }));
             document.removeEventListener('mousemove', onMouseMove);
             document.removeEventListener('mouseup', onMouseUp);
             document.removeEventListener('contextmenu', onMouseUp);

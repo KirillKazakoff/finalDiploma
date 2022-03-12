@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { PayloadPrice, PayloadToggler } from '../../types/typesPayload';
 import { FilterStateT } from '../../types/typesSlices';
 import type { RootState } from '../store';
+import { PayloadFilter } from '../../types/typesPayload';
 
 const initialState: FilterStateT = {
     have_first_class: false,
@@ -32,19 +32,27 @@ export const searchFilterSlice = createSlice({
     name: 'searchFilter',
     initialState,
     reducers: {
-        setPrice: (state, action: PayloadAction<PayloadPrice>) => {
-            const { name, price } = action.payload;
-            state.cost[name] = price;
-        },
-        setToggler: (state, action: PayloadAction<PayloadToggler>) => {
-            const { name, isActive } = action.payload;
-            state.togglers[name] = isActive;
+        setFilter: (state, action: PayloadAction<PayloadFilter>) => {
+            const { name, value } = action.payload;
+            state[name] = value;
+            console.log(value);
         },
     },
 });
 
-export const { setPrice, setToggler } = searchFilterSlice.actions;
+export const { setFilter } = searchFilterSlice.actions;
 
-export const selectCost = (state: RootState) => state.searchFilter.cost;
+export const selectCost = (state: RootState) => {
+    const {
+        price_from, price_to, minTotal, maxTotal,
+    } = state.searchFilter;
+
+    return {
+        price_from,
+        price_to,
+        minTotal,
+        maxTotal,
+    };
+};
 
 export default searchFilterSlice.reducer;

@@ -3,7 +3,7 @@
 import { TicketsResponseT } from '../../../../types/models/modelTickets';
 import { AppThunk } from '../../../../redux/store';
 import { getMinPriceTrain, getMaxPriceTrain } from './initLimitUtils';
-import { setPrice } from '../../../../redux/slices/searchFilterSlice';
+import { setFilter } from '../../../../redux/slices/searchFilterSlice';
 
 type InitLimitCostsT = (resData: TicketsResponseT) => AppThunk;
 
@@ -38,7 +38,7 @@ const initLimitCosts: InitLimitCostsT = (resData) => async (dispatch) => {
     }
 
     Object.entries({ minTotal, maxTotal }).forEach(([name, price]) => {
-        dispatch(setPrice({ name, price }));
+        dispatch(setFilter({ name, value: price }));
     });
 };
 
