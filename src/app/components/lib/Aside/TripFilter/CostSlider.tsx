@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useAppSelector } from '../../../../redux/reduxHooks';
 import { selectCost } from '../../../../redux/slices/searchFilterSlice';
 import SliderLabels from './SliderValues/SliderLabels';
@@ -7,7 +7,6 @@ import SliderValue from './SliderValues/SliderValue';
 import SliderValues from './SliderValues/SliderValues';
 import SliderValuesContainer from './SliderValues/SliderValuesContainer';
 import useSliderInit from './SliderValues/useSliderInit';
-import Example from './SliderValues/Example';
 
 export default function CostSlider() {
     const cost = useAppSelector(selectCost);
@@ -18,7 +17,11 @@ export default function CostSlider() {
     return (
         <SliderValuesContainer>
             <SliderLabels />
-            <SliderValues sliderRef={refs.bar} progressRef={refs.progressBar}>
+            <SliderValues
+                cls='slider-cost'
+                sliderRef={refs.bar}
+                progressRef={refs.progressBar}
+            >
                 <SliderValue
                     circleRef={refs.circleFrom}
                     type='from price_from'
@@ -33,7 +36,6 @@ export default function CostSlider() {
                 />
             </SliderValues>
             <SliderLimit>{max}</SliderLimit>
-            <Example />
         </SliderValuesContainer>
     );
 }

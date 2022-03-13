@@ -506,10 +506,9 @@ body {
     border-radius: 50px;
     position: absolute;
     background-color: var(--bg-main);
-    height: 20px;
     top: 0;
-    left: 10px;
-    right: 10px;
+    left: 0px;
+    right: 0px;
 }
 
 .slider-value-container {
@@ -517,7 +516,7 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
-    top: -15%;
+    top: -25%;
 }
 
 .slider-value-container-from {
@@ -531,11 +530,13 @@ body {
 }
 
 .slider-value-circle {
-    width: 28px;
-    height: 28px;
-
     background-color: white;
     border-radius: 50px;
+}
+
+.slider-value-circle-cost {
+    width: 28px;
+    height: 28px;
 }
 
 .slider-value-desc {
@@ -552,8 +553,24 @@ body {
     height: 20px;
 }
 
-.slider-time {
+/* slider-hour */
+.slider-value-container-hour {
+    top: -40%;
+}
+
+.slider-hour {
     height: 10px;
+}
+
+.slider-hour-title {
+    color: var(--secondary-super-light);
+    font-size: 24px;
+    margin: 20px 0 15px 0;
+}
+
+.slider-value-circle-hour {
+    width: 18px;
+    height: 18px;
 }
 
 /* subtle-time */

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import type { SliderValueProps } from '../../../../../types/typesTripFilter';
 
-export default function SliderValue(props: SliderValueProps) {
+export default function SliderValueHour(props: SliderValueProps) {
     const {
         circleRef, type, onMouseClosure, initValue,
     } = props;
@@ -12,16 +12,17 @@ export default function SliderValue(props: SliderValueProps) {
     const [value, setValue] = useState(initValue);
     const onMouseDown = onMouseClosure(setValue);
 
+    const transformed = `${value}:00`;
     return (
         <div
-            className={`slider-value-container slider-value-container-cost slider-value-container-${type}`}
+            className={`slider-value-container slider-value-container-hour slider-value-container-${type}`}
             onMouseDown={onMouseDown}
             onDragStart={onDragStart}
             id={type}
             ref={circleRef}
         >
-            <div className='slider-value-circle slider-value-circle-cost' />
-            <span className='slider-value-desc'>{value}</span>
+            <div className='slider-value-circle slider-value-circle-hour' />
+            <span className='slider-value-desc'>{transformed}</span>
         </div>
     );
 }

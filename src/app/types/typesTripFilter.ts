@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { OnMouseDownT, RefDivT, SetStateT } from './typesReact';
+import { OnMouseT, RefDivT, SetStateT } from './typesReact';
 
-type OnMouseClosureT = (setValue: SetStateT<number>) => OnMouseDownT;
+type OnMouseClosureT = (setValue: SetStateT<number>) => OnMouseT;
 
 export type UseMoveT = (
     refs: {
@@ -19,6 +19,7 @@ export type UseMoveT = (
 
 export type SliderLimitsT = { min: number; max: number };
 export type SliderValuesProps = {
+    cls: string;
     children: React.ReactNode;
     sliderRef: RefDivT;
     progressRef: RefDivT;
@@ -30,3 +31,5 @@ export type SliderValueProps = {
     type: string;
     onMouseClosure: OnMouseClosureT;
 };
+
+export type HourSliderProps = { dir: 'from' | 'to'; desc: string; limits: SliderLimitsT };
