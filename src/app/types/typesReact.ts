@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 
+export type DivT = HTMLDivElement;
 export type SetStateT<T> = React.Dispatch<React.SetStateAction<T>>;
 
 export type RefT<T> = React.MutableRefObject<T>;
-export type RefDivT = RefT<HTMLDivElement>;
+export type RefDivT = RefT<DivT>;
 
-export type OnMouseDownT = (e: React.MouseEvent<HTMLDivElement>) => void;
+export type OnMouseT = (e: React.MouseEvent<DivT>) => void;

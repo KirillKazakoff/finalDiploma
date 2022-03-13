@@ -1,9 +1,14 @@
-import React, { useRef } from 'react';
-import onClickClosure from './onClickExample.ts';
+import React, { useRef, useState } from 'react';
 
 export default function Example() {
     const ref = useRef<HTMLButtonElement>(null);
-    const onClick = onClickClosure(ref);
+    const [state, setState] = useState(0);
+
+    const onClick = () => {
+        console.log(state);
+        setState(state + 1);
+    };
+
     return (
         <button
             type='button' ref={ref}

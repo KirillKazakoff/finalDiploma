@@ -14,9 +14,9 @@ const useSliderInit = (limits: SliderLimitsT) => {
         circleFrom,
         circleTo,
     };
-    const { onMouseDown, values } = useMove(refs, limits);
+    const onMouseClosure = useMove(refs, limits);
 
-    return { refs, onMouseDown, values };
+    return { refs, onMouseClosure };
 };
 
 export default useSliderInit;

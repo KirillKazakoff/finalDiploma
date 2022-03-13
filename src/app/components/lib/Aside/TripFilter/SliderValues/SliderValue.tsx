@@ -1,13 +1,16 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React from 'react';
+import React, { useState } from 'react';
 import type { SliderValueProps } from '../../../../../types/typesTripFilter';
 
 export default function SliderValue(props: SliderValueProps) {
     const {
-        circleRef, type, onMouseDown, value,
+        circleRef, type, onMouseClosure, initValue,
     } = props;
 
     const onDragStart = (e: React.DragEvent) => e.preventDefault();
+
+    const [value, setValue] = useState(initValue);
+    const onMouseDown = onMouseClosure(setValue);
 
     return (
         <div
