@@ -18,14 +18,14 @@ const initialState: FilterStateT = {
     maxTotal: 0,
 
     start_departure_hour_from: 0,
-    end_departure_hour_from: 24,
+    end_departure_hour_from: 86400000,
     start_departure_hour_to: 0,
-    end_departure_hour_to: 24,
+    end_departure_hour_to: 86400000,
 
     start_arrival_hour_from: 0,
-    end_arrival_hour_from: 24,
+    end_arrival_hour_from: 86400000,
     start_arrival_hour_to: 0,
-    end_arrival_hour_to: 24,
+    end_arrival_hour_to: 86400000,
 };
 
 export const searchFilterSlice = createSlice({
@@ -35,7 +35,6 @@ export const searchFilterSlice = createSlice({
         setFilter: (state, action: PayloadAction<PayloadFilter>) => {
             const { name, value } = action.payload;
             state[name] = value;
-            console.log(value);
         },
     },
 });

@@ -4,13 +4,14 @@ import { OnMouseT, RefDivT, SetStateT } from './typesReact';
 
 type OnMouseClosureT = (setValue: SetStateT<number>) => OnMouseT;
 
+export type SliderRefsT = {
+    bar: any;
+    circleFrom: any;
+    circleTo: any;
+    progressBar: any;
+};
 export type UseMoveT = (
-    refs: {
-        bar: any;
-        circleFrom: any;
-        circleTo: any;
-        progressBar: any;
-    },
+    refs: SliderRefsT,
     limits: {
         max: number;
         min: number;
@@ -18,6 +19,7 @@ export type UseMoveT = (
 ) => OnMouseClosureT;
 
 export type SliderLimitsT = { min: number; max: number };
+
 export type SliderValuesProps = {
     cls: string;
     children: React.ReactNode;
@@ -32,4 +34,16 @@ export type SliderValueProps = {
     onMouseClosure: OnMouseClosureT;
 };
 
-export type HourSliderProps = { dir: 'from' | 'to'; desc: string; limits: SliderLimitsT };
+export type SliderLimitProps = { children: React.ReactNode; refs: SliderRefsT };
+
+export type SliderValueHourProps = SliderValueProps & {
+    transform: (value: number) => string;
+};
+
+export type HourSliderProps = {
+    dir: 'from' | 'to';
+    desc: string;
+    limits: SliderLimitsT;
+    typeFrom: string;
+    typeTo: string;
+};

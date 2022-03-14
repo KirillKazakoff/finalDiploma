@@ -69,7 +69,7 @@ const useMove: UseMoveT = (refs, limits) => {
                 progressBar.style.left = progressLeft;
                 progressBar.style.right = progressRight;
 
-                if (circle.id.includes('from')) {
+                if (idInfo[0] === 'from') {
                     dispatchValue = newFromValue;
                     setValue(newFromValue);
                 } else {

@@ -488,6 +488,10 @@ body {
 }
 
 /* slider-values-container */
+/* .slider-values-container:nth-of-type(n + 2) {
+    margin-top: 45px;
+} */
+
 .slider-labels {
     display: flex;
     justify-content: space-between;
@@ -544,8 +548,10 @@ body {
 }
 
 .slider-flag-value {
+    position: relative;
+    height: 0;
+    top: 15px;
     display: block;
-    margin-top: 15px;
     text-align: right;
 }
 

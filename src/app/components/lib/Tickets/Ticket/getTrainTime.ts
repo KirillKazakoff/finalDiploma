@@ -16,5 +16,4 @@ export const getDurationTime = (durationSeconds: number) => {
     return durationStr;
 };
 
-getDurationTime(200000);
 export default getTrainRouteTime;

@@ -2,8 +2,8 @@ import React from 'react';
 import TripForm from './TripDate/TripDate';
 import Togglers from './Togglers';
 import CostSlider from './CostSlider';
-import TripHourSection from './TripHourSection/TripHourSection';
 import TripHourSectionTo from './TripHourSection/TripHourSectionTo';
+import TripHourSectionFrom from './TripHourSection/TripHourSectionFrom';
 
 export default function TripFilter() {
     return (
@@ -19,9 +19,7 @@ export default function TripFilter() {
                 <CostSlider />
             </div>
             <TripHourSectionTo />
-            <TripHourSection direction='from' desc='Обратно'>
-                bye
-            </TripHourSection>
+            <TripHourSectionFrom />
         </div>
     );
 }

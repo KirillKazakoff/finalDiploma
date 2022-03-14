@@ -35,7 +35,7 @@ export default function CostSlider() {
                     initValue={max}
                 />
             </SliderValues>
-            <SliderLimit>{max}</SliderLimit>
+            <SliderLimit refs={refs}>{max}</SliderLimit>
         </SliderValuesContainer>
     );
 }
