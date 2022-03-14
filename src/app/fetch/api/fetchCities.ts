@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { setWayStatus, setCities } from '../../redux/slices/searchWaySlice';
 import { AppThunk } from '../../redux/store';
 import { FetchStatusT } from '../../types/typesPayload';

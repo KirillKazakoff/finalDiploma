@@ -487,15 +487,20 @@ body {
     padding-bottom: 60px;
 }
 
-/* slider-values-container */
-/* .slider-values-container:nth-of-type(n + 2) {
-    margin-top: 45px;
-} */
+/* .trip-section-hour {} */
+
+/* sliders */
+.sliders {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    padding-bottom: 30px;
+}
 
 .slider-labels {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-size: 18px;
 }
 

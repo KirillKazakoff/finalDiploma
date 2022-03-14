@@ -1,12 +1,12 @@
 import React from 'react';
-import { useAppSelector } from '../../../../redux/reduxHooks';
-import { selectCost } from '../../../../redux/slices/searchFilterSlice';
-import SliderLabels from './SliderValues/SliderLabels';
-import SliderLimit from './SliderValues/SliderLimit';
-import SliderValue from './SliderValues/SliderValue';
-import SliderValues from './SliderValues/SliderValues';
-import SliderValuesContainer from './SliderValues/SliderValuesContainer';
-import useSliderInit from './SliderValues/useSliderInit';
+import { useAppSelector } from '../../../../../redux/reduxHooks';
+import { selectCost } from '../../../../../redux/slices/searchFilterSlice';
+import SliderLabels from '../SliderValues/SliderLabels';
+import SliderLimit from '../SliderValues/SliderLimit';
+import SliderValueCost from '../SliderValues/SliderValueCost';
+import SliderValues from '../SliderValues/SliderValues';
+import SliderValuesContainer from '../SliderValues/SliderValuesContainer';
+import useSliderInit from '../SliderValues/useSliderInit';
 
 export default function CostSlider() {
     const cost = useAppSelector(selectCost);
@@ -22,13 +22,13 @@ export default function CostSlider() {
                 sliderRef={refs.bar}
                 progressRef={refs.progressBar}
             >
-                <SliderValue
+                <SliderValueCost
                     circleRef={refs.circleFrom}
                     type='from price_from'
                     onMouseClosure={onMouseClosure}
                     initValue={min}
                 />
-                <SliderValue
+                <SliderValueCost
                     circleRef={refs.circleTo}
                     type='to price_to'
                     onMouseClosure={onMouseClosure}

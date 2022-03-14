@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAppDispatch } from '../../../../redux/reduxHooks';
+import { fetchLast } from '../../../../fetch/api/fetchLast';
 
 export default function LastTickets() {
+    const dispatch = useAppDispatch();
+    useEffect(() => {
+        dispatch(fetchLast());
+    }, []);
+
     return (
         <div className='aside-part aside-part-last-tickets'>
             <h2 className='last-tickets-title'>Последние билеты</h2>
@@ -28,7 +35,7 @@ export default function LastTickets() {
                             <span className='cost-prefix'>от</span>
                             <div className='cost-count-container'>
                                 <span className='cost-count last-cost-count'>3 800</span>
-                                <span className='cost-money-symbol'>&#8381</span>
+                                <span className='cost-money-symbol'>₽</span>
                             </div>
                         </div>
                     </footer>
@@ -56,7 +63,7 @@ export default function LastTickets() {
                             <span className='cost-prefix'>от</span>
                             <div className='cost-count-container'>
                                 <span className='cost-count last-cost-count'>3 800</span>
-                                <span className='cost-money-symbol'>&#8381</span>
+                                <span className='cost-money-symbol'>₽</span>
                             </div>
                         </div>
                     </footer>

@@ -2,7 +2,7 @@
 
 import initSeatsInfo from './initSeatsInfo';
 import type { SeatsCoachT, SeatsTypesInfoT } from '../../../types/models/modelSeats';
-import { sumAvailable } from '../../../thunk/seatsUtils';
+import { sumAvailable } from '../../../fetch/seatsUtils';
 
 export const getTrainInfo = (coachesSeats: SeatsCoachT[]) => {
     const seatsTrainInfo = coachesSeats.map((coachSeat) => {

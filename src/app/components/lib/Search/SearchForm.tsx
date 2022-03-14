@@ -10,7 +10,7 @@ import { selectWayInputs } from '../../../redux/slices/searchWaySlice';
 import SearchFormBtn from './SearchFormBtn';
 import SearchFormFeedback from './SearchFormFeedback';
 import { selectDateInputs } from '../../../redux/slices/searchDateSlice';
-import { fetchRoutes } from '../../../thunk/api/fetchRoutes';
+import { fetchRoutes } from '../../../fetch/api/fetchRoutes';
 import formatDate from './SearchDate/formatDate';
 
 export default function SearchForm({ cls, children }: SearchFormProps) {

@@ -5,6 +5,7 @@ import searchDateReducer from './slices/searchDateSlice';
 import searchFormReducer from './slices/searchFormSlice';
 import ticketsReducer from './slices/ticketsSlice';
 import searchFilterReducer from './slices/searchFilterSlice';
+import lastTicketsReducer from './slices/lastTicketsSlice';
 
 export const store = configureStore({
     reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
         searchDate: searchDateReducer,
 
         tickets: ticketsReducer,
+        lastTicketsSlice: lastTicketsReducer,
     },
 });
 

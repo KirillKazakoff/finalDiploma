@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import type { SliderValueProps } from '../../../../../types/typesTripFilter';
 
-export default function SliderValue(props: SliderValueProps) {
+export default function SliderValueCost(props: SliderValueProps) {
     const {
         circleRef, type, onMouseClosure, initValue,
     } = props;

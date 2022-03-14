@@ -21,7 +21,7 @@ import useValidateInput from '../../../../form/useValidateInput';
 import useAbortFetch from './useAbort';
 import SearchWayUno from './SearchWayUno';
 import { SearchSectionProps } from '../../../../types/typesSearch';
-import { fetchCities } from '../../../../thunk/api/fetchCities';
+import { fetchCities } from '../../../../fetch/api/fetchCities';
 
 export default function SearchWay({ cls = '' }: SearchSectionProps) {
     const dispatch = useAppDispatch();

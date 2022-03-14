@@ -20,7 +20,7 @@ export default function TripHourSection(props: TripCollapseProps) {
                 <TripDirDesc>{desc}</TripDirDesc>
                 <TripCollapseSign isActive={isActive} setActive={setActive} />
             </div>
-            {isActive ? children : null}
+            {isActive ? <div className='sliders'>{children}</div> : null}
         </div>
     );
 }

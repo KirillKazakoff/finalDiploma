@@ -13,7 +13,6 @@ export default function SliderLimit({ children, refs }: SliderLimitProps) {
     const borders = [from.right, to.rigth];
 
     const isLimitHidden = borders.reduce<boolean>((total, border) => {
-        console.log(border, barBorder);
         if (border + 50 > barBorder) total = false;
         return total;
     }, true);

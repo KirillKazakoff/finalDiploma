@@ -18,7 +18,7 @@ import getMinPrices from '../../components/lib/Tickets/getMinPrices';
 import { SeatsTypesInfoT } from '../../types/models/modelSeats';
 import { TrainRoutesT } from '../../types/typesTicket';
 import { sumAvailable, getTotalSeatsInfo } from '../seatsUtils';
-import initLimitCosts from '../../components/lib/Aside/TripFilter/initLimitCosts';
+import initLimitCosts from '../../components/lib/Aside/TripFilter/TripCostSection/initLimitCosts';
 
 type FetchRoutesT = (settings: any) => AppThunk;
 

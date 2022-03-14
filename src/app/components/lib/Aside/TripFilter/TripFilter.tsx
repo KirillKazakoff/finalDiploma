@@ -1,23 +1,20 @@
 import React from 'react';
-import TripForm from './TripDate/TripDate';
+import TripDate from './TripDate/TripDate';
 import Togglers from './Togglers';
-import CostSlider from './CostSlider';
 import TripHourSectionTo from './TripHourSection/TripHourSectionTo';
 import TripHourSectionFrom from './TripHourSection/TripHourSectionFrom';
+import TripCostSection from './TripCostSection/TripCostSection';
 
 export default function TripFilter() {
     return (
         <div className='aside-part aside-part-trip'>
             <div className='trip-section'>
-                <TripForm />
+                <TripDate />
             </div>
             <div className='trip-section'>
                 <Togglers />
             </div>
-            <div className='trip-section trip-section-cost'>
-                <h2 className='row-title row-title-small cost-title'>Стоимость</h2>
-                <CostSlider />
-            </div>
+            <TripCostSection />
             <TripHourSectionTo />
             <TripHourSectionFrom />
         </div>

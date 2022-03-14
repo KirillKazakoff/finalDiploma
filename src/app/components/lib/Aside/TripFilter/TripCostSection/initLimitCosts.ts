@@ -1,9 +1,9 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-restricted-syntax */
-import { TicketsResponseT } from '../../../../types/models/modelTickets';
-import { AppThunk } from '../../../../redux/store';
+import { setFilter } from '../../../../../redux/slices/searchFilterSlice';
+import { AppThunk } from '../../../../../redux/store';
+import { TicketsResponseT } from '../../../../../types/models/modelTickets';
 import { getMinPriceTrain, getMaxPriceTrain } from './initLimitUtils';
-import { setFilter } from '../../../../redux/slices/searchFilterSlice';
 
 type InitLimitCostsT = (resData: TicketsResponseT) => AppThunk;
 
