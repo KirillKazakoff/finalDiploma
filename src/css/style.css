@@ -746,8 +746,36 @@ body {
     column-gap: 10px;
 }
 
-.filtration-sort-filter {
+/* filtration-select */
+.filtration-select {
+    width: 120px;
+    position: relative;
+}
+
+.filtration-select-types {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 0;
+    left: -5px;
+    right: 0;
+}
+
+.filtration-sort-type {
     color: var(--black);
+}
+
+.filtration-sort-type-select {
+    padding: 10px 5px 10px 5px;
+    border-bottom: 1px solid var(--secondary-super-light);
+    background-color: #f7f5f9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.filtration-sort-type-select:first-child {
+    padding-top: 0;
 }
 
 .filtration-amount {
@@ -894,6 +922,7 @@ body {
     width: 70px;
 }
 
+/* ticket-type-tips */
 .ticket-type-tips {
     z-index: 1;
     display: none;
@@ -2717,4 +2746,9 @@ body {
 
 .date-picker-day-sunday {
     font-weight: 700;
+}
+
+/* common-inline-modificators */
+.hidden {
+    display: none;
 }

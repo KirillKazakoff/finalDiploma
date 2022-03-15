@@ -1,7 +1,7 @@
 import React from 'react';
 import TripFilter from '../lib/Aside/TripFilter/TripFilter';
 import LastTickets from '../lib/Aside/LastTickets/LastTickets';
-import TicketsFiltration from '../lib/Tickets/TicketsFiltration';
+import TicketsFiltration from '../lib/Tickets/TicketFiltration/TicketsFiltration';
 import TicketsList from '../lib/Tickets/TicketsList';
 import { useAppSelector } from '../../redux/reduxHooks';
 import { selectFetchStatus } from '../../redux/slices/searchFormSlice';

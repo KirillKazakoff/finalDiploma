@@ -1,4 +1,7 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useState } from 'react';
+import TicketFiltrationSelect from './TicketFiltrationSelect';
 
 export default function TicketsFiltration() {
     return (
@@ -9,7 +12,7 @@ export default function TicketsFiltration() {
             </div>
             <div className='filtration-sort'>
                 <span className='filtration-sort-desc'>сортировать по:</span>
-                <span className='filtration-sort-filter'>времени</span>
+                <TicketFiltrationSelect />
             </div>
             <div className='filtration-amount'>
                 <span className='filtration-amount-desc'>показывать по:</span>
