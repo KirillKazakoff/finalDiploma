@@ -31,14 +31,18 @@ export type StationT = {
     datetime: number;
 };
 
+export type ExtrasT = {
+    have_wifi: boolean;
+    have_air_conditioning: boolean;
+    is_express: boolean;
+};
+
 export type TrainRouteT = {
     _id: string;
     have_first_class: boolean;
     have_second_class: boolean;
     have_third_class: boolean;
     have_fourth_class: boolean;
-    have_wifi: boolean;
-    have_air_conditioning: boolean;
     train: {
         _id: string;
         name: string;
@@ -50,15 +54,9 @@ export type TrainRouteT = {
     price_info: PriceInfoT;
     available_seats_info: SeatsTypesInfoT;
     coaches: CoachSeatsFullT;
-};
+} & ExtrasT;
 
 // TicketRouteT
-export type TicketExtrasT = {
-    have_wifi: boolean;
-    have_air_conditioning: boolean;
-    is_express: boolean;
-};
-
 export type TicketCoachsT = {
     have_first_class: boolean;
     have_second_class: boolean;
@@ -72,7 +70,7 @@ export type TicketRouteT = {
     arrival?: TrainRouteT;
     available_seats_info: SeatsTypesInfoT;
     avaliable_seats: number;
-} & TicketExtrasT &
+} & ExtrasT &
 TicketCoachsT;
 
 export type TrainInfoFullT = { routeName: string; trainInfo: TrainInfoT };

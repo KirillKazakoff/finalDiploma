@@ -11,8 +11,10 @@ export default function TrainRoute({ route, arrowCls }: TrainRouteProps) {
                 <span className='ticket-time ticket-time-left'>
                     {getTrainRouteTime(from.datetime)}
                 </span>
-                <span className='ticket-city ticket-city-left'>{from.city.name}</span>
-                <span className='ticket-station ticket-station-left'>
+                <span className='cap-first ticket-city ticket-city-left'>
+                    {from.city.name}
+                </span>
+                <span className='cap-first ticket-station ticket-station-left'>
                     {from.railway_station_name}
                 </span>
             </div>
@@ -26,8 +28,10 @@ export default function TrainRoute({ route, arrowCls }: TrainRouteProps) {
                 <span className='ticket-time ticket-time-right'>
                     {getTrainRouteTime(to.datetime)}
                 </span>
-                <span className='ticket-city ticket-city-right'>{to.city.name}</span>
-                <span className='ticket-station ticket-station-right'>
+                <span className='cap-first ticket-city ticket-city-right'>
+                    {to.city.name}
+                </span>
+                <span className='cap-first ticket-station ticket-station-right'>
                     {to.railway_station_name}
                 </span>
             </div>

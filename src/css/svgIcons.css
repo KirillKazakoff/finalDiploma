@@ -11,6 +11,9 @@
     --secondary-filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(222%)
         hue-rotate(195deg) brightness(83%) contrast(84%);
 
+    --secondary-super-light-filter: brightness(0) saturate(100%) invert(99%) sepia(4%)
+        saturate(323%) hue-rotate(302deg) brightness(106%) contrast(80%);
+
     --secondary-arrow-filter: invert(67%) sepia(8%) saturate(137%) hue-rotate(233deg)
         brightness(83%) contrast(92%);
 
@@ -69,6 +72,10 @@
 
 .filter-secondary {
     filter: var(--secondary-filter);
+}
+
+.filter-secondary-super-light {
+    filter: var(--secondary-super-light-filter);
 }
 
 .filter-main {

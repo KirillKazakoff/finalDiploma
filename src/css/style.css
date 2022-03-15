@@ -689,6 +689,11 @@ body {
 
 .last-cost-count {
     color: var(--bg-main);
+    display: block;
+}
+
+.last-cost-money-symbol {
+    margin-left: 10px;
 }
 
 /* ticket-common */
@@ -698,6 +703,7 @@ body {
 }
 
 .cost-count-container {
+    display: flex;
     font-size: 36px;
 }
 
@@ -710,6 +716,10 @@ body {
 .extra-options {
     display: flex;
     column-gap: 20px;
+}
+
+.cost-prefix {
+    font-size: 18px;
 }
 
 /* .content-central */
@@ -812,6 +822,10 @@ body {
     color: #000;
     font-size: 24px;
     font-weight: 500;
+}
+
+.cap-first::first-letter {
+    text-transform: uppercase;
 }
 
 .ticket-city {
