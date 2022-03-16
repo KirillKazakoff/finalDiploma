@@ -30,7 +30,7 @@ const initialState: FilterStateT = {
     },
     top: {
         sort: 'date',
-        limit: 5,
+        limit: 10,
     },
 };
 
@@ -68,5 +68,6 @@ export const selectCost = (state: RootState) => {
 
 export const selectSort = (state: RootState) => state.searchFilter.top.sort;
 export const selectLimit = (state: RootState) => state.searchFilter.top.limit;
+export const selectSearchFilter = (state: RootState) => state.searchFilter;
 
 export default searchFilterSlice.reducer;

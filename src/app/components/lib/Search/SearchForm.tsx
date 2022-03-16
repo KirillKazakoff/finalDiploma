@@ -12,12 +12,16 @@ import SearchFormFeedback from './SearchFormFeedback';
 import { selectDateInputs } from '../../../redux/slices/searchDateSlice';
 import { fetchRoutes } from '../../../fetch/api/fetchRoutes';
 import formatDate from './SearchDate/formatDate';
+import { selectSearchFilter } from '../../../redux/slices/searchFilterSlice';
 
 export default function SearchForm({ cls, children }: SearchFormProps) {
     const navigate = useNavigate();
     const { pathname } = useLocation();
+
     const waysState = useAppSelector(selectWayInputs);
     const datesState = useAppSelector(selectDateInputs);
+    // const { top, aside } = useAppSelector(selectSearchFilter);
+
     const { isMsgHidden, statusValidity } = useAppSelector(selectFormState);
 
     const dispatch = useAppDispatch();
@@ -28,10 +32,6 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
         const searchSettings = {
             from_city_id: waysState.wayFrom.cities[0]._id,
             to_city_id: waysState.wayTo.cities[0]._id,
-            // date_start: formatDate(datesState.dateTo.value),
-            // date_end: formatDate(datesState.dateFrom.value),
-            date_start: '2022-03-05',
-            date_end: '2022-03-06',
         };
         dispatch(fetchRoutes(searchSettings));
     };
@@ -41,7 +41,7 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
 
     useEffect(() => {
         onSubmit();
-    }, []);
+    }, [top]);
 
     return (
         <Form

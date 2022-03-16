@@ -19,4 +19,21 @@ export const { setTickets } = ticketsSlice.actions;
 export const selectTickets = (state: RootState) => state.tickets;
 export const selectTotalCount = (state: RootState) => state.tickets.total_count;
 
+export const filteredTickets = (state: RootState) => {
+    const {
+        tickets: { tickets },
+        searchFilter,
+    } = state;
+    const { aside, top } = searchFilter;
+    const filteredTickets = tickets.map((ticket) => {
+        const {
+            is_express,
+            have_first_class,
+            have_second_class,
+            have_third_class,
+            have_fourth_class,
+            have_wifi,
+        } = ticket.ticketRoute.departure;
+    });
+};
 export default ticketsSlice.reducer;
