@@ -738,6 +738,8 @@ body {
 }
 
 .filtration-found {
+    display: flex;
+    column-gap: 5px;
     flex-grow: 1;
 }
 
@@ -768,6 +770,7 @@ body {
 }
 
 .filtration-sort-type-select {
+    text-align: left;
     padding: 10px 5px 10px 5px;
     border-bottom: 1px solid var(--secondary-super-light);
     background-color: #f7f5f9;

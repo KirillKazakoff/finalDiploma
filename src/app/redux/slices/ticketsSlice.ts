@@ -17,5 +17,6 @@ export const ticketsSlice = createSlice({
 
 export const { setTickets } = ticketsSlice.actions;
 export const selectTickets = (state: RootState) => state.tickets;
+export const selectTotalCount = (state: RootState) => state.tickets.total_count;
 
 export default ticketsSlice.reducer;
