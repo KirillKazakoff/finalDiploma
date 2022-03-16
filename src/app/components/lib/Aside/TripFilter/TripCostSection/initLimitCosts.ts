@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-restricted-syntax */
-import { setAsideParam } from '../../../../../redux/slices/searchFilterSlice';
+import { setCost } from '../../../../../redux/slices/searchFilterSlice';
 import { AppThunk } from '../../../../../redux/store';
 import { TicketsResponseT } from '../../../../../types/models/modelTickets';
 import { getMinPriceTrain, getMaxPriceTrain } from './initLimitUtils';
@@ -38,7 +38,7 @@ const initLimitCosts: InitLimitCostsT = (resData) => async (dispatch) => {
     }
 
     Object.entries({ minTotal, maxTotal }).forEach(([name, price]) => {
-        dispatch(setAsideParam({ name, value: price }));
+        dispatch(setCost({ name, value: price }));
     });
 };
 

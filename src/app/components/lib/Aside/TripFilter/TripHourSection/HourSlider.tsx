@@ -10,11 +10,11 @@ import HourSliderTitle from './HourSliderTitle';
 import { useAppSelector } from '../../../../../redux/reduxHooks';
 
 export default function HourSlider(props: HourSliderProps) {
-    useAppSelector((state) => state.searchFilter);
+    useAppSelector((state) => state.searchFilter.aside.sliders);
     const {
-        limits, dir, desc, typeFrom, typeTo,
+        limits, dir, desc, typeFrom, typeTo, setSliderFilter,
     } = props;
-    const { refs, onMouseClosure } = useSliderInit(limits);
+    const { refs, onMouseClosure } = useSliderInit(limits, setSliderFilter);
     const { min, max } = limits;
 
     const transform = (value: number) => {

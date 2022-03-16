@@ -19,28 +19,39 @@ export type SortTypeT = 'date' | 'price' | 'duration';
 // FilterSlice
 export type FilterStateT = {
     aside: {
-        [key: string]: boolean | number;
-        have_first_class: boolean;
-        have_second_class: boolean;
-        have_third_class: boolean;
-        have_fourth_class: boolean;
-        have_wifi: boolean;
-        have_express: boolean;
+        togglers: {
+            [key: string]: boolean;
+            have_first_class: boolean;
+            have_second_class: boolean;
+            have_third_class: boolean;
+            have_fourth_class: boolean;
+            have_wifi: boolean;
+            have_express: boolean;
+        };
 
-        price_from: number;
-        price_to: number;
-        minTotal: number;
-        maxTotal: number;
-
-        start_departure_hour_from: number;
-        start_departure_hour_to: number;
-        start_arrival_hour_from: number;
-        start_arrival_hour_to: number;
-
-        end_departure_hour_from: number;
-        end_departure_hour_to: number;
-        end_arrival_hour_from: number;
-        end_arrival_hour_to: number;
+        sliders: {
+            cost: {
+                [key: string]: number;
+                price_from: number;
+                price_to: number;
+                minTotal: number;
+                maxTotal: number;
+            };
+            hourDeparture: {
+                [key: string]: number;
+                start_departure_hour_from: number;
+                start_departure_hour_to: number;
+                end_departure_hour_from: number;
+                end_departure_hour_to: number;
+            };
+            hourArrival: {
+                [key: string]: number;
+                start_arrival_hour_from: number;
+                start_arrival_hour_to: number;
+                end_arrival_hour_from: number;
+                end_arrival_hour_to: number;
+            };
+        };
     };
     top: {
         sort: SortTypeT;

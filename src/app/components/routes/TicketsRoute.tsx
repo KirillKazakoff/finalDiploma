@@ -5,6 +5,7 @@ import TicketsFiltration from '../lib/Tickets/TicketFiltration/TicketsFiltration
 import TicketsList from '../lib/Tickets/TicketsList';
 import { useAppSelector } from '../../redux/reduxHooks';
 import { selectFetchStatus } from '../../redux/slices/searchFormSlice';
+import TicketsPagination from '../lib/Tickets/TicketsPagination/TicketsPagination';
 
 export default function TicketsRoute() {
     const fetchStatus = useAppSelector(selectFetchStatus);
@@ -22,6 +23,7 @@ export default function TicketsRoute() {
             <section className='content-central'>
                 <TicketsFiltration />
                 <TicketsList />
+                <TicketsPagination />
             </section>
         </main>
     );

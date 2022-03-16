@@ -17,7 +17,7 @@ export default function SliderLimit({ children, refs }: SliderLimitProps) {
         return total;
     }, true);
 
-    // console.log(isLimitHidden);
+    console.log(isLimitHidden);
     if (!isLimitHidden) return null;
     return <span className='slider-flag-value'>{children}</span>;
 }

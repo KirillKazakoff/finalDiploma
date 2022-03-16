@@ -1,13 +1,12 @@
 /* eslint-disable max-len */
 import { useAppDispatch } from '../../../../../redux/reduxHooks';
 import { UseMoveT } from '../../../../../types/typesTripFilter';
-import { setAsideParam } from '../../../../../redux/slices/searchFilterSlice';
 import { SetStateT, OnMouseT } from '../../../../../types/typesReact';
 import {
     removeListeners, addListeners, getClients, refocus,
 } from './moveUtils';
 
-const useMove: UseMoveT = (refs, limits) => {
+const useMove: UseMoveT = (refs, limits, setSliderFilter) => {
     const dispatch = useAppDispatch();
     const { min, max } = limits;
 
@@ -79,7 +78,7 @@ const useMove: UseMoveT = (refs, limits) => {
             };
 
             const onMouseUp = () => {
-                dispatch(setAsideParam({ name, value: dispatchValue }));
+                dispatch(setSliderFilter({ name, value: dispatchValue }));
                 removeListeners(onMouseMove, onMouseUp);
             };
             addListeners(onMouseMove, onMouseUp);

@@ -9,7 +9,6 @@ export default function LastTickets() {
     const dispatch = useAppDispatch();
     const lastTickets = useAppSelector(selectLast);
 
-    console.log(lastTickets);
     useEffect(() => {
         dispatch(fetchLast());
     }, []);

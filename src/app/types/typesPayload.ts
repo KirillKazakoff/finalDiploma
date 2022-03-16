@@ -51,23 +51,19 @@ export type PayloadPickerState = {
 };
 
 // filterTypes
-export type PayloadFilter = {
+export type PayloadSliderFilter = {
     name: string;
-    value: number | boolean;
+    value: number;
 };
 
-// export type PayloadPrice = {
-//     name: string;
-//     price: number;
-// };
-
-// export type PayloadToggler = {
-//     name: string;
-//     isActive: boolean;
-// };
+export type PayloadToggler = {
+    name: string;
+    value: boolean;
+};
 
 export type SetFormStatusT = ActionCreatorWithPayload<FormStatusT>;
 export type SetStatusT = ActionCreatorWithPayload<FetchStatusT>;
 export type SetErrorT = ActionCreatorWithPayload<PayloadError>;
 export type SetFormErrorT = ActionCreatorWithPayload<PayloadFormError>;
 export type SetFormMsgHiddenT = ActionCreatorWithPayload<boolean>;
+export type SetSliderFilterT = ActionCreatorWithPayload<PayloadSliderFilter>;

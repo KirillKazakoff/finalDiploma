@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { OnMouseT, RefDivT, SetStateT } from './typesReact';
+import { SetSliderFilterT } from './typesPayload';
 
 type OnMouseClosureT = (setValue: SetStateT<number>) => OnMouseT;
 
@@ -15,7 +16,8 @@ export type UseMoveT = (
     limits: {
         max: number;
         min: number;
-    }
+    },
+    setSliderFilter: SetSliderFilterT
 ) => OnMouseClosureT;
 
 export type SliderLimitsT = { min: number; max: number };
@@ -41,6 +43,7 @@ export type SliderValueHourProps = SliderValueProps & {
 };
 
 export type HourSliderProps = {
+    setSliderFilter: SetSliderFilterT;
     dir: 'from' | 'to';
     desc: string;
     limits: SliderLimitsT;

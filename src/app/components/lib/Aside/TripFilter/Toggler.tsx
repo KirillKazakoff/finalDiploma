@@ -1,5 +1,5 @@
 import React from 'react';
-import { setAsideParam } from '../../../../redux/slices/searchFilterSlice';
+import { setToggler } from '../../../../redux/slices/searchFilterSlice';
 import { useAppSelector, useAppDispatch } from '../../../../redux/reduxHooks';
 
 type Props = { children: string; imgName: string; name: string };
@@ -8,12 +8,12 @@ export default function Toggler({ children, imgName, name }: Props) {
     const dispatch = useAppDispatch();
     const fullName = `have_${name}`;
     const isActive = useAppSelector(
-        (state) => state.searchFilter.aside[fullName],
-    ) as boolean;
+        (state) => state.searchFilter.aside.togglers[fullName],
+    );
 
     const cls = isActive ? 'toggler-on' : '';
     const onClick = () => {
-        dispatch(setAsideParam({ name: fullName, value: !isActive }));
+        dispatch(setToggler({ name: fullName, value: !isActive }));
     };
 
     return (

@@ -9,7 +9,10 @@ export default function TicketFiltrationSort() {
 
     const filtersId: SortTypeT[] = ['date', 'price', 'duration'];
     const filters = filtersId.map((id) => (
-        <TicketFiltrationSelectType setActiveHandler={onClick} id={id} />
+        <TicketFiltrationSelectType
+            setActiveHandler={onClick} id={id}
+            key={id}
+        />
     ));
 
     return (

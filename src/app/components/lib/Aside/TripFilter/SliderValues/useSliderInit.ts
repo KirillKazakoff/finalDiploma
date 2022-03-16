@@ -1,8 +1,9 @@
 import { useRef } from 'react';
 import { SliderLimitsT } from '../../../../../types/typesTripFilter';
 import useMove from './useMove';
+import { SetSliderFilterT } from '../../../../../types/typesPayload';
 
-const useSliderInit = (limits: SliderLimitsT) => {
+const useSliderInit = (limits: SliderLimitsT, setFilter: SetSliderFilterT) => {
     const bar = useRef<HTMLDivElement>(null);
     const progressBar = useRef<HTMLDivElement>(null);
     const circleFrom = useRef<HTMLDivElement>(null);
@@ -14,7 +15,7 @@ const useSliderInit = (limits: SliderLimitsT) => {
         circleFrom,
         circleTo,
     };
-    const onMouseClosure = useMove(refs, limits);
+    const onMouseClosure = useMove(refs, limits, setFilter);
 
     return { refs, onMouseClosure };
 };
