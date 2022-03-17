@@ -2,8 +2,7 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 import TicketRoute from './TicketRoute';
 import { useAppSelector } from '../../../redux/reduxHooks';
-import { selectTickets } from '../../../redux/slices/ticketsSlice';
-import { selectFetchStatus } from '../../../redux/slices/searchFormSlice';
+import { selectFetchStatus, selectTickets } from '../../../redux/slices/ticketsSlice';
 
 export default function TicketsList() {
     const ticketsInfo = useAppSelector(selectTickets);

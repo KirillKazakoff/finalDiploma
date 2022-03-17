@@ -1,8 +1,8 @@
-import { setFetchStatus } from '../../redux/slices/searchFormSlice';
 import { AppThunk } from '../../redux/store';
 import { getSeatsUrl } from '../getUrl';
 import { request } from '../thunkUtils';
 import { getTrainInfo, TrainInfoT } from '../../components/lib/Tickets/getTrainInfo';
+import { setFetchStatus } from '../../redux/slices/ticketsSlice';
 
 type FetchSeatsT = (settings: any) => AppThunk<Promise<false | TrainInfoT>>;
 

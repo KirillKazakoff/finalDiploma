@@ -27,5 +27,6 @@ export const lastTicketsSlice = createSlice({
 export const { setFetchStatus, setLastTickets } = lastTicketsSlice.actions;
 
 export const selectLast = (state: RootState) => state.lastTicketsSlice.lastTickets;
+export const selectFetchStatus = (state: RootState) => state.lastTicketsSlice.status;
 
 export default lastTicketsSlice.reducer;

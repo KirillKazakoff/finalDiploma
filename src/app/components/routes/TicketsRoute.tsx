@@ -4,16 +4,12 @@ import LastTickets from '../lib/Aside/LastTickets/LastTickets';
 import TicketsFiltration from '../lib/Tickets/TicketFiltration/TicketsFiltration';
 import TicketsList from '../lib/Tickets/TicketsList';
 import { useAppSelector } from '../../redux/reduxHooks';
-import { selectFetchStatus } from '../../redux/slices/searchFormSlice';
+
 import TicketsPagination from '../lib/Tickets/TicketsPagination/TicketsPagination';
+import { selectTotalCount } from '../../redux/slices/ticketsSlice';
 
 export default function TicketsRoute() {
-    const fetchStatus = useAppSelector(selectFetchStatus);
-
-    if (fetchStatus !== 'loaded') {
-        return <main className='main main-central framed' />;
-    }
-
+    const totalCount = useAppSelector(selectTotalCount);
     return (
         <main className='main main-central framed'>
             <aside className='aside-central'>
@@ -23,7 +19,7 @@ export default function TicketsRoute() {
             <section className='content-central'>
                 <TicketsFiltration />
                 <TicketsList />
-                <TicketsPagination />
+                {totalCount > 0 ? <TicketsPagination /> : null}
             </section>
         </main>
     );

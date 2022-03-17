@@ -8,8 +8,7 @@ import {
     TicketInfoT,
     TrainInfoFullT,
 } from '../../types/models/modelTickets';
-import { setFetchStatus } from '../../redux/slices/searchFormSlice';
-import { setTickets } from '../../redux/slices/ticketsSlice';
+import { setFetchStatus, setTickets } from '../../redux/slices/ticketsSlice';
 import { AppThunk } from '../../redux/store';
 import { getRoutesUrl } from '../getUrl';
 import { request } from '../thunkUtils';

@@ -1,5 +1,6 @@
 import { SeatsTypesInfoT, CoachSeatsFullT, TotalSeatsInfoT } from './modelSeats';
 import { TrainInfoT } from '../../components/lib/Tickets/getTrainInfo';
+import { FetchStatusT } from '../typesPayload';
 
 // TrainRouteT
 export type PriceInfoCoachT = {
@@ -91,4 +92,7 @@ export type TicketsT = {
     tickets: TicketInfoT[];
 };
 
-export type TicketsStateT = TicketsT | null;
+export type TicketsStateT = {
+    ticketsInfo: TicketsT;
+    statusFetch: FetchStatusT;
+};
