@@ -1,27 +1,28 @@
 import React from 'react';
-import SvgTurnPageLeft from '../../Svg/Actions/SvgTurnPageLeft';
-import SvgTurnPageRight from '../../Svg/Actions/SvgTurnPageRight';
+import TicketsPages from './TicketsPages';
+import TurnPageLeft from './TurnPageLeft';
+import TurnPageRight from './TurnPageRight';
+import { usePagination } from './usePagination';
 
 export default function TicketsPagination() {
+    const { listeners, states, maxPage } = usePagination();
+    const { onPageClick, onRightClick, onLeftClick } = listeners;
+    const { endPage, activePage, startPage } = states;
+
     return (
         <div className='tickets-pagination'>
-            <button
-                className='turn-page turn-page-left pagination-container'
-                type='button'
-            >
-                <SvgTurnPageLeft />
-            </button>
-            <ul className='tickets-pages'>
-                <li className='tickets-page pagination-container'>1</li>
-                <li className='tickets-page pagination-container'>2</li>
-                <li className='tickets-page pagination-container'>3</li>
-            </ul>
-            <button
-                className='turn-page turn-page-right pagination-container'
-                type='button'
-            >
-                <SvgTurnPageRight />
-            </button>
+            <TurnPageLeft onClick={onLeftClick} activePage={activePage} />
+            <TicketsPages
+                onClick={onPageClick}
+                activePage={activePage}
+                endPage={endPage}
+                startPage={startPage}
+            />
+            <TurnPageRight
+                onClick={onRightClick}
+                maxPage={maxPage}
+                activePage={activePage}
+            />
         </div>
     );
 }

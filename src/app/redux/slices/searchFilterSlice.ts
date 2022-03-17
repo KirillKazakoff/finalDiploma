@@ -38,6 +38,7 @@ const initialState: FilterStateT = {
     top: {
         sort: 'date',
         limit: 5,
+        offset: 0,
     },
 };
 
@@ -67,6 +68,9 @@ export const searchFilterSlice = createSlice({
         setLimit: (state, action: PayloadAction<number>) => {
             state.top.limit = action.payload;
         },
+        setOffset: (state, action: PayloadAction<number>) => {
+            state.top.offset = action.payload;
+        },
     },
 });
 
@@ -77,11 +81,14 @@ export const {
     setHourArrival,
     setSort,
     setLimit,
+    setOffset,
 } = searchFilterSlice.actions;
 
 export const selectCost = (state: RootState) => state.searchFilter.aside.sliders.cost;
 export const selectSort = (state: RootState) => state.searchFilter.top.sort;
 export const selectLimit = (state: RootState) => state.searchFilter.top.limit;
+export const selectOffset = (state: RootState) => state.searchFilter.top.offset;
+
 export const selectSearchFilter = (state: RootState) => state.searchFilter;
 
 export default searchFilterSlice.reducer;

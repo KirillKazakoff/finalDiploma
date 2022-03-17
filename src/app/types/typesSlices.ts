@@ -56,5 +56,6 @@ export type FilterStateT = {
     top: {
         sort: SortTypeT;
         limit: number;
+        offset: number;
     };
 };

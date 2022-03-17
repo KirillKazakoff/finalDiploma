@@ -1004,6 +1004,21 @@ body {
 }
 
 /* tickets-pagination */
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 35px 20px 35px;
+    border-radius: 5px;
+    border: 2px solid var(--secondary-lighter);
+}
+
+.pagination-container:hover {
+    filter: var(--bg-main-filter);
+    color: var(--bg-main);
+    border-color: var(--bg-main);
+}
+
 .tickets-pagination {
     margin-top: 140px;
     display: flex;
@@ -1022,19 +1037,20 @@ body {
     color: var(--secondary);
 }
 
-.pagination-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 35px 20px 35px;
-    border-radius: 5px;
-    border: 2px solid var(--secondary-lighter);
+.tickets-page-active {
+    color: white;
+    background-color: var(--bg-main);
+    border-color: var(--bg-main);
 }
 
-.pagination-container:hover {
-    filter: var(--bg-main-filter);
-    color: var(--bg-main);
+.tickets-page-active:hover {
+    filter: none;
+    color: white;
     border-color: var(--bg-main);
+}
+
+.turn-page:disabled {
+    filter: var(--secondary-super-light-filter);
 }
 
 /* places */
