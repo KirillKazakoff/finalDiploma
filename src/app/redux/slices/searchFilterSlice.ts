@@ -12,7 +12,7 @@ const initialState: FilterStateT = {
             have_third_class: false,
             have_fourth_class: false,
             have_wifi: false,
-            have_express: false,
+            is_express: false,
         },
         sliders: {
             cost: {
@@ -88,7 +88,6 @@ export const selectCost = (state: RootState) => state.searchFilter.aside.sliders
 export const selectSort = (state: RootState) => state.searchFilter.top.sort;
 export const selectLimit = (state: RootState) => state.searchFilter.top.limit;
 export const selectOffset = (state: RootState) => state.searchFilter.top.offset;
-
 export const selectSearchFilter = (state: RootState) => state.searchFilter;
 
 export default searchFilterSlice.reducer;

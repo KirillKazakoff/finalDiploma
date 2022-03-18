@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
-import { PriceInfoCoachT, PriceInfoT } from '../../../../types/models/modelTickets';
+
+import { PriceInfoCoachT, PriceInfoT } from '../../../../../types/models/modelTickets';
 
 // getMin
 export const getMinCarriage = (priceInfo: PriceInfoCoachT) => {

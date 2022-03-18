@@ -15,19 +15,20 @@ export type DatesStateT = {
 };
 
 export type SortTypeT = 'date' | 'price' | 'duration';
+export type TogglersT = {
+    [key: string]: boolean;
+    have_first_class: boolean;
+    have_second_class: boolean;
+    have_third_class: boolean;
+    have_fourth_class: boolean;
+    have_wifi: boolean;
+    is_express: boolean;
+};
 
 // FilterSlice
 export type FilterStateT = {
     aside: {
-        togglers: {
-            [key: string]: boolean;
-            have_first_class: boolean;
-            have_second_class: boolean;
-            have_third_class: boolean;
-            have_fourth_class: boolean;
-            have_wifi: boolean;
-            have_express: boolean;
-        };
+        togglers: TogglersT;
 
         sliders: {
             cost: {

@@ -5,6 +5,14 @@ export const getTrainRouteTime = (dateSeconds: number) => {
     return dateTime.toFormat('HH:mm');
 };
 
+export const getTrainRouteTimeMs = (dateSeconds: number) => {
+    const dateTime = DateTime.fromMillis(dateSeconds * 1000);
+    const { hour, minute } = dateTime;
+    const ms = hour * 3600000 + minute * 60000;
+
+    return ms;
+};
+
 export const getDurationTime = (durationSeconds: number) => {
     const ms = durationSeconds * 1000;
     const duration = Duration.fromMillis(ms).shiftTo('days', 'hours', 'minutes');

@@ -18,6 +18,7 @@ import { SeatsTypesInfoT } from '../../types/models/modelSeats';
 import { TrainRoutesT } from '../../types/typesTicket';
 import { sumAvailable, getTotalSeatsInfo } from '../seatsUtils';
 import initLimitCosts from '../../components/lib/Aside/TripFilter/TripCostSection/initLimitCosts';
+import { getTrainRouteTimeMs } from '../../components/lib/Tickets/Ticket/getTrainTime';
 
 type FetchRoutesT = (settings: any) => AppThunk;
 
@@ -79,6 +80,7 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
     dispatch(setTickets(tickets));
     dispatch(setFetchStatus('loaded'));
 
-    console.log(resData);
+    // const { datetime } = resData.items[0].departure.from;
+    // console.log(getTrainRouteTimeMs(datetime));
     return true;
 };
