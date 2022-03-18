@@ -19,8 +19,8 @@ export default function TicketsRoute() {
             <section className='content-central'>
                 <TicketsFiltration />
                 <TicketsList />
-                {totalCount > 0 ? <TicketsPagination /> : null}
             </section>
+            {totalCount > 0 ? <TicketsPagination /> : null}
         </main>
     );
 }

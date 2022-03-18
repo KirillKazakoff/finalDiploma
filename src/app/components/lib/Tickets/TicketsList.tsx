@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { nanoid } from 'nanoid';
 import TicketRoute from './TicketRoute';
 import { useAppSelector } from '../../../redux/reduxHooks';
@@ -7,11 +7,22 @@ import { selectFetchStatus, selectTickets } from '../../../redux/slices/ticketsS
 export default function TicketsList() {
     const ticketsInfo = useAppSelector(selectTickets);
     const status = useAppSelector(selectFetchStatus);
-    if (status !== 'loaded') return null;
+    const nodeRef = useRef<HTMLUListElement>(null);
+    const [height, setHeight] = useState(0);
+
+    console.log(height);
+    useEffect(() => {
+        const client = nodeRef.current.clientHeight;
+        setHeight(client);
+    }, [status, ticketsInfo]);
 
     const ticketsList = ticketsInfo.tickets.map((ticket) => (
         <TicketRoute key={nanoid()} ticket={ticket} />
     ));
 
-    return <ul className='tickets'>{ticketsList}</ul>;
+    return (
+        <ul className='tickets' ref={nodeRef}>
+            {status === 'loaded' ? ticketsList : null}
+        </ul>
+    );
 }

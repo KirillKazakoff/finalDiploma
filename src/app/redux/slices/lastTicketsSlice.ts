@@ -26,7 +26,16 @@ export const lastTicketsSlice = createSlice({
 
 export const { setFetchStatus, setLastTickets } = lastTicketsSlice.actions;
 
-export const selectLast = (state: RootState) => state.lastTicketsSlice.lastTickets;
+export const selectLast = (state: RootState) => {
+    const selectedThree = [];
+    const { lastTickets } = state.lastTicketsSlice;
+    if (lastTickets.length < 3) return lastTickets;
+
+    for (let i = 0; i < 3; i += 1) {
+        selectedThree.push(lastTickets[i]);
+    }
+    return selectedThree;
+};
 export const selectFetchStatus = (state: RootState) => state.lastTicketsSlice.status;
 
 export default lastTicketsSlice.reducer;
