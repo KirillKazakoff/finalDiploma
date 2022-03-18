@@ -18,11 +18,14 @@ export const usePagination = () => {
     const [endPage, setEndPage] = useState(initialEnd);
     const [activePage, setActivePage] = useState(1);
     const [startPage, setStartPage] = useState(1);
-    const offset = (activePage - 1) * limit;
 
-    const onPageClick = (page: number) => () => setActivePage(page);
+    const onPageClick = (page: number) => () => {
+        setActivePage(page);
+        dispatch(setOffset((page - 1) * limit));
+    };
 
     const onRightClick = () => {
+        const offset = activePage * limit;
         setActivePage(activePage + 1);
         dispatch(setOffset(offset));
         if (activePage !== endPage) return;
@@ -36,7 +39,9 @@ export const usePagination = () => {
     };
 
     const onLeftClick = () => {
+        const offset = (activePage - 2) * limit;
         setActivePage(activePage - 1);
+        dispatch(setOffset(offset));
         if (activePage !== startPage) return;
 
         const amount = getPrevPagesAmount(pageAmount, activePage);

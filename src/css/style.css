@@ -1024,6 +1024,10 @@ body {
     border-color: var(--bg-main);
 }
 
+.pagination-container:disabled {
+    filter: var(--secondary-super-light-filter);
+}
+
 .tickets-pagination {
     flex: 1;
     align-self: flex-end;
@@ -1056,8 +1060,10 @@ body {
     border-color: var(--bg-main);
 }
 
-.turn-page:disabled {
-    filter: var(--secondary-super-light-filter);
+.tickets-page-active:disabled {
+    border-color: var(--secondary-super-light);
+    filter: none;
+    background-color: var(--secondary-super-light);
 }
 
 /* places */

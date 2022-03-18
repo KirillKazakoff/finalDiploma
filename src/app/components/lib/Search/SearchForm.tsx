@@ -25,7 +25,7 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
     const { isMsgHidden, statusValidity } = useAppSelector(selectFormState);
 
     const dispatch = useAppDispatch();
-    const onSubmit: OnSubmitFormT = (e) => {
+    const onSubmit = () => {
         // if (statusValidity === 'success' && pathname !== '/tickets') {
         // navigate('/tickets');
         // }
