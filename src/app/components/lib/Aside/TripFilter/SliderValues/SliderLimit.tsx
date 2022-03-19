@@ -2,8 +2,12 @@
 import React from 'react';
 import { SliderLimitProps } from '../../../../../types/typesTripFilter';
 import { getClients } from './moveUtils';
+import { useAppSelector } from '../../../../../redux/reduxHooks';
+import { selectSliders } from '../../../../../redux/slices/searchFilterSlice';
 
 export default function SliderLimit({ children, refs }: SliderLimitProps) {
+    useAppSelector(selectSliders);
+
     const { circleFrom, circleTo, bar } = refs;
     if (!circleFrom.current || !circleTo.current || !bar.current) return null;
 
@@ -17,7 +21,6 @@ export default function SliderLimit({ children, refs }: SliderLimitProps) {
         return total;
     }, true);
 
-    console.log(isLimitHidden);
     if (!isLimitHidden) return null;
     return <span className='slider-flag-value'>{children}</span>;
 }

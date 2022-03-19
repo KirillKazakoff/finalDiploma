@@ -1,15 +1,16 @@
 import React from 'react';
 import { useAppSelector } from '../../../../../redux/reduxHooks';
-import { selectCost, setCost } from '../../../../../redux/slices/searchFilterSlice';
+import { setCost } from '../../../../../redux/slices/searchFilterSlice';
+import { selectCostLimits } from '../../../../../redux/slices/ticketsSlice';
 import SliderLabels from '../SliderValues/SliderLabels';
-import SliderLimit from '../SliderValues/SliderLimit';
 import SliderValueCost from '../SliderValues/SliderValueCost';
 import SliderValues from '../SliderValues/SliderValues';
 import SliderValuesContainer from '../SliderValues/SliderValuesContainer';
 import useSliderInit from '../SliderValues/useSliderInit';
+import SliderLimitCost from './SliderLimitCost';
 
 export default function CostSlider() {
-    const cost = useAppSelector(selectCost);
+    const cost = useAppSelector(selectCostLimits);
     const { minTotal: min, maxTotal: max } = cost;
     const limits = { min, max };
     const { refs, onMouseClosure } = useSliderInit(limits, setCost);
@@ -35,7 +36,7 @@ export default function CostSlider() {
                     initValue={max}
                 />
             </SliderValues>
-            <SliderLimit refs={refs}>{max}</SliderLimit>
+            <SliderLimitCost refs={refs}>{max}</SliderLimitCost>
         </SliderValuesContainer>
     );
 }

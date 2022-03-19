@@ -18,8 +18,6 @@ const initialState: FilterStateT = {
             cost: {
                 price_from: 0,
                 price_to: 0,
-                minTotal: 0,
-                maxTotal: 0,
             },
             hourDeparture: {
                 start_hour_from: 0,
@@ -89,5 +87,6 @@ export const selectSort = (state: RootState) => state.searchFilter.top.sort;
 export const selectLimit = (state: RootState) => state.searchFilter.top.limit;
 export const selectOffset = (state: RootState) => state.searchFilter.top.offset;
 export const selectSearchFilter = (state: RootState) => state.searchFilter;
+export const selectSliders = (state: RootState) => state.searchFilter.aside.sliders;
 
 export default searchFilterSlice.reducer;

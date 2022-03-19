@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-restricted-syntax */
 import { setCost } from '../../../../../redux/slices/searchFilterSlice';
+import { setCostLimit } from '../../../../../redux/slices/ticketsSlice';
 import { AppThunk } from '../../../../../redux/store';
 import { TicketsResponseT } from '../../../../../types/models/modelTickets';
 import { getMinPriceTrain, getMaxPriceTrain } from './initLimitUtils';
@@ -37,9 +38,10 @@ const initLimitCosts: InitLimitCostsT = (resData) => async (dispatch) => {
         if (!maxTotal || maxTicketPrice > maxTotal) maxTotal = maxTicketPrice;
     }
 
-    Object.entries({ minTotal, maxTotal }).forEach(([name, price]) => {
-        dispatch(setCost({ name, value: price }));
-    });
+    dispatch(setCostLimit({ name: 'minTotal', value: minTotal }));
+    dispatch(setCostLimit({ name: 'maxTotal', value: maxTotal }));
+    dispatch(setCost({ name: 'price_from', value: minTotal }));
+    dispatch(setCost({ name: 'price_to', value: maxTotal }));
 };
 
 export default initLimitCosts;

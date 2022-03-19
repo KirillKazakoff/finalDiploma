@@ -7,10 +7,8 @@ import SliderValuesContainer from '../SliderValues/SliderValuesContainer';
 import useSliderInit from '../SliderValues/useSliderInit';
 import { HourSliderProps } from '../../../../../types/typesTripFilter';
 import HourSliderTitle from './HourSliderTitle';
-import { useAppSelector } from '../../../../../redux/reduxHooks';
 
 export default function HourSlider(props: HourSliderProps) {
-    useAppSelector((state) => state.searchFilter.aside.sliders);
     const {
         limits, dir, desc, typeFrom, typeTo, setSliderFilter,
     } = props;

@@ -95,4 +95,9 @@ export type TicketsT = {
 export type TicketsStateT = {
     ticketsInfo: TicketsT;
     statusFetch: FetchStatusT;
+    costLimits: {
+        [key: string]: number;
+        minTotal: number;
+        maxTotal: number;
+    };
 };

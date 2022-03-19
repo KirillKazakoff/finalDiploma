@@ -28,7 +28,10 @@ export const refocus = (focusedCircle: DivT, prevCircle: DivT) => {
     prevCircle.style.zIndex = '0';
 };
 
-export const getInitDispatchValue = (circle: DivT, limits: SliderLimitsT) => {
-    // const {min, max} = limits;
-    // if (circle.id[0] === 'from') return min;
+export const initDispatchValue = (circle: DivT, limits: SliderLimitsT) => {
+    const { min, max } = limits;
+    const direction = circle.id[0];
+
+    if (direction === 'from') return min;
+    return max;
 };

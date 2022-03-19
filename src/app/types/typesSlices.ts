@@ -43,8 +43,6 @@ export type FilterStateT = {
                 [key: string]: number;
                 price_from: number;
                 price_to: number;
-                minTotal: number;
-                maxTotal: number;
             };
             hourDeparture: HourStateT;
             hourArrival: HourStateT;
