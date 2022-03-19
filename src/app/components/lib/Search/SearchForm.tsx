@@ -26,9 +26,9 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
 
     const dispatch = useAppDispatch();
     const onSubmit = () => {
-        // if (statusValidity === 'success' && pathname !== '/tickets') {
-        // navigate('/tickets');
-        // }
+        if (statusValidity === 'success' && pathname !== '/tickets') {
+            navigate('/tickets');
+        }
         const searchSettings = {
             from_city_id: waysState.wayFrom.cities[0]._id,
             to_city_id: waysState.wayTo.cities[0]._id,

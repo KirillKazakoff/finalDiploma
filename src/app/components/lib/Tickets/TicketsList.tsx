@@ -3,12 +3,13 @@ import { nanoid } from 'nanoid';
 import TicketRoute from './TicketRoute';
 import { useAppSelector } from '../../../redux/reduxHooks';
 import { selectFetchStatus, selectTickets } from '../../../redux/slices/ticketsSlice';
+import { selectFilteredTickets } from '../../../redux/selectFilteredTickets';
 
 export default function TicketsList() {
-    const ticketsInfo = useAppSelector(selectTickets);
+    const tickets = useAppSelector(selectFilteredTickets);
     const status = useAppSelector(selectFetchStatus);
 
-    const ticketsList = ticketsInfo.tickets.map((ticket) => (
+    const ticketsList = tickets.map((ticket) => (
         <TicketRoute key={nanoid()} ticket={ticket} />
     ));
 

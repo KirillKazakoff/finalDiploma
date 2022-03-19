@@ -9,6 +9,7 @@ import {
 const useMove: UseMoveT = (refs, limits, setSliderFilter) => {
     const dispatch = useAppDispatch();
     const { min, max } = limits;
+    let dispatchValue = 0;
 
     const onMouseDownClosure = (setValue: SetStateT<number>) => {
         const onMouseDown: OnMouseT = (eDown) => {
@@ -21,7 +22,6 @@ const useMove: UseMoveT = (refs, limits, setSliderFilter) => {
             const { id } = circle;
             const idInfo = id.split(' ');
             const name = idInfo[1];
-            let dispatchValue = 0;
 
             const barClient = bar.getBoundingClientRect();
             const circleClient = circle.getBoundingClientRect();

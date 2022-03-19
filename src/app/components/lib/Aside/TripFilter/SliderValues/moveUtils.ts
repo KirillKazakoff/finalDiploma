@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { DivT } from '../../../../../types/typesReact';
+import { SliderLimitsT } from '../../../../../types/typesTripFilter';
 // type ListenersT = (onMouseMove: any, onMouseUp: any ) => void;
 export const removeListeners = (onMouseMove: any, onMouseUp: any) => {
     document.removeEventListener('mousemove', onMouseMove);
@@ -25,4 +26,9 @@ export const getClients = (circleFrom: DivT, circleTo: DivT) => {
 export const refocus = (focusedCircle: DivT, prevCircle: DivT) => {
     focusedCircle.style.zIndex = '1000';
     prevCircle.style.zIndex = '0';
+};
+
+export const getInitDispatchValue = (circle: DivT, limits: SliderLimitsT) => {
+    // const {min, max} = limits;
+    // if (circle.id[0] === 'from') return min;
 };
