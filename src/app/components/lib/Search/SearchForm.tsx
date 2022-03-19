@@ -20,7 +20,7 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
 
     const waysState = useAppSelector(selectWayInputs);
     const datesState = useAppSelector(selectDateInputs);
-    const { top, aside } = useAppSelector(selectSearchFilter);
+    const { top } = useAppSelector(selectSearchFilter);
 
     const { isMsgHidden, statusValidity } = useAppSelector(selectFormState);
 
@@ -33,6 +33,8 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
             from_city_id: waysState.wayFrom.cities[0]._id,
             to_city_id: waysState.wayTo.cities[0]._id,
             offset: top.offset,
+            sort: top.sort,
+            limit: top.limit,
         };
         dispatch(fetchRoutes(searchSettings));
     };
@@ -42,7 +44,7 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
 
     useEffect(() => {
         onSubmit();
-    }, [top.offset]);
+    }, [top]);
 
     return (
         <Form

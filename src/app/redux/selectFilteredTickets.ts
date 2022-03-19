@@ -76,8 +76,6 @@ export const selectFilteredTickets = (state: RootState) => {
 
         const checkCost = ticketMax >= filterFrom && ticketMin <= filterTo;
 
-        console.log(ticketMax, cost.minTotal);
-
         const { departure, arrival } = ticket.ticketRoute;
         const checkHourDep = checkRouteHour(departure, hourDeparture);
         const checkHourArr = arrival ? checkRouteHour(arrival, hourArrival) : true;
@@ -87,6 +85,6 @@ export const selectFilteredTickets = (state: RootState) => {
         }
         return total;
     }, []);
-    console.log('\n \n');
+
     return filteredTickets;
 };

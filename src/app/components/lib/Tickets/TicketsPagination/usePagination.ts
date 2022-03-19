@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../../../redux/reduxHooks';
 import { selectLimit, setOffset } from '../../../../redux/slices/searchFilterSlice';
 import { getNextPagesAmount, getPrevPagesAmount } from './paginationUtils';
@@ -12,12 +12,19 @@ export const usePagination = () => {
     const totalCount = useAppSelector(selectTotalCount);
 
     const maxPage = Math.ceil(totalCount / limit);
-    const pageAmount = 4;
+    const pages = 4;
 
-    const initialEnd = maxPage < pageAmount ? maxPage : pageAmount;
-    const [endPage, setEndPage] = useState(initialEnd);
+    const pageAmount = maxPage < pages ? maxPage : pages;
+    const [endPage, setEndPage] = useState(pageAmount);
     const [activePage, setActivePage] = useState(1);
     const [startPage, setStartPage] = useState(1);
+
+    useEffect(() => {
+        setEndPage(pageAmount);
+        setStartPage(1);
+        setActivePage(1);
+        dispatch(setOffset(0));
+    }, [limit]);
 
     const onPageClick = (page: number) => () => {
         setActivePage(page);

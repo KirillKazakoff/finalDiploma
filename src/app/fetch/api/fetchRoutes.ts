@@ -80,6 +80,7 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
     dispatch(setTickets(tickets));
     dispatch(setFetchStatus('loaded'));
 
+    console.log(resData);
     // const { datetime } = resData.items[0].departure.from;
     // console.log(getTrainRouteTimeMs(datetime));
     return true;
