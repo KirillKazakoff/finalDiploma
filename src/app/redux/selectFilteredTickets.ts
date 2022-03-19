@@ -9,6 +9,17 @@ import {
     getMaxPriceTrain,
 } from '../components/lib/Aside/TripFilter/TripCostSection/initLimitUtils';
 
+type CheckRouteHourT = (route: TrainRouteT, start: number, end: number) => boolean;
+const checkRouteHour: CheckRouteHourT = (route, startFilter, endFilter) => {
+    const { datetime: datetimeFrom } = route.from;
+    const { datetime: datetimeTo } = route.to;
+    const start = getTrainRouteTimeMs(datetimeFrom);
+    const end = getTrainRouteTimeMs(datetimeTo);
+
+    const check = start > startFilter && end < endFilter;
+    return check;
+};
+
 export const selectFilteredTickets = (state: RootState) => {
     const {
         tickets: {
@@ -52,18 +63,9 @@ export const selectFilteredTickets = (state: RootState) => {
         const minPrice = getMinPriceTrain(price_info);
         const maxPrice = getMaxPriceTrain(price_info);
         const checkCost = minPrice > cost.minTotal && maxPrice < cost.maxTotal;
+
+        // const checkHourDepStartTo = checkRouteHour()
     });
 
     return filteredTickets;
-};
-
-type CheckRouteHourT = (route: TrainRouteT, start: number, end: number) => boolean;
-const checkRouteHour: CheckRouteHourT = (route, startFilter, endFilter) => {
-    const { datetime: dateTimeFrom } = route.from;
-    const { datetime: datetimeTo } = route.to;
-    const start = getTrainRouteTimeMs(datetimeTo);
-    const end = getTrainRouteTimeMs(dateTimeFrom);
-
-    const check = start > startFilter && end < endFilter;
-    return check;
 };

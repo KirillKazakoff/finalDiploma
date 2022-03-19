@@ -1,12 +1,12 @@
 import React from 'react';
 import TripDate from './TripDate/TripDate';
 import Togglers from './Togglers';
-import TripCostSection from './TripCostSection/TripCostSection';
-import TripHourSliders from './TripHourSection/TripHourSliders';
+import TripCostSlider from './TripCostSection/TripCostSlider';
 import {
     setHourArrival,
     setHourDeparture,
 } from '../../../../redux/slices/searchFilterSlice';
+import TripHourSliders from './TripHourSection/TripHourSliders';
 
 export default function TripFilter() {
     return (
@@ -17,7 +17,7 @@ export default function TripFilter() {
             <div className='trip-section'>
                 <Togglers />
             </div>
-            <TripCostSection />
+            <TripCostSlider />
             <TripHourSliders setFilter={setHourDeparture} />
             <TripHourSliders setFilter={setHourArrival} />
         </div>
