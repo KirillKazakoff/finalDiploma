@@ -25,6 +25,14 @@ export type TogglersT = {
     is_express: boolean;
 };
 
+export type HourStateT = {
+    [key: string]: number;
+    start_hour_from: number;
+    end_hour_from: number;
+    start_hour_to: number;
+    end_hour_to: number;
+};
+
 // FilterSlice
 export type FilterStateT = {
     aside: {
@@ -38,20 +46,8 @@ export type FilterStateT = {
                 minTotal: number;
                 maxTotal: number;
             };
-            hourDeparture: {
-                [key: string]: number;
-                start_departure_hour_from: number;
-                start_departure_hour_to: number;
-                end_departure_hour_from: number;
-                end_departure_hour_to: number;
-            };
-            hourArrival: {
-                [key: string]: number;
-                start_arrival_hour_from: number;
-                start_arrival_hour_to: number;
-                end_arrival_hour_from: number;
-                end_arrival_hour_to: number;
-            };
+            hourDeparture: HourStateT;
+            hourArrival: HourStateT;
         };
     };
     top: {

@@ -1,27 +1,29 @@
 import React from 'react';
 import TripHourSection from './TripHourSection';
 import HourSlider from './HourSlider';
-import { setHourDeparture } from '../../../../../redux/slices/searchFilterSlice';
+import { SetSliderFilterT } from '../../../../../types/typesPayload';
 
-export default function TripHourSectionTo() {
+type Props = { setFilter: SetSliderFilterT };
+
+export default function TripHourSliders({ setFilter }: Props) {
     const limits = { min: 0, max: 86400000 };
 
     return (
         <TripHourSection direction='to' desc='Туда'>
             <HourSlider
-                setSliderFilter={setHourDeparture}
+                setSliderFilter={setFilter}
                 dir='from'
                 desc='Время отбытия'
-                typeFrom='start_departure_hour_from'
-                typeTo='end_departure_hour_from'
+                typeFrom='start_hour_from'
+                typeTo='end_hour_from'
                 limits={limits}
             />
             <HourSlider
-                setSliderFilter={setHourDeparture}
+                setSliderFilter={setFilter}
                 dir='to'
                 desc='Время прибытия'
-                typeFrom='start_departure_hour_to'
-                typeTo='end_departure_hour_to'
+                typeFrom='start_hour_to'
+                typeTo='end_hour_to'
                 limits={limits}
             />
         </TripHourSection>
