@@ -809,7 +809,7 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 50px;
-    min-height: 1000px;
+    min-height: 100%;
 }
 
 .ticket {

@@ -2,7 +2,7 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 import TicketRoute from './TicketRoute';
 import { useAppSelector } from '../../../redux/reduxHooks';
-import { selectFetchStatus, selectTickets } from '../../../redux/slices/ticketsSlice';
+import { selectFetchStatus } from '../../../redux/slices/ticketsSlice';
 import { selectFilteredTickets } from '../../../redux/selectFilteredTickets';
 
 export default function TicketsList() {
@@ -13,5 +13,6 @@ export default function TicketsList() {
         <TicketRoute key={nanoid()} ticket={ticket} />
     ));
 
+    // return <img src='../../../../img/carriages/carriage-left.png' alt='hello' />;
     return <ul className='tickets'>{status !== 'loading' ? ticketsList : null}</ul>;
 }

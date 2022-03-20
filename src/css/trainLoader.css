@@ -1,0 +1,15 @@
+.train-loader {
+    width: 100%;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.train-loader-desc {
+    display: block;
+    margin-bottom: 90px;
+    text-align: center;
+
+    color: var(--secondary);
+    text-transform: uppercase;
+}

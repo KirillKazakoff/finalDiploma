@@ -6,6 +6,7 @@ import searchFormReducer from './slices/searchFormSlice';
 import ticketsReducer from './slices/ticketsSlice';
 import searchFilterReducer from './slices/searchFilterSlice';
 import lastTicketsReducer from './slices/lastTicketsSlice';
+import loaderReducer from './slices/loaderSlice';
 
 export const store = configureStore({
     reducer: {
@@ -16,6 +17,8 @@ export const store = configureStore({
 
         tickets: ticketsReducer,
         lastTicketsSlice: lastTicketsReducer,
+
+        loader: loaderReducer,
     },
 });
 

@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../../redux/reduxHooks';
 import { selectFormState, setFormMsgHidden } from '../../../redux/slices/searchFormSlice';
-import { OnSubmitFormT } from '../../../types/typesForms';
 import { SearchFormProps } from '../../../types/typesSearch';
 import Form from '../Common/Form';
 import { selectWayInputs } from '../../../redux/slices/searchWaySlice';

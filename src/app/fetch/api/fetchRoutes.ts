@@ -11,7 +11,7 @@ import {
 import { setFetchStatus, setTickets } from '../../redux/slices/ticketsSlice';
 import { AppThunk } from '../../redux/store';
 import { getRoutesUrl } from '../getUrl';
-import { request } from '../thunkUtils';
+import { request, xhrRequest } from '../thunkUtils';
 import { fetchSeats } from './fetchSeats';
 import getMinPrices from '../../components/lib/Tickets/getMinPrices';
 import { SeatsTypesInfoT } from '../../types/models/modelSeats';
@@ -28,6 +28,7 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
     const url = getRoutesUrl(settings);
     const reqObj = { url };
     const resData: TicketsResponseT = await dispatch(request(reqObj, setFetchStatus));
+
     if (!resData) {
         console.log('uhhh');
         return false;
@@ -80,8 +81,19 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
     dispatch(setTickets(tickets));
     dispatch(setFetchStatus('loaded'));
 
+    dispatch(xhrRequest({ method: 'GET', url }, setFetchStatus));
     console.log(resData);
-    // const { datetime } = resData.items[0].departure.from;
-    // console.log(getTrainRouteTimeMs(datetime));
+
+    // const baseUrl = 'http://80.87.192.113:3001';
+    // const method = 'GET';
+    // const xhr = new XMLHttpRequest();
+    // xhr.open(method, `${baseUrl}/routes/${url}`);
+    // xhr.send();
+    // xhr.onprogress = (e) => {
+    //     console.log(e.loaded);
+    //     console.log(e.total);
+    //     // dispatch(setProgress(e.total / ))
+    // };
+
     return true;
 };

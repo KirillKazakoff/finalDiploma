@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { DateTime } from 'luxon';
 import { useAppDispatch } from '../../../redux/reduxHooks';
-import { DateStateT, setFormError } from '../../../redux/slices/searchDateSlice';
+import { setFormError } from '../../../redux/slices/searchDateSlice';
 import { searchMessages } from './messages';
+import { DateStateT } from '../../../types/typesSlices';
 
 type UseValidateCompareT = (dateTo: DateStateT, dateFrom: DateStateT) => string;
 
