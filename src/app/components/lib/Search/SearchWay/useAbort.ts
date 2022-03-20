@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { SearchedCity } from '../../../../types/typesSearch';
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 import { setCities, setWayStatus } from '../../../../redux/slices/searchWaySlice';

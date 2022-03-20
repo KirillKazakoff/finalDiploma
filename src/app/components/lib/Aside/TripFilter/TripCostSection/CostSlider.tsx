@@ -3,11 +3,11 @@ import { useAppSelector } from '../../../../../redux/reduxHooks';
 import { setCost } from '../../../../../redux/slices/searchFilterSlice';
 import { selectCostLimits } from '../../../../../redux/slices/ticketsSlice';
 import SliderLabels from '../SliderValues/SliderLabels';
+import SliderLimit from '../SliderValues/SliderLimit';
 import SliderValueCost from '../SliderValues/SliderValueCost';
 import SliderValues from '../SliderValues/SliderValues';
 import SliderValuesContainer from '../SliderValues/SliderValuesContainer';
 import useSliderInit from '../SliderValues/useSliderInit';
-import SliderLimitCost from './SliderLimitCost';
 
 export default function CostSlider() {
     const cost = useAppSelector(selectCostLimits);
@@ -36,7 +36,7 @@ export default function CostSlider() {
                     initValue={max}
                 />
             </SliderValues>
-            <SliderLimitCost refs={refs}>{max}</SliderLimitCost>
+            <SliderLimit refs={refs}>{max}</SliderLimit>
         </SliderValuesContainer>
     );
 }

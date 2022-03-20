@@ -34,7 +34,7 @@ export const xhrRequest: RequestTypeXhrT = (reqObj, setStatus) => async (dispatc
     xhr.withCredentials = true;
     const { method, body, url } = reqObj;
 
-    const urlNew = '../../../../img/carriages/carriage-left.png';
+    const urlNew = './img/carriages/carriage-left.png';
     // fetch(urlNew).then((value) => console.log(value));
 
     // console.log(res.blob());
