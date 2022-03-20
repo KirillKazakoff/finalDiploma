@@ -27,62 +27,62 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
 
     const url = getRoutesUrl(settings);
     const reqObj = { url };
-    const resData: TicketsResponseT = await dispatch(request(reqObj, setFetchStatus));
-
-    if (!resData) {
-        console.log('uhhh');
-        return false;
-    }
-
-    const ticketsInfo = [];
-    for await (const item of resData.items) {
-        const available: SeatsTypesInfoT = {};
-        const { departure, arrival } = item;
-        const routes: TrainRoutesT = { departure, arrival };
-
-        const routeKeys = Object.keys(routes);
-
-        const trainsInfo = [];
-        for await (const key of routeKeys) {
-            if (!routes[key]) continue;
-
-            const id = routes[key]._id;
-            const trainInfo = await dispatch(fetchSeats({ id }));
-            if (!trainInfo) return false;
-
-            const trainInfoFull: TrainInfoFullT = { routeName: key, trainInfo };
-            trainsInfo.push(trainInfoFull);
-
-            const { typesInfo } = trainInfo;
-            Object.keys(typesInfo).forEach((type) => {
-                sumAvailable(available, type, typesInfo[type]);
-            });
-        }
-
-        const ticketId = nanoid();
-        const minPrices = getMinPrices(routes);
-        const seatsInfoAux = getTotalSeatsInfo(minPrices, available);
-        const ticketInfo: TicketInfoT = {
-            id: ticketId,
-            seatsInfoAux,
-            trainsInfo,
-            ticketRoute: item,
-        };
-        ticketsInfo.push(ticketInfo);
-    }
-
-    const tickets = {
-        total_count: resData.total_count,
-        tickets: ticketsInfo,
-    };
-
-    dispatch(initLimitCosts(resData));
-
-    dispatch(setTickets(tickets));
-    dispatch(setFetchStatus('loaded'));
-
     dispatch(xhrRequest({ method: 'GET', url }, setFetchStatus));
-    console.log(resData);
+    // const resData: TicketsResponseT = await dispatch(request(reqObj, setFetchStatus));
+
+    // if (!resData) {
+    //     console.log('uhhh');
+    //     return false;
+    // }
+
+    // const ticketsInfo = [];
+    // for await (const item of resData.items) {
+    //     const available: SeatsTypesInfoT = {};
+    //     const { departure, arrival } = item;
+    //     const routes: TrainRoutesT = { departure, arrival };
+
+    //     const routeKeys = Object.keys(routes);
+
+    //     const trainsInfo = [];
+    //     for await (const key of routeKeys) {
+    //         if (!routes[key]) continue;
+
+    //         const id = routes[key]._id;
+    //         const trainInfo = await dispatch(fetchSeats({ id }));
+    //         if (!trainInfo) return false;
+
+    //         const trainInfoFull: TrainInfoFullT = { routeName: key, trainInfo };
+    //         trainsInfo.push(trainInfoFull);
+
+    //         const { typesInfo } = trainInfo;
+    //         Object.keys(typesInfo).forEach((type) => {
+    //             sumAvailable(available, type, typesInfo[type]);
+    //         });
+    //     }
+
+    //     const ticketId = nanoid();
+    //     const minPrices = getMinPrices(routes);
+    //     const seatsInfoAux = getTotalSeatsInfo(minPrices, available);
+    //     const ticketInfo: TicketInfoT = {
+    //         id: ticketId,
+    //         seatsInfoAux,
+    //         trainsInfo,
+    //         ticketRoute: item,
+    //     };
+    //     ticketsInfo.push(ticketInfo);
+    // }
+
+    // const tickets = {
+    //     total_count: resData.total_count,
+    //     tickets: ticketsInfo,
+    // };
+
+    // dispatch(initLimitCosts(resData));
+
+    // dispatch(setTickets(tickets));
+    // dispatch(setFetchStatus('loaded'));
+
+    // console.log(resData);
 
     // const baseUrl = 'http://80.87.192.113:3001';
     // const method = 'GET';
