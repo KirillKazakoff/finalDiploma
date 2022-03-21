@@ -13,6 +13,5 @@ export default function TicketsList() {
         <TicketRoute key={nanoid()} ticket={ticket} />
     ));
 
-    // return <img src='../../../../img/carriages/carriage-left.png' alt='hello' />;
     return <ul className='tickets'>{status !== 'loading' ? ticketsList : null}</ul>;
 }

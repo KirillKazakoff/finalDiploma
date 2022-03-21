@@ -1,6 +1,10 @@
 import React from 'react';
+import { useAppSelector } from '../../../redux/reduxHooks';
+import { selectPageStatus } from '../../../redux/slices/loaderSlice';
 
 export default function HeaderProgressBar() {
+    const pageStatus = useAppSelector(selectPageStatus);
+    if (pageStatus !== 'loaded') return null;
     return (
         <div className='progress-line'>
             <div className='bar '>

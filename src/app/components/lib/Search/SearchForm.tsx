@@ -12,6 +12,7 @@ import { selectDateInputs } from '../../../redux/slices/searchDateSlice';
 import { fetchRoutes } from '../../../fetch/api/fetchRoutes';
 import formatDate from './SearchDate/formatDate';
 import { selectSearchFilter } from '../../../redux/slices/searchFilterSlice';
+import { fetchRoutesFirst } from '../../../fetch/api/fetchRoutesFirst';
 
 export default function SearchForm({ cls, children }: SearchFormProps) {
     const navigate = useNavigate();
@@ -24,26 +25,35 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
     const { isMsgHidden, statusValidity } = useAppSelector(selectFormState);
 
     const dispatch = useAppDispatch();
+    const searchSettings = {
+        from_city_id: waysState.wayFrom.cities[0]._id,
+        to_city_id: waysState.wayTo.cities[0]._id,
+        offset: top.offset,
+        sort: top.sort,
+        limit: top.limit,
+    };
+    const onFilterChange = () => {
+        dispatch(fetchRoutes(searchSettings));
+    };
+
     const onSubmit = () => {
         if (statusValidity === 'success' && pathname !== '/tickets') {
             navigate('/tickets');
         }
-        const searchSettings = {
-            from_city_id: waysState.wayFrom.cities[0]._id,
-            to_city_id: waysState.wayTo.cities[0]._id,
-            offset: top.offset,
-            sort: top.sort,
-            limit: top.limit,
-        };
-        dispatch(fetchRoutes(searchSettings));
+
+        dispatch(fetchRoutesFirst(searchSettings));
     };
 
     let className = 'search-form';
     if (cls) className = `${className} ${className}-${cls}`;
 
     useEffect(() => {
-        onSubmit();
+        onFilterChange();
     }, [top]);
+
+    // useEffect(() => {
+    //     onFormChange();
+    // }, [searchSettings]);
 
     return (
         <Form

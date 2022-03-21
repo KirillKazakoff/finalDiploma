@@ -5,20 +5,20 @@ import type { RootState } from '../store';
 
 type LoaderStateT = {
     progress: number;
-    loaderStatus: FetchStatusT;
+    pageStatus: FetchStatusT;
 };
 
 const initialState: LoaderStateT = {
     progress: 0,
-    loaderStatus: 'idle',
+    pageStatus: 'idle',
 };
 
 export const loaderSlice = createSlice({
     name: 'fetchLoader',
     initialState,
     reducers: {
-        setLoaderStatus: (state, action: PayloadAction<FetchStatusT>) => {
-            state.loaderStatus = action.payload;
+        setPageStatus: (state, action: PayloadAction<FetchStatusT>) => {
+            state.pageStatus = action.payload;
         },
         setProgress: (state, action: PayloadAction<number>) => {
             state.progress = action.payload;
@@ -26,7 +26,8 @@ export const loaderSlice = createSlice({
     },
 });
 
-export const { setLoaderStatus, setProgress } = loaderSlice.actions;
+export const { setPageStatus, setProgress } = loaderSlice.actions;
 export const selectProgress = (state: RootState) => state.loader.progress;
+export const selectPageStatus = (state: RootState) => state.loader.pageStatus;
 
 export default loaderSlice.reducer;

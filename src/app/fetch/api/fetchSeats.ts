@@ -1,6 +1,6 @@
 import { AppThunk } from '../../redux/store';
 import { getSeatsUrl } from '../getUrl';
-import { request, xhrRequest } from '../thunkUtils';
+import { request } from '../thunkUtils';
 import { getTrainInfo, TrainInfoT } from '../../components/lib/Tickets/getTrainInfo';
 import { setFetchStatus } from '../../redux/slices/ticketsSlice';
 
@@ -15,6 +15,5 @@ export const fetchSeats: FetchSeatsT = (settings) => async (dispatch) => {
         return false;
     }
     const trainInfo = getTrainInfo(resData);
-    dispatch(xhrRequest({ url, method: 'GET' }, setFetchStatus));
     return trainInfo;
 };

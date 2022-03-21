@@ -3,7 +3,7 @@ import { DateT, PickerStateT } from '../components/lib/DatePicker/utils/timeType
 import { SearchedCities } from './typesSearch';
 import { FormStatusT } from '../redux/slices/searchFormSlice';
 
-export type FetchStatusT = 'idle' | 'loading' | 'loaded' | 'failed' | 'aborted';
+export type FetchStatusT = 'idle' | 'loading' | 'loaded' | 'failed';
 
 export type PayloadFocus = {
     name: string;

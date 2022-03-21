@@ -1,0 +1,87 @@
+.page-loader-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 750px;
+    background-color: #3e3c41;
+}
+
+.animation-area {
+    width: 300px;
+    background-color: transparent;
+    position: relative;
+}
+
+.train-container-after {
+    left: 2%;
+    position: relative;
+
+    animation-name: trainafter;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+@keyframes trainafter {
+    from {
+        left: 2%;
+    }
+    to {
+        left: 102%;
+    }
+}
+
+.train-container-before {
+    top: 0;
+    left: -100%;
+    position: absolute;
+
+    animation-name: trainbefore;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+@keyframes trainbefore {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 2%;
+    }
+}
+
+.page-loader-desc {
+    width: 100%;
+    display: block;
+    margin-bottom: 90px;
+    text-align: center;
+
+    color: var(--secondary);
+    text-transform: uppercase;
+}
+
+.page-loader-line {
+    height: 2px;
+    width: 100%;
+    border-radius: 50px;
+    background-color: #ffca62;
+    margin-top: 10px;
+}
+
+.bg-loader {
+    top: -178px;
+    position: absolute;
+    width: 350px;
+    height: 200px;
+    background-color: #3e3c41;
+}
+
+.bg-before {
+    left: -343px;
+}
+
+.bg-after {
+    right: -343px;
+}

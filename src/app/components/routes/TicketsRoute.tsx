@@ -7,9 +7,14 @@ import { useAppSelector } from '../../redux/reduxHooks';
 
 import TicketsPagination from '../lib/Tickets/TicketsPagination/TicketsPagination';
 import { selectTotalCount } from '../../redux/slices/ticketsSlice';
+import PageLoader from '../lib/Common/PageLoader';
+import { selectPageStatus } from '../../redux/slices/loaderSlice';
 
 export default function TicketsRoute() {
     const totalCount = useAppSelector(selectTotalCount);
+    const pageStatus = useAppSelector(selectPageStatus);
+    if (pageStatus !== 'loaded') return <PageLoader />;
+
     return (
         <main className='main main-central framed'>
             <aside className='aside-central'>
