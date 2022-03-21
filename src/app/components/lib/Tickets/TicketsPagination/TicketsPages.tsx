@@ -2,6 +2,7 @@ import React from 'react';
 import { FetchStatusT } from '../../../../types/typesPayload';
 import { getNumbersArr } from './paginationUtils';
 import { OnPageClickT } from './usePagination';
+import TicketsPaginationLoader from './TicketsPaginationLoader';
 
 type Props = {
     fetchStatus: FetchStatusT;
@@ -18,9 +19,15 @@ export default function TicketsPages(props: Props) {
 
     const numbersArr = getNumbersArr(startPage, endPage);
     const ticketsPages = numbersArr.map((ticketPage) => {
+        const isActivePage = activePage === ticketPage;
+        const isDisabled = fetchStatus === 'loading';
+        const loader = isActivePage && isDisabled ? (
+            <TicketsPaginationLoader cls='loader-active-pagination' />
+        ) : null;
+
         let className = 'pagination-container tickets-page';
 
-        if (activePage === ticketPage) {
+        if (isActivePage) {
             className = `${className} tickets-page-active`;
         }
         return (
@@ -28,10 +35,10 @@ export default function TicketsPages(props: Props) {
                 key={ticketPage}
                 className={className}
                 onClick={onClick(ticketPage)}
-                disabled={fetchStatus === 'loading'}
+                disabled={isDisabled}
                 type='button'
             >
-                {ticketPage}
+                {loader || ticketPage}
             </button>
         );
     });

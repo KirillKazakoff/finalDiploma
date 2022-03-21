@@ -711,7 +711,6 @@ body {
 .cost-count {
     padding-left: 10px;
     font-weight: bold;
-    /* color: var(--black);  */
 }
 
 .extra-options {
@@ -731,8 +730,7 @@ body {
 
 /* filtration */
 .filtration {
-    flex: 1;
-    align-self: flex-start;
+    align-items: center;
     font-size: 18px;
     color: var(--secondary);
     display: flex;
@@ -1013,7 +1011,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 35px 20px 35px;
+    width: 90px;
+    padding: 20px 0;
     border-radius: 5px;
     border: 2px solid var(--secondary-lighter);
 }
@@ -1049,6 +1048,7 @@ body {
 }
 
 .tickets-page-active {
+    position: relative;
     color: white;
     background-color: var(--bg-main);
     border-color: var(--bg-main);
@@ -2568,7 +2568,6 @@ body {
 
 /* input-loader */
 .sk-chase {
-    left: -10px;
     width: 40px;
     height: 40px;
     position: relative;
@@ -2654,6 +2653,18 @@ body {
     }
 }
 
+.loader-found {
+    height: 25px;
+    width: 25px;
+    margin-right: 80px;
+}
+
+.loader-active-pagination {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+}
+
 /* date-picker */
 .date-input-wrapper {
     position: relative;
@@ -2677,26 +2688,6 @@ body {
     left: -20px;
     right: 0;
 }
-
-/* .ticket-type {
-    width: 100%;
-    display: flex;
-
-    align-items: center;
-    column-gap: 20px;
-    font-size: 16px;
-} */
-
-/* .ticket-type:hover::before {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--secondary-super-light);
-    border-radius: 5px;
-    min-height: 100px;
-} */
 
 .date-picker-arrow-decor {
     margin: auto;

@@ -15,6 +15,7 @@ import { selectSearchFilter } from '../../../redux/slices/searchFilterSlice';
 import { fetchRoutesFirst } from '../../../fetch/api/fetchRoutesFirst';
 
 export default function SearchForm({ cls, children }: SearchFormProps) {
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const { pathname } = useLocation();
 
@@ -24,7 +25,6 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
 
     const { isMsgHidden, statusValidity } = useAppSelector(selectFormState);
 
-    const dispatch = useAppDispatch();
     const searchSettings = {
         from_city_id: waysState.wayFrom.cities[0]._id,
         to_city_id: waysState.wayTo.cities[0]._id,
@@ -50,10 +50,6 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
     useEffect(() => {
         onFilterChange();
     }, [top]);
-
-    // useEffect(() => {
-    //     onFormChange();
-    // }, [searchSettings]);
 
     return (
         <Form
