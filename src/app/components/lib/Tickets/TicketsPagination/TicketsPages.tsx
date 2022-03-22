@@ -3,6 +3,7 @@ import { FetchStatusT } from '../../../../types/typesPayload';
 import { getNumbersArr } from './paginationUtils';
 import { OnPageClickT } from './usePagination';
 import TicketsPaginationLoader from './TicketsPaginationLoader';
+import SpinLoader from '../../Common/SpinLoader';
 
 type Props = {
     fetchStatus: FetchStatusT;
@@ -22,7 +23,9 @@ export default function TicketsPages(props: Props) {
         const isActivePage = activePage === ticketPage;
         const isDisabled = fetchStatus === 'loading';
         const loader = isActivePage && isDisabled ? (
-            <TicketsPaginationLoader cls='loader-active-pagination' />
+            <TicketsPaginationLoader>
+                <SpinLoader cls='loader-active-pagination' />
+            </TicketsPaginationLoader>
         ) : null;
 
         let className = 'pagination-container tickets-page';

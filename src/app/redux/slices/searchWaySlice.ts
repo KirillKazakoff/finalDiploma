@@ -2,27 +2,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
 
-import {
-    FetchStatusT,
-    PayloadSetCities,
-    PayloadFetchWayStatus,
-} from '../../types/typesPayload';
-import { initialInput, inputReducers, InputState } from '../reduxInputUtils';
-import { SearchedCities } from '../../types/typesSearch';
-
-export type WayStateT = InputState & SearchedCities & { status: FetchStatusT };
+import { PayloadSetCities, PayloadFetchWayStatus } from '../../types/typesPayload';
+import { initialInput, inputReducers } from '../reduxInputUtils';
+import { WaysStateT, WayStateT } from '../../types/typesSlices';
 
 const initialWayState: WayStateT = {
     ...initialInput,
     status: 'idle',
     cities: [],
-};
-
-export type WaysStateT = {
-    [key: string]: WayStateT;
-
-    wayFrom: WayStateT;
-    wayTo: WayStateT;
 };
 
 const initialState: WaysStateT = {

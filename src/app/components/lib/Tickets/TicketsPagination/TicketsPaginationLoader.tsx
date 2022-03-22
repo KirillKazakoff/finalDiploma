@@ -1,13 +1,13 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
 import { useAppSelector } from '../../../../redux/reduxHooks';
 import { selectFetchStatus } from '../../../../redux/slices/ticketsSlice';
-import SpinLoader from '../../Common/SpinLoader';
 
-type Props = { cls: string };
+type Props = { children: React.ReactNode };
 
-export default function TicketsPaginationLoader({ cls }: Props) {
+export default function TicketsPaginationLoader({ children }: Props) {
     const fetchStatus = useAppSelector(selectFetchStatus);
     if (fetchStatus !== 'loading') return null;
 
-    return <SpinLoader cls={cls} />;
+    return <>{children}</>;
 }

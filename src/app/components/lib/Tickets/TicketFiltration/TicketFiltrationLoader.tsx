@@ -1,15 +1,14 @@
 import React from 'react';
-import { useAppSelector } from '../../../../redux/reduxHooks';
-import { selectFetchStatus } from '../../../../redux/slices/ticketsSlice';
 import TicketsPaginationLoader from '../TicketsPagination/TicketsPaginationLoader';
+import SpinLoader from '../../Common/SpinLoader';
 
 export default function TicketFiltrationLoader() {
-    const fetchStatus = useAppSelector(selectFetchStatus);
-    if (fetchStatus !== 'loading') return null;
     return (
-        <div className='filtration-loader'>
-            <div className='filtration-loader-desc'>идет поиск билетов:</div>
-            <TicketsPaginationLoader cls='loader-found' />
-        </div>
+        <TicketsPaginationLoader>
+            <div className='filtration-loader'>
+                <div className='filtration-loader-desc'>идет поиск билетов:</div>
+                <SpinLoader cls='loader-found' />
+            </div>
+        </TicketsPaginationLoader>
     );
 }

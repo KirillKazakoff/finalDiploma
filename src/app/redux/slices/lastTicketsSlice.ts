@@ -3,8 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { FetchStatusT } from '../../types/typesPayload';
 import { TicketRouteT } from '../../types/models/modelTickets';
 import type { RootState } from '../store';
-
-type LastTicketsStateT = { status: FetchStatusT; lastTickets: TicketRouteT[] };
+import { LastTicketsStateT } from '../../types/typesSlices';
 
 const initialState: LastTicketsStateT = {
     status: 'idle',

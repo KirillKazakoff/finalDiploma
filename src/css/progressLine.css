@@ -3,31 +3,38 @@
 }
 
 .bar {
-    width: 22%;
+    width: 20%;
     height: 100px;
     display: flex;
-    column-gap: 25px;
-    justify-content: center;
-    align-items: center;
-
+    justify-content: flex-end;
     position: relative;
     background-color: #3e3c41;
-    background-image: url('../img/header/progressLineArrow.png');
-    background-repeat: no-repeat;
-    background-position: center right 2px;
 }
 
 .bar:first-child {
-    width: 28%;
+    width: 30%;
+    justify-content: center;
 }
 
 .bar:last-child {
-    width: 28%;
+    width: 30%;
     background-image: none;
 }
 
 .bar:last-child::after {
     border: none;
+}
+
+.bar:first-child .bar-content {
+    justify-content: center;
+}
+
+.bar-content {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    column-gap: 25px;
+    flex: 1;
 }
 
 .bar-count {
@@ -48,6 +55,22 @@
     background-color: var(--bg-main);
 }
 
+.bar-arrow {
+    height: 100px;
+    width: 50px;
+    background-image: url('../svg/arrows/arrow-progress-bar.svg');
+    background-repeat: no-repeat;
+    background-position: center right 1px;
+    background-size: cover;
+    position: relative;
+    z-index: 100;
+}
+
+.bar-svg {
+    position: relative;
+    z-index: 100;
+}
+
 .bar-active::after {
     position: absolute;
     right: 0;
@@ -55,7 +78,7 @@
     content: '';
     border-top: 50px solid var(--black-light);
     border-bottom: 50px solid var(--black-light);
-    border-left: 40px solid var(--bg-main);
+    border-left: 38px solid var(--bg-main);
 }
 
 .bar-active::before {
@@ -65,5 +88,5 @@
     content: '';
     border-top: 50px solid var(--bg-main);
     border-bottom: 50px solid var(--bg-main);
-    border-left: var(--progress-border) solid var(--black-light);
+    border-left: var(--progress-border) solid var(--bg-main);
 }

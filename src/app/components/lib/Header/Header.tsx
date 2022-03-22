@@ -4,7 +4,7 @@ import SearchFormMain from '../Search/SearchFormMain';
 import HeaderNav from './HeaderNav';
 import HeaderTitleMain from './HeaderTitleMain';
 import SearchFormInline from '../Search/SearchFormInline';
-import HeaderProgressBar from './HeaderProgressBar';
+import HeaderProgressBar from './HeaderProgressBar/HeaderProgressBar';
 
 export default function Header() {
     const { pathname } = useLocation();

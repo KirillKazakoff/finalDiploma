@@ -1,5 +1,8 @@
 import type { DateT, PickerStateT } from '../components/lib/DatePicker/utils/timeTypes';
 import type { InputState } from '../redux/reduxInputUtils';
+import type { TicketRouteT } from './models/modelTickets';
+import type { FetchStatusT } from './typesPayload';
+import type { SearchedCities } from './typesSearch';
 
 // DateSlice
 export type DateStateT = InputState & {
@@ -7,13 +10,22 @@ export type DateStateT = InputState & {
     activeDate: DateT | null;
     pickerState: PickerStateT | null;
 };
-
 export type DatesStateT = {
     [key: string]: DateStateT;
     dateTo: DateStateT;
     dateFrom: DateStateT;
 };
 
+// WaySlice
+export type WayStateT = InputState & SearchedCities & { status: FetchStatusT };
+export type WaysStateT = {
+    [key: string]: WayStateT;
+
+    wayFrom: WayStateT;
+    wayTo: WayStateT;
+};
+
+// FilterSlice
 export type SortTypeT = 'date' | 'price' | 'duration';
 export type TogglersT = {
     [key: string]: boolean;
@@ -33,7 +45,6 @@ export type HourStateT = {
     end_hour_to: number;
 };
 
-// FilterSlice
 export type FilterStateT = {
     aside: {
         togglers: TogglersT;
@@ -54,3 +65,6 @@ export type FilterStateT = {
         offset: number;
     };
 };
+
+// lastTicketSlice
+export type LastTicketsStateT = { status: FetchStatusT; lastTickets: TicketRouteT[] };
