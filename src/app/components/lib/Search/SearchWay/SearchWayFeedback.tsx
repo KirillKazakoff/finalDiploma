@@ -1,6 +1,6 @@
 import React from 'react';
 import { WayStateT } from '../../../../redux/slices/searchWaySlice';
-import InputLoader from '../../Common/inputLoader';
+import SpinLoader from '../../Common/SpinLoader';
 import Feedback from '../../Common/Feedback';
 
 type SearchWayProps = {
@@ -13,7 +13,7 @@ export default function SearchWayFeedback({ wayState }: SearchWayProps) {
     } = wayState;
 
     if (status === 'loading' && !error) {
-        return <InputLoader />;
+        return <SpinLoader />;
     }
 
     return (

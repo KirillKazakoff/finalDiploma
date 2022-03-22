@@ -13,7 +13,7 @@ import { selectPageStatus } from '../../redux/slices/loaderSlice';
 export default function TicketsRoute() {
     const totalCount = useAppSelector(selectTotalCount);
     const pageStatus = useAppSelector(selectPageStatus);
-    if (pageStatus !== 'loaded') return <PageLoader />;
+    if (pageStatus !== 'loaded') return <PageLoader cls='page-loader-main' />;
 
     return (
         <main className='main main-central framed'>

@@ -1,30 +1,21 @@
 import React from 'react';
 import '../../../../css/pageLoader.css';
 
-export default function PageLoader() {
+type PageLoaderProps = { cls?: string };
+
+export default function PageLoader({ cls }: PageLoaderProps) {
     return (
-        <div className='page-loader-container'>
+        <div className={`page-loader-container ${cls}`}>
             <span className='page-loader-desc'>Идет поиск</span>
             <div className='animation-area'>
-                <div className='train-container train-container-before'>
-                    <img
-                        src='../../../../svg/train-loader.svg'
-                        className='page-loader'
-                        alt='train-loader'
-                    />
-                </div>
-
-                <div className='train-container train-container-after'>
-                    <img
-                        src='../../../../svg/train-loader.svg'
-                        className='page-loader'
-                        alt='train-loader'
-                    />
-                </div>
-                <div className='page-loader-line' />
+                <div className='train-container train-container-before' />
                 <div className='bg-loader bg-before' />
                 <div className='bg-loader bg-after' />
             </div>
         </div>
     );
 }
+
+PageLoader.defaultProps = {
+    cls: '',
+};

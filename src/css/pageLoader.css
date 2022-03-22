@@ -1,9 +1,17 @@
+.page-loader-main {
+    height: 750px;
+    row-gap: 90px;
+}
+
+.page-loader-cost {
+    row-gap: 55px;
+}
+
 .page-loader-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 750px;
     background-color: #3e3c41;
 }
 
@@ -13,30 +21,20 @@
     position: relative;
 }
 
-.train-container-after {
-    left: 2%;
-    position: relative;
-
-    animation-name: trainafter;
-    animation-duration: 1.5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease;
-}
-
-@keyframes trainafter {
-    from {
-        left: 2%;
-    }
-    to {
-        left: 102%;
-    }
+.train-container {
+    background-image: url('../img/trainPng.png');
+    width: 100%;
+    height: 25px;
 }
 
 .train-container-before {
+    margin: auto;
+    width: 290px;
+    background-size: 290px;
     top: 0;
-    left: -100%;
-    position: absolute;
-
+    right: 0;
+    position: relative;
+    transform: rotate(360deg);
     animation-name: trainbefore;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
@@ -45,17 +43,17 @@
 
 @keyframes trainbefore {
     from {
-        left: -100%;
+        background-position: 0px;
     }
     to {
-        left: 2%;
+        background-position: 290px;
     }
 }
 
 .page-loader-desc {
     width: 100%;
     display: block;
-    margin-bottom: 90px;
+
     text-align: center;
 
     color: var(--secondary);
@@ -71,17 +69,17 @@
 }
 
 .bg-loader {
-    top: -178px;
+    top: -10px;
     position: absolute;
-    width: 350px;
-    height: 200px;
+    width: 30px;
+    height: 30px;
     background-color: #3e3c41;
 }
 
 .bg-before {
-    left: -343px;
+    left: -20px;
 }
 
 .bg-after {
-    right: -343px;
+    right: -20px;
 }
