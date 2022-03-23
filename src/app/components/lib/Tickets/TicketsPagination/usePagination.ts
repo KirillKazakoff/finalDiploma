@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../../../redux/reduxHooks';
-import { selectLimit, setOffset } from '../../../../redux/slices/searchFilterSlice';
+import {
+    selectLimit,
+    selectSort,
+    setOffset,
+} from '../../../../redux/slices/searchFilterSlice';
 import { getNextPagesAmount, getPrevPagesAmount } from './paginationUtils';
 import { selectTotalCount } from '../../../../redux/slices/ticketsSlice';
 
@@ -9,6 +13,7 @@ export type OnPageClickT = (page: number) => () => void;
 export const usePagination = () => {
     const dispatch = useAppDispatch();
     const limit = useAppSelector(selectLimit);
+    const sort = useAppSelector(selectSort);
     const totalCount = useAppSelector(selectTotalCount);
 
     const maxPage = Math.ceil(totalCount / limit);
@@ -24,7 +29,7 @@ export const usePagination = () => {
         setStartPage(1);
         setActivePage(1);
         dispatch(setOffset(0));
-    }, [limit]);
+    }, [limit, sort]);
 
     const onPageClick = (page: number) => () => {
         setActivePage(page);

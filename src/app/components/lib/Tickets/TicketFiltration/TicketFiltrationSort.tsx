@@ -7,7 +7,7 @@ export default function TicketFiltrationSort() {
     const [isActive, setActive] = useState(false);
     const onClick = () => setActive(!isActive);
 
-    const filtersId: SortTypeT[] = ['date', 'price', 'duration'];
+    const filtersId: SortTypeT[] = ['date', 'price_min', 'duration'];
     const filters = filtersId.map((id) => (
         <TicketFiltrationSelectType
             setActiveHandler={onClick} id={id}

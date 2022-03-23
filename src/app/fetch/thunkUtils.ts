@@ -20,6 +20,7 @@ export const request: RequestType = (reqObj, setStatus) => async (dispatch) => {
         return resData;
     } catch (e) {
         if (e.name !== 'AbortError') {
+            console.log(e);
             dispatch(setStatus('failed'));
         }
         return false;

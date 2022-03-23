@@ -26,7 +26,12 @@ export type WaysStateT = {
 };
 
 // FilterSlice
-export type SortTypeT = 'date' | 'price' | 'duration';
+export type SortTypeT = 'date' | 'price_min' | 'duration';
+export type TopTypeT = {
+    sort: SortTypeT;
+    limit: number;
+    offset: number;
+};
 export type TogglersT = {
     [key: string]: boolean;
     have_first_class: boolean;
@@ -59,11 +64,7 @@ export type FilterStateT = {
             hourArrival: HourStateT;
         };
     };
-    top: {
-        sort: SortTypeT;
-        limit: number;
-        offset: number;
-    };
+    top: TopTypeT;
 };
 
 // lastTicketSlice

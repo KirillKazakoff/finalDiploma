@@ -5,7 +5,7 @@ import { FormPropsT, OnSubmitFormT } from '../../../types/typesForms';
 export default function Form(props: FormPropsT) {
     const dispatch = useAppDispatch();
     const {
-        cls, children, setFormMsgHidden, onSubmitForm,
+        cls, children, setFormMsgHidden, onSubmitForm, status,
     } = props;
 
     const onSubmit: OnSubmitFormT = (e) => {
@@ -13,7 +13,12 @@ export default function Form(props: FormPropsT) {
 
         const form = e.currentTarget as HTMLFormElement;
         form.classList.add('submitted');
-        dispatch(setFormMsgHidden(false));
+        if (status === 'error') {
+            dispatch(setFormMsgHidden(false));
+        }
+        if (status === 'success') {
+            dispatch(setFormMsgHidden(true));
+        }
 
         onSubmitForm(e);
     };

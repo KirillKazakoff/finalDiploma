@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import type { PayloadFocus, SetFormMsgHiddenT, SetFormStatusT } from './typesPayload';
+import { FormStatusT } from '../redux/slices/searchFormSlice';
 
 export type InputDefaultT = {
     name: string;
@@ -33,6 +35,7 @@ export type FormPropsT = {
     children: React.ReactNode;
     setFormMsgHidden: SetFormMsgHiddenT;
     onSubmitForm: OnSubmitFormT;
+    status: FormStatusT;
 };
 
 export type FormFeedbackPropsT = {

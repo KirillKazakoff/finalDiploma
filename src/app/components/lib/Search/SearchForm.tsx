@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../../redux/reduxHooks';
@@ -10,9 +9,9 @@ import SearchFormBtn from './SearchFormBtn';
 import SearchFormFeedback from './SearchFormFeedback';
 import { selectDateInputs } from '../../../redux/slices/searchDateSlice';
 import { fetchRoutes } from '../../../fetch/api/fetchRoutes';
-import formatDate from './SearchDate/formatDate';
 import { selectSearchFilter } from '../../../redux/slices/searchFilterSlice';
 import { fetchRoutesFirst } from '../../../fetch/api/fetchRoutesFirst';
+import getSearchSettings from './getSearchSettings';
 
 export default function SearchForm({ cls, children }: SearchFormProps) {
     const dispatch = useAppDispatch();
@@ -25,36 +24,36 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
 
     const { isMsgHidden, statusValidity } = useAppSelector(selectFormState);
 
-    const searchSettings = {
-        from_city_id: waysState.wayFrom.cities[0]._id,
-        to_city_id: waysState.wayTo.cities[0]._id,
-        offset: top.offset,
-        sort: top.sort,
-        limit: top.limit,
-    };
+    const settings = getSearchSettings(top, waysState, datesState);
     const onFilterChange = () => {
-        dispatch(fetchRoutes(searchSettings));
+        if (!settings) return;
+        dispatch(fetchRoutes(settings));
     };
 
     const onSubmit = () => {
-        if (statusValidity === 'success' && pathname !== '/tickets') {
+        if (statusValidity !== 'success') return;
+
+        if (pathname !== '/tickets') {
             navigate('/tickets');
         }
 
-        dispatch(fetchRoutesFirst(searchSettings));
+        dispatch(fetchRoutesFirst(settings));
     };
 
     let className = 'search-form';
     if (cls) className = `${className} ${className}-${cls}`;
 
     useEffect(() => {
+        console.log('onFilter');
         onFilterChange();
     }, [top]);
 
     return (
         <Form
-            cls={className} setFormMsgHidden={setFormMsgHidden}
+            cls={className}
+            setFormMsgHidden={setFormMsgHidden}
             onSubmitForm={onSubmit}
+            status={statusValidity}
         >
             {children}
             <SearchFormFeedback
