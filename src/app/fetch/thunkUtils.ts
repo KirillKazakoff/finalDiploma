@@ -1,4 +1,5 @@
-import { RequestType, RequestTypeXhrT } from '../types/typesRequest';
+import { setPageStatus } from '../redux/slices/loaderSlice';
+import { RequestType } from '../types/typesRequest';
 
 const baseUrl = 'http://80.87.192.113:3001';
 
@@ -10,7 +11,6 @@ function timeoutMock() {
 
 export const request: RequestType = (reqObj, setStatus) => async (dispatch) => {
     // await timeoutMock();
-
     try {
         const res = await fetch(`${baseUrl}/routes/${reqObj.url}`, reqObj.settings);
         if (!res.ok) throw new Error(res.statusText);
@@ -20,9 +20,10 @@ export const request: RequestType = (reqObj, setStatus) => async (dispatch) => {
         return resData;
     } catch (e) {
         if (e.name !== 'AbortError') {
-            console.log(e);
-            dispatch(setStatus('failed'));
+            dispatch(setPageStatus('failed'));
         }
+
+        dispatch(setStatus('failed'));
         return false;
     }
 };
