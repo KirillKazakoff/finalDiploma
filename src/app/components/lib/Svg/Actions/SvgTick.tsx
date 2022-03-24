@@ -6,7 +6,7 @@ export default function SvgTick({ height, filter }: SvgType) {
     return (
         <Svg
             src='./svg/actions/tick.svg' height={height}
-            alt='tick' filter={filter}
+            alt='tick' className={filter}
         />
     );
 }

@@ -13,12 +13,12 @@ export default function Form(props: FormPropsT) {
 
         const form = e.currentTarget as HTMLFormElement;
         form.classList.add('submitted');
-        if (status === 'error') {
-            dispatch(setFormMsgHidden(false));
-        }
-        if (status === 'success') {
-            dispatch(setFormMsgHidden(true));
-        }
+        // if (status === 'error') {
+        //     dispatch(setFormMsgHidden(false));
+        // }
+        // if (status === 'success') {
+        //     dispatch(setFormMsgHidden(true));
+        // }
 
         onSubmitForm(e);
     };

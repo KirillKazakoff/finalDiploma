@@ -34,3 +34,8 @@ export function getSeatsUrl(params: GetSeatsParams) {
     const url = getUrl(params, `${params.id}/seats`);
     return url;
 }
+
+export function getSubscribeUrl(params: any) {
+    const url = getUrl(params, 'subscribe');
+    return url;
+}

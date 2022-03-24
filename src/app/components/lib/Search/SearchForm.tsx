@@ -12,6 +12,7 @@ import { fetchRoutes } from '../../../fetch/api/fetchRoutes';
 import { selectSearchFilter } from '../../../redux/slices/searchFilterSlice';
 import { fetchRoutesFirst } from '../../../fetch/api/fetchRoutesFirst';
 import getSearchSettings from './getSearchSettings';
+import useCheckStatus from '../../../form/useCheckStatus';
 
 export default function SearchForm({ cls, children }: SearchFormProps) {
     const dispatch = useAppDispatch();
@@ -30,8 +31,9 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
         dispatch(fetchRoutes(settings));
     };
 
+    const checkStatus = useCheckStatus(setFormMsgHidden, statusValidity);
     const onSubmit = () => {
-        if (statusValidity !== 'success') return;
+        if (!checkStatus()) return;
 
         if (pathname !== '/tickets') {
             navigate('/tickets');
@@ -44,7 +46,6 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
     if (cls) className = `${className} ${className}-${cls}`;
 
     useEffect(() => {
-        console.log('onFilter');
         onFilterChange();
     }, [top]);
 

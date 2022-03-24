@@ -8,7 +8,7 @@ export default function SvgCrossMark({ height, filter }: SvgType) {
             src='./svg/actions/cross-mark.svg'
             height={height}
             alt='cross-mark'
-            filter={filter}
+            className={filter}
         />
     );
 }

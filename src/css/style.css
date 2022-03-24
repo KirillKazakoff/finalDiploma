@@ -291,15 +291,13 @@ body {
     padding: 10px 15px;
 }
 
-.submitted .input-valid {
-    /* border: 2px solid rgb(132, 238, 132); */
-}
-
 .submitted .input-invalid {
     border: 2px solid rgb(218, 86, 86);
 }
 
 .feedback {
+    padding: 5px;
+    border-radius: 5px;
     position: absolute;
     top: -85%;
     right: -10%;
@@ -2385,6 +2383,7 @@ body {
 }
 
 .subscription-input-wrapper {
+    position: relative;
     flex-grow: 1;
 }
 
@@ -2400,6 +2399,10 @@ body {
     align-items: flex-end;
     column-gap: 50px;
     margin-top: 25px;
+}
+
+.social:hover {
+    filter: var(--collapse-filter);
 }
 
 /* footer-bottom */

@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import InputWrapper from '../../Common/InputWrapper';
 import useChange from '../../../../form/useChange';
 import {
     setActive,
@@ -10,6 +9,8 @@ import {
 } from '../../../../redux/slices/subscribeSlice';
 import useValidateInput from '../../../../form/useValidateInput';
 import useSelect from '../../../../form/useSelect';
+import SubscriptionInput from './SubscriptionInput';
+import SubscribeFormBtn from './SubscribeFormBtn';
 
 export default function FooterSubscription() {
     const onChange = useChange(setInput);
@@ -25,19 +26,14 @@ export default function FooterSubscription() {
                 </label>
 
                 <div className='subscribe-form-row'>
-                    <InputWrapper cls='subscription-input-wrapper'>
-                        <input
-                            id='subscribe'
-                            className='input subscription-input'
-                            type='mail'
-                            placeholder='e-mail'
-                            autoComplete='off'
-                        />
-                    </InputWrapper>
+                    <SubscriptionInput
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        onFocus={onFocus}
+                        validate={validate}
+                    />
 
-                    <button className='btn btn-main btn-subscribe' type='button'>
-                        Отправить
-                    </button>
+                    <SubscribeFormBtn />
                 </div>
             </form>
         </div>

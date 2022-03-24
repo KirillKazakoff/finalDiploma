@@ -1,16 +1,36 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { initialInput, inputReducers } from '../reduxInputUtils';
+/* eslint-disable no-param-reassign */
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { FetchStatusT } from '../../types/typesPayload';
+import { initialInput, inputReducers, InputState } from '../reduxInputUtils';
+import type { RootState } from '../store';
+
+type SubscribeState = {
+    subscribe: InputState;
+    status: FetchStatusT;
+};
+
+const initialState: SubscribeState = {
+    subscribe: {
+        ...initialInput,
+    },
+    status: 'idle',
+};
 
 export const subscribeSlice = createSlice({
     name: 'subscribe',
-    initialState: { ...initialInput },
+    initialState,
     reducers: {
         ...inputReducers,
+        setFetchStatus: (state, action: PayloadAction<FetchStatusT>) => {
+            state.status = action.payload;
+        },
     },
 });
 
 export const {
-    setInput, setError, setActive, setBlured,
+    setInput, setError, setActive, setBlured, setFetchStatus,
 } = subscribeSlice.actions;
+
+export const selectSubscribeState = (state: RootState) => state.subscribe.subscribe;
 
 export default subscribeSlice.reducer;

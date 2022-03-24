@@ -1,13 +1,24 @@
 import React from 'react';
-import { useAppSelector } from '../../../redux/reduxHooks';
-import { selectMsgStatus } from '../../../redux/slices/searchFormSlice';
 
-type FeedbackProps = { error: string; formError: string; wasFocused: boolean };
+type FeedbackProps = {
+    error: string;
+    wasFocused: boolean;
+    formError?: string;
+    isFormMsgHidden?: boolean;
+};
 
-export default function Feedback({ error, formError, wasFocused }: FeedbackProps) {
-    const isFormHidden = useAppSelector(selectMsgStatus);
+export default function Feedback(props: FeedbackProps) {
+    const {
+        error, formError, wasFocused, isFormMsgHidden,
+    } = props;
+
     if (!error && !formError) return null;
-    if (!wasFocused && isFormHidden && !formError) return null;
+    if (!wasFocused && isFormMsgHidden && !formError) return null;
 
     return <div className='feedback feedback-error'>{formError || error}</div>;
 }
+
+Feedback.defaultProps = {
+    isFormMsgHidden: true,
+    formError: '',
+};
