@@ -23,6 +23,9 @@
     --bg-main-medium: #ffd98f;
     --bg-main-light: #fcdc9d;
     --bg-central: #f7f5f9;
+
+    --btn-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    --btn-shadow-light: 0px 3px 4px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 1715px) {
@@ -42,55 +45,6 @@ body {
 .img {
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.framed {
-    padding-right: var(--main-right-padding);
-    padding-left: var(--main-left-padding);
-}
-
-.framed-places {
-    padding-right: var(--places-padding);
-    padding-left: var(--places-padding);
-}
-
-.framed-passengers {
-    padding-left: var(--passengers-left-padding);
-    padding-right: var(--passengers-right-padding);
-}
-
-.framed-passenger-section {
-    padding-left: calc(var(--passengers-left-padding) + 10px);
-    padding-right: var(--passengers-right-padding);
-}
-
-.framed-success {
-    padding-left: var(--success-popup-padding);
-    padding-right: var(--success-popup-padding);
-}
-
-.framed-ticket-right {
-    padding-left: 25px;
-    padding-right: 20px;
-}
-
-.text-left {
-    text-align: left;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.btn {
-    border-radius: 5px;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-.space25 {
-    height: 1px;
-    width: 25px;
 }
 
 .section-title {
@@ -351,21 +305,6 @@ body {
     right: -10%;
     width: 200px;
     background-color: var(--bg-main);
-}
-
-.search-tickets-btn {
-    font-weight: 700;
-    width: 47%;
-    margin-left: auto;
-    color: var(--black);
-    background: var(--bg-main);
-    padding: 15px 20px;
-    font-size: 24px;
-    z-index: 1;
-}
-
-.search-tickets-btn-inline {
-    width: 23%;
 }
 
 .header-line {
@@ -1005,15 +944,6 @@ body {
     align-self: flex-end;
 }
 
-.btn-choose-places {
-    margin-top: 20px;
-    background-color: var(--bg-main);
-    color: white;
-    font-weight: 500;
-    text-transform: initial;
-    padding: 5px 20px;
-}
-
 /* tickets-pagination */
 .pagination-container {
     display: flex;
@@ -1094,16 +1024,6 @@ body {
 .places-choose {
     display: flex;
     column-gap: 10px;
-}
-
-.btn-choose-another-train {
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--black);
-    border: 1px solid #292929;
-    padding-left: 30px;
-    padding-right: 30px;
-    text-transform: none;
 }
 
 /* places-ticket-info */
@@ -1562,17 +1482,6 @@ body {
     padding: 1.5px 0px;
 }
 
-/* btn-to-passengers */
-.btn-to-passengers {
-    width: 20%;
-    color: white;
-    padding: 15px 70px;
-    background-color: var(--bg-main);
-    margin-left: auto;
-    margin-top: 100px;
-    margin-bottom: 120px;
-}
-
 /* passengers-page */
 .trip-details-title {
     font-size: 30px;
@@ -1922,16 +1831,6 @@ body {
     padding-bottom: 30px;
 }
 
-.btn-passenger-next {
-    width: 300px;
-    margin-left: auto;
-    font-size: 24px;
-    font-weight: 500;
-    border: 1px solid #292929;
-    text-transform: unset;
-    padding: 10px 20px;
-}
-
 /* payment */
 .passenger-payment {
     padding-bottom: 80px;
@@ -2245,34 +2144,6 @@ body {
     border-radius: 5px;
 }
 
-/* btn-next-section */
-.btn-next-section {
-    font-weight: 500;
-    font-size: 24px;
-    color: white;
-    padding: 15px 70px;
-    margin-left: auto;
-    margin-top: 100px;
-    margin-bottom: 140px;
-}
-
-.btn-next-section-unchecked {
-    background-color: var(--secondary);
-}
-
-.btn-next-section-checked {
-    background-color: var(--bg-main);
-}
-
-.btn-change {
-    margin-top: 20px;
-    border: 1px solid #292929;
-    text-transform: unset;
-    padding: 5px 60px;
-    font-size: 24px;
-    font-weight: 500;
-}
-
 /* main-page */
 /* about-section */
 .about {
@@ -2323,14 +2194,6 @@ body {
     justify-content: space-between;
     color: #ffffff;
     margin-bottom: 100px;
-}
-
-.know-more-btn {
-    border: 1px solid #ffffff;
-    border-radius: 3px;
-    margin-right: 35px;
-    padding: 15px 70px;
-    font-weight: 500;
 }
 
 .skills {
@@ -2525,14 +2388,6 @@ body {
     padding-top: 15px;
     padding-bottom: 15px;
     align-self: stretch;
-}
-
-.btn-subscribe {
-    font-weight: 300;
-    padding-left: 20px;
-    padding-right: 20px;
-    border: 1px solid #ffffff;
-    border-radius: 3px;
 }
 
 /* socials */
@@ -2735,17 +2590,219 @@ body {
     position: relative;
     width: 600px;
     height: 500px;
-    background-image: url('../img/catLoaaderOrig.jpeg');
+    background-image: url('../img/catLoaderOrig.jpeg');
     background-repeat: no-repeat;
     background-position: 10px 10px;
     margin: 50px auto 0 auto;
 }
 
-.back-btn {
-    margin: 20px auto 0 auto;
-}
-
 /* common-inline-modificators */
 .hidden {
     display: none;
+}
+
+.framed {
+    padding-right: var(--main-right-padding);
+    padding-left: var(--main-left-padding);
+}
+
+.framed-places {
+    padding-right: var(--places-padding);
+    padding-left: var(--places-padding);
+}
+
+.framed-passengers {
+    padding-left: var(--passengers-left-padding);
+    padding-right: var(--passengers-right-padding);
+}
+
+.framed-passenger-section {
+    padding-left: calc(var(--passengers-left-padding) + 10px);
+    padding-right: var(--passengers-right-padding);
+}
+
+.framed-success {
+    padding-left: var(--success-popup-padding);
+    padding-right: var(--success-popup-padding);
+}
+
+.framed-ticket-right {
+    padding-left: 25px;
+    padding-right: 20px;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.space25 {
+    height: 1px;
+    width: 25px;
+}
+
+/* buttons */
+.btn {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    background-color: var(--secondary);
+}
+
+/* focuses and hovers */
+/* hovers */
+.btn-main:hover {
+    background-color: #ffca62;
+    color: black;
+    border: 1px solid transparent;
+}
+
+.btn-search-tickets:hover,
+.btn-next-section:hover,
+.btn-choose-places:hover,
+.btn-change:hover,
+.btn-passenger-next:hover,
+.btn-back:hover {
+    box-shadow: var(--btn-shadow);
+}
+
+.btn-search-tickets:hover {
+    background-color: transparent;
+    border: 1px solid var(--bg-main);
+    color: var(--bg-main);
+}
+
+.form-feedback-success .btn-search-tickets:hover {
+    color: #77f159;
+    background-color: var(--bg-main);
+    border: 1px solid transparent;
+}
+/* focuses */
+.btn-main:focus {
+    background-color: white;
+    color: black;
+    border: 1px solid transparent;
+}
+
+.btn-choose-places:focus,
+.btn-next-section:focus,
+.btn-back:focus {
+    background-color: transparent;
+    border: 1px solid var(--bg-main);
+    color: var(--bg-main);
+}
+
+.btn-change:focus,
+.btn-passenger-next:focus {
+    box-shadow: var(--btn-shadow);
+    border: 1px solid transparent;
+}
+
+/* buttons-main-page */
+.btn-know-more {
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+    margin-right: 35px;
+    padding: 15px 70px;
+    font-weight: 500;
+}
+
+.btn-subscribe {
+    font-weight: 300;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+}
+
+/* buttons-content */
+/* btn-search-tickets */
+.btn-search-tickets {
+    font-weight: 700;
+    width: 47%;
+    margin-left: auto;
+    color: var(--black);
+    background: var(--bg-main);
+    padding: 15px 20px;
+    font-size: 24px;
+    z-index: 1;
+}
+
+.btn-search-tickets-inline {
+    width: 23%;
+}
+
+/* btn-choose-places */
+.btn-choose-places {
+    margin-top: 20px;
+    background-color: var(--bg-main);
+    color: white;
+    font-weight: 500;
+    text-transform: initial;
+    padding: 5px 20px;
+}
+
+.btn-choose-places:focus {
+    box-shadow: none;
+}
+
+/* btn-choose-another-train */
+.btn-choose-another-train {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--black);
+    border: 1px solid #292929;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-transform: none;
+}
+
+/* btn-next-section */
+.btn-next-section {
+    font-weight: 500;
+    font-size: 24px;
+    color: white;
+    padding: 15px 70px;
+    margin-left: auto;
+    margin-top: 100px;
+    margin-bottom: 140px;
+}
+
+/* btn-change && .btn-passenger-next */
+.btn-change,
+.btn-passenger-next {
+    text-transform: unset;
+    border: 1px solid #292929;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.btn-change {
+    margin-top: 20px;
+    padding: 5px 60px;
+}
+
+.btn-passenger-next {
+    width: 300px;
+    margin-left: auto;
+    padding: 10px 20px;
+}
+
+.btn-back {
+    font-weight: 700;
+    width: 47%;
+    margin-left: auto;
+    color: var(--black);
+    background: var(--bg-main);
+    padding: 15px 20px;
+    font-size: 24px;
+    z-index: 1;
+    margin: 40px auto 0 auto;
 }

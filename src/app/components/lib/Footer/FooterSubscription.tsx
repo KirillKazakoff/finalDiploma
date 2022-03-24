@@ -21,7 +21,7 @@ export default function FooterSubscription() {
                         />
                     </InputWrapper>
 
-                    <button className='btn btn-subscribe' type='button'>
+                    <button className='btn btn-main btn-subscribe' type='button'>
                         Отправить
                     </button>
                 </div>

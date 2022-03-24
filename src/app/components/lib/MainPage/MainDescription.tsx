@@ -8,7 +8,7 @@ export default function MainDescription() {
         <section className='description framed'>
             <header className='description-header'>
                 <h2 className='section-title ddescription-title'>Как это работает</h2>
-                <button className='btn know-more-btn' type='button'>
+                <button className='btn btn-main btn-know-more' type='button'>
                     Узнать больше
                 </button>
             </header>

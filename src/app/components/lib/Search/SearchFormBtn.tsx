@@ -3,7 +3,7 @@ import React from 'react';
 type SearchFormBtnProps = { children: React.ReactNode; cls?: string };
 
 export default function SearchFormBtn({ children, cls }: SearchFormBtnProps) {
-    let className = 'search-tickets-btn';
+    let className = 'btn-search-tickets';
     if (cls) className = `btn ${className} ${className}-${cls}`;
 
     return (

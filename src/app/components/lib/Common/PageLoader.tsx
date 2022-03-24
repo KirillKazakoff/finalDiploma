@@ -8,7 +8,7 @@ export default function PageLoader({ cls }: PageLoaderProps) {
         <div className={`page-loader-container ${cls}`}>
             <span className='page-loader-desc'>Идет поиск</span>
             <div className='animation-area'>
-                <div className='train-container train-container-before' />
+                <div className='train-container' />
                 <div className='bg-loader bg-before' />
                 <div className='bg-loader bg-after' />
             </div>

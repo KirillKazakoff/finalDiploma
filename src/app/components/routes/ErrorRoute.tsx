@@ -28,7 +28,7 @@ export default function ErrorRoute() {
                 </div>
             </div>
             <button
-                type='button' className='btn back-btn'
+                type='button' className='btn btn-back'
                 onClick={onClick}
             >
                 Вернуться назад
