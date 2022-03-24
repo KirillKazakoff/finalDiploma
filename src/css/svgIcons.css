@@ -22,6 +22,9 @@
 
     --success-filter: brightness(0) saturate(100%) invert(91%) sepia(15%) saturate(957%)
         hue-rotate(51deg) brightness(101%) contrast(93%);
+
+    --collapse-filter: brightness(0) saturate(100%) invert(76%) sepia(69%) saturate(395%)
+        hue-rotate(339deg) brightness(100%) contrast(103%);
 }
 
 .ic-refresh {

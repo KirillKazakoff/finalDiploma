@@ -6,14 +6,16 @@ import SvgType from './svgType';
 type SvgProps = HTMLProps<HTMLImageElement> & SvgType;
 
 export default function Svg({
-    src, alt, height, filter,
+    src, alt, height, className,
 }: SvgProps) {
     return (
         <img
-            alt={alt}
-            src={src}
-            className={filter || ''}
-            height={`${height} px`}
+            alt={alt} src={src}
+            className={className} height={`${height}`}
         />
     );
 }
+
+Svg.defaultProps = {
+    height: '',
+};

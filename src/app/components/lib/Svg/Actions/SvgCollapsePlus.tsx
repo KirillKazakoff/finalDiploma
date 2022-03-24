@@ -5,8 +5,10 @@ import SvgType from '../svgType';
 export default function SvgCollapsePlus({ height }: SvgType) {
     return (
         <Svg
-            src='./svg/actions/collapse-plus.svg' height={height}
+            src='./svg/actions/collapse-plus.svg'
+            height={height}
             alt='mail'
+            className='btn-collapse'
         />
     );
 }

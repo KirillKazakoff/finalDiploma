@@ -2,7 +2,7 @@
 import React from 'react';
 import FooterContacts from './FooterContacts';
 import FooterSocials from './FooterSocials';
-import FooterSubscription from './FooterSubscription';
+import FooterSubscription from './FooterSubscription/FooterSubscription';
 import FooterTopCol from './FooterTopCol';
 
 export default function FooterTop() {

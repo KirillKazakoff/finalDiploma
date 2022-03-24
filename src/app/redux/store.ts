@@ -7,9 +7,13 @@ import ticketsReducer from './slices/ticketsSlice';
 import searchFilterReducer from './slices/searchFilterSlice';
 import lastTicketsReducer from './slices/lastTicketsSlice';
 import loaderReducer from './slices/loaderSlice';
+import subscribeReducer from './slices/subscribeSlice';
 
 export const store = configureStore({
     reducer: {
+        loader: loaderReducer,
+        subscribe: subscribeReducer,
+
         searchForm: searchFormReducer,
         searchFilter: searchFilterReducer,
         searchWay: searchWayReducer,
@@ -17,8 +21,6 @@ export const store = configureStore({
 
         tickets: ticketsReducer,
         lastTicketsSlice: lastTicketsReducer,
-
-        loader: loaderReducer,
     },
 });
 

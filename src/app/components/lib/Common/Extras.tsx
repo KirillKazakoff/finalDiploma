@@ -22,21 +22,6 @@ export default function Extras(props: ExtrasProps) {
                 isActive={have_air_conditioning}
                 name='conditioner'
             />
-            {/* <img
-                className='filter-secondary'
-                src='./svg/features/wireless.svg'
-                alt='wireless'
-            />
-            <img
-                className='filter-secondary'
-                src='./svg/features/rocket.svg'
-                alt='rocket'
-            />
-            <img
-                className='filter-secondary'
-                src='./svg/features/conditioner.svg'
-                alt='conditioner'
-            /> */}
         </div>
     );
 }

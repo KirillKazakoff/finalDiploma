@@ -7,7 +7,7 @@ export default function ExtraFeature({ name, filter, isActive }: ExtraFeatureT) 
     if (!isActive) return null;
     return (
         <Svg
-            filter={filter} src={`./svg/features/${name}.svg`}
+            className={filter} src={`./svg/features/${name}.svg`}
             alt={name}
         />
     );
