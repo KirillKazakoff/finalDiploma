@@ -2,8 +2,8 @@ import React, { HTMLProps, useEffect, useRef } from 'react';
 import InputWrapper from '../../Common/InputWrapper';
 import { ValidateInputT } from '../../../../types/typesForms';
 import { useAppSelector } from '../../../../redux/reduxHooks';
-import { selectSubscribeState } from '../../../../redux/slices/subscribeSlice';
 import Feedback from '../../Common/Feedback';
+import SpinLoader from '../../Common/SpinLoader';
 
 type Props = { validate: ValidateInputT } & HTMLProps<HTMLInputElement>;
 
@@ -13,10 +13,9 @@ export default function SubscriptionInput(props: Props) {
     } = props;
 
     const inputEl = useRef<HTMLInputElement>(null);
-    const subState = useAppSelector(selectSubscribeState);
-    const { value, error, wasFocused } = subState;
+    const { status, subscribe } = useAppSelector((state) => state.subscribe);
+    const { value, error, wasFocused } = subscribe;
 
-    console.log(error);
     useEffect(() => {
         if (!inputEl.current) return;
         const input = inputEl.current;
@@ -38,7 +37,9 @@ export default function SubscriptionInput(props: Props) {
                 type='email'
                 placeholder='e-mail'
                 autoComplete='off'
+                required
             />
+            {status === 'loading' ? <SpinLoader cls='subscribe-loader' /> : null}
             <Feedback error={error} wasFocused={wasFocused} />
         </InputWrapper>
     );

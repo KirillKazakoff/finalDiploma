@@ -2,7 +2,7 @@
 import React from 'react';
 import FooterContacts from './FooterContacts';
 import FooterSocials from './FooterSocials';
-import FooterSubscription from './FooterSubscription/FooterSubscription';
+import Subscription from './Subscription/Subscription';
 import FooterTopCol from './FooterTopCol';
 
 export default function FooterTop() {
@@ -12,7 +12,7 @@ export default function FooterTop() {
                 <FooterContacts />
             </FooterTopCol>
             <FooterTopCol>
-                <FooterSubscription />
+                <Subscription />
                 <FooterSocials />
             </FooterTopCol>
         </section>

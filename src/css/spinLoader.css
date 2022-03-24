@@ -106,6 +106,12 @@
     position: absolute;
 }
 
+.subscribe-loader {
+    top: 10px;
+    right: 10px;
+    position: absolute;
+}
+
 /* cat-loader */
 .lds-spinner {
     color: official;

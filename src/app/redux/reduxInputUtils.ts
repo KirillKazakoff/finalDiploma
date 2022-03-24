@@ -36,14 +36,8 @@ export const inputReducers = {
         const { name, isActive } = action.payload;
         state[name].isActive = isActive;
     },
-    // toggleActive: (state: any, action: PayloadAction<string>) => {
-    //     const name = action.payload;
-    //     state[name].isActive = !state[name].isActive;
-    // },
     setBlured: (state: any, action: PayloadAction<PayloadFocus>) => {
         const { name, wasFocused } = action.payload;
-        if (!wasFocused) return;
-
         state[name].wasFocused = wasFocused;
     },
 };

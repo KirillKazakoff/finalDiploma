@@ -19,19 +19,19 @@ function getUrl(params: Params, query: string) {
 
 type GetCitiesParams = { name: string };
 export function getCitiesUrl(params: GetCitiesParams) {
-    const url = getUrl(params, 'cities');
+    const url = getUrl(params, 'routes/cities');
     return url;
 }
 
 type GetRouteParams = any;
 export function getRoutesUrl(params: GetRouteParams) {
-    const url = getUrl(params, '');
+    const url = getUrl(params, 'routes');
     return url;
 }
 
 type GetSeatsParams = any;
 export function getSeatsUrl(params: GetSeatsParams) {
-    const url = getUrl(params, `${params.id}/seats`);
+    const url = getUrl(params, `routes/${params.id}/seats`);
     return url;
 }
 

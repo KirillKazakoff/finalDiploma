@@ -34,7 +34,6 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
     const checkStatus = useCheckStatus(setFormMsgHidden, statusValidity);
     const onSubmit = () => {
         if (!checkStatus()) return;
-
         if (pathname !== '/tickets') {
             navigate('/tickets');
         }
@@ -50,12 +49,7 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
     }, [top]);
 
     return (
-        <Form
-            cls={className}
-            setFormMsgHidden={setFormMsgHidden}
-            onSubmitForm={onSubmit}
-            status={statusValidity}
-        >
+        <Form cls={className} onSubmitForm={onSubmit}>
             {children}
             <SearchFormFeedback
                 waysState={waysState}

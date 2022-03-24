@@ -11,16 +11,29 @@ import useValidateInput from '../../../../form/useValidateInput';
 import useSelect from '../../../../form/useSelect';
 import SubscriptionInput from './SubscriptionInput';
 import SubscribeFormBtn from './SubscribeFormBtn';
+import { useAppSelector, useAppDispatch } from '../../../../redux/reduxHooks';
+import { fetchSubscribe } from '../../../../fetch/api/fetchSubscribe';
+import Form from '../../Common/Form';
 
 export default function FooterSubscription() {
+    const dispatch = useAppDispatch();
     const onChange = useChange(setInput);
     const validate = useValidateInput(setError);
     const { onBlur, onFocus } = useSelect(setActive, setBlured);
+    const { subscribe } = useAppSelector((state) => state.subscribe);
+    const { error, value } = subscribe;
+
+    const onSubmit = () => {
+        if (error) return;
+        const settings = { email: value };
+        dispatch(fetchSubscribe(settings));
+    };
 
     return (
         <div className='subscription'>
             <h2 className='footer-subtitle subscription-title'>Подписка</h2>
-            <form className='form subscribe-form'>
+
+            <Form cls='subscribe-form' onSubmitForm={onSubmit}>
                 <label htmlFor='subscribe' className='label label-subscription'>
                     Будьте в курсе событий
                 </label>
@@ -32,10 +45,9 @@ export default function FooterSubscription() {
                         onFocus={onFocus}
                         validate={validate}
                     />
-
                     <SubscribeFormBtn />
                 </div>
-            </form>
+            </Form>
         </div>
     );
 }

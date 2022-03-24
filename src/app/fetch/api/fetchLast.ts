@@ -7,7 +7,7 @@ type FetchLastT = () => AppThunk;
 export const fetchLast: FetchLastT = () => async (dispatch) => {
     dispatch(setFetchStatus('loading'));
 
-    const reqObj = { url: 'last' };
+    const reqObj = { url: 'routes/last' };
     const resData = await dispatch(request(reqObj, setFetchStatus));
     if (!resData) return false;
 

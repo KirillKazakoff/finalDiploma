@@ -1,7 +1,7 @@
 type Validation = {
     [key: string]: string;
 
-    valueMissing?: string;
+    valueMissing: string;
     patternMismatch?: string;
     typeMismatch?: string;
 };
@@ -38,6 +38,7 @@ const inputMessages: InputMessages = {
         ...dateState,
     },
     subscribe: {
+        valueMissing: 'Введите почту',
         typeMismatch: 'Введите правильно свою почту',
     },
 };

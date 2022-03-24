@@ -12,7 +12,7 @@ function timeoutMock() {
 export const request: RequestType = (reqObj, setStatus) => async (dispatch) => {
     // await timeoutMock();
     try {
-        const res = await fetch(`${baseUrl}/routes/${reqObj.url}`, reqObj.settings);
+        const res = await fetch(`${baseUrl}/${reqObj.url}`, reqObj.settings);
         if (!res.ok) throw new Error(res.statusText);
 
         const resData = await res.json();

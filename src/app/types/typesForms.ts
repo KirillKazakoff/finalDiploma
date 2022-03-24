@@ -33,9 +33,7 @@ export type ValidateWayT = (input: HTMLInputElement, cityCheck: string) => void;
 export type FormPropsT = {
     cls?: string;
     children: React.ReactNode;
-    setFormMsgHidden: SetFormMsgHiddenT;
     onSubmitForm: OnSubmitFormT;
-    status: FormStatusT;
 };
 
 export type FormFeedbackPropsT = {

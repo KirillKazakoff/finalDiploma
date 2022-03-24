@@ -32,5 +32,6 @@ export const {
 } = subscribeSlice.actions;
 
 export const selectSubscribeState = (state: RootState) => state.subscribe.subscribe;
+export const selectSubscribeValue = (state: RootState) => state.subscribe.subscribe.value;
 
 export default subscribeSlice.reducer;
