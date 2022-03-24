@@ -8,7 +8,7 @@ import { useAppSelector } from '../../../../redux/reduxHooks';
 import { SearchDateInputProps } from '../../../../types/typesSearch';
 import Feedback from '../../Common/Feedback';
 import { getValidityCls } from '../SearchWay/getValidityCls';
-import validateDate from './validateDate';
+import useValidateDate from './validateDate';
 
 export default function SearchDateInput(props: SearchDateInputProps) {
     const {
@@ -21,6 +21,7 @@ export default function SearchDateInput(props: SearchDateInputProps) {
     const validityCls = getValidityCls(dateState);
     const onClick = onClickCheck(disabled, name);
     const [isPickerActive, setPickerActive] = useState(false);
+    const validateDate = useValidateDate();
 
     useEffect(() => {
         if (!inputEl.current) return;
