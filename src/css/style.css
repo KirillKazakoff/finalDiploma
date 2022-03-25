@@ -393,6 +393,7 @@ body {
     height: 20px;
     background-color: white;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .toggler-circle {
@@ -730,11 +731,15 @@ body {
 
 .filtration-amount-numbers {
     display: flex;
-    column-gap: 10px;
 }
 
 .filtration-amount-number {
+    padding: 0 5px;
     cursor: pointer;
+}
+
+.filtration-amount-number:hover {
+    color: black;
 }
 
 .filtration-amount-number-active {
@@ -1040,7 +1045,7 @@ body {
     display: flex;
     align-items: center;
     column-gap: 25px;
-    padding: 15px 20px 15px 15px;
+    padding: 15px 20px 15px 30px;
     border-right: 1px solid #ffffff;
 }
 
@@ -2574,6 +2579,10 @@ body {
 
 .date-picker-day-sunday {
     font-weight: 700;
+}
+
+.date-picker-icon:hover {
+    filter: var(--black-filter);
 }
 
 /* error-route */

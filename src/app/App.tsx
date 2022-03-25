@@ -5,6 +5,7 @@ import PageRoute from './components/routes/PageRoute';
 import MainRoute from './components/routes/MainRoute';
 import TicketsRoute from './components/routes/TicketsRoute';
 import ErrorRoute from './components/routes/ErrorRoute';
+import PlacesRoute from './components/routes/PlacesRoute';
 
 export default function App() {
     return (
@@ -13,6 +14,7 @@ export default function App() {
                 <Route path='/' element={<PageRoute />}>
                     <Route path='/' element={<MainRoute />} />
                     <Route path='/tickets' element={<TicketsRoute />} />
+                    <Route path='/places' element={<PlacesRoute />} />
                 </Route>
                 <Route path='*' element={<ErrorRoute />} />
             </Routes>

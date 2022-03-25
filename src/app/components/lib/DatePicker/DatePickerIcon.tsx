@@ -15,7 +15,10 @@ export default function DatePickerIcon({ onClickCheck, height, setActive }: Prop
     };
 
     return (
-        <button type='button' onClick={onClick}>
+        <button
+            type='button' className='date-picker-icon'
+            onClick={onClick}
+        >
             <SvgCalendar height={height} />
         </button>
     );
