@@ -1,10 +1,10 @@
 import React from 'react';
-import { SetStateT } from '../../../../../types/typesReact';
-import SvgCollapseMinus from '../../../Svg/Actions/SvgCollapseMinus';
-import SvgCollapsePlus from '../../../Svg/Actions/SvgCollapsePlus';
+import { SetStateT } from '../../../../types/typesReact';
+import SvgCollapseMinus from '../../Svg/Actions/SvgCollapseMinus';
+import SvgCollapsePlus from '../../Svg/Actions/SvgCollapsePlus';
 
 type TripCollapseProps = { isActive: boolean; setActive: SetStateT<boolean> };
-export default function TripCollapseSign({ isActive, setActive }: TripCollapseProps) {
+export default function SubtleSign({ isActive, setActive }: TripCollapseProps) {
     const sign = isActive ? <SvgCollapseMinus /> : <SvgCollapsePlus />;
     const onClick = () => setActive((prev) => !prev);
 

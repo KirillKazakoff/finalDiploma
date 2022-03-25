@@ -535,6 +535,10 @@ body {
     column-gap: 15px;
 }
 
+.subtle-pic {
+    width: 30px;
+}
+
 .subtle-desc {
     flex-grow: 1;
     font-size: 30px;

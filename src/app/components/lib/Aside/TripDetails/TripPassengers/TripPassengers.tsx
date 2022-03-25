@@ -1,17 +1,9 @@
 import React from 'react';
+import SubtleContainerPassengers from './SubtleContainerPassengers';
 
 export default function TripPassengers() {
     return (
-        <section className='trip-section trip-section-subtle'>
-            <div className='subtle-container'>
-                <img
-                    className='ic-subtle-passenger-sm'
-                    src='./svg/passenger.svg'
-                    alt='arrow-to'
-                />
-                <span className='subtle-desc'>Пассажиры</span>
-                <span className='subtle-collapse substract'>-</span>
-            </div>
+        <SubtleContainerPassengers desc='Пассажиры'>
             <div className='trip-details'>
                 <div className='trip-details-passengers'>
                     <div className='trip-details-row trip-details-row-passengers'>
@@ -30,6 +22,6 @@ export default function TripPassengers() {
                     </div>
                 </div>
             </div>
-        </section>
+        </SubtleContainerPassengers>
     );
 }
