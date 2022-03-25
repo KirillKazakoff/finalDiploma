@@ -8,6 +8,9 @@ import searchFilterReducer from './slices/searchFilterSlice';
 import lastTicketsReducer from './slices/lastTicketsSlice';
 import loaderReducer from './slices/loaderSlice';
 import subscribeReducer from './slices/subscribeSlice';
+import { saveToLocalStorage, loadFromLocalStorage } from './storeLoaderUtils';
+
+const preloadedState = loadFromLocalStorage();
 
 export const store = configureStore({
     reducer: {
@@ -22,6 +25,11 @@ export const store = configureStore({
         tickets: ticketsReducer,
         lastTicketsSlice: lastTicketsReducer,
     },
+    preloadedState,
+});
+
+window.addEventListener('beforeunload', () => {
+    saveToLocalStorage(store.getState());
 });
 
 export type AppDispatch = typeof store.dispatch;
