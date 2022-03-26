@@ -3,8 +3,14 @@ import LastTickets from '../lib/Aside/LastTickets/LastTickets';
 import PlacesDir from '../lib/Places/PlacesDir';
 import BtnNextRoute from '../lib/Common/BtnNextRoute';
 import TripDetailsDirs from '../lib/Aside/TripDetails/TripDetailsDirs';
+import { useAppSelector } from '../../redux/reduxHooks';
+import { selectActiveTicket } from '../../redux/slices/ticketsSlice';
 
 export default function PlacesRoute() {
+    const ticket = useAppSelector(selectActiveTicket);
+    if (!ticket) return null;
+    console.log(ticket);
+
     return (
         <main className='main main-central framed'>
             <aside className='aside-central'>

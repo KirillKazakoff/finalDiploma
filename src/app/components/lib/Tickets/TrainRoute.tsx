@@ -1,6 +1,6 @@
 import React from 'react';
 import { TrainRouteProps } from '../../../types/typesTicket';
-import { getTrainRouteTime, getDurationTime } from './Ticket/getTrainTime';
+import { getTrainHour, getDuration } from './Ticket/getTrainTime';
 
 export default function TrainRoute({ route, arrowCls }: TrainRouteProps) {
     const { from, to, duration } = route;
@@ -9,7 +9,7 @@ export default function TrainRoute({ route, arrowCls }: TrainRouteProps) {
         <div className='ticket-direction'>
             <div className='ticket-info ticket-left'>
                 <span className='ticket-time ticket-time-left'>
-                    {getTrainRouteTime(from.datetime)}
+                    {getTrainHour(from.datetime)}
                 </span>
                 <span className='cap-first ticket-city ticket-city-left'>
                     {from.city.name}
@@ -20,13 +20,13 @@ export default function TrainRoute({ route, arrowCls }: TrainRouteProps) {
             </div>
 
             <div className='travel-time'>
-                <span className='travel-time-desc'>{getDurationTime(duration)}</span>
+                <span className='travel-time-desc'>{getDuration(duration)}</span>
                 <img src={`./svg/arrows/arrow-travel-time-${arrowCls}.svg`} alt='arrow' />
             </div>
 
             <div className='ticket-info ticket-right'>
                 <span className='ticket-time ticket-time-right'>
-                    {getTrainRouteTime(to.datetime)}
+                    {getTrainHour(to.datetime)}
                 </span>
                 <span className='cap-first ticket-city ticket-city-right'>
                     {to.city.name}

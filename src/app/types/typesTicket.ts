@@ -27,6 +27,7 @@ export type TicketCenterProps = {
 export type TicketRightProps = {
     routes: TrainRoutesT;
     seatsInfoAux: TotalSeatsInfoT;
+    onClick: () => void;
 };
 
 export type TrainRouteProps = {

@@ -2,7 +2,7 @@
 /* eslint-disable no-restricted-syntax */
 import { RootState } from './store';
 import { TogglersT, HourStateT } from '../types/typesSlices';
-import { getTrainRouteTimeMs } from '../components/lib/Tickets/Ticket/getTrainTime';
+import { getTrainHourMs } from '../components/lib/Tickets/Ticket/getTrainTime';
 import { TicketInfoT, TrainRouteT } from '../types/models/modelTickets';
 import {
     getMinPriceTrain,
@@ -11,7 +11,7 @@ import {
 
 type CheckHourPointT = (datetime: number, start: number, end: number) => boolean;
 const checkHourPoint: CheckHourPointT = (pointDatetime, startFilter, endFilter) => {
-    const msTime = getTrainRouteTimeMs(pointDatetime);
+    const msTime = getTrainHourMs(pointDatetime);
 
     const check = msTime > startFilter && msTime < endFilter;
     return check;

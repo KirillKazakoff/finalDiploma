@@ -1,5 +1,4 @@
 import React from 'react';
-import { DayNumbers } from 'luxon';
 
 export type DaysT = {
     pastMonthDays: number[];

@@ -100,4 +100,5 @@ export type TicketsStateT = {
         minTotal: number;
         maxTotal: number;
     };
+    activeTicket: TicketInfoT | null;
 };

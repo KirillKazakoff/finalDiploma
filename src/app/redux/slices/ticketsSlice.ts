@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { TicketsStateT, TicketsT } from '../../types/models/modelTickets';
 import { FetchStatusT, PayloadSliderFilter } from '../../types/typesPayload';
 import type { RootState } from '../store';
+import { TicketInfoT } from '../../types/models/modelTickets';
 
 const initialState: TicketsStateT = {
     ticketsInfo: {
@@ -14,6 +15,7 @@ const initialState: TicketsStateT = {
         maxTotal: 0,
     },
     statusFetch: 'idle',
+    activeTicket: null,
 };
 
 export const ticketsSlice = createSlice({
@@ -30,13 +32,20 @@ export const ticketsSlice = createSlice({
             const { name, value } = action.payload;
             state.costLimits[name] = value;
         },
+        setActiveTicket: (state, action: PayloadAction<TicketInfoT>) => {
+            state.activeTicket = action.payload;
+        },
     },
 });
 
-export const { setTickets, setFetchStatus, setCostLimit } = ticketsSlice.actions;
+export const {
+    setTickets, setActiveTicket, setFetchStatus, setCostLimit,
+} = ticketsSlice.actions;
+
 export const selectTickets = (state: RootState) => state.tickets.ticketsInfo;
 export const selectTotalCount = (state: RootState) => state.tickets.ticketsInfo.total_count;
 export const selectFetchStatus = (state: RootState) => state.tickets.statusFetch;
 export const selectCostLimits = (state: RootState) => state.tickets.costLimits;
+export const selectActiveTicket = (state: RootState) => state.tickets.activeTicket;
 
 export default ticketsSlice.reducer;

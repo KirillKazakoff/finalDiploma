@@ -1,18 +1,22 @@
 import React from 'react';
 import TripDir from './TripDir/TripDir';
 import TripTitle from './TripTitle';
+import { useAppSelector } from '../../../../redux/reduxHooks';
+import { selectActiveTicket } from '../../../../redux/slices/ticketsSlice';
 
 export default function TripDetailsDirs() {
+    const ticket = useAppSelector(selectActiveTicket);
+    const { arrival, departure } = ticket.ticketRoute;
     return (
         <div className='aside-part aside-part-trip'>
             <TripTitle />
             <TripDir
                 dir='to' desc='Туда'
-                date='20.05.2022'
+                route={departure}
             />
             <TripDir
                 dir='from' desc='Обратно'
-                date='22.05.2022'
+                route={arrival}
             />
         </div>
     );

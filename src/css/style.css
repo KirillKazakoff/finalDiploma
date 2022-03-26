@@ -1523,6 +1523,7 @@ body {
 }
 
 .train-number-details {
+    font-size: 22px;
     color: white;
 }
 
@@ -1540,6 +1541,10 @@ body {
     text-align: right;
     font-weight: 400;
     color: white;
+}
+
+.train-route-details::first-letter {
+    text-transform: uppercase;
 }
 
 /* trip-details-destination */
@@ -1572,7 +1577,7 @@ body {
 .details-travel-time {
     align-self: flex-start;
     top: -23px;
-    left: 0px;
+    left: 10px;
 }
 
 .details-person-age {
@@ -1598,7 +1603,7 @@ body {
 }
 
 .station-name {
-    width: 70%;
+    width: 80%;
     color: var(--secondary);
 }
 
@@ -2617,6 +2622,10 @@ body {
 }
 
 /* common-inline-modificators */
+.fl::first-letter {
+    text-transform: uppercase;
+}
+
 .hidden {
     display: none;
 }

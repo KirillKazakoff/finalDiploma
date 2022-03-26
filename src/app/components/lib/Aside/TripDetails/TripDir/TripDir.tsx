@@ -1,19 +1,22 @@
 import React from 'react';
 import SubtleContainerDir from './SubtleContainerDir';
-import TripDetailsDestination from './TripDetailsDestination';
-import TripDetailsTrain from './TripDetailsTrain';
+import TripDirDestination from './TripDirDestination';
+import TripDirTrain from './TripDirTrain';
+import { formatDateNumber } from '../../../Search/SearchDate/formatDate';
+import { TripDirProps } from '../../../../../types/typesTripDetails';
 
-type Props = { dir: 'to' | 'from'; desc: string; date: string };
+export default function TripDir({ dir, desc, route }: TripDirProps) {
+    if (!route) return null;
 
-export default function TripDir({ dir, desc, date }: Props) {
     return (
         <SubtleContainerDir
-            dir={dir} desc={desc}
-            date={date}
+            dir={dir}
+            desc={desc}
+            date={formatDateNumber(route.from.datetime)}
         >
             <div className='trip-details'>
-                <TripDetailsTrain />
-                <TripDetailsDestination dir={dir} />
+                <TripDirTrain route={route} />
+                <TripDirDestination dir={dir} route={route} />
             </div>
         </SubtleContainerDir>
     );

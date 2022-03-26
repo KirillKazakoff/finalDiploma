@@ -1,11 +1,11 @@
 import { Duration, DateTime } from 'luxon';
 
-export const getTrainRouteTime = (dateSeconds: number) => {
+export const getTrainHour = (dateSeconds: number) => {
     const dateTime = DateTime.fromMillis(dateSeconds * 1000);
     return dateTime.toFormat('HH:mm');
 };
 
-export const getTrainRouteTimeMs = (dateSeconds: number) => {
+export const getTrainHourMs = (dateSeconds: number) => {
     const dateTime = DateTime.fromMillis(dateSeconds * 1000);
     const { hour, minute } = dateTime;
     const ms = hour * 3600000 + minute * 60000;
@@ -13,7 +13,7 @@ export const getTrainRouteTimeMs = (dateSeconds: number) => {
     return ms;
 };
 
-export const getDurationTime = (durationSeconds: number) => {
+export const getDuration = (durationSeconds: number) => {
     const ms = durationSeconds * 1000;
     const duration = Duration.fromMillis(ms).shiftTo('days', 'hours', 'minutes');
 
@@ -23,5 +23,3 @@ export const getDurationTime = (durationSeconds: number) => {
 
     return durationStr;
 };
-
-export default getTrainRouteTime;
