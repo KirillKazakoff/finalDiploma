@@ -1,5 +1,6 @@
 import React from 'react';
 import { TicketLeftProps } from '../../../../types/typesTicket';
+import SvgTrain from '../../Svg/SvgTrain';
 
 export default function TicketLeft({ departure }: TicketLeftProps) {
     const { train, from, to } = departure;
@@ -7,10 +8,7 @@ export default function TicketLeft({ departure }: TicketLeftProps) {
     return (
         <aside className='ticket-aside-left'>
             <div className='train-wrapper train-wrapper-lg'>
-                <img
-                    className='ic-train' src='./svg/train.svg'
-                    alt='train'
-                />
+                <SvgTrain />
             </div>
             <div className='train-number'>{train.name}</div>
             <ul className='train-stations'>

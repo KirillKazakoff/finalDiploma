@@ -61,6 +61,12 @@ export type PayloadToggler = {
     value: boolean;
 };
 
+// placesTypes
+export type PayloadExtraPrice = {
+    name: string;
+    value: number;
+};
+
 export type SetFormStatusT = ActionCreatorWithPayload<FormStatusT>;
 export type SetStatusT = ActionCreatorWithPayload<FetchStatusT>;
 export type SetErrorT = ActionCreatorWithPayload<PayloadError>;

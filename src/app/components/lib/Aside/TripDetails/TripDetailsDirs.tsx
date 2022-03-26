@@ -2,7 +2,7 @@ import React from 'react';
 import TripDir from './TripDir/TripDir';
 import TripTitle from './TripTitle';
 import { useAppSelector } from '../../../../redux/reduxHooks';
-import { selectActiveTicket } from '../../../../redux/slices/ticketsSlice';
+import { selectActiveTicket } from '../../../../redux/slices/placesSlice';
 
 export default function TripDetailsDirs() {
     const ticket = useAppSelector(selectActiveTicket);

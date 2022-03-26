@@ -72,14 +72,6 @@ export default function PlacesCarContent() {
                             <span className='carriage-info-service-company'>ФПК</span>
                         </header>
                         <ul className='carriage-info-content-ul carriage-info-services-list'>
-                            <li className='carriage-info-service-item conditioner'>
-                                <img
-                                    className='filter-black'
-                                    width='19px'
-                                    src='./svg/features/conditioner.svg'
-                                    alt='conditioner'
-                                />
-                            </li>
                             <li className='carriage-info-service-item wireless'>
                                 <img
                                     className='filter-black'
@@ -88,20 +80,12 @@ export default function PlacesCarContent() {
                                     alt='wireless'
                                 />
                             </li>
-                            <li className='carriage-info-service-item blanket'>
+                            <li className='carriage-info-service-item carriage-info-service-item-active blanket'>
                                 <img
-                                    className='filter-black'
+                                    className='filter-white'
                                     width='24px'
                                     src='./svg/features/blanket.svg'
                                     alt='blanket'
-                                />
-                            </li>
-                            <li className='carriage-info-service-item carriage-info-service-item-active cup'>
-                                <img
-                                    className='filter-white'
-                                    width='19px'
-                                    src='./svg/features/cup.svg'
-                                    alt='cup'
                                 />
                             </li>
                         </ul>

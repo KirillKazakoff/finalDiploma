@@ -37,7 +37,6 @@ export default function SubscriptionInput(props: Props) {
                 type='email'
                 placeholder='e-mail'
                 autoComplete='off'
-                required
             />
             {status === 'loading' ? <SpinLoader cls='subscribe-loader' /> : null}
             <Feedback error={error} wasFocused={wasFocused} />

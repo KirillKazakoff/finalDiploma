@@ -32,20 +32,17 @@ export const ticketsSlice = createSlice({
             const { name, value } = action.payload;
             state.costLimits[name] = value;
         },
-        setActiveTicket: (state, action: PayloadAction<TicketInfoT>) => {
-            state.activeTicket = action.payload;
-        },
+        // setActiveTicket: (state, action: PayloadAction<TicketInfoT>) => {
+        //     state.activeTicket = action.payload;
+        // },
     },
 });
 
-export const {
-    setTickets, setActiveTicket, setFetchStatus, setCostLimit,
-} = ticketsSlice.actions;
+export const { setTickets, setFetchStatus, setCostLimit } = ticketsSlice.actions;
 
 export const selectTickets = (state: RootState) => state.tickets.ticketsInfo;
 export const selectTotalCount = (state: RootState) => state.tickets.ticketsInfo.total_count;
 export const selectFetchStatus = (state: RootState) => state.tickets.statusFetch;
 export const selectCostLimits = (state: RootState) => state.tickets.costLimits;
-export const selectActiveTicket = (state: RootState) => state.tickets.activeTicket;
 
 export default ticketsSlice.reducer;

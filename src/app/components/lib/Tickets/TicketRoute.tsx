@@ -5,7 +5,7 @@ import TicketCenter from './Ticket/TicketCenter';
 import { TicketProps } from '../../../types/typesTicket';
 import TicketRight from './Ticket/TicketRight';
 import { useAppDispatch } from '../../../redux/reduxHooks';
-import { setActiveTicket } from '../../../redux/slices/ticketsSlice';
+import { setActiveTicket } from '../../../redux/slices/placesSlice';
 
 export default function Ticket({ ticket }: TicketProps) {
     const dispatch = useAppDispatch();

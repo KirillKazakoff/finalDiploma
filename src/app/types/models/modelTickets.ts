@@ -38,6 +38,13 @@ export type ExtrasT = {
     is_express: boolean;
 };
 
+export type ExtrasPricesT = {
+    [key: string]: number;
+
+    wifi_price: number;
+    linens_price: number;
+};
+
 export type TrainRouteT = {
     _id: string;
     have_first_class: boolean;

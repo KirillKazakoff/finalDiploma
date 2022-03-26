@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import SvgSliderArrow from '../../../Svg/SvgSliderArrow';
 import SubtlePic from '../../SubtleContainer/SubtlePic';
 import SubtleSign from '../../SubtleContainer/SubtleSign';
 import SubtleDesc from '../../SubtleContainer/SubtleDesc';
+import SvgSliderArrow from '../../../Svg/Arrows/SvgSliderArrow';
 
 type TripCollapseProps = {
     children: React.ReactNode;

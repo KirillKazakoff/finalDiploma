@@ -8,6 +8,7 @@ import searchFilterReducer from './slices/searchFilterSlice';
 import lastTicketsReducer from './slices/lastTicketsSlice';
 import loaderReducer from './slices/loaderSlice';
 import subscribeReducer from './slices/subscribeSlice';
+import placesReducer from './slices/placesSlice';
 import { saveToLocalStorage, loadFromLocalStorage } from './storeLoaderUtils';
 
 const preloadedState = loadFromLocalStorage();
@@ -24,6 +25,7 @@ export const store = configureStore({
 
         tickets: ticketsReducer,
         lastTicketsSlice: lastTicketsReducer,
+        places: placesReducer,
     },
     preloadedState,
 });

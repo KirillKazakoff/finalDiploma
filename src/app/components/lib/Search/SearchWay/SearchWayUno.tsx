@@ -1,5 +1,5 @@
 import React from 'react';
-import SvgRefresh from '../../Svg/SvgRefresh';
+import SvgRefresh from '../../Svg/Actions/SvgRefresh';
 import { useAppSelector, useAppDispatch } from '../../../../redux/reduxHooks';
 import { setCities, setInput } from '../../../../redux/slices/searchWaySlice';
 

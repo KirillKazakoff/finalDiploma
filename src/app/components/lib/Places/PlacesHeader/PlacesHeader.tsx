@@ -1,14 +1,13 @@
 import React from 'react';
+import { DirProp } from '../../../../types/typesPlaces';
 import PlacesOtherTrain from './PlacesOtherTrain';
 import PlacesTicketInfo from './PlacesTicketInfo';
 
-type Props = { dir: string };
-
-export default function PlacesHeader({ dir }: Props) {
+export default function PlacesHeader({ dir, route }: DirProp) {
     return (
         <header className='places-header-section'>
             <PlacesOtherTrain dir={dir} />
-            <PlacesTicketInfo dir={dir} />
+            <PlacesTicketInfo dir={dir} route={route} />
         </header>
     );
 }

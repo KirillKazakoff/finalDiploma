@@ -1,11 +1,21 @@
 import React from 'react';
+import { RouteProp, SeatsInfoProp } from '../../../../types/typesPlaces';
+import PlacesCarType from './PlacesCarType';
 
-export default function PlacesCarTypes() {
+export default function PlacesCarTypes(props: RouteProp & SeatsInfoProp) {
+    const { seatsInfo, route } = props;
+    const carTypes = Object.keys(seatsInfo.trainInfo.typesInfo).map((carType) => {
+        return <PlacesCarType dispatchName={carType} key={carType} />;
+    });
+
+    console.log(seatsInfo);
+    console.log(carTypes);
     return (
         <section className='places-section places-section-carriage'>
             <h2 className='places-section-title framed-places'>Тип вагона</h2>
             <ul className='carriage-types'>
-                <li className='carriage-type filter-secondary'>
+                {carTypes}
+                {/* <li className='carriage-type filter-secondary'>
                     <img
                         className='ic-carriage-type'
                         src='./svg/features/person.svg'
@@ -36,7 +46,7 @@ export default function PlacesCarTypes() {
                         alt=''
                     />
                     <span className='carriage-type-title'>Люкс</span>
-                </li>
+                </li> */}
             </ul>
         </section>
     );

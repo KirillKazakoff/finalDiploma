@@ -4,12 +4,14 @@ import PlacesDir from '../lib/Places/PlacesDir';
 import BtnNextRoute from '../lib/Common/BtnNextRoute';
 import TripDetailsDirs from '../lib/Aside/TripDetails/TripDetailsDirs';
 import { useAppSelector } from '../../redux/reduxHooks';
-import { selectActiveTicket } from '../../redux/slices/ticketsSlice';
+import { selectActiveTicket } from '../../redux/slices/placesSlice';
 
 export default function PlacesRoute() {
     const ticket = useAppSelector(selectActiveTicket);
     if (!ticket) return null;
-    console.log(ticket);
+    const { departure, arrival } = ticket.ticketRoute;
+    const [departureSeats, arrivalSeats] = ticket.trainsInfo;
+    // console.log(ticket);
 
     return (
         <main className='main main-central framed'>
@@ -21,8 +23,14 @@ export default function PlacesRoute() {
             <section className='content-central'>
                 <div className='places'>
                     <h2 className='places-title'>Выбор мест</h2>
-                    <PlacesDir dir='to' />
-                    <PlacesDir dir='from' />
+                    <PlacesDir
+                        dir='to' route={departure}
+                        seatsInfo={departureSeats}
+                    />
+                    <PlacesDir
+                        dir='from' route={arrival}
+                        seatsInfo={arrivalSeats}
+                    />
                 </div>
 
                 <BtnNextRoute to='/something' disabled />

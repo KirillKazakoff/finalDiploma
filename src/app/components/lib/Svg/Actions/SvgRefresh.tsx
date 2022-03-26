@@ -1,6 +1,6 @@
 import React from 'react';
-import Svg from './Svg';
-import SvgType from './svgType';
+import Svg from '../Svg';
+import SvgType from '../svgType';
 
 export default function SvgRefresh({ height }: SvgType) {
     return (

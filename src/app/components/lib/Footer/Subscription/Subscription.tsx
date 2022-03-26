@@ -26,6 +26,11 @@ export default function FooterSubscription() {
     const onSubmit = () => {
         if (error) return;
         const settings = { email: value };
+        if (!value) {
+            dispatch(setBlured({ name: 'subscribe', isActive: true, wasFocused: true }));
+            dispatch(setError({ name: 'subscribe', error: 'Введите поле' }));
+            return;
+        }
         dispatch(fetchSubscribe(settings));
     };
 
