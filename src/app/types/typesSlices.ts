@@ -1,6 +1,6 @@
 import type { DateT, PickerStateT } from '../components/lib/DatePicker/utils/timeTypes';
 import type { InputState } from '../redux/reduxInputUtils';
-import type { TicketRouteT } from './models/modelTickets';
+import type { ExtrasPricesT, TicketInfoT, TicketRouteT } from './models/modelTickets';
 import type { FetchStatusT } from './typesPayload';
 import type { SearchedCities } from './typesSearch';
 
@@ -69,3 +69,21 @@ export type FilterStateT = {
 
 // lastTicketSlice
 export type LastTicketsStateT = { status: FetchStatusT; lastTickets: TicketRouteT[] };
+
+// PlacesSlice
+export type ActiveCarT = 'idle' | 'first' | 'second' | 'third' | 'fourth';
+
+export type CarContentT = {
+    carriageType: ActiveCarT;
+    extras: ExtrasPricesT;
+};
+
+export type PlacesStateT = {
+    activeTicket: null | TicketInfoT;
+    routes: {
+        [index: string]: CarContentT;
+
+        arrival: CarContentT;
+        departure: CarContentT;
+    };
+};

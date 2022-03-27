@@ -1,11 +1,16 @@
 import React from 'react';
-import { RouteProp, SeatsInfoProp } from '../../../../types/typesPlaces';
+import { DirTProp, SeatsInfoProp } from '../../../../types/typesPlaces';
 import PlacesCarType from './PlacesCarType';
 
-export default function PlacesCarTypes(props: RouteProp & SeatsInfoProp) {
-    const { seatsInfo, route } = props;
+export default function PlacesCarTypes(props: DirTProp & SeatsInfoProp) {
+    const { seatsInfo, dir } = props;
     const carTypes = Object.keys(seatsInfo.trainInfo.typesInfo).map((carType) => {
-        return <PlacesCarType dispatchName={carType} key={carType} />;
+        return (
+            <PlacesCarType
+                dispatchName={carType} key={carType}
+                dir={dir}
+            />
+        );
     });
 
     // console.log(seatsInfo);

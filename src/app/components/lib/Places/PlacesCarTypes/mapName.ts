@@ -1,4 +1,4 @@
-import { ActiveCarT } from '../../../../redux/slices/placesSlice';
+import { ActiveCarT } from '../../../../types/typesSlices';
 
 export const mapNameToSrc = (carType: string) => {
     switch (carType as ActiveCarT) {

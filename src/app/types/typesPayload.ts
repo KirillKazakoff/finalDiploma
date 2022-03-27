@@ -2,6 +2,7 @@ import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { DateT, PickerStateT } from '../components/lib/DatePicker/utils/timeTypes';
 import { SearchedCities } from './typesSearch';
 import { FormStatusT } from '../redux/slices/searchFormSlice';
+import { ActiveCarT } from './typesSlices';
 
 export type FetchStatusT = 'idle' | 'loading' | 'loaded' | 'failed';
 
@@ -62,7 +63,13 @@ export type PayloadToggler = {
 };
 
 // placesTypes
+export type PayloadCarType = {
+    route: string;
+    value: ActiveCarT;
+};
+
 export type PayloadExtraPrice = {
+    route: string;
     name: string;
     value: number;
 };

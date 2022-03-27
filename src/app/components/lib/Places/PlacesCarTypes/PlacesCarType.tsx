@@ -1,15 +1,20 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../redux/reduxHooks';
-import { ActiveCarT, setCarType } from '../../../../redux/slices/placesSlice';
-import { mapNameToSrc, mapNameToRus } from './mapName';
+import { setCarType } from '../../../../redux/slices/placesSlice';
+import { DirTProp } from '../../../../types/typesPlaces';
+import { ActiveCarT } from '../../../../types/typesSlices';
 
-type Props = { dispatchName: string };
+import { mapNameToSrc, mapNameToRus, mapDirToRoot } from './mapName';
 
-export default function PlacesCarType({ dispatchName }: Props) {
+type Props = { dispatchName: string } & DirTProp;
+
+export default function PlacesCarType({ dispatchName, dir }: Props) {
     const dispatch = useAppDispatch();
-    const activeCar = useAppSelector((state) => state.places.carriageType);
+
+    const route = mapDirToRoot(dir);
+    const activeCar = useAppSelector((state) => state.places.routes[route].carriageType);
     const onClick = () => {
-        dispatch(setCarType(dispatchName as ActiveCarT));
+        dispatch(setCarType({ route, value: dispatchName as ActiveCarT }));
     };
 
     let className = 'carriage-type';
