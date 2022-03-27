@@ -1,27 +1,19 @@
 import { useAppSelector } from '../../../../redux/reduxHooks';
-import { RootState } from '../../../../redux/store';
 import { mapDirToRoot } from '../PlacesCarTypes/mapName';
+import { selectActiveTicket } from '../../../../redux/slices/placesSlice';
 
-export const handlerActiveCoaches = (name: string) => (state: RootState) => {
-    const { carriageType } = state.places.routes[name];
-    const { activeTicket } = state.places;
+export const useActiveInfo = (dir: string) => {
+    const name = mapDirToRoot(dir);
+    const carType = useAppSelector((state) => state.places.routes[name].carriageType);
+    const ticket = useAppSelector(selectActiveTicket);
 
-    const trainInfo = activeTicket.trainsInfo.find((info) => {
+    const infoT = ticket.trainsInfo.find((info) => {
         return info.routeName === name;
     });
 
-    return carriageType;
-    // return trainInfo.trainInfo.seatsTrainInfo.filter((coach) => {
-    //     return coach.coach.class_type === carriageType;
-    // });
-};
-
-const useActiveInfo = (dir: string) => {
-    const routeName = mapDirToRoot(dir);
-    const selectActiveCoaches = handlerActiveCoaches(routeName);
-    const coaches = useAppSelector(selectActiveCoaches);
+    const coaches = infoT.trainInfo.seatsTrainInfo.filter((coach) => {
+        return coach.coach.class_type === carType;
+    });
 
     return coaches;
 };
-
-export default useActiveInfo;
