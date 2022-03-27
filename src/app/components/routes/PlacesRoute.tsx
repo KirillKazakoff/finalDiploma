@@ -11,7 +11,6 @@ export default function PlacesRoute() {
     if (!ticket) return null;
     const { departure, arrival } = ticket.ticketRoute;
     const [departureSeats, arrivalSeats] = ticket.trainsInfo;
-    // console.log(ticket);
 
     return (
         <main className='main main-central framed'>

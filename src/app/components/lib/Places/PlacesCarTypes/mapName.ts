@@ -37,3 +37,14 @@ export const mapNameToRus = (carType: string) => {
             return '';
     }
 };
+
+export const mapDirToRoot = (dir: string) => {
+    switch (dir) {
+        case 'to':
+            return 'departure';
+        case 'from':
+            return 'arrival';
+        default:
+            return '';
+    }
+};

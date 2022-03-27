@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../redux/reduxHooks';
 import { ActiveCarT, setCarType } from '../../../../redux/slices/placesSlice';
-import { mapNameToSrc, mapNameToRus } from './mapNameToSrc';
+import { mapNameToSrc, mapNameToRus } from './mapName';
 
 type Props = { dispatchName: string };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import PlacesCarContent from './PlacesCarContent';
+import PlacesCarContent from './PlacesCarContent/PlacesCarContent';
 import PlacesCarTypes from './PlacesCarTypes/PlacesCarTypes';
 import PlacesHeader from './PlacesHeader/PlacesHeader';
 import PlacesQuantity from './PlacesQuantity';
@@ -13,8 +13,8 @@ export default function PlacesDir({ dir, route, seatsInfo }: PlacesDirProps) {
         <div className={`places-container places-container-${dir}`}>
             <PlacesHeader dir={dir} route={route} />
             <PlacesQuantity />
-            <PlacesCarTypes route={route} seatsInfo={seatsInfo} />
-            <PlacesCarContent />
+            <PlacesCarTypes dir={dir} seatsInfo={seatsInfo} />
+            <PlacesCarContent dir={dir} />
         </div>
     );
 }

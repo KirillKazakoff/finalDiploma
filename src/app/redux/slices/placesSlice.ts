@@ -38,6 +38,7 @@ export const placesSlice = createSlice({
 });
 
 export const { setActiveTicket, setCarType, setExtraPrice } = placesSlice.actions;
+
 export const selectActiveTicket = (state: RootState) => state.places.activeTicket;
 
 export default placesSlice.reducer;
