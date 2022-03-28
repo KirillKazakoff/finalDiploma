@@ -1,4 +1,4 @@
-import { SeatsTypesInfoT, CoachSeatsFullT, TotalSeatsInfoT } from './modelSeats';
+import { SeatsTypesInfoT, TotalSeatsInfoT, CarInfoT } from './modelSeats';
 import { TrainInfoT } from '../../components/lib/Tickets/getTrainInfo';
 import { FetchStatusT } from '../typesPayload';
 
@@ -61,7 +61,7 @@ export type TrainRouteT = {
     duration: number;
     price_info: PriceInfoT;
     available_seats_info: SeatsTypesInfoT;
-    coaches: CoachSeatsFullT;
+    coaches: CarInfoT;
 } & ExtrasT;
 
 // TicketRouteT

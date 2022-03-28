@@ -67,4 +67,9 @@ export type SeatsCoachInfoT = {
     available: SeatsTypesT;
     seatsFull: SeatFullT[];
 };
-export type CoachSeatsFullT = { coach: CoachFeaturesT; seatsInfo: SeatsCoachInfoT };
+
+export type CarInfoT = {
+    coach: CoachFeaturesT;
+    seatsInfo: SeatsCoachInfoT;
+    carNumber: number;
+};
