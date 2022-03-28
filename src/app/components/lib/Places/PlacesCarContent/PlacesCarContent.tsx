@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CarriageFirst from '../CarriageSchemes/CarriageFirst';
 import CarriageFourth from '../CarriageSchemes/CarriageFourth';
 import CarriageSecond from '../CarriageSchemes/CarriageSecond';
@@ -13,14 +13,26 @@ import { DirTProp } from '../../../../types/typesPlaces';
 import { useActiveInfo } from './useActiveInfo';
 
 export default function PlacesCarContent({ dir }: DirTProp) {
-    const coaches = useActiveInfo(dir);
-    console.log(coaches);
+    const { cars, carType } = useActiveInfo(dir);
+    const numbers = cars.map((car) => car.carNumber);
+    const firstCar = cars[0].carNumber;
+    const [active, setActive] = useState(firstCar);
+    const activeCar = cars.find((car) => car.carNumber === active);
+
+    useEffect(() => {
+        setActive(firstCar);
+    }, [carType]);
+
+    console.log(activeCar);
 
     return (
         <section className='places-section places-section-carriages'>
-            <CarContentHeader />
+            <CarContentHeader
+                numbers={numbers} active={active}
+                setActive={setActive}
+            />
             <div className='carriage-info'>
-                <CarActiveNumber />
+                <CarActiveNumber active={active} />
                 <div className='carriage-info-content'>
                     <CarInfoPlaces />
                     <CarInfoCost />

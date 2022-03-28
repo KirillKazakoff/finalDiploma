@@ -4,6 +4,7 @@ import type { TicketInfoT } from '../../types/models/modelTickets';
 import type { RootState } from '../store';
 import { PayloadCarType, PayloadExtraPrice } from '../../types/typesPayload';
 import { CarContentT, PlacesStateT, ActiveCarT } from '../../types/typesSlices';
+import { CoachFeaturesT } from '../../types/models/modelSeats';
 
 const initialCarContent: CarContentT = {
     carriageType: 'idle',

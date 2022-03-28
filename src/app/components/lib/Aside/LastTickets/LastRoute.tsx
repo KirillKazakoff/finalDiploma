@@ -1,7 +1,7 @@
 import React from 'react';
 import type { TicketRouteT } from '../../../../types/models/modelTickets';
 import Extras from '../../Common/Extras';
-import formatCost from '../../Common/utils/formatCost';
+import formatCost from '../../Common/utils/format';
 
 type LastRouteProps = { ticket: TicketRouteT };
 

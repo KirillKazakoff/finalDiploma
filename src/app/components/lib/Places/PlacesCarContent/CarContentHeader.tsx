@@ -1,16 +1,31 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
+import { CarContentHeaderProps } from '../../../../types/typesPlaces';
+import { formatCarCount } from '../../Common/utils/format';
 
-export default function CarContentHeader() {
+export default function CarContentHeader(props: CarContentHeaderProps) {
+    const { numbers, active, setActive } = props;
+    const carCounts = numbers.map((number) => {
+        const onClick = () => setActive(number);
+        let cls = 'carriages-numeration-count';
+        if (number === active) cls = `${cls} ${cls}-active`;
+
+        return (
+            <li
+                className={cls} onClick={onClick}
+                key={number}
+            >
+                {formatCarCount(number)}
+            </li>
+        );
+    });
+
     return (
         <header className='carriages-header framed-places'>
             <div className='carriages-numeration'>
                 <span className='carriages-numeration-title'>Вагоны</span>
-                <ul className='carriages-numeration-counts'>
-                    <li className='carriages-numeration-count cariages-numeration-count-active'>
-                        07
-                    </li>
-                    <li className='carriages-numeration-count'>09</li>
-                </ul>
+                <ul className='carriages-numeration-counts'>{carCounts}</ul>
             </div>
             <span className='carriages-header-desc'>
                 Нумерация вагонов начинается с головы поезда

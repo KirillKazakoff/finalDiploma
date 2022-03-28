@@ -11,9 +11,9 @@ export const useActiveInfo = (dir: string) => {
         return info.routeName === name;
     });
 
-    const coaches = infoT.trainInfo.seatsTrainInfo.filter((coach) => {
+    const cars = infoT.trainInfo.seatsTrainInfo.filter((coach) => {
         return coach.coach.class_type === carType;
     });
 
-    return coaches;
+    return { cars, carType };
 };

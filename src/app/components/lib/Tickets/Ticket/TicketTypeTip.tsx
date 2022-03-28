@@ -1,6 +1,6 @@
 import React from 'react';
 import { TicketTypeTipProps } from '../../../../types/typesTicket';
-import formatCost from '../../Common/utils/formatCost';
+import formatCost from '../../Common/utils/format';
 
 export default function TicketTypeTip({ children, amount, cost }: TicketTypeTipProps) {
     return (

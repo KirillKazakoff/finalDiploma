@@ -4,8 +4,8 @@ import initSeatsInfo from './initSeatsInfo';
 import type { SeatsCoachT, SeatsTypesInfoT } from '../../../types/models/modelSeats';
 import { sumAvailable } from '../../../fetch/seatsUtils';
 
-export const getTrainInfo = (coachesSeats: SeatsCoachT[]) => {
-    const seatsTrainInfo = coachesSeats.map((coachSeat, index) => {
+const getSeatsTrainInfo = (coachesSeats: SeatsCoachT[]) => {
+    return coachesSeats.map((coachSeat, index) => {
         const carNumber = index + 1;
         const { seats, coach } = coachSeat;
         const type = coach.class_type;
@@ -39,8 +39,13 @@ export const getTrainInfo = (coachesSeats: SeatsCoachT[]) => {
 
         return { coach, seatsInfo, carNumber };
     });
+};
 
-    const typesInfo = seatsTrainInfo.reduce<SeatsTypesInfoT>((total, coachInfo) => {
+export const getTrainInfo = (coachesSeats: SeatsCoachT[]) => {
+    const seatsTrainInfo = getSeatsTrainInfo(coachesSeats);
+    const seatsCopy = getSeatsTrainInfo(coachesSeats);
+
+    const typesInfo = seatsCopy.reduce<SeatsTypesInfoT>((total, coachInfo) => {
         const { available } = coachInfo.seatsInfo;
         const type = coachInfo.coach.class_type;
 
