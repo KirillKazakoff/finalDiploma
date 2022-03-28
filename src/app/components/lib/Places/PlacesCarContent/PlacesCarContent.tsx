@@ -5,12 +5,11 @@ import CarriageSecond from '../CarriageSchemes/CarriageSecond';
 import CarriageThird from '../CarriageSchemes/CarriageThird';
 import CarActiveNumber from './CarActiveNumber';
 import CarContentHeader from './CarContentHeader';
-import CarExtras from './CarExtras';
-import CarInfoCost from './CarInfoCost';
-import CarInfoPlaces from './CarInfoPlaces';
+
 import CarSelectedAmount from './CarSelectedAmount';
 import { DirTProp } from '../../../../types/typesPlaces';
 import { useActiveInfo } from './useActiveInfo';
+import CarInfo from './CarInfo';
 
 export default function PlacesCarContent({ dir }: DirTProp) {
     const { cars, carType } = useActiveInfo(dir);
@@ -31,16 +30,9 @@ export default function PlacesCarContent({ dir }: DirTProp) {
                 numbers={numbers} active={active}
                 setActive={setActive}
             />
-            <div className='carriage-info'>
-                <CarActiveNumber active={active} />
-                <div className='carriage-info-content'>
-                    <CarInfoPlaces />
-                    <CarInfoCost />
-                    <CarExtras />
-                </div>
-            </div>
-            <CarSelectedAmount />
 
+            <CarInfo active={active} />
+            <CarSelectedAmount />
             <CarriageSecond />
             <CarriageThird />
             <CarriageFirst />

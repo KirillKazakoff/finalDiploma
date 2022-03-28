@@ -1219,7 +1219,14 @@ body {
 
 /* carriage-info */
 .carriage-info {
+    flex: 1;
     display: flex;
+}
+
+.carriage-content {
+    flex: 1;
+    display: flex;
+    padding: 40px 40px 20px 80px;
 }
 
 .carriage-info-number {
@@ -1247,54 +1254,82 @@ body {
 
 /* carriage-info-content */
 .carriage-info-content {
-    display: flex;
-    flex-grow: 1;
-    padding: 40px 40px 20px 80px;
-}
-
-.carriage-info-content-col {
-    width: 33%;
+    flex: 1;
 }
 
 .carriage-info-content-header {
+    font-size: 18px;
+    display: flex;
     color: var(--secondary);
     margin-bottom: 25px;
 }
 
-.carriage-info-content-ul {
+.carriage-info-places-count {
+    padding-left: 10px;
+    color: black;
+}
+
+.carriage-places-amount-td {
+    width: 60%;
+}
+
+.carriage-places-cost-td {
+    width: 40%;
+}
+
+.carriage-places-info {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
+}
+
+.carriage-place-info {
     font-size: 24px;
+    flex: 1;
+    display: flex;
 }
 
-/* .carriage-info-content-places */
-.carriage-info-places-count {
-    padding-left: 5px;
+.carriage-place-type {
+    width: 60%;
 }
 
-.carriage-info-places-type-count {
-    padding-left: 10px;
-    font-weight: 500;
+.carriage-place-cost {
+    width: 40%;
+}
+
+.carriage-place-cost {
+    margin-left: auto;
 }
 
 /* .carriage-info-content-cost*/
-.carriage-info-cost-count {
+.carriage-place-type-count {
+    color: black;
+    font-weight: 500;
+    padding-left: 10px;
+}
+
+.carriage-place-cost-count {
+    color: black;
     font-weight: 500;
 }
 
-.carriage-info-cost-money-symbol {
+.carriage-place-cost-symbol {
     padding-left: 5px;
     color: var(--secondary);
+}
+
+.carriage-info-services {
+    width: 35%;
 }
 
 /* .carriage-info-content-service*/
 .carriage-info-service-company {
     color: var(--secondary-lighter);
-    padding-left: 5px;
+    padding-left: 15px;
 }
 
 .carriage-info-services-list {
+    display: flex;
     flex-direction: row;
     column-gap: 15px;
 }
@@ -1306,7 +1341,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    padding: 8px 6px;
+    padding: 6px 7px;
     border-radius: 5px;
     border: 1px solid #292929;
 }
@@ -1317,7 +1352,6 @@ body {
 }
 
 .carriage-people-amount-wrapper {
-    margin-top: 20px;
     margin-right: 50px;
 }
 
