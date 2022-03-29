@@ -41,6 +41,7 @@ const initSeatsInfo = (type: string, seats: SeatT[]) => {
 
     const seatsInfo: SeatsCoachInfoT = {
         available: {
+            total: 0,
             top: 0,
             bottom: 0,
             side: 0,

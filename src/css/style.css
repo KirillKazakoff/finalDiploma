@@ -1351,9 +1351,21 @@ body {
     border: 1px solid #292929;
 }
 
-.carriage-info-service-item-active {
+.carriage-info-service-item-choosen {
     border: 1px solid var(--bg-main);
     background-color: var(--bg-main);
+}
+
+.carriage-info-service-item-included {
+    opacity: 0.4;
+}
+
+.carriage-blanket {
+    width: 22px;
+}
+
+.carriage-conditioner {
+    width: 20px;
 }
 
 .carriage-people-amount-wrapper {
@@ -2863,7 +2875,7 @@ body {
     font-size: 24px;
     font-weight: 500;
     color: var(--black);
-    border: 1px solid #292929;
+    border: 2px solid #292929;
     padding-left: 30px;
     padding-right: 30px;
     text-transform: none;

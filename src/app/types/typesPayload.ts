@@ -3,6 +3,7 @@ import { DateT, PickerStateT } from '../components/lib/DatePicker/utils/timeType
 import { SearchedCities } from './typesSearch';
 import { FormStatusT } from '../redux/slices/searchFormSlice';
 import { ActiveCarT } from './typesSlices';
+import { CarInfoT } from './models/modelSeats';
 
 export type FetchStatusT = 'idle' | 'loading' | 'loaded' | 'failed';
 
@@ -72,6 +73,11 @@ export type PayloadExtraPrice = {
     route: string;
     name: string;
     value: number;
+};
+
+export type PayloadCar = {
+    route: string;
+    value: CarInfoT;
 };
 
 export type SetFormStatusT = ActionCreatorWithPayload<FormStatusT>;

@@ -17,6 +17,7 @@ export type CarNumbersProp = { numbers: number[] };
 
 export type CarContentHeaderProps = CarNumbersProp & {
     onClick: (count: number) => () => void;
+    active: number;
 };
 
 export type CarInfoProps = { car: CarInfoT };

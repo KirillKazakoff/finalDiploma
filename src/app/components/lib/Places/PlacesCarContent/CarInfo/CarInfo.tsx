@@ -6,17 +6,18 @@ import CarInfoContentHeader from './CarInfoContentHeader';
 import CarInfoContentServices from './CarInfoContentServices';
 
 export default function CarInfo({ car }: CarInfoProps) {
-    const { carNumber } = car;
+    const { carNumber, seatsInfo, coach } = car;
+    const { total } = seatsInfo.available;
     return (
         <div className='carriage-info'>
             <CarActiveNumber active={carNumber} />
             <div className='carriage-info-content'>
                 <div className='carriage-content'>
                     <div className='carriage-info-content'>
-                        <CarInfoContentHeader />
+                        <CarInfoContentHeader total={total} />
                         <CarInfoContentPlaces car={car} />
                     </div>
-                    <CarInfoContentServices />
+                    <CarInfoContentServices coach={coach} />
                 </div>
             </div>
         </div>

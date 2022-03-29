@@ -2,9 +2,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { TicketInfoT } from '../../types/models/modelTickets';
 import type { RootState } from '../store';
-import { PayloadCarType, PayloadExtraPrice } from '../../types/typesPayload';
-import { CarContentT, PlacesStateT, ActiveCarT } from '../../types/typesSlices';
-import { CoachFeaturesT } from '../../types/models/modelSeats';
+import { PayloadCar, PayloadCarType, PayloadExtraPrice } from '../../types/typesPayload';
+import { CarContentT, PlacesStateT } from '../../types/typesSlices';
 
 const initialCarContent: CarContentT = {
     carriageType: 'idle',
@@ -12,25 +11,14 @@ const initialCarContent: CarContentT = {
         wifi_price: 0,
         linens_price: 0,
     },
+    activeCar: null,
 };
 
 const initialState: PlacesStateT = {
     activeTicket: null,
     routes: {
-        departure: {
-            carriageType: 'idle',
-            extras: {
-                wifi_price: 0,
-                linens_price: 0,
-            },
-        },
-        arrival: {
-            carriageType: 'idle',
-            extras: {
-                wifi_price: 0,
-                linens_price: 0,
-            },
-        },
+        departure: initialCarContent,
+        arrival: initialCarContent,
     },
 };
 
@@ -49,10 +37,16 @@ export const placesSlice = createSlice({
             const { name, value, route } = action.payload;
             state.routes[route].extras[name] = value;
         },
+        setActiveCar: (state, action: PayloadAction<PayloadCar>) => {
+            const { route, value } = action.payload;
+            state.routes[route].activeCar = value;
+        },
     },
 });
 
-export const { setActiveTicket, setCarType, setExtraPrice } = placesSlice.actions;
+export const {
+    setActiveTicket, setCarType, setExtraPrice, setActiveCar,
+} = placesSlice.actions;
 
 export const selectActiveTicket = (state: RootState) => state.places.activeTicket;
 

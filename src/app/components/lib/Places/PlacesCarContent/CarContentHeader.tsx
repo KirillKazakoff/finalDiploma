@@ -5,17 +5,14 @@ import { CarContentHeaderProps } from '../../../../types/typesPlaces';
 import { formatCarCount } from '../../Common/utils/format';
 
 export default function CarContentHeader(props: CarContentHeaderProps) {
-    const { numbers, active, setActive } = props;
+    const { numbers, onClick, active } = props;
     const carCounts = numbers.map((number) => {
-        const onClick = () => {
-            setActive(number);
-        };
         let cls = 'carriages-numeration-count';
         if (number === active) cls = `${cls} ${cls}-active`;
 
         return (
             <li
-                className={cls} onClick={onClick}
+                className={cls} onClick={onClick(number)}
                 key={number}
             >
                 {formatCarCount(number)}

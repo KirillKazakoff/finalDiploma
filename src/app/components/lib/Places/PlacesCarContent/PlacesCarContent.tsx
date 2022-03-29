@@ -20,14 +20,16 @@ export default function PlacesCarContent({ dir }: DirTProp) {
     }, [carType]);
 
     const onClick = (count: number) => () => {
-        setCar(cars[count - 1]);
+        setCar(cars.find((car) => car.carNumber === count));
     };
-
-    console.log(activeCar);
 
     return (
         <section className='places-section places-section-carriages'>
-            <CarContentHeader numbers={numbers} onClick={onClick} />
+            <CarContentHeader
+                numbers={numbers}
+                onClick={onClick}
+                active={activeCar.carNumber}
+            />
 
             <CarInfo car={activeCar} />
             <CarSelectedAmount />

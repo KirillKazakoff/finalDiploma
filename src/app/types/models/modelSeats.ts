@@ -35,6 +35,7 @@ export type SeatsCoachT = {
 export type SeatsTypesT = {
     [key: string]: number;
 
+    total: number;
     side?: number;
     bottom?: number;
     top?: number;

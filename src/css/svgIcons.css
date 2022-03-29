@@ -88,3 +88,7 @@
 .filter-success {
     filter: var(--success-filter);
 }
+
+.filter-lighter-main {
+    filter: var(--collapse-filter);
+}

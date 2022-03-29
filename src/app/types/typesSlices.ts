@@ -3,6 +3,7 @@ import type { InputState } from '../redux/reduxInputUtils';
 import type { ExtrasPricesT, TicketInfoT, TicketRouteT } from './models/modelTickets';
 import type { FetchStatusT } from './typesPayload';
 import type { SearchedCities } from './typesSearch';
+import { CarInfoT, CoachFeaturesT } from './models/modelSeats';
 
 // DateSlice
 export type DateStateT = InputState & {
@@ -76,6 +77,7 @@ export type ActiveCarT = 'idle' | 'first' | 'second' | 'third' | 'fourth';
 export type CarContentT = {
     carriageType: ActiveCarT;
     extras: ExtrasPricesT;
+    activeCar: CarInfoT;
 };
 
 export type PlacesStateT = {

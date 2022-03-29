@@ -15,13 +15,17 @@ const getSeatsTrainInfo = (coachesSeats: SeatsCoachT[]) => {
 
         if (type === 'first' || type === 'fourth') {
             for (let i = 0; i < seatsFull.length; i += 1) {
-                if (seatsFull[i].available) seatsInfo.available.nochoice += 1;
+                if (seatsFull[i].available) {
+                    seatsInfo.available.nochoice += 1;
+                    seatsInfo.available.total += 1;
+                }
             }
             return { coach, seatsInfo, carNumber };
         }
 
         for (let i = 0; i < 32; i += 1) {
             if (seatsFull[i].available) {
+                seatsInfo.available.total += 1;
                 if (i % 2 === 0) {
                     seatsInfo.available.top += 1;
                 } else {
@@ -33,6 +37,7 @@ const getSeatsTrainInfo = (coachesSeats: SeatsCoachT[]) => {
         if (type === 'second') return { coach, seatsInfo, carNumber };
         for (let i = 32; i < seatsFull.length; i += 1) {
             if (seatsFull[i].available) {
+                seatsInfo.available.total += 1;
                 seatsInfo.available.side += 1;
             }
         }
