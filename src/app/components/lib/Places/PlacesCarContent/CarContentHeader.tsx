@@ -7,7 +7,9 @@ import { formatCarCount } from '../../Common/utils/format';
 export default function CarContentHeader(props: CarContentHeaderProps) {
     const { numbers, active, setActive } = props;
     const carCounts = numbers.map((number) => {
-        const onClick = () => setActive(number);
+        const onClick = () => {
+            setActive(number);
+        };
         let cls = 'carriages-numeration-count';
         if (number === active) cls = `${cls} ${cls}-active`;
 

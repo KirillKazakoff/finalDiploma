@@ -1257,6 +1257,7 @@ body {
     flex: 1;
 }
 
+/* carriage-info-content-header */
 .carriage-info-content-header {
     font-size: 18px;
     display: flex;
@@ -1275,6 +1276,12 @@ body {
 
 .carriage-places-cost-td {
     width: 40%;
+}
+
+/* carriage-place-info-section */
+.carriage-place-info-section {
+    display: flex;
+    column-gap: 10px;
 }
 
 .carriage-places-info {
@@ -1301,11 +1308,10 @@ body {
     margin-left: auto;
 }
 
-/* .carriage-info-content-cost*/
+/* .carriage-info-content-cost desc count*/
 .carriage-place-type-count {
     color: black;
     font-weight: 500;
-    padding-left: 10px;
 }
 
 .carriage-place-cost-count {
@@ -1314,7 +1320,6 @@ body {
 }
 
 .carriage-place-cost-symbol {
-    padding-left: 5px;
     color: var(--secondary);
 }
 

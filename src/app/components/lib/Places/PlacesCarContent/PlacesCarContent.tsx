@@ -3,35 +3,33 @@ import CarriageFirst from '../CarriageSchemes/CarriageFirst';
 import CarriageFourth from '../CarriageSchemes/CarriageFourth';
 import CarriageSecond from '../CarriageSchemes/CarriageSecond';
 import CarriageThird from '../CarriageSchemes/CarriageThird';
-import CarActiveNumber from './CarActiveNumber';
 import CarContentHeader from './CarContentHeader';
 
 import CarSelectedAmount from './CarSelectedAmount';
 import { DirTProp } from '../../../../types/typesPlaces';
 import { useActiveInfo } from './useActiveInfo';
-import CarInfo from './CarInfo';
+import CarInfo from './CarInfo/CarInfo';
 
 export default function PlacesCarContent({ dir }: DirTProp) {
     const { cars, carType } = useActiveInfo(dir);
     const numbers = cars.map((car) => car.carNumber);
-    const firstCar = cars[0].carNumber;
-    const [active, setActive] = useState(firstCar);
-    const activeCar = cars.find((car) => car.carNumber === active);
+    const [activeCar, setCar] = useState(cars[0]);
 
     useEffect(() => {
-        setActive(firstCar);
+        setCar(cars[0]);
     }, [carType]);
+
+    const onClick = (count: number) => () => {
+        setCar(cars[count - 1]);
+    };
 
     console.log(activeCar);
 
     return (
         <section className='places-section places-section-carriages'>
-            <CarContentHeader
-                numbers={numbers} active={active}
-                setActive={setActive}
-            />
+            <CarContentHeader numbers={numbers} onClick={onClick} />
 
-            <CarInfo active={active} />
+            <CarInfo car={activeCar} />
             <CarSelectedAmount />
             <CarriageSecond />
             <CarriageThird />

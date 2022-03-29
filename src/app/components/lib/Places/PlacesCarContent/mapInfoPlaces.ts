@@ -16,6 +16,7 @@ export const mapInfoPlaces = (car: CarInfoT) => {
             infoPlaces.push({
                 cost: price,
                 amount: nochoice,
+                desc: 'люкс',
             });
             break;
 
@@ -23,10 +24,12 @@ export const mapInfoPlaces = (car: CarInfoT) => {
             infoPlaces.push({
                 cost: top_price,
                 amount: top,
+                desc: 'верхние',
             });
             infoPlaces.push({
                 cost: bottom_price,
                 amount: bottom,
+                desc: 'нижние',
             });
             break;
 
@@ -34,14 +37,17 @@ export const mapInfoPlaces = (car: CarInfoT) => {
             infoPlaces.push({
                 cost: top_price,
                 amount: top,
+                desc: 'верхние',
             });
             infoPlaces.push({
                 cost: bottom_price,
                 amount: bottom,
+                desc: 'нижние',
             });
             infoPlaces.push({
                 cost: side_price,
                 amount: side,
+                desc: 'боковые',
             });
             break;
 
@@ -49,6 +55,7 @@ export const mapInfoPlaces = (car: CarInfoT) => {
             infoPlaces.push({
                 cost: bottom_price,
                 amount: nochoice,
+                desc: 'сидячие',
             });
             break;
 
