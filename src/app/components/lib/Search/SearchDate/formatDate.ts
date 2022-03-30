@@ -10,4 +10,3 @@ export const formatDateNumber = (date: number) => {
     const dateTime = DateTime.fromMillis(date * 1000);
     return dateTime.toFormat('dd.LL.yyyy');
 };
-export default formatDate;

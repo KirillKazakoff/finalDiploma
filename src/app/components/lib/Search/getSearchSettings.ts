@@ -1,12 +1,12 @@
 /* eslint-disable no-underscore-dangle */
 import { TopTypeT, WaysStateT, DatesStateT } from '../../../types/typesSlices';
-import formatDate from './SearchDate/formatDate';
+import { formatDate } from './SearchDate/formatDate';
 
 const getSearchSettings = (top: TopTypeT, ways: WaysStateT, dates: DatesStateT) => {
     try {
         const searchSettings = {
-            date_start: formatDate(dates.dateTo.value),
-            date_end: formatDate(dates.dateFrom.value),
+            // date_start: formatDate(dates.dateTo.value),
+            // date_end: formatDate(dates.dateFrom.value),
             from_city_id: ways.wayFrom.cities[0]._id,
             to_city_id: ways.wayTo.cities[0]._id,
             offset: top.offset,

@@ -7,6 +7,7 @@ import {
     setHourDeparture,
 } from '../../../../redux/slices/searchFilterSlice';
 import TripHourSliders from './TripHourSection/TripHourSliders';
+import SubtleContainer from './TripHourSection/SubtleContainerHour';
 
 export default function TripFilter() {
     return (
@@ -18,8 +19,12 @@ export default function TripFilter() {
                 <Togglers />
             </div>
             <TripCostSlider />
-            <TripHourSliders setFilter={setHourDeparture} />
-            <TripHourSliders setFilter={setHourArrival} />
+            <SubtleContainer dir='to' desc='Туда'>
+                <TripHourSliders setFilter={setHourDeparture} />
+            </SubtleContainer>
+            <SubtleContainer dir='from' desc='Обратно'>
+                <TripHourSliders setFilter={setHourArrival} />
+            </SubtleContainer>
         </div>
     );
 }

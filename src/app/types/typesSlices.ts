@@ -78,6 +78,7 @@ export type CarContentT = {
     carriageType: ActiveCarT;
     extras: ExtrasPricesT;
     activeCar: CarInfoT;
+    places: number[];
 };
 
 export type PlacesStateT = {

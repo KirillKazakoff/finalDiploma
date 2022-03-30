@@ -1,9 +1,10 @@
 import React from 'react';
-import { CarInfoProps } from '../../../../../types/typesPlaces';
 import { mapInfoPlaces } from '../mapInfoPlaces';
 import formatCost from '../../../Common/utils/format';
+import { CarInfoT } from '../../../../../types/models/modelSeats';
 
-export default function CarInfoContentPlaces({ car }: CarInfoProps) {
+type Props = { car: CarInfoT };
+export default function CarInfoContentPlaces({ car }: Props) {
     const infoPlacesArr = mapInfoPlaces(car);
 
     const infoPlaces = infoPlacesArr.map((info) => {
@@ -16,7 +17,7 @@ export default function CarInfoContentPlaces({ car }: CarInfoProps) {
                 </div>
                 <div className='carriage-place-info-section carriage-place-cost'>
                     <div className='carriage-place-cost-count'>{formatCost(cost)}</div>
-                    <div className='carriage-place-cost-symbol'>Р</div>
+                    <div className='carriage-place-cost-symbol'>₽</div>
                 </div>
             </li>
         );

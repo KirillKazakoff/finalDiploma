@@ -5,20 +5,20 @@ import type { RootState } from '../store';
 import { PayloadCar, PayloadCarType, PayloadExtraPrice } from '../../types/typesPayload';
 import { CarContentT, PlacesStateT } from '../../types/typesSlices';
 
+const initExtras = { wifi_price: 0, linens_price: 0 };
+
 const initialCarContent: CarContentT = {
     carriageType: 'idle',
-    extras: {
-        wifi_price: 0,
-        linens_price: 0,
-    },
+    extras: { ...initExtras },
+    places: [],
     activeCar: null,
 };
 
 const initialState: PlacesStateT = {
     activeTicket: null,
     routes: {
-        departure: initialCarContent,
-        arrival: initialCarContent,
+        departure: { ...initialCarContent },
+        arrival: { ...initialCarContent },
     },
 };
 
@@ -41,11 +41,20 @@ export const placesSlice = createSlice({
             const { route, value } = action.payload;
             state.routes[route].activeCar = value;
         },
+        refreshPrice: (state, action: PayloadAction<string>) => {
+            state.routes[action.payload].extras = { ...initExtras };
+        },
+        refresh: () => initialState,
     },
 });
 
 export const {
-    setActiveTicket, setCarType, setExtraPrice, setActiveCar,
+    setActiveTicket,
+    setCarType,
+    setExtraPrice,
+    setActiveCar,
+    refresh,
+    refreshPrice,
 } = placesSlice.actions;
 
 export const selectActiveTicket = (state: RootState) => state.places.activeTicket;

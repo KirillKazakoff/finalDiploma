@@ -13,8 +13,6 @@ export default function PlacesCarTypes(props: DirTProp & SeatsInfoProp) {
         );
     });
 
-    // console.log(seatsInfo);
-    // console.log(carTypes);
     return (
         <section className='places-section places-section-carriage'>
             <h2 className='places-section-title framed-places'>Тип вагона</h2>

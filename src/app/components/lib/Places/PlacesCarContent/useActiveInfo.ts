@@ -6,12 +6,12 @@ import { selectActiveTicket, setActiveCar } from '../../../../redux/slices/place
 export const useActiveInfo = (dir: string) => {
     const dispatch = useAppDispatch();
 
-    const name = mapDirToRoot(dir);
-    const carType = useAppSelector((state) => state.places.routes[name].carriageType);
+    const route = mapDirToRoot(dir);
+    const carType = useAppSelector((state) => state.places.routes[route].carriageType);
     const ticket = useAppSelector(selectActiveTicket);
 
     const infoT = ticket.trainsInfo.find((info) => {
-        return info.routeName === name;
+        return info.routeName === route;
     });
 
     const cars = infoT.trainInfo.seatsTrainInfo.filter((coach) => {
@@ -19,7 +19,15 @@ export const useActiveInfo = (dir: string) => {
     });
 
     useEffect(() => {
-        dispatch(setActiveCar({ route: name, value: cars[0] }));
+        dispatch(setActiveCar({ route, value: cars[0] }));
     }, [carType]);
-    return { cars, carType };
+
+    const onClick = (count: number) => () => {
+        const newCar = cars.find((car) => car.carNumber === count);
+        dispatch(setActiveCar({ route, value: newCar }));
+    };
+
+    const numbers = cars.map((car) => car.carNumber);
+
+    return { numbers, onClick };
 };
