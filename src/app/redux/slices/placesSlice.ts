@@ -2,7 +2,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { TicketInfoT } from '../../types/models/modelTickets';
 import type { RootState } from '../store';
-import { PayloadCar, PayloadCarType, PayloadExtraPrice } from '../../types/typesPayload';
+import {
+    PayloadCar,
+    PayloadCarType,
+    PayloadExtraPrice,
+    PayloadPlace,
+} from '../../types/typesPayload';
 import { CarContentT, PlacesStateT } from '../../types/typesSlices';
 
 const initExtras = { wifi_price: 0, linens_price: 0 };
@@ -41,6 +46,19 @@ export const placesSlice = createSlice({
             const { route, value } = action.payload;
             state.routes[route].activeCar = value;
         },
+        setPlace: (state, action: PayloadAction<PayloadPlace>) => {
+            const { route, place } = action.payload;
+            state.routes[route].places.push(place);
+        },
+        removePlace: (state, action: PayloadAction<PayloadPlace>) => {
+            const { route, place } = action.payload;
+            const i = state.routes[route].places.findIndex((value) => {
+                const carCheck = value.carNumber === place.carNumber;
+                const placeCheck = value.placeNumber === place.placeNumber;
+                return carCheck && placeCheck;
+            });
+            state.routes[route].places.splice(i, 1);
+        },
         refreshPrice: (state, action: PayloadAction<string>) => {
             state.routes[action.payload].extras = { ...initExtras };
         },
@@ -53,6 +71,8 @@ export const {
     setCarType,
     setExtraPrice,
     setActiveCar,
+    setPlace,
+    removePlace,
     refresh,
     refreshPrice,
 } = placesSlice.actions;

@@ -2,11 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import { mapToName } from './mapSrcToName';
 import { BtnT, DivT, RefT } from '../../../../../../types/typesReact';
 
-type Props = { value: string; containerRef: RefT<BtnT> };
+type Props = { value: string; containerRef: RefT<BtnT>; isIncluded: boolean };
 
-export default function ServiceTip({ value, containerRef }: Props) {
+export default function ServiceTip({ value, containerRef, isIncluded }: Props) {
     const ref = useRef<DivT>(null);
-    const name = mapToName(value);
+    let name = mapToName(value);
+    name = isIncluded ? `${name} (включено в стоимость билета)` : name;
 
     useEffect(() => {
         const tip = ref.current;

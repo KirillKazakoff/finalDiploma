@@ -34,7 +34,11 @@ export default function Service({ service, route, children }: ServiceProps) {
             type='button'
         >
             <div className={filterCls}>{children}</div>
-            <ServiceTip value={name} containerRef={containerRef} />
+            <ServiceTip
+                value={name}
+                containerRef={containerRef}
+                isIncluded={isIncluded}
+            />
         </button>
     );
 }

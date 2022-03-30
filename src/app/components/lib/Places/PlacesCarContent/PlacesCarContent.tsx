@@ -26,7 +26,7 @@ export default function PlacesCarContent({ dir }: DirTProp) {
             />
 
             <CarInfo car={car} route={route} />
-            <CarriageSecond />
+            <CarriageSecond car={car} route={route} />
             <CarriageThird />
             <CarriageFirst />
             <CarriageFourth />

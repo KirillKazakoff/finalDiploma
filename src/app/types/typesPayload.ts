@@ -80,6 +80,14 @@ export type PayloadCar = {
     value: CarInfoT;
 };
 
+export type PayloadPlace = {
+    route: string;
+    place: {
+        carNumber: number;
+        placeNumber: number;
+    };
+};
+
 export type SetFormStatusT = ActionCreatorWithPayload<FormStatusT>;
 export type SetStatusT = ActionCreatorWithPayload<FetchStatusT>;
 export type SetErrorT = ActionCreatorWithPayload<PayloadError>;
