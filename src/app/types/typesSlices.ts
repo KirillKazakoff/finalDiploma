@@ -81,7 +81,7 @@ export type PlaceT = {
 
 export type CarContentT = {
     carriageType: ActiveCarT;
-    extras: ExtrasPricesT & { carNumber: number }[];
+    extras: ExtrasPricesT[];
     activeCar: CarInfoT;
     places: PlaceT[];
 };

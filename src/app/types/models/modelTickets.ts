@@ -39,10 +39,13 @@ export type ExtrasT = {
 };
 
 export type ExtrasPricesT = {
-    [key: string]: number;
+    prices: {
+        [key: string]: number;
 
-    wifi_price: number;
-    linens_price: number;
+        wifi_price: number;
+        linens_price: number;
+    };
+    carNumber: number;
 };
 
 export type TrainRouteT = {

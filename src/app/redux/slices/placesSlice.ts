@@ -14,7 +14,7 @@ const initExtras = { wifi_price: 0, linens_price: 0 };
 
 const initialCarContent: CarContentT = {
     carriageType: 'idle',
-    extras: { ...initExtras },
+    extras: [],
     places: [],
     activeCar: null,
 };
@@ -33,6 +33,21 @@ export const placesSlice = createSlice({
     reducers: {
         setActiveTicket: (state, action: PayloadAction<TicketInfoT>) => {
             state.activeTicket = action.payload;
+            const [departure, arrival] = state.activeTicket.trainsInfo;
+            departure.trainInfo.seatsTrainInfo.forEach((train) => {
+                state.routes.departure.extras.push({
+                    carNumber: train.carNumber,
+                    prices: { ...initExtras },
+                });
+            });
+            if (arrival) {
+                arrival.trainInfo.seatsTrainInfo.forEach((train) => {
+                    state.routes.arrival.extras.push({
+                        carNumber: train.carNumber,
+                        prices: { ...initExtras },
+                    });
+                });
+            }
         },
         setCarType: (state, action: PayloadAction<PayloadCarType>) => {
             const { route, value } = action.payload;
@@ -40,7 +55,10 @@ export const placesSlice = createSlice({
         },
         setExtraPrice: (state, action: PayloadAction<PayloadExtraPrice>) => {
             const { name, value, route } = action.payload;
-            state.routes[route].extras[name] = value;
+            const { carNumber } = state.routes[route].activeCar;
+            const { extras } = state.routes[route];
+            const index = extras.findIndex((extra) => extra.carNumber === carNumber);
+            state.routes[route].extras[index].prices[name] = value;
         },
         setActiveCar: (state, action: PayloadAction<PayloadCar>) => {
             const { route, value } = action.payload;
@@ -52,15 +70,13 @@ export const placesSlice = createSlice({
         },
         removePlace: (state, action: PayloadAction<PayloadPlace>) => {
             const { route, place } = action.payload;
+
             const i = state.routes[route].places.findIndex((value) => {
                 const carCheck = value.carNumber === place.carNumber;
                 const placeCheck = value.placeNumber === place.placeNumber;
                 return carCheck && placeCheck;
             });
             state.routes[route].places.splice(i, 1);
-        },
-        refreshPrice: (state, action: PayloadAction<string>) => {
-            state.routes[action.payload].extras = { ...initExtras };
         },
         refresh: () => initialState,
     },
@@ -74,7 +90,6 @@ export const {
     setPlace,
     removePlace,
     refresh,
-    refreshPrice,
 } = placesSlice.actions;
 
 export const selectActiveTicket = (state: RootState) => state.places.activeTicket;

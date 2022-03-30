@@ -30,6 +30,7 @@ export default function CarriageSecond({ car, route }: Props) {
     };
 
     const sections = mapSectionsSecond(car, places);
+
     const seatsAreas = sections.map((section) => {
         const {
             botLeft, topLeft, botRight, topRight,

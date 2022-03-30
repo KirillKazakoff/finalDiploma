@@ -8,7 +8,15 @@ export default function Service({ service, route, children }: ServiceProps) {
     const containerRef = useRef<HTMLButtonElement>(null);
     const { name, isIncluded, price } = service;
     const dispatch = useAppDispatch();
-    const statePrice = useAppSelector((state) => state.places.routes[route].extras[name]);
+
+    const carNumber = useAppSelector(
+        (state) => state.places.routes[route].activeCar.carNumber,
+    );
+
+    const extras = useAppSelector((state) => state.places.routes[route].extras);
+    console.log(extras);
+    const index = extras.findIndex((extra) => extra.carNumber === carNumber);
+    const statePrice = extras[index].prices[name];
 
     let containerCls = 'carriage-info-service-item';
     let filterCls = 'filter-black';
