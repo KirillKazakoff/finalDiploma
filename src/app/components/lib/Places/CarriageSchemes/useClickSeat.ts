@@ -3,7 +3,6 @@ import { useAppDispatch, useAppSelector } from '../../../../redux/reduxHooks';
 import { removePlace, setPlace } from '../../../../redux/slices/placesSlice';
 import { CarInfoT } from '../../../../types/models/modelSeats';
 import { PlaceT } from '../../../../types/typesSlices';
-import { mapSectionsSecond } from './mapSection';
 
 export const useClickSeat = (car: CarInfoT, route: string) => {
     const dispatch = useAppDispatch();
@@ -35,6 +34,5 @@ export const useClickSeat = (car: CarInfoT, route: string) => {
         }
     };
 
-    const sections = mapSectionsSecond(car, places);
-    return { sections, onClick };
+    return { places, onClick };
 };

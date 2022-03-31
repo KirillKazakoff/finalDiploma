@@ -4,16 +4,18 @@ import { CarInfoProps } from '../../../../types/typesPlaces';
 import CarriageScheme from './CarriageScheme';
 import CarSeat from './CarSeat';
 import { useClickSeat } from './useClickSeat';
+import { mapSectionsSecond } from './mapSection/mapSectionSecond';
 
 export default function CarriageSecond({ car, route }: CarInfoProps) {
-    const { sections, onClick } = useClickSeat(car, route);
+    const { places, onClick } = useClickSeat(car, route);
+    const sections = mapSectionsSecond(car, places);
 
+    const seatCls = 'carriage-seat carriage-seat-top-default';
     const seatsAreas = sections.map((section) => {
         const {
             botLeft, topLeft, botRight, topRight,
         } = section;
 
-        const seatCls = 'carriage-seat carriage-seat-top-default';
         return (
             <div className='carriage-section carriage-section-bordered' key={nanoid()}>
                 <div className='carriage-seats-area'>
