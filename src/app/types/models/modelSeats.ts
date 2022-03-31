@@ -23,6 +23,9 @@ export type SeatT = {
 };
 
 export type SeatFullT = SeatT & {
+    placeType: string;
+    carType: string;
+    price: number;
     selected: boolean;
     disabled: boolean;
 };

@@ -8,7 +8,9 @@ const getSeatsTrainInfo = (coachesSeats: SeatsCoachT[]) => {
     return coachesSeats.map((coachSeat, index) => {
         const carNumber = index + 1;
         const { seats, coach } = coachSeat;
-        const type = coach.class_type;
+        const {
+            bottom_price, top_price, price, side_price, class_type: type,
+        } = coach;
 
         const seatsInfo = initSeatsInfo(type, seats);
         const { seatsFull } = seatsInfo;
@@ -18,6 +20,9 @@ const getSeatsTrainInfo = (coachesSeats: SeatsCoachT[]) => {
                 if (seatsFull[i].available) {
                     seatsInfo.available.nochoice += 1;
                     seatsInfo.available.total += 1;
+
+                    seatsFull[i].placeType = type === 'first' ? 'luxe' : 'seatable';
+                    seatsFull[i].price = type === 'first' ? price : bottom_price;
                 }
             }
             return { coach, seatsInfo, carNumber };
@@ -28,8 +33,14 @@ const getSeatsTrainInfo = (coachesSeats: SeatsCoachT[]) => {
                 seatsInfo.available.total += 1;
                 if (i % 2 === 0) {
                     seatsInfo.available.top += 1;
+
+                    seatsFull[i].price = top_price;
+                    seatsFull[i].placeType = 'top';
                 } else {
                     seatsInfo.available.bottom += 1;
+
+                    seatsFull[i].price = bottom_price;
+                    seatsFull[i].placeType = 'bottom';
                 }
             }
         }
@@ -39,6 +50,9 @@ const getSeatsTrainInfo = (coachesSeats: SeatsCoachT[]) => {
             if (seatsFull[i].available) {
                 seatsInfo.available.total += 1;
                 seatsInfo.available.side += 1;
+
+                seatsFull[i].price = side_price;
+                seatsFull[i].placeType = 'side';
             }
         }
 

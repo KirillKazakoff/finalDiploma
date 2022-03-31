@@ -1,13 +1,13 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-restricted-syntax */
-import { RootState } from './store';
-import { TogglersT, HourStateT } from '../types/typesSlices';
-import { getTrainHourMs } from '../components/lib/Tickets/Ticket/getTrainTime';
-import { TicketInfoT, TrainRouteT } from '../types/models/modelTickets';
 import {
     getMinPriceTrain,
     getMaxPriceTrain,
-} from '../components/lib/Aside/TripFilter/TripCostSection/initLimitUtils';
+} from '../../../components/lib/Aside/TripFilter/TripCostSection/initLimitUtils';
+import { getTrainHourMs } from '../../../components/lib/Tickets/Ticket/getTrainTime';
+import { TrainRouteT, TicketInfoT } from '../../../types/models/modelTickets';
+import { HourStateT, TogglersT } from '../../../types/typesSlices';
+import { RootState } from '../../store';
 
 type CheckHourPointT = (datetime: number, start: number, end: number) => boolean;
 const checkHourPoint: CheckHourPointT = (pointDatetime, startFilter, endFilter) => {

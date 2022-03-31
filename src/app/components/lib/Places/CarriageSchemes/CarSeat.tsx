@@ -16,10 +16,10 @@ export default function CarSeat(props: Props) {
     let className = cls;
     if (!available) {
         className = `${className} carriage-seat-unavailable`;
-    } else if (disabled) {
+    }
+    if (disabled) {
         className = `${className} carriage-seat-noseatable`;
     }
-
     if (selected) {
         className = `${className} carriage-seat-active`;
     }

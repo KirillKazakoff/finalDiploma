@@ -13,10 +13,11 @@ export default function Service({ service, route, children }: ServiceProps) {
         (state) => state.places.routes[route].activeCar.carNumber,
     );
 
-    const extras = useAppSelector((state) => state.places.routes[route].extras);
-    console.log(extras);
-    const index = extras.findIndex((extra) => extra.carNumber === carNumber);
-    const statePrice = extras[index].prices[name];
+    const statePrice = useAppSelector((state) => {
+        const { extras } = state.places.routes[route];
+        const index = extras.findIndex((extra) => extra.carNumber === carNumber);
+        return extras[index].prices[name];
+    });
 
     let containerCls = 'carriage-info-service-item';
     let filterCls = 'filter-black';

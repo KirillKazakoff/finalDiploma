@@ -5,6 +5,9 @@ const initSeatsInfo = (type: string, seats: SeatT[]) => {
         ...seat,
         selected: false,
         disabled: false,
+        price: 0,
+        placeType: '',
+        carType: type,
     }));
     let allSeats;
 
@@ -35,6 +38,9 @@ const initSeatsInfo = (type: string, seats: SeatT[]) => {
             available: false,
             selected: false,
             disabled: true,
+            price: 0,
+            placeType: 'idle',
+            carType: type,
         };
         seatsFull.push(seatDisabled);
     }

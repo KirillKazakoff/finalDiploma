@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { FetchStatusT } from '../../types/typesPayload';
-import { initialInput, inputReducers, InputState } from '../reduxInputUtils';
+import { initialInput, inputReducers, InputState } from './utils/reduxInputUtils';
 import type { RootState } from '../store';
 
 type SubscribeState = {

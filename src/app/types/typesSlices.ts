@@ -1,5 +1,5 @@
 import type { DateT, PickerStateT } from '../components/lib/DatePicker/utils/timeTypes';
-import type { InputState } from '../redux/reduxInputUtils';
+import type { InputState } from '../redux/slices/utils/reduxInputUtils';
 import type { ExtrasPricesT, TicketInfoT, TicketRouteT } from './models/modelTickets';
 import type { FetchStatusT, PayloadPlace } from './typesPayload';
 import type { SearchedCities } from './typesSearch';
@@ -77,6 +77,9 @@ export type ActiveCarT = 'idle' | 'first' | 'second' | 'third' | 'fourth';
 export type PlaceT = {
     carNumber: number;
     placeNumber: number;
+    placeType: string;
+    carType: string;
+    price: number;
 };
 
 export type CarContentT = {

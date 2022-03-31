@@ -7,7 +7,7 @@ import {
 } from '../../types/typesPayload';
 import { DateStateT, DatesStateT } from '../../types/typesSlices';
 
-import { initialInput, inputReducers } from '../reduxInputUtils';
+import { initialInput, inputReducers } from './utils/reduxInputUtils';
 import type { RootState } from '../store';
 
 const intialDateState: DateStateT = {

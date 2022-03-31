@@ -1,8 +1,4 @@
 import React from 'react';
-import CarriageFirst from '../CarriageSchemes/CarriageFirst';
-import CarriageFourth from '../CarriageSchemes/CarriageFourth';
-import CarriageSecond from '../CarriageSchemes/CarriageSecond';
-import CarriageThird from '../CarriageSchemes/CarriageThird';
 import CarContentHeader from './CarContentHeader';
 
 import { DirTProp } from '../../../../types/typesPlaces';
@@ -10,6 +6,7 @@ import { useActiveInfo } from './useActiveInfo';
 import CarInfo from './CarInfo/CarInfo';
 import { mapDirToRoot } from '../PlacesCarTypes/mapName';
 import { useAppSelector } from '../../../../redux/reduxHooks';
+import { mapSchemes } from '../CarriageSchemes/mapSchemes';
 
 export default function PlacesCarContent({ dir }: DirTProp) {
     const route = mapDirToRoot(dir);
@@ -17,6 +14,7 @@ export default function PlacesCarContent({ dir }: DirTProp) {
     const car = useAppSelector((state) => state.places.routes[route].activeCar);
 
     if (!car) return null;
+    const CarriageScheme = mapSchemes(car.coach.class_type);
     return (
         <section className='places-section places-section-carriages'>
             <CarContentHeader
@@ -26,10 +24,7 @@ export default function PlacesCarContent({ dir }: DirTProp) {
             />
 
             <CarInfo car={car} route={route} />
-            <CarriageSecond car={car} route={route} />
-            <CarriageThird />
-            <CarriageFirst />
-            <CarriageFourth />
+            <CarriageScheme car={car} route={route} />
         </section>
     );
 }
