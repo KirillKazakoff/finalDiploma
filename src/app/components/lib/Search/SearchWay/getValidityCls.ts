@@ -1,5 +1,5 @@
-import { InputState } from '../../../../redux/reduxInputUtils';
-import { WayStateT } from '../../../../redux/slices/searchWaySlice';
+import { InputState } from '../../../../redux/slices/utils/reduxInputUtils';
+import { WayStateT } from '../../../../types/typesSlices';
 
 export const getValidityCls = (inputState: InputState) => {
     const { error, formError } = inputState;

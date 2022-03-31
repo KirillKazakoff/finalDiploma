@@ -894,7 +894,7 @@ body {
     flex-direction: column;
 
     position: absolute;
-    top: 60px;
+    top: 55px;
     left: 0px;
     right: 0px;
     background-color: var(--secondary-super-light);
@@ -1358,6 +1358,11 @@ body {
     cursor: pointer;
 }
 
+.carriage-info-service-item:hover {
+    background-color: red;
+    border-color: red;
+}
+
 .carriage-info-service-item:disabled {
     opacity: 0.4;
     cursor: default;
@@ -1584,6 +1589,11 @@ body {
     padding-right: 10px;
 }
 
+.carriage-seat:hover {
+    background-color: var(--bg-main-medium);
+    box-shadow: var(--btn-shadow-light);
+}
+
 .carriage-seat-active {
     background-color: var(--bg-main-light);
 }
@@ -1592,7 +1602,12 @@ body {
     color: #d4d3d3;
 }
 
+.carriage-seat-unavailable {
+    color: white;
+}
+
 .carriage-seat:disabled {
+    box-shadow: none;
     background-color: #d4d3d3;
     filter: none;
 }

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/indent */
 import React from 'react';
 import { StationT, TrainRouteT, TrainInfoFullT } from './models/modelTickets';
-import { CarInfoT } from './models/modelSeats';
+import { CarInfoT, SeatFullT } from './models/modelSeats';
 
 export type StationProp = { station: StationT };
 export type RouteProp = { route: TrainRouteT };
@@ -21,4 +21,13 @@ export type ServiceProps = {
     children: React.ReactNode;
     service: { name: string; isIncluded: boolean; price: number };
     route: string;
+};
+
+export type SectionThirdT = {
+    botLeft: SeatFullT;
+    topLeft: SeatFullT;
+    botRight: SeatFullT;
+    topRight: SeatFullT;
+    seatLeft: SeatFullT | null;
+    seatRight: SeatFullT | null;
 };

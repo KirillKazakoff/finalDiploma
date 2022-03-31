@@ -1,32 +1,45 @@
+import { nanoid } from 'nanoid';
 import React from 'react';
+import { CarInfoProps } from '../../../../types/typesPlaces';
+import CarriageScheme from './CarriageScheme';
+import CarSeat from './CarSeat';
+import { mapSectionsFirst } from './mapSection/mapSectionFirst';
+import { useClickSeat } from './useClickSeat';
 
-export default function CarriageFirst() {
+export default function CarriageFirst({ car, route }: CarInfoProps) {
+    const { places, onClick } = useClickSeat(car, route);
+    const sections = mapSectionsFirst(car, places);
+
+    const seatCls = 'carriage-seat carriage-seat-top-luxe';
+    const seatsAreas = sections.map((section) => {
+        const { topLeft, topRight } = section;
+        return (
+            <div className='carriage-section carriage-section-bordered' key={nanoid()}>
+                <div className='carriage-seats-area'>
+                    <ul className='carriage-seats'>
+                        <CarSeat
+                            cls={seatCls} onClick={onClick}
+                            place={topLeft}
+                        />
+                    </ul>
+                    <ul className='carriage-seats'>
+                        <CarSeat
+                            cls={seatCls} onClick={onClick}
+                            place={topRight}
+                        />
+                    </ul>
+                </div>
+            </div>
+        );
+    });
+
     return (
-        <div className='carriage-container carriage-container-luxe framed-places'>
-            <img
-                className='carriage-left'
-                src='./img/carriages/carriage-left.png'
-                alt='carriage-left'
-            />
+        <CarriageScheme carNumber={car.carNumber}>
             <div className='carriage-scheme carriage-scheme-bordered'>
                 <div className='carriage-passageway' />
                 <div className='carriage-bottom-cross-line' />
-                <div className='carriage-section carriage-section-bordered'>
-                    <div className='carriage-seats-area'>
-                        <ul className='carriage-seats'>
-                            <li className='carriage-seat carriage-seat-top-luxe'>1</li>
-                        </ul>
-                        <ul className='carriage-seats'>
-                            <li className='carriage-seat carriage-seat-top-luxe'>2</li>
-                        </ul>
-                    </div>
-                </div>
+                {seatsAreas}
             </div>
-            <img
-                className='carriage-right'
-                src='./img/carriages/carriage-right.png'
-                alt='carriage-right'
-            />
-        </div>
+        </CarriageScheme>
     );
 }

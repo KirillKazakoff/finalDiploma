@@ -14,7 +14,7 @@ export default function CarSeat(props: Props) {
     } = place;
 
     let className = cls;
-    if (!available) {
+    if (!available && !disabled) {
         className = `${className} carriage-seat-unavailable`;
     }
     if (disabled) {

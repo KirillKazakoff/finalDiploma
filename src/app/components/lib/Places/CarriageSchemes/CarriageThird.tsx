@@ -12,75 +12,57 @@ export default function CarriageThird({ car, route }: CarInfoProps) {
 
     const seatClsTop = 'carriage-seat carriage-seat-top-default';
     const seatClsBot = 'carriage-seat carriage-seat-bottom';
-    console.log(sections);
-    // const seatsAreas = sections.map((section) => {
-    //     const {
-    //         botLeft, topLeft, botRight, topRight, seatLeft, seatRight,
-    //     } = section;
 
-    //     return (
-    //         <div className='carriage-section carriage-section-bordered' key={nanoid()}>
-    //             <div className='carriage-seats-area'>
-    //                 <ul className='carriage-seats carriage-seats-left'>
-    //                     <CarSeat
-    //                         cls={seatClsTop} onClick={onClick}
-    //                         place={topLeft}
-    //                     />
-    //                     <CarSeat
-    //                         cls={seatClsTop} onClick={onClick}
-    //                         place={botLeft}
-    //                     />
-    //                 </ul>
-    //                 <ul className='carriage-seats carriage-seats-right'>
-    //                     <CarSeat
-    //                         cls={seatClsTop} onClick={onClick}
-    //                         place={topRight}
-    //                     />
-    //                     <CarSeat
-    //                         cls={seatClsTop} onClick={onClick}
-    //                         place={botRight}
-    //                     />
-    //                 </ul>
-    //             </div>
-    //             <div className='carriage-seats-area carriage-seats-area-bottom'>
-    //                 <ul className='carriage-seats carriage-seats-bottom'>
-    //                     <CarSeat
-    //                         cls={seatClsBot} onClick={onClick}
-    //                         place={seatLeft}
-    //                     />
-    //                     <CarSeat
-    //                         cls={seatClsBot} onClick={onClick}
-    //                         place={seatRight}
-    //                     />
-    //                 </ul>
-    //             </div>
-    //         </div>
-    //     );
-    // });
+    const seatsAreas = sections.map((section) => {
+        const {
+            botLeft, topLeft, botRight, topRight, seatLeft, seatRight,
+        } = section;
+
+        return (
+            <div className='carriage-section carriage-section-bordered' key={nanoid()}>
+                <div className='carriage-seats-area'>
+                    <ul className='carriage-seats carriage-seats-left'>
+                        <CarSeat
+                            cls={seatClsTop} onClick={onClick}
+                            place={topLeft}
+                        />
+                        <CarSeat
+                            cls={seatClsTop} onClick={onClick}
+                            place={botLeft}
+                        />
+                    </ul>
+                    <ul className='carriage-seats carriage-seats-right'>
+                        <CarSeat
+                            cls={seatClsTop} onClick={onClick}
+                            place={topRight}
+                        />
+                        <CarSeat
+                            cls={seatClsTop} onClick={onClick}
+                            place={botRight}
+                        />
+                    </ul>
+                </div>
+                <div className='carriage-seats-area carriage-seats-area-bottom'>
+                    <ul className='carriage-seats carriage-seats-bottom'>
+                        <CarSeat
+                            cls={seatClsBot} onClick={onClick}
+                            place={seatLeft}
+                        />
+                        <CarSeat
+                            cls={seatClsBot} onClick={onClick}
+                            place={seatRight}
+                        />
+                    </ul>
+                </div>
+            </div>
+        );
+    });
 
     return (
         <CarriageScheme carNumber={car.carNumber}>
             <div className='carriage-scheme carriage-scheme-bordered'>
                 <div className='carriage-passageway' />
-                <div className='carriage-section carriage-section-bordered'>
-                    <div className='carriage-seats-area'>
-                        <ul className='carriage-seats'>
-                            <li className='carriage-seat carriage-seat-top-default'>2</li>
-                            <li className='carriage-seat carriage-seat-top-default'>1</li>
-                        </ul>
-                        <ul className='carriage-seats'>
-                            <li className='carriage-seat carriage-seat-top-default'>4</li>
-                            <li className='carriage-seat carriage-seat-top-default'>3</li>
-                        </ul>
-                    </div>
-
-                    <div className='carriage-seats-area carriage-seats-area-bottom'>
-                        <ul className='carriage-seats carriage-seats-bottom'>
-                            <li className='carriage-seat carriage-seat-bottom'>2</li>
-                            <li className='carriage-seat carriage-seat-bottom'>1</li>
-                        </ul>
-                    </div>
-                </div>
+                {seatsAreas}
             </div>
         </CarriageScheme>
     );

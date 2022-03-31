@@ -34,6 +34,7 @@ export default function Service({ service, route, children }: ServiceProps) {
         dispatch(setExtraPrice(payload));
     };
 
+    if (price === 0 && !isIncluded) return null;
     return (
         <button
             ref={containerRef}
