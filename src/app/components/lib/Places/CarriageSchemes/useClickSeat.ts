@@ -8,7 +8,6 @@ export const useClickSeat = (car: CarInfoT, route: string) => {
     const dispatch = useAppDispatch();
     const places = useAppSelector((state) => state.places.routes[route].places);
 
-    console.log(places);
     const onClick = (e: React.SyntheticEvent) => {
         const { textContent: i, className } = e.currentTarget;
         const { seatsFull } = car.seatsInfo;

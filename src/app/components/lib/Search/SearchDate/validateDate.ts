@@ -7,9 +7,9 @@ export default function useValidateDate() {
 
     const validateDate = (inputEl: HTMLInputElement) => {
         const { value, required, name } = inputEl;
-        if (!value) {
-            dispatch(setActiveDate({ name, date: null }));
-        }
+        // if (!value) {
+        //     dispatch(setActiveDate({ name, date: null }));
+        // }
 
         const dateTime = DateTime.fromFormat(value, 'dd/LL/yy');
         const dateTimeNow = DateTime.now().startOf('day');

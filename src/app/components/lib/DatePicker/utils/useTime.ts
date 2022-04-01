@@ -6,6 +6,7 @@ import { setPickerState } from '../../../../redux/slices/searchDateSlice';
 export const useTime = (name: string) => {
     const dispatch = useAppDispatch();
     const dateTimeStr = useAppSelector((state) => state.searchDate[name].dateTime);
+    const inputValue = useAppSelector((state) => state.searchDate[name].value);
 
     let current = DateTime.fromFormat(dateTimeStr, 'dd/LL/yy');
 
@@ -14,7 +15,6 @@ export const useTime = (name: string) => {
         month: current.monthLong,
         year: current.year,
     };
-    const dateCurrent = { ...dateInit };
 
     const getDateString = (day: number) => {
         const activeDate = current.set({ day });
@@ -95,12 +95,12 @@ export const useTime = (name: string) => {
     };
 
     useEffect(() => {
+        if (inputValue) current = DateTime.fromFormat(inputValue, 'dd/LL/yy');
         setPicker();
     }, [current]);
 
     return {
         dateInit,
-        dateCurrent,
         getDateString,
         setPicker,
         plusMonth,

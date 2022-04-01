@@ -16,11 +16,13 @@ export default function DatePicker(props: DatePickerProps) {
         time, name, isPickerActive, cls,
     } = props;
     const dispatch = useAppDispatch();
-    const { activeDate, pickerState } = useAppSelector((state) => state.searchDate[name]);
+    const activeDate = useAppSelector((state) => state.searchDate[name].activeDate);
+    const pickerState = useAppSelector((state) => state.searchDate[name].pickerState);
 
     if (!pickerState || !isPickerActive) return null;
 
     const { year, month } = pickerState.date;
+    console.log(year, month);
     const onClick = (day: string) => () => {
         const dayNumber = +day;
         const formatedDate = time.getDateString(dayNumber);
