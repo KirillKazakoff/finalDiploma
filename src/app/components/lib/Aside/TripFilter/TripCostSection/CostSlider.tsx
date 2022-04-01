@@ -14,6 +14,7 @@ export default function CostSlider() {
     const { minTotal: min, maxTotal: max } = cost;
     const limits = { min, max };
     const { refs, onMouseClosure } = useSliderInit(limits, setCost);
+    if (!max) return null;
 
     return (
         <SliderValuesContainer>

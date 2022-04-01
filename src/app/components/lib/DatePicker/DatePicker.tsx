@@ -22,7 +22,7 @@ export default function DatePicker(props: DatePickerProps) {
     if (!pickerState || !isPickerActive) return null;
 
     const { year, month } = pickerState.date;
-    console.log(year, month);
+
     const onClick = (day: string) => () => {
         const dayNumber = +day;
         const formatedDate = time.getDateString(dayNumber);

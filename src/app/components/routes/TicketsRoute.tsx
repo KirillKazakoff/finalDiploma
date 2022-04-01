@@ -18,7 +18,11 @@ export default function TicketsRoute() {
 
     const totalCount = useAppSelector(selectTotalCount);
     const pageStatus = useAppSelector(selectPageStatus);
+
     if (pageStatus !== 'loaded') return <PageLoader cls='page-loader-main' />;
+    // if (pageStatus === 'loaded' && totalCount === 0) {
+    //     return <main className='main main-central framed'>Нет билетов</main>;
+    // }
 
     return (
         <main className='main main-central framed'>

@@ -19,8 +19,9 @@ export const initialState: PlacesStateT = {
 };
 
 export const initExtrasRoute = (state: PlacesStateT, route: TrainInfoFullT) => {
+    const name = route.routeName;
     route.trainInfo.seatsTrainInfo.forEach((train) => {
-        state.routes.departure.extras.push({
+        state.routes[name].extras.push({
             carNumber: train.carNumber,
             prices: { ...initExtras },
         });

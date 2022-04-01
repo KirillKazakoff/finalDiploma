@@ -1,10 +1,10 @@
 import React from 'react';
 import LastTickets from '../lib/Aside/LastTickets/LastTickets';
 import PlacesDir from '../lib/Places/PlacesDir';
-import BtnNextRoute from '../lib/Common/BtnNextRoute';
 import TripDetailsDirs from '../lib/Aside/TripDetails/TripDetailsDirs';
 import { useAppSelector } from '../../redux/reduxHooks';
 import { selectActiveTicket } from '../../redux/slices/placesSlice';
+import PlacesNextSection from '../lib/Places/PlacesNextSection';
 
 export default function PlacesRoute() {
     const ticket = useAppSelector(selectActiveTicket);
@@ -33,7 +33,7 @@ export default function PlacesRoute() {
                     />
                 </div>
 
-                <BtnNextRoute to='/something' disabled />
+                <PlacesNextSection />
             </section>
         </main>
     );
