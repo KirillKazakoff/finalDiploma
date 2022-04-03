@@ -9,6 +9,8 @@ export type InputDefaultT = {
     value: string;
 };
 
+export type DynamicInputDefaultT = { id: string } & InputDefaultT;
+
 export type OnSubmitFormT = (e: React.FormEvent<HTMLFormElement>) => void;
 export type OnChangeT = (e: React.FormEvent<HTMLInputElement>) => void;
 export type OnChangeFetchT = (aborter: AbortController) => OnChangeT;

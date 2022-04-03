@@ -4,8 +4,13 @@ import TripDetailsDirs from '../lib/Aside/TripDetails/TripDetailsDirs';
 import PassengerForm from '../lib/Passengers/PassengerForm';
 import PassengersAdd from '../lib/Passengers/PassengersAdd';
 import PassengersNextSection from '../lib/Passengers/PassengersNextSection';
+import { useAppSelector } from '../../redux/reduxHooks';
+import { selectPlacesLengthArr } from '../../redux/slices/utils/selectPlacesLength';
 
 export default function PassengersRoute() {
+    const lengthArr = useAppSelector(selectPlacesLengthArr);
+    const forms = lengthArr.map((index) => <PassengerForm index={index} key={index} />);
+
     return (
         <main className='main main-central framed'>
             <aside className='aside-central'>
@@ -14,20 +19,7 @@ export default function PassengersRoute() {
 
             <section className='content-central'>
                 <div className='passengers'>
-                    <PassengerForm />
-
-                    <form className='passenger-form shadowed'>
-                        <header className='passenger-header framed-passengers'>
-                            <button
-                                className='passenger-collapse passenger-collapse-plus'
-                                type='button'
-                            >
-                                <img src='./svg/actions/plus.svg' alt='collapse-minus' />
-                            </button>
-                            <span className='passenger-desc'>Пассажир 2</span>
-                        </header>
-                    </form>
-
+                    {forms}
                     <PassengersAdd />
                 </div>
                 <PassengersNextSection />

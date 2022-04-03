@@ -1,11 +1,12 @@
 import React from 'react';
 import BtnNextRoute from '../Common/BtnNextRoute';
 import { useAppSelector } from '../../../redux/reduxHooks';
+import { selectPlacesLength } from '../../../redux/slices/utils/selectPlacesLength';
 
 export default function PlacesNextSection() {
-    const { arrival, departure } = useAppSelector((state) => state.places.routes);
+    const length = useAppSelector(selectPlacesLength);
     let disabled = true;
-    if (arrival.places.length > 0 || departure.places.length > 0) {
+    if (length > 0) {
         disabled = false;
     }
     return <BtnNextRoute to='/passengers' disabled={disabled} />;

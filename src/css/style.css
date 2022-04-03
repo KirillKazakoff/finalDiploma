@@ -549,6 +549,7 @@ body {
 .subtle-time-date {
     margin-top: 7px;
     flex-grow: 100;
+    text-align: right;
 }
 
 .subtle-collapse {
@@ -3020,6 +3021,10 @@ body {
 }
 
 /* btn-collapse */
+.btn-collapse {
+    margin-top: 5px;
+}
+
 .btn-collapse:hover {
     filter: var(--collapse-filter);
 }
