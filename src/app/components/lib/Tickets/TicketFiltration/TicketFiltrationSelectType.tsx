@@ -5,6 +5,7 @@ import { setSort } from '../../../../redux/slices/searchFilterSlice';
 import mapIdToName from './mapIdToName';
 
 type Props = { id: SortTypeT; setActiveHandler: () => void };
+
 export default function TicketFiltrationSelectType(props: Props) {
     const { setActiveHandler, id } = props;
     const dispatch = useAppDispatch();

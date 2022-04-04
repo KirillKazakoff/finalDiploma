@@ -25,6 +25,7 @@
         "react-hooks"
     ],
     "rules": {
+        "jsx-a11y/label-has-associated-control": "off",
         "no-alert": "off",
         "no-unused-vars": "warn",
         "no-multiple-empty-lines": "warn",

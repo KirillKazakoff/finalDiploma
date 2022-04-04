@@ -1,12 +1,11 @@
 /* eslint-disable no-param-reassign */
 import { PayloadAction } from '@reduxjs/toolkit';
-import {
+import type {
     PayloadError,
     PayloadFocus,
     PayloadFormError,
 } from '../../../types/typesPayload';
-import { InputDefaultT, DynamicInputDefaultT } from '../../../types/typesForms';
-import type { PassengersState } from '../passengersSlice';
+import { InputDefaultT } from '../../../types/typesForms';
 
 export type InputState = {
     value: string;
@@ -46,12 +45,3 @@ export const inputReducers = {
         state[name].wasFocused = wasFocused;
     },
 };
-
-// export const inputReducersPassengers = {
-//     setInput: (state: PassengersState, action: PayloadAction<DynamicInputDefaultT>) => {
-//         const { name, value, id } = action.payload;
-//         const index = state.forms.findIndex((form: any) => form.id === id);
-
-//         state.forms[index][name] = value.toLowerCase();
-//     },
-// };

@@ -40,6 +40,4 @@ export type PassengerFormT = {
     birthday: InputState;
     is_impaired: InputState;
     document_type: InputState;
-    document_seriya: InputState;
-    document_number: InputState;
 };

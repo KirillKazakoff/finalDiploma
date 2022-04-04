@@ -1,17 +1,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import { PassengerFormT } from '../../../types/models/modelPerson';
 import PassengerFormCheck from './PassengerFormCheck';
-import PassengerFormDocument from './PassengerFormDocument';
+import PassengerFormDocument from './PassengerFormDocument/PassengerFormDocument';
 import PassengerFormPerson from './PassengerFormPerson';
 import SubtleForm from './SubtlePassengerForm/SubtlePassengerForm';
 
-type Props = { index: number; form: PassengerFormT };
-export default function PassengerForm({ index, form }: Props) {
+type Props = { id: string; index: number };
+export default function PassengerForm({ id, index }: Props) {
     return (
         <SubtleForm index={index}>
             <PassengerFormPerson />
-            <PassengerFormDocument />
+            <PassengerFormDocument id={id} />
             <PassengerFormCheck />
         </SubtleForm>
     );

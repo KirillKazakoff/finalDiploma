@@ -1,9 +1,10 @@
 import type { DateT, PickerStateT } from '../components/lib/DatePicker/utils/timeTypes';
 import type { InputState } from '../redux/slices/utils/reduxInputUtils';
 import type { ExtrasPricesT, TicketInfoT, TicketRouteT } from './models/modelTickets';
-import type { FetchStatusT, PayloadPlace } from './typesPayload';
+import type { FetchStatusT } from './typesPayload';
 import type { SearchedCities } from './typesSearch';
-import { CarInfoT, CoachFeaturesT } from './models/modelSeats';
+import { CarInfoT } from './models/modelSeats';
+import type { PassengerFormT } from './models/modelPerson';
 
 // DateSlice
 export type DateStateT = InputState & {
@@ -97,4 +98,9 @@ export type PlacesStateT = {
         arrival: CarContentT;
         departure: CarContentT;
     };
+};
+
+// PassengersSlice
+export type PassengersStateT = {
+    [key: string]: PassengerFormT;
 };

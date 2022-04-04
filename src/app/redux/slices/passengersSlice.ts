@@ -1,54 +1,9 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
-import { initialInput, InputState } from './utils/reduxInputUtils';
-import { PassengerFormT } from '../../types/models/modelPerson';
-
-export type PassengersState = {
-    [key: string]: PassengerFormT;
-};
-
-export const initForm = () => {
-    const form = {
-        is_adult: { ...initialInput },
-        last_name: { ...initialInput },
-        first_name: { ...initialInput },
-        patronymic: { ...initialInput },
-        gender: { ...initialInput },
-        birthday: { ...initialInput },
-        is_impaired: { ...initialInput },
-
-        document_type: { ...initialInput },
-        document_seriya: { ...initialInput },
-        document_number: { ...initialInput },
-    };
-
-    form.document_type.value = 'Паспорт РФ';
-    form.is_adult.value = 'Взрослый';
-
-    return form;
-};
-
-const getInitialState = () => {
-    const state: PassengersState = {};
-    const form = initForm();
-
-    const id = nanoid();
-    state[id] = form;
-    return state;
-};
-
-type PayloadInfoT = {
-    id: string;
-    field: string;
-    prop: string;
-    value: string;
-};
-
-type PayloadFieldT = {
-    id: string;
-    field: InputState & { fieldName: string };
-};
+import { PayloadField, PayloadInfo } from '../../types/typesPayload';
+import { getInitialState, initForm } from './utils/initPassengersSlice';
+import type { RootState } from '../store';
 
 export const passengersSlice = createSlice({
     name: 'passengers',
@@ -63,11 +18,11 @@ export const passengersSlice = createSlice({
         removeForm: (state, action: PayloadAction<string>) => {
             delete state[action.payload];
         },
-        addField: (state, action: PayloadAction<PayloadFieldT>) => {
+        addField: (state, action: PayloadAction<PayloadField>) => {
             const { id, field } = action.payload;
             state[id][field.fieldName] = field;
         },
-        setInput: (state, action: PayloadAction<PayloadInfoT>) => {
+        setInput: (state, action: PayloadAction<PayloadInfo>) => {
             const { id, field, value } = action.payload;
             state[id][field].value = value;
         },
@@ -77,5 +32,9 @@ export const passengersSlice = createSlice({
 export const {
     initState, addField, addForm, removeForm, setInput,
 } = passengersSlice.actions;
+
+export const selectDoctype = (id: string) => (state: RootState) => {
+    return state.passengers[id].document_type.value;
+};
 
 export default passengersSlice.reducer;

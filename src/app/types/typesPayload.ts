@@ -4,6 +4,7 @@ import { SearchedCities } from './typesSearch';
 import { FormStatusT } from '../redux/slices/searchFormSlice';
 import { ActiveCarT, PlaceT } from './typesSlices';
 import { CarInfoT } from './models/modelSeats';
+import type { InputState } from '../redux/slices/utils/reduxInputUtils';
 
 export type FetchStatusT = 'idle' | 'loading' | 'loaded' | 'failed';
 
@@ -83,6 +84,18 @@ export type PayloadCar = {
 export type PayloadPlace = {
     route: string;
     place: PlaceT;
+};
+
+// passengerTypes
+export type PayloadInfo = {
+    id: string;
+    field: string;
+    value: string;
+};
+
+export type PayloadField = {
+    id: string;
+    field: InputState & { fieldName: string };
 };
 
 export type SetFormStatusT = ActionCreatorWithPayload<FormStatusT>;

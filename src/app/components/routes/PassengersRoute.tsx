@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import TripDetailsDirs from '../lib/Aside/TripDetails/TripDetailsDirs';
 import PassengerForm from '../lib/Passengers/PassengerForm';
 import PassengersAdd from '../lib/Passengers/PassengersAdd';
@@ -10,20 +10,24 @@ import { initState } from '../../redux/slices/passengersSlice';
 
 export default function PassengersRoute() {
     const dispatch = useAppDispatch();
-    const lengthArr = useAppSelector(selectPlacesLengthArr);
-    console.log(lengthArr);
+    const placesAmount = useAppSelector(selectPlacesLengthArr);
     const formsData = useAppSelector((state) => state.passengers);
     console.log(formsData);
-    const forms = Object.entries(formsData).map(([id, form], index) => (
-        <PassengerForm
-            key={id} index={index}
-            form={form}
-        />
-    ));
 
-    useEffect(() => {
-        dispatch(initState());
-    }, []);
+    const formsLength = Object.keys(formsData).length;
+    const forms = useMemo(
+        () => Object.keys(formsData).map((id, index) => (
+            <PassengerForm
+                key={id} index={index}
+                id={id}
+            />
+        )),
+        [formsLength],
+    );
+
+    // useEffect(() => {
+    //     dispatch(initState());
+    // }, []);
 
     return (
         <main className='main main-central framed'>

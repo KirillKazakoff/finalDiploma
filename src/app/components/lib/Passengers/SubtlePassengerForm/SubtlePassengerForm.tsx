@@ -6,7 +6,7 @@ type Props = { children: React.ReactNode; index: number };
 
 export default function SubtlePassengersForm(props: Props) {
     const { children, index } = props;
-    const [isActive, setActive] = useState(false);
+    const [isActive, setActive] = useState(true);
     const onClick = () => setActive(!isActive);
 
     return (
