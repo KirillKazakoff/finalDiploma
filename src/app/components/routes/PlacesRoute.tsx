@@ -8,7 +8,6 @@ import PlacesNextSection from '../lib/Places/PlacesNextSection';
 
 export default function PlacesRoute() {
     const ticket = useAppSelector(selectActiveTicket);
-    console.log(ticket);
     if (!ticket) return null;
     const { departure, arrival } = ticket.ticketRoute;
     const [departureSeats, arrivalSeats] = ticket.trainsInfo;

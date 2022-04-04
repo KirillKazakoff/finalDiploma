@@ -1,16 +1,18 @@
+import { createSelector } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 
-export const selectPlacesLength = (state: RootState) => {
-    const { arrival, departure } = state.places.routes;
-    return arrival.places.length + departure.places.length;
-};
+const selectRoutes = (state: RootState) => state.places.routes;
 
-export const selectPlacesLengthArr = (state: RootState) => {
-    const length = selectPlacesLength(state);
+export const selectPlacesLength = createSelector([selectRoutes], (routes) => {
+    const { arrival, departure } = routes;
+    return arrival.places.length + departure.places.length;
+});
+
+export const selectPlacesLengthArr = createSelector([selectPlacesLength], (length) => {
     const lengthArr = [];
     for (let i = 0; i < length; i += 1) {
         lengthArr.push(i);
     }
 
     return lengthArr;
-};
+});

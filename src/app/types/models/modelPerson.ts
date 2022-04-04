@@ -29,8 +29,9 @@ export type PassengerT = {
     include_children_seat: boolean;
 };
 
-export type PassengerState = {
-    id: string;
+export type PassengerFormT = {
+    [key: string]: InputState;
+
     is_adult: InputState;
     last_name: InputState;
     first_name: InputState;
@@ -39,5 +40,6 @@ export type PassengerState = {
     birthday: InputState;
     is_impaired: InputState;
     document_type: InputState;
-    document_data: InputState[];
+    document_seriya: InputState;
+    document_number: InputState;
 };

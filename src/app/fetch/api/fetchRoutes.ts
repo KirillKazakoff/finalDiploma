@@ -69,7 +69,6 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
             ticketRoute: item,
         };
         ticketsInfo.push(ticketInfo);
-        console.log(trainsInfo);
     }
 
     const tickets = {
