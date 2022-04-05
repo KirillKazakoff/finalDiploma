@@ -39,7 +39,7 @@ export default function SearchWay({ cls = '' }: SearchSectionProps) {
             dispatch(setCities({ cities: [], inputName }));
         } else {
             dispatch(setWayStatus({ inputName, status: 'loading' }));
-            delay(() => dispatch(fetchCities(inputName, value, aborter.signal)));
+            delay(() => dispatch(fetchCities(inputName, value.toLowerCase(), aborter.signal)));
         }
 
         onChangeDispatch(e);

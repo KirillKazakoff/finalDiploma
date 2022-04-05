@@ -25,23 +25,33 @@ export const initialInput: InputState = {
 
 export const inputReducers = {
     setInput: (state: any, action: PayloadAction<InputDefaultT>) => {
-        const { name, value } = action.payload;
-        state[name].value = value.toLowerCase();
+        const { name, value, id } = action.payload;
+
+        if (id) state[id][name].value = value;
+        else state[name].value = value;
     },
     setError: (state: any, action: PayloadAction<PayloadError>) => {
-        const { name, error } = action.payload;
-        state[name].error = error;
+        const { name, error, id } = action.payload;
+
+        if (id) state[id][name].error = error;
+        else state[name].error = error;
     },
     setFormError: (state: any, action: PayloadAction<PayloadFormError>) => {
-        const { name, formError } = action.payload;
-        state[name].formError = formError;
+        const { name, formError, id } = action.payload;
+
+        if (id) state[id][name].formError = formError;
+        else state[name].formError = formError;
     },
     setActive: (state: any, action: PayloadAction<PayloadFocus>) => {
-        const { name, isActive } = action.payload;
-        state[name].isActive = isActive;
+        const { name, isActive, id } = action.payload;
+
+        if (id) state[id][name].isActive = isActive;
+        else state[name].isActive = isActive;
     },
     setBlured: (state: any, action: PayloadAction<PayloadFocus>) => {
-        const { name, wasFocused } = action.payload;
-        state[name].wasFocused = wasFocused;
+        const { name, wasFocused, id } = action.payload;
+
+        if (id) state[id][name].wasFocused = wasFocused;
+        else state[name].wasFocused = wasFocused;
     },
 };

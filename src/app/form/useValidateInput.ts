@@ -2,7 +2,7 @@ import { useAppDispatch } from '../redux/reduxHooks';
 import inputMessages from '../components/lib/Search/messages';
 import { SetErrorT } from '../types/typesPayload';
 
-const useValidateInput = (setError: SetErrorT) => {
+const useValidateInput = (setError: SetErrorT, formId?: string) => {
     const dispatch = useAppDispatch();
 
     return (input: HTMLInputElement) => {
@@ -12,7 +12,7 @@ const useValidateInput = (setError: SetErrorT) => {
         };
 
         if (validity.valid) {
-            dispatch(setError({ name: input.name, error: '' }));
+            dispatch(setError({ name: input.name, error: '', id: formId }));
             return;
         }
 
@@ -26,8 +26,9 @@ const useValidateInput = (setError: SetErrorT) => {
 
         if (error === 'customError') error = input.validationMessage;
         const errMsg = inputMessages[input.name][error as string];
+        const state = { name: input.name, error: errMsg as string, id: formId };
 
-        dispatch(setError({ name: input.name, error: errMsg as string }));
+        dispatch(setError(state));
     };
 };
 

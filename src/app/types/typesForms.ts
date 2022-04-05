@@ -7,6 +7,7 @@ import { FormStatusT } from '../redux/slices/searchFormSlice';
 export type InputDefaultT = {
     name: string;
     value: string;
+    id?: string;
 };
 
 export type DynamicInputDefaultT = { id: string } & InputDefaultT;
@@ -18,12 +19,14 @@ export type OnFocusT = (e: React.FocusEvent<HTMLInputElement>) => void;
 export type InputRefT = React.RefObject<HTMLInputElement>;
 
 export type UseChangeT = (
-    changeInput: ActionCreatorWithPayload<InputDefaultT>
+    changeInput: ActionCreatorWithPayload<InputDefaultT>,
+    formId?: string
 ) => OnChangeT;
 
 export type UseSelectT = (
     setActive: ActionCreatorWithPayload<PayloadFocus>,
-    setBlured: ActionCreatorWithPayload<PayloadFocus>
+    setBlured: ActionCreatorWithPayload<PayloadFocus>,
+    formId?: string
 ) => {
     onFocus: OnFocusT;
     onBlur: OnFocusT;

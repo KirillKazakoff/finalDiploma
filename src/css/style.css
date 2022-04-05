@@ -243,6 +243,7 @@ body {
     display: flex;
     align-items: center;
     padding-right: 20px;
+    padding-left: 15px;
     background: #ffffff;
     border-radius: 3px;
     flex: 1;
@@ -297,6 +298,7 @@ body {
 }
 
 .feedback {
+    font-size: 16px;
     padding: 5px;
     border-radius: 5px;
     position: absolute;
@@ -1884,12 +1886,26 @@ body {
 }
 
 .passenger-form-col {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 31%;
 }
 
+/* 
+.input-wrapper {
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 15px;
+    background: #ffffff;
+    border-radius: 3px;
+    flex: 1;
+} */
+
 .passenger-input-wrapper {
+    position: relative;
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;

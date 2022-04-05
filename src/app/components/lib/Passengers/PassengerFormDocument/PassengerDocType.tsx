@@ -16,7 +16,7 @@ export default function PassengerDocType({ id }: Props) {
     const onClick = (value: string) => () => {
         const dispatchObj = {
             id,
-            field: 'document_type',
+            name: 'document_type',
             value,
         };
 

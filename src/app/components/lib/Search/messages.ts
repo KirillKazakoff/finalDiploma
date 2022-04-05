@@ -41,6 +41,18 @@ const inputMessages: InputMessages = {
         valueMissing: 'Введите почту',
         typeMismatch: 'Введите правильно свою почту',
     },
+    last_name: {
+        valueMissing: 'Введите фамилию',
+        patternMismatch: 'Введите без знаков препинания, кириллицей',
+    },
+    first_name: {
+        valueMissing: 'Введите имя',
+        patternMismatch: 'Введите без знаков препинания, кириллицей',
+    },
+    patronymic: {
+        valueMissing: 'Введите отчество',
+        patternMismatch: 'Введите без знаков препинания, кириллицей',
+    },
 };
 
 export const searchMessages = {

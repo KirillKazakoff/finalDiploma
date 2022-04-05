@@ -4,15 +4,17 @@ import { initialInput } from './reduxInputUtils';
 
 export const initForm = () => {
     const form = {
-        is_adult: { ...initialInput },
-        last_name: { ...initialInput },
-        first_name: { ...initialInput },
-        patronymic: { ...initialInput },
-        gender: { ...initialInput },
-        birthday: { ...initialInput },
-        is_impaired: { ...initialInput },
+        fields: {
+            is_adult: { ...initialInput },
+            last_name: { ...initialInput },
+            first_name: { ...initialInput },
+            patronymic: { ...initialInput },
+            gender: { ...initialInput },
+            birthday: { ...initialInput },
+            is_impaired: { ...initialInput },
 
-        document_type: { ...initialInput },
+            document_type: { ...initialInput },
+        },
     };
 
     form.document_type.value = 'Паспорт РФ';

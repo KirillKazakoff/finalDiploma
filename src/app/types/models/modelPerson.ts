@@ -1,3 +1,4 @@
+import { FormStatusT } from '../../redux/slices/searchFormSlice';
 import { InputState } from '../../redux/slices/utils/reduxInputUtils';
 
 export type FullNameT = {
@@ -30,14 +31,18 @@ export type PassengerT = {
 };
 
 export type PassengerFormT = {
-    [key: string]: InputState;
+    fields: {
+        [key: string]: InputState;
 
-    is_adult: InputState;
-    last_name: InputState;
-    first_name: InputState;
-    patronymic: InputState;
-    gender: InputState;
-    birthday: InputState;
-    is_impaired: InputState;
-    document_type: InputState;
+        is_adult: InputState;
+        last_name: InputState;
+        first_name: InputState;
+        patronymic: InputState;
+        gender: InputState;
+        birthday: InputState;
+        is_impaired: InputState;
+        document_type: InputState;
+    };
+    isMsgHidden: boolean;
+    statusValidity: FormStatusT;
 };

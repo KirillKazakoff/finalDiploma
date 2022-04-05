@@ -12,21 +12,20 @@ export default function PassengersRoute() {
     const dispatch = useAppDispatch();
     const placesAmount = useAppSelector(selectPlacesLengthArr);
     const formsData = useAppSelector((state) => state.passengers);
-    console.log(formsData);
 
     const formsLength = Object.keys(formsData).length;
-    const forms = useMemo(
-        () => Object.keys(formsData).map((id, index) => (
+    const forms = useMemo(() => {
+        console.log(formsData);
+        return Object.keys(formsData).map((id, index) => (
             <PassengerForm
                 key={id} index={index}
-                id={id}
+                id={id} form={formsData[id]}
             />
-        )),
-        [formsLength],
-    );
+        ));
+    }, [formsLength]);
 
     // useEffect(() => {
-    //     dispatch(initState());
+    //     console.log('hello');
     // }, []);
 
     return (

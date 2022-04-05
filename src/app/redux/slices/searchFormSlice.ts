@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { PayloadFormMsg } from '../../types/typesPayload';
 import type { RootState } from '../store';
 
 export type FormStatusT = 'error' | 'success' | 'idle';
@@ -21,8 +22,8 @@ export const searchFormSlice = createSlice({
         setFormStatus: (state, action: PayloadAction<FormStatusT>) => {
             state.statusValidity = action.payload;
         },
-        setFormMsgHidden: (state, action: PayloadAction<boolean>) => {
-            state.isMsgHidden = action.payload;
+        setFormMsgHidden: (state, action: PayloadAction<PayloadFormMsg>) => {
+            state.isMsgHidden = action.payload.isHidden;
         },
     },
 });

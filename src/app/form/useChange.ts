@@ -1,7 +1,7 @@
 import { UseChangeT } from '../types/typesForms';
 import { useAppDispatch } from '../redux/reduxHooks';
 
-const useChange: UseChangeT = (changeInput) => {
+const useChange: UseChangeT = (changeInput, formId?: string) => {
     const dispatch = useAppDispatch();
 
     return (e) => {
@@ -9,6 +9,7 @@ const useChange: UseChangeT = (changeInput) => {
         const changedInput = {
             name,
             value,
+            id: formId,
         };
 
         dispatch(changeInput(changedInput));

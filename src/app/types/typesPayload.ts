@@ -12,16 +12,24 @@ export type PayloadFocus = {
     name: string;
     isActive: boolean;
     wasFocused?: boolean;
+    id?: string;
 };
 
 export type PayloadError = {
     name: string;
     error: string;
+    id?: string;
 };
 
 export type PayloadFormError = {
     name: string;
     formError: string;
+    id?: string;
+};
+
+export type PayloadFormMsg = {
+    isHidden: boolean;
+    id?: string;
 };
 
 // wayTypes
@@ -87,20 +95,22 @@ export type PayloadPlace = {
 };
 
 // passengerTypes
-export type PayloadInfo = {
+type PayloadWithId = {
     id: string;
-    field: string;
-    value: string;
+    name: string;
 };
+
+export type PayloadIdValue = { value: string } & PayloadWithId;
+export type PayloadIdError = { error: string } & PayloadWithId;
 
 export type PayloadField = {
     id: string;
-    field: InputState & { fieldName: string };
+    field: InputState & { name: string };
 };
 
 export type SetFormStatusT = ActionCreatorWithPayload<FormStatusT>;
 export type SetStatusT = ActionCreatorWithPayload<FetchStatusT>;
 export type SetErrorT = ActionCreatorWithPayload<PayloadError>;
 export type SetFormErrorT = ActionCreatorWithPayload<PayloadFormError>;
-export type SetFormMsgHiddenT = ActionCreatorWithPayload<boolean>;
+export type SetFormMsgHiddenT = ActionCreatorWithPayload<PayloadFormMsg>;
 export type SetSliderFilterT = ActionCreatorWithPayload<PayloadSliderFilter>;
