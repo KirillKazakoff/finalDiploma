@@ -49,6 +49,7 @@ export type FormFeedbackPropsT = {
     children: React.ReactNode;
     isMsgHidden: boolean;
     formId?: string;
+    cls?: string;
 };
 
 export type FormFeedbackT = { children: React.ReactNode; isMsgHidden: boolean };

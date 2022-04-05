@@ -18,7 +18,7 @@ export default function PassengerFormFeedback(props: Props) {
     const { success } = searchMessages;
 
     return (
-        <section className='passenger-form-section framed-passenger-section passenger-next'>
+        <section className='passenger-form-section'>
             <FormFeedback
                 formId={id}
                 msg={success}
@@ -26,6 +26,7 @@ export default function PassengerFormFeedback(props: Props) {
                 setFormStatus={setFormStatus}
                 setFormMsgHidden={setFormMsgHidden}
                 isMsgHidden={form.isMsgHidden}
+                cls='passenger-next'
             >
                 {children}
             </FormFeedback>

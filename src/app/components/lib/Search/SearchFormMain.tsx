@@ -6,8 +6,10 @@ import SearchForm from './SearchForm';
 export default function SearchFormMain() {
     return (
         <SearchForm cls='main'>
-            <SearchWay />
-            <SearchDate />
+            <div className='search-form-rows search-form-rows-main'>
+                <SearchWay />
+                <SearchDate />
+            </div>
         </SearchForm>
     );
 }

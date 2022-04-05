@@ -14,6 +14,7 @@ export default function FormFeedback(props: FormFeedbackPropsT) {
         setFormStatus,
         formId,
         setFormMsgHidden,
+        cls,
     } = props;
     let feedback = msg;
 
@@ -24,13 +25,13 @@ export default function FormFeedback(props: FormFeedbackPropsT) {
     }
 
     const status = feedback === 'Успех' ? 'success' : 'error';
-    const className = `form-feedback form-feedback-${status}`;
+    const className = `${cls} form-feedback form-feedback-${status}`;
 
     useEffect(() => {
         dispatch(setFormStatus({ status, id: formId }));
     }, [status]);
 
-    if (isMsgHidden) return <div className='form-feedback'>{children}</div>;
+    if (isMsgHidden) return <div className={`${cls} form-feedback`}>{children}</div>;
 
     const onClickCollapse = () => {
         dispatch(setFormMsgHidden({ isHidden: true, id: formId }));
@@ -43,3 +44,7 @@ export default function FormFeedback(props: FormFeedbackPropsT) {
         </div>
     );
 }
+
+FormFeedback.defaultProps = {
+    cls: '',
+};
