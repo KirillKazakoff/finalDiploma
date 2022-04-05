@@ -15,17 +15,16 @@ export default function PassengersRoute() {
 
     const formsLength = Object.keys(formsData).length;
     const forms = useMemo(() => {
-        console.log(formsData);
         return Object.keys(formsData).map((id, index) => (
             <PassengerForm
                 key={id} index={index}
-                id={id} form={formsData[id]}
+                id={id}
             />
         ));
     }, [formsLength]);
 
     // useEffect(() => {
-    //     console.log('hello');
+    //     dispatch(initState());
     // }, []);
 
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import FormFeedback from '../Common/FormFeedback';
-import { setFormStatus } from '../../../redux/slices/searchFormSlice';
+import { setFormMsgHidden, setFormStatus } from '../../../redux/slices/searchFormSlice';
 import { searchMessages } from './messages';
 import useValidateSame from './useValidateSame';
 import useValidateCompare from './useValidateCompare';
@@ -36,6 +36,7 @@ export default function SearchFormFeedback(props: SearchFormFeedbackT) {
             errors={errors}
             isMsgHidden={isMsgHidden}
             setFormStatus={setFormStatus}
+            setFormMsgHidden={setFormMsgHidden}
         >
             {children}
         </FormFeedback>

@@ -7,7 +7,7 @@ type Props = { id: string };
 
 export default function PassengerFormAge({ id }: Props) {
     const dispatch = useAppDispatch();
-    const ageState = useAppSelector((state) => state.passengers[id].is_adult);
+    const ageState = useAppSelector((state) => state.passengers[id].fields.is_adult);
 
     const onClick = (value: string) => () => {
         const dispatchObj = {

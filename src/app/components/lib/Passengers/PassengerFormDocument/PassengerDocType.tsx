@@ -11,7 +11,7 @@ type Props = { id: string };
 
 export default function PassengerDocType({ id }: Props) {
     const dispatch = useAppDispatch();
-    const docType = useAppSelector((state) => state.passengers[id].document_type);
+    const docType = useAppSelector((state) => state.passengers[id].fields.document_type);
 
     const onClick = (value: string) => () => {
         const dispatchObj = {

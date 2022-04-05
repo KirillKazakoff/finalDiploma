@@ -1,22 +1,15 @@
 import React from 'react';
 import SvgCrossMark from '../Svg/Actions/SvgCrossMark';
-import { useAppDispatch } from '../../../redux/reduxHooks';
-import { setFormMsgHidden } from '../../../redux/slices/searchFormSlice';
 import SvgTick from '../Svg/Actions/SvgTick';
 
-type Props = { status: string };
+type Props = { status: string; onClick: () => void };
 
-export default function FormFeedbackCollapse({ status }: Props) {
-    const dispatch = useAppDispatch();
-    const onClick = () => {
-        dispatch(setFormMsgHidden(true));
-    };
-
+export default function FormFeedbackCollapse({ status, onClick }: Props) {
     const getIcon = () => {
         if (status === 'error') {
-            return <SvgCrossMark filter='filter-error' height={16} />;
+            return <SvgCrossMark className='filter-error' height={16} />;
         }
-        return <SvgTick filter='filter-success' height={18} />;
+        return <SvgTick className='filter-success' height={18} />;
     };
 
     return (

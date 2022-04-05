@@ -32,6 +32,11 @@ export type PayloadFormMsg = {
     id?: string;
 };
 
+export type PayloadFormStatus = {
+    status: FormStatusT;
+    id?: string;
+};
+
 // wayTypes
 export type PayloadSetCities = SearchedCities & { inputName: string };
 
@@ -108,7 +113,7 @@ export type PayloadField = {
     field: InputState & { name: string };
 };
 
-export type SetFormStatusT = ActionCreatorWithPayload<FormStatusT>;
+export type SetFormStatusT = ActionCreatorWithPayload<PayloadFormStatus>;
 export type SetStatusT = ActionCreatorWithPayload<FetchStatusT>;
 export type SetErrorT = ActionCreatorWithPayload<PayloadError>;
 export type SetFormErrorT = ActionCreatorWithPayload<PayloadFormError>;

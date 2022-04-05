@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import { PassengersStateT } from '../../../types/typesSlices';
 import { initialInput } from './reduxInputUtils';
+import { FormStatusT } from '../searchFormSlice';
 
 export const initForm = () => {
     const form = {
@@ -15,10 +16,12 @@ export const initForm = () => {
 
             document_type: { ...initialInput },
         },
+        isMsgHidden: true,
+        statusValidity: 'idle' as FormStatusT,
     };
 
-    form.document_type.value = 'Паспорт РФ';
-    form.is_adult.value = 'Взрослый';
+    form.fields.document_type.value = 'Паспорт РФ';
+    form.fields.is_adult.value = 'Взрослый';
 
     return form;
 };

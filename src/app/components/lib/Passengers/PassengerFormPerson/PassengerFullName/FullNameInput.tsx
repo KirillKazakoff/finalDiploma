@@ -19,7 +19,7 @@ export default function FullNameInput(props: Props) {
     const {
         value, formError, error, wasFocused,
     } = useAppSelector(
-        (state) => state.passengers[id][name],
+        (state) => state.passengers[id].fields[name],
     );
 
     const onChange = useChange(setInput, id);

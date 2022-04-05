@@ -1,16 +1,18 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
-import { PayloadField, PayloadIdValue } from '../../types/typesPayload';
+import { PayloadField } from '../../types/typesPayload';
 import { getInitialState, initForm } from './utils/initPassengersSlice';
 import type { RootState } from '../store';
 import { inputReducers } from './utils/reduxInputUtils';
+import { formReducers } from './utils/reduxFormUtils';
 
 export const passengersSlice = createSlice({
     name: 'passengers',
     initialState: getInitialState(),
     reducers: {
         ...inputReducers,
+        ...formReducers,
         initState: () => getInitialState(),
         addForm: (state) => {
             const id = nanoid();
@@ -22,7 +24,7 @@ export const passengersSlice = createSlice({
         },
         addField: (state, action: PayloadAction<PayloadField>) => {
             const { id, field } = action.payload;
-            state[id][field.name] = field;
+            state[id].fields[field.name] = field;
         },
     },
 });
@@ -37,10 +39,12 @@ export const {
     setBlured,
     setError,
     setFormError,
+    setFormMsgHidden,
+    setFormStatus,
 } = passengersSlice.actions;
 
 export const selectDoctype = (id: string) => (state: RootState) => {
-    return state.passengers[id].document_type.value;
+    return state.passengers[id].fields.document_type.value;
 };
 
 export default passengersSlice.reducer;
