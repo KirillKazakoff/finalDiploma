@@ -13,6 +13,7 @@ export const initForm = () => {
             gender: { ...initialInput },
             birthday: { ...initialInput },
             is_impaired: { ...initialInput },
+            include_children_seat: { ...initialInput },
 
             document_type: { ...initialInput },
             document_number: { ...initialInput },

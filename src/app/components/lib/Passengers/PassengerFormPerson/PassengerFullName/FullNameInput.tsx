@@ -24,6 +24,7 @@ export default function FullNameInput(props: Props) {
                 id={id}
                 parrentRef={ref}
                 state={inputState}
+                pattern='^[а-я А-Я]+$'
                 required
             />
         </div>

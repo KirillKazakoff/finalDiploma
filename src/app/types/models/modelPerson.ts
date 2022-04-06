@@ -41,6 +41,7 @@ export type PassengerFormT = {
         gender: InputState;
         birthday: InputState;
         is_impaired: InputState;
+        include_children_seat: InputState;
 
         document_type: InputState;
         document_number: InputState;

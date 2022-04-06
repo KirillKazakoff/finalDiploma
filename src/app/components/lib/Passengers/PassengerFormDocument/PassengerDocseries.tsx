@@ -33,7 +33,10 @@ export default function PassengerDocseries({ id }: IdProp) {
                 placeholder={`${symbols} символа`}
                 className='input input-number input-passport'
             />
-            <PlaceholderUnderscores cls='passport' amount={symbols} />
+            <PlaceholderUnderscores
+                cls='passport' amount={symbols}
+                state={inputState}
+            />
         </div>
     );
 }

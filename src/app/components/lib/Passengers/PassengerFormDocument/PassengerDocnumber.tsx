@@ -38,7 +38,11 @@ export default function PassengerDocnumber({ doctype, id }: Props) {
                 parrentRef={ref}
                 className={`input input-number input-${clsType}`}
             />
-            <PlaceholderUnderscores cls={clsType} amount={symbols} />
+
+            <PlaceholderUnderscores
+                cls={clsType} amount={symbols}
+                state={inputState}
+            />
         </div>
     );
 }

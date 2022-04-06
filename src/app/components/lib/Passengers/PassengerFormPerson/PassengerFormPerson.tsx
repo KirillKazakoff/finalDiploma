@@ -2,7 +2,7 @@
 import React from 'react';
 import PassengerFormAge from './PassengerFormAge';
 import PassengerFormFullName from './PassengerFullName/PassengerFullName';
-import PassengerFormCheckboxes from './PassengerFormCheckboxes';
+import PassengerFormCheckboxes from './PassengerCheckboxes/PassengerCheckboxes';
 import PassengerBio from './PassengerBio/PassengerBio';
 
 type Props = { id: string };

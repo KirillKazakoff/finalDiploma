@@ -2397,6 +2397,13 @@ body {
 }
 
 /* checkbox */
+.checkbox-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+}
+
 .checkbox {
     display: flex;
     justify-content: center;

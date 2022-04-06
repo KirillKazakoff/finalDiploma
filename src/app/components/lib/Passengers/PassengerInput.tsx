@@ -2,12 +2,18 @@
 import React, { HTMLProps } from 'react';
 import Feedback from '../Common/Feedback';
 import InputWrapper from '../Common/InputWrapper';
-import { setActive, setBlured, setInput } from '../../../redux/slices/passengersSlice';
+import {
+    selectMsgHidden,
+    setActive,
+    setBlured,
+    setInput,
+} from '../../../redux/slices/passengersSlice';
 import { InputState } from '../../../redux/slices/utils/reduxInputUtils';
 import useChange from '../../../form/useChange';
 import useSelect from '../../../form/useSelect';
 import { RefT } from '../../../types/typesReact';
 import { getValidityCls } from '../../../form/getValidityCls';
+import { useAppSelector } from '../../../redux/reduxHooks';
 
 type Props = {
     name: string;
@@ -37,6 +43,7 @@ export default function PassengerInput(props: Props) {
     const onChange = useChange(setInput, id);
     const { onFocus, onBlur } = useSelect(setActive, setBlured, id);
     const validityCls = getValidityCls(state);
+    const isFormMsgHidden = useAppSelector(selectMsgHidden(id));
 
     return (
         <InputWrapper cls={`${wrapperCls} passenger-input-wrapper input-${validityCls}`}>
@@ -55,8 +62,10 @@ export default function PassengerInput(props: Props) {
                 name={name}
             />
             <Feedback
-                error={error} formError={formError}
+                error={error}
+                formError={formError}
                 wasFocused={wasFocused}
+                isFormMsgHidden={isFormMsgHidden}
             />
         </InputWrapper>
     );

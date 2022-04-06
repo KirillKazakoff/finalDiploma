@@ -43,15 +43,15 @@ const inputMessages: InputMessages = {
     },
     last_name: {
         valueMissing: 'Введите фамилию',
-        patternMismatch: 'Введите без знаков препинания, кириллицей',
+        patternMismatch: 'Введите кириллицей',
     },
     first_name: {
         valueMissing: 'Введите имя',
-        patternMismatch: 'Введите без знаков препинания, кириллицей',
+        patternMismatch: 'Введите кириллицей',
     },
     patronymic: {
         valueMissing: 'Введите отчество',
-        patternMismatch: 'Введите без знаков препинания, кириллицей',
+        patternMismatch: 'Введите кириллицей',
     },
     birthday: {
         valueMissing: 'Введите дату',
@@ -67,7 +67,7 @@ const inputMessages: InputMessages = {
     },
     document_series: {
         valueMissing: 'Введите серию документа',
-        patternMismatch: 'hello',
+        patternMismatch: 'Поле должно содержать 4 цифры',
     },
 };
 
