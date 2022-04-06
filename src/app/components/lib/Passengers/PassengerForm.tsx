@@ -3,7 +3,7 @@ import React from 'react';
 import SubmitBtn from './PassengerFormCheckBtn';
 import PassengerFormDocument from './PassengerFormDocument/PassengerFormDocument';
 import PassengerFormFeedback from './PassengerFormFeedback';
-import PassengerFormPerson from './PassengerFormPerson';
+import PassengerFormPerson from './PassengerFormPerson/PassengerFormPerson';
 import SubtleForm from './SubtlePassengerForm/SubtlePassengerForm';
 
 type Props = { id: string; index: number };
