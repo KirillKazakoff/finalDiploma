@@ -29,9 +29,9 @@ export default function PassengersRoute() {
 
     return (
         <main className='main main-central framed'>
-            <aside className='aside-central'>
+            {/* <aside className='aside-central'>
                 <TripDetailsDirs />
-            </aside>
+            </aside> */}
 
             <section className='content-central'>
                 <div className='passengers'>

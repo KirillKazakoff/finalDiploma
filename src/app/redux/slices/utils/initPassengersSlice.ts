@@ -15,6 +15,8 @@ export const initForm = () => {
             is_impaired: { ...initialInput },
 
             document_type: { ...initialInput },
+            document_number: { ...initialInput },
+            document_series: { ...initialInput },
         },
         isMsgHidden: true,
         statusValidity: 'idle' as FormStatusT,
@@ -22,6 +24,7 @@ export const initForm = () => {
 
     form.fields.document_type.value = 'Паспорт РФ';
     form.fields.is_adult.value = 'Взрослый';
+    form.fields.gender.error = 'Укажите пол';
 
     return form;
 };

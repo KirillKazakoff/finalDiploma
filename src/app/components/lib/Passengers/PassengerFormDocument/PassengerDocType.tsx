@@ -1,26 +1,21 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { useAppSelector, useAppDispatch } from '../../../../redux/reduxHooks';
-import { setInput } from '../../../../redux/slices/passengersSlice';
+import { refreshDoctype } from '../../../../redux/slices/passengersSlice';
 import FormSelect from '../../Common/FormSelect';
 import { mapDocClass } from './mapDocClasses';
+import { useSetInput } from '../useSetInput';
 
 type Props = { id: string };
 
 export default function PassengerDocType({ id }: Props) {
     const dispatch = useAppDispatch();
+    const name = 'document_type';
     const docType = useAppSelector((state) => state.passengers[id].fields.document_type);
 
+    const setInput = useSetInput(id, name);
     const onClick = (value: string) => () => {
-        const dispatchObj = {
-            id,
-            name: 'document_type',
-            value,
-        };
-
-        dispatch(setInput(dispatchObj));
+        setInput(value);
+        dispatch(refreshDoctype(id));
     };
 
     const options = ['Паспорт РФ', 'Свидетельство о рождении'].map((doc) => (

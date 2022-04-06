@@ -313,6 +313,7 @@ body {
 }
 
 .feedback {
+    z-index: 10000;
     font-size: 16px;
     padding: 5px;
     border-radius: 5px;
@@ -1920,18 +1921,15 @@ body {
 } */
 
 .passenger-input-wrapper {
+    min-height: 50px;
     position: relative;
-    display: flex;
     justify-content: space-between;
-    padding: 10px 20px;
     border: 1px solid var(--secondary);
     border-radius: 5px;
     font-size: 24px;
 }
 
 .select-wrapper {
-    display: flex;
-    justify-content: space-between;
     padding: 10px 20px;
     border: 1px solid var(--secondary);
     border-radius: 5px;
@@ -1939,11 +1937,11 @@ body {
 }
 
 /* select-age-category */
-.age-selected-option {
+.selected-option-age {
     font-size: 24px;
 }
 
-.age-option {
+.option-age {
     font-size: 24px;
     padding: 15px;
     border-bottom: 1px solid var(--secondary-lighter);

@@ -1,23 +1,16 @@
 import React from 'react';
-import { useAppDispatch, useAppSelector } from '../../../../redux/reduxHooks';
-import { setInput } from '../../../../redux/slices/passengersSlice';
+import { useAppSelector } from '../../../../redux/reduxHooks';
 import FormSelect from '../../Common/FormSelect';
+import { useSetInput } from '../useSetInput';
 
 type Props = { id: string };
 
 export default function PassengerFormAge({ id }: Props) {
-    const dispatch = useAppDispatch();
+    const name = 'is_adult';
     const ageState = useAppSelector((state) => state.passengers[id].fields.is_adult);
+    const setInput = useSetInput(id, name);
 
-    const onClick = (value: string) => () => {
-        const dispatchObj = {
-            id,
-            name: 'is_adult',
-            value,
-        };
-
-        dispatch(setInput(dispatchObj));
-    };
+    const onClick = (value: string) => () => setInput(value);
 
     const options = ['Взрослый', 'Детский'].map((age) => (
         <li

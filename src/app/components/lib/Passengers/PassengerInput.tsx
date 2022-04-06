@@ -1,54 +1,57 @@
-import React, { useRef, useEffect, HTMLProps } from 'react';
+/* eslint-disable react/default-props-match-prop-types */
+import React, { HTMLProps } from 'react';
 import Feedback from '../Common/Feedback';
 import InputWrapper from '../Common/InputWrapper';
-import {
-    setActive,
-    setBlured,
-    setError,
-    setInput,
-} from '../../../redux/slices/passengersSlice';
+import { setActive, setBlured, setInput } from '../../../redux/slices/passengersSlice';
 import { InputState } from '../../../redux/slices/utils/reduxInputUtils';
 import useChange from '../../../form/useChange';
 import useSelect from '../../../form/useSelect';
-import useValidateInput from '../../../form/useValidateInput';
+import { RefT } from '../../../types/typesReact';
+import { getValidityCls } from '../../../form/getValidityCls';
 
 type Props = {
     name: string;
     id: string;
     state: InputState;
+    parrentRef: RefT<HTMLInputElement>;
+    wrapperCls?: string;
 } & HTMLProps<HTMLInputElement>;
 
 export default function PassengerInput(props: Props) {
-    const ref = useRef<HTMLInputElement>(null);
     const {
-        state, name, id, required,
+        state,
+        name,
+        id,
+        required,
+        pattern,
+        parrentRef,
+        className,
+        placeholder,
+        wrapperCls,
     } = props;
+
     const {
         value, formError, error, wasFocused,
     } = state;
 
     const onChange = useChange(setInput, id);
     const { onFocus, onBlur } = useSelect(setActive, setBlured, id);
-    const validate = useValidateInput(setError, id);
-
-    useEffect(() => {
-        if (!ref.current) return;
-        const input = ref.current;
-
-        validate(input);
-    }, [value]);
+    const validityCls = getValidityCls(state);
 
     return (
-        <InputWrapper cls='passenger-input-wrapper'>
+        <InputWrapper cls={`${wrapperCls} passenger-input-wrapper input-${validityCls}`}>
             <input
+                placeholder={placeholder}
+                autoComplete='off'
+                pattern={pattern}
                 required={required}
                 value={value}
-                ref={ref}
+                ref={parrentRef}
                 onChange={onChange}
                 onBlur={onBlur}
                 onFocus={onFocus}
                 id={name}
-                className='input'
+                className={`input ${className}`}
                 name={name}
             />
             <Feedback
@@ -58,3 +61,8 @@ export default function PassengerInput(props: Props) {
         </InputWrapper>
     );
 }
+
+PassengerInput.defaultProps = {
+    className: '',
+    wrapperCls: '',
+};

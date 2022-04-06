@@ -53,6 +53,22 @@ const inputMessages: InputMessages = {
         valueMissing: 'Введите отчество',
         patternMismatch: 'Введите без знаков препинания, кириллицей',
     },
+    birthday: {
+        valueMissing: 'Введите дату',
+        patternMismatch: 'Введите дату в формате ДД/ММ/ГГ цифрами',
+        futureDate: 'Вы пытаетесь ввести будущую дату',
+    },
+    document_number: {
+        valueMissing: 'Введите номер документа',
+        patternMismatch: 'hello',
+        pasport_number: 'Введите 6 цифр',
+        birth_certificate_number:
+            'Поле должно содержать римские цифры (в латинском регистре буквами I, V, X), 2 заглавные буквы русской раскладкой клавиатуры, номер 6 цифр. Пример: ХМЮ 123456. При заполнении номера документа, удостоверяющего личность, символ «№» не указывается.  ',
+    },
+    document_series: {
+        valueMissing: 'Введите серию документа',
+        patternMismatch: 'hello',
+    },
 };
 
 export const searchMessages = {

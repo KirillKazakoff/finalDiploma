@@ -11,11 +11,11 @@ export default function PassengerFormDocument({ id }: Props) {
     const doctype = useAppSelector(selectDoctype(id));
     const fields = doctype === 'Паспорт РФ' ? (
         <>
-            <PassengerDocseries />
-            <PassengerDocnumber doctype={doctype} />
+            <PassengerDocseries id={id} />
+            <PassengerDocnumber doctype={doctype} id={id} />
         </>
     ) : (
-        <PassengerDocnumber doctype={doctype} />
+        <PassengerDocnumber doctype={doctype} id={id} />
     );
 
     return (

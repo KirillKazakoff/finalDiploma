@@ -41,7 +41,10 @@ export type PassengerFormT = {
         gender: InputState;
         birthday: InputState;
         is_impaired: InputState;
+
         document_type: InputState;
+        document_number: InputState;
+        document_series: InputState;
     };
     isMsgHidden: boolean;
     statusValidity: FormStatusT;

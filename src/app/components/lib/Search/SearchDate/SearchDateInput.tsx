@@ -8,7 +8,7 @@ import { useAppSelector } from '../../../../redux/reduxHooks';
 import { SearchDateInputProps } from '../../../../types/typesSearch';
 import Feedback from '../../Common/Feedback';
 
-import useValidateDate from './validateDate';
+import useValidateDate from './useValidateDate';
 import { getValidityCls } from '../../../../form/getValidityCls';
 
 export default function SearchDateInput(props: SearchDateInputProps) {
@@ -43,6 +43,7 @@ export default function SearchDateInput(props: SearchDateInputProps) {
                 />
             ) : null}
             <input
+                pattern='^\d{2}\/\d{2}\/\d{2}$'
                 ref={inputEl}
                 className='input search-input'
                 disabled={disabled}
