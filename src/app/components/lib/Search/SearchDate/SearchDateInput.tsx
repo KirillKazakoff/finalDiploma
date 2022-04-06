@@ -7,8 +7,9 @@ import DatePickerIcon from '../../DatePicker/DatePickerIcon';
 import { useAppSelector } from '../../../../redux/reduxHooks';
 import { SearchDateInputProps } from '../../../../types/typesSearch';
 import Feedback from '../../Common/Feedback';
-import { getValidityCls } from '../SearchWay/getValidityCls';
+
 import useValidateDate from './validateDate';
+import { getValidityCls } from '../../../../form/getValidityCls';
 
 export default function SearchDateInput(props: SearchDateInputProps) {
     const {
