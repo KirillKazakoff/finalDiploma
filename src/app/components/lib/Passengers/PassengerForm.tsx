@@ -4,18 +4,18 @@ import SubmitBtn from './PassengerFormCheckBtn';
 import PassengerFormDocument from './PassengerFormDocument/PassengerFormDocument';
 import PassengerFormFeedback from './PassengerFormFeedback';
 import PassengerFormPerson from './PassengerFormPerson/PassengerFormPerson';
-import SubtleForm from './PassengerFormHeader/SubtlePassengerForm';
+import PassengerSubtledHeader from './PassengerSubtledHeader/PassengerSubtledHeader';
 
 type Props = { id: string; index: number };
 export default function PassengerForm({ id, index }: Props) {
     return (
-        <SubtleForm index={index} id={id}>
+        <PassengerSubtledHeader index={index} id={id}>
             <PassengerFormPerson id={id} />
             <PassengerFormDocument id={id} />
 
             <PassengerFormFeedback id={id}>
                 <SubmitBtn />
             </PassengerFormFeedback>
-        </SubtleForm>
+        </PassengerSubtledHeader>
     );
 }

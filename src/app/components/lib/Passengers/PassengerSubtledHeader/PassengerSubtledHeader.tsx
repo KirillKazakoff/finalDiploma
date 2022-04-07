@@ -9,7 +9,7 @@ import PassengerHeaderDesc from './PassengerHeaderDesc';
 
 type Props = { children: React.ReactNode; index: number; id: string };
 
-export default function SubtlePassengersForm(props: Props) {
+export default function PassengerSubtledHeader(props: Props) {
     const { children, index, id } = props;
     const [isActive, setActive] = useState(true);
     const onClick = () => setActive(!isActive);
@@ -29,7 +29,7 @@ export default function SubtlePassengersForm(props: Props) {
                     id={id} index={index}
                     formStatus={statusValidity}
                 />
-                <PassengerRemoveBtn />
+                <PassengerRemoveBtn id={id} />
             </header>
             {isActive ? children : null}
         </Form>
