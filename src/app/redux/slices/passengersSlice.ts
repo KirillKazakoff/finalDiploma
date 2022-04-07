@@ -1,7 +1,5 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { nanoid } from 'nanoid';
-import { PayloadField } from '../../types/typesPayload';
 import { getInitialState, initForm } from './utils/initPassengersSlice';
 import type { RootState } from '../store';
 import { inputReducers } from './utils/reduxInputUtils';
@@ -14,10 +12,9 @@ export const passengersSlice = createSlice({
         ...inputReducers,
         ...formReducers,
         initState: () => getInitialState(),
-        addForm: (state) => {
-            const id = nanoid();
+        addForm: (state, action: PayloadAction<string>) => {
             const form = initForm();
-            state[id] = form;
+            state[action.payload] = form;
         },
         removeForm: (state, action: PayloadAction<string>) => {
             delete state[action.payload];
@@ -28,16 +25,14 @@ export const passengersSlice = createSlice({
             state[action.payload].fields.document_series.value = '';
             state[action.payload].fields.document_series.wasFocused = false;
         },
-        addField: (state, action: PayloadAction<PayloadField>) => {
-            const { id, field } = action.payload;
-            state[id].fields[field.name] = field;
+        setIsChildForm: (state, action: PayloadAction<string>) => {
+            state[action.payload].isChildForm = true;
         },
     },
 });
 
 export const {
     initState,
-    addField,
     addForm,
     removeForm,
     refreshDoctype,
@@ -46,7 +41,9 @@ export const {
     setBlured,
     setError,
     setFormError,
+    clearField,
     setFormMsgHidden,
+    setIsChildForm,
     setFormStatus,
 } = passengersSlice.actions;
 
@@ -58,6 +55,9 @@ export const selectField = (id: string, name: string) => (state: RootState) => {
 };
 export const selectMsgHidden = (id: string) => (state: RootState) => {
     return state.passengers[id].isMsgHidden;
+};
+export const selectIsChildForm = (id: string) => (state: RootState) => {
+    return state.passengers[id].isChildForm;
 };
 
 export default passengersSlice.reducer;

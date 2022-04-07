@@ -4,7 +4,7 @@ import { refreshDoctype } from '../../../../redux/slices/passengersSlice';
 import FormSelect from '../../Common/FormSelect';
 import { mapDocClass } from './mapDocClasses';
 import { useSetInput } from '../useSetInput';
-import { useGetOptions } from './useGetOptions';
+import { useGetDocOptions } from './useGetDocOptions';
 
 type Props = { id: string };
 
@@ -13,7 +13,7 @@ export default function PassengerDocType({ id }: Props) {
     const dispatch = useAppDispatch();
     const setInput = useSetInput(id, name);
 
-    const getOptions = useGetOptions(id);
+    const getOptions = useGetDocOptions(id);
     const { options, selected } = getOptions();
 
     const onClick = (value: string) => () => {

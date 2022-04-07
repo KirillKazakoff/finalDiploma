@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-type Props = { init: boolean; desc: string; cls?: string; disabled: boolean };
+type Props = { init: boolean; desc: string; cls?: string; disabled?: boolean };
 
 export default function Checkbox(props: Props) {
     const {
@@ -29,4 +29,5 @@ export default function Checkbox(props: Props) {
 
 Checkbox.defaultProps = {
     cls: '',
+    disabled: false,
 };

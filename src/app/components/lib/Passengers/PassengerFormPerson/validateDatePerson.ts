@@ -1,7 +1,9 @@
 import { DateTime } from 'luxon';
 import { getAge } from './PassengerAge/getAge';
 
-export const validateDatePerson = (inputEl: HTMLInputElement, isAdult: string) => {
+type Fn = (inputEl: HTMLInputElement, isAdult: string, isChildForm: boolean) => void;
+
+export const validateDatePerson: Fn = (inputEl, isAdult, isChildForm) => {
     const { value } = inputEl;
 
     const dateTime = DateTime.fromFormat(value, 'dd/LL/yyyy');
@@ -22,6 +24,9 @@ export const validateDatePerson = (inputEl: HTMLInputElement, isAdult: string) =
     }
     if (isAdult === 'Детский') {
         if (age >= 10) customValidity = 'oldAge';
+    }
+    if (isChildForm) {
+        if (age > 5) customValidity = 'noSeatChildOld';
     }
     if (age > 150) {
         customValidity = 'deadAge';

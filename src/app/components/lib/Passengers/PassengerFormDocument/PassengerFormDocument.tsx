@@ -9,6 +9,7 @@ type Props = { id: string };
 
 export default function PassengerFormDocument({ id }: Props) {
     const doctype = useAppSelector(selectDoctype(id));
+    console.log(doctype);
     const fields = doctype === 'Паспорт РФ' ? (
         <>
             <PassengerDocseries id={id} />

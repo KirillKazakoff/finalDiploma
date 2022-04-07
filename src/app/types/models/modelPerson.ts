@@ -49,4 +49,5 @@ export type PassengerFormT = {
     };
     isMsgHidden: boolean;
     statusValidity: FormStatusT;
+    isChildForm: boolean;
 };

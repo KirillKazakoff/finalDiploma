@@ -37,6 +37,11 @@ export type PayloadFormStatus = {
     id?: string;
 };
 
+export type PayloadClear = {
+    name: string;
+    id?: string;
+};
+
 // wayTypes
 export type PayloadSetCities = SearchedCities & { inputName: string };
 

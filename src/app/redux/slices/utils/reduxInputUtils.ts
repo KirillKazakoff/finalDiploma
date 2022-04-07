@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { PayloadAction } from '@reduxjs/toolkit';
 import type {
+    PayloadClear,
     PayloadError,
     PayloadFocus,
     PayloadFormError,
@@ -53,5 +54,11 @@ export const inputReducers = {
 
         if (id) state[id].fields[name].wasFocused = wasFocused;
         else state[name].wasFocused = wasFocused;
+    },
+    clearField: (state: any, action: PayloadAction<PayloadClear>) => {
+        const { name, id } = action.payload;
+
+        if (id) state[id].fields[name] = { ...initialInput };
+        else state[name] = { ...initialInput };
     },
 };

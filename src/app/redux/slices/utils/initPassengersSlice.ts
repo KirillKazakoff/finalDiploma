@@ -19,8 +19,10 @@ export const initForm = () => {
             document_number: { ...initialInput },
             document_series: { ...initialInput },
         },
+
         isMsgHidden: true,
         statusValidity: 'idle' as FormStatusT,
+        isChildForm: false,
     };
 
     form.fields.document_type.value = 'Паспорт РФ';

@@ -4,7 +4,7 @@ import SubmitBtn from './PassengerFormCheckBtn';
 import PassengerFormDocument from './PassengerFormDocument/PassengerFormDocument';
 import PassengerFormFeedback from './PassengerFormFeedback';
 import PassengerFormPerson from './PassengerFormPerson/PassengerFormPerson';
-import SubtleForm from './SubtlePassengerForm/SubtlePassengerForm';
+import SubtleForm from './PassengerFormHeader/SubtlePassengerForm';
 
 type Props = { id: string; index: number };
 export default function PassengerForm({ id, index }: Props) {

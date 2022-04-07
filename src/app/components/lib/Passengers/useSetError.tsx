@@ -1,17 +1,17 @@
 import { useAppDispatch } from '../../../redux/reduxHooks';
 import { setError } from '../../../redux/slices/passengersSlice';
 
-export const useBoxValidate = (id: string, name: string) => {
+export const useSetError = (id: string, name: string) => {
     const dispatch = useAppDispatch();
 
-    const clear = () => {
+    const setErrorHander = (error: string) => {
         const dispatchObj = {
             id,
             name,
-            error: '',
+            error,
         };
 
         dispatch(setError(dispatchObj));
     };
-    return clear;
+    return setErrorHander;
 };

@@ -1,5 +1,5 @@
 export const mapDocnumber = (doctype: string) => {
-    const birthReg = '^[I, V,X, L,C]{1,4}[А-Я]{2}\\d{6}$';
+    const birthReg = '^[I,V,X,L,C,i,v,x,l,c]{1,4}[А-Яа-я]{2}\\d{6}$';
     const passportReg = '^\\d{6}$';
 
     switch (doctype) {

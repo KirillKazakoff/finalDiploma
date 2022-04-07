@@ -9,7 +9,7 @@ import {
 import { IdProp } from '../../../../../types/typesPassengers';
 import Feedback from '../../../Common/Feedback';
 import InputWrapper from '../../../Common/InputWrapper';
-import { useBoxValidate } from '../../useBoxValidate';
+import { useSetError } from '../../useSetError';
 import { useSetInput } from '../../useSetInput';
 
 export default function PassengerBioSex({ id }: IdProp) {
@@ -18,11 +18,11 @@ export default function PassengerBioSex({ id }: IdProp) {
     const boxState = useAppSelector(selectField(id, name));
     const { error, wasFocused, formError } = boxState;
 
-    const clearError = useBoxValidate(id, name);
+    const setError = useSetError(id, name);
     const setInput = useSetInput(id, name);
     const onClick = (value: string) => () => {
         setInput(value);
-        clearError();
+        setError('');
     };
 
     const genders = ['М', 'Ж'].map((value) => {

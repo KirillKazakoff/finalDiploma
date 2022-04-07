@@ -1,24 +1,39 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
-import { useAppSelector } from '../../../../../redux/reduxHooks';
+import { useAppSelector, useAppDispatch } from '../../../../../redux/reduxHooks';
 import { IdProp } from '../../../../../types/typesPassengers';
 import Checkbox from '../../../Common/Checkbox';
 import { useSetInput } from '../../useSetInput';
-import { selectField } from '../../../../../redux/slices/passengersSlice';
+import {
+    addForm,
+    removeForm,
+    selectField,
+    setIsChildForm,
+} from '../../../../../redux/slices/passengersSlice';
 
 export default function PassengerCheckAddChild({ id }: IdProp) {
     const name = 'include_children_seat';
+    const dispatch = useAppDispatch();
     const setInput = useSetInput(id, name);
     const seatState = useAppSelector(selectField(id, name));
     const isAdultState = useAppSelector(selectField(id, 'is_adult'));
 
     const isActive = seatState.value === 'true';
     const disabled = isAdultState.value === 'Детский';
+    const childFormId = `${id}childform`;
 
     const onClick = () => {
         if (disabled) return;
 
-        const value = isActive ? 'false' : 'true';
+        let value;
+        if (isActive) {
+            value = 'false';
+            dispatch(removeForm(childFormId));
+        } else {
+            value = 'true';
+            dispatch(addForm(childFormId));
+            dispatch(setIsChildForm(childFormId));
+        }
         setInput(value);
     };
 

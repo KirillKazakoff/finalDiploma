@@ -4,18 +4,22 @@ import PassengerInput from '../../PassengerInput';
 import { validateDatePerson } from '../validateDatePerson';
 import { useInitInput } from '../../useInitInput';
 import { useAppSelector } from '../../../../../redux/reduxHooks';
-import { selectField } from '../../../../../redux/slices/passengersSlice';
+import {
+    selectField,
+    selectIsChildForm,
+} from '../../../../../redux/slices/passengersSlice';
 
 export default function PassengerBioBirthdate({ id }: IdProp) {
     const name = 'birthday';
     const ageState = useAppSelector(selectField(id, 'is_adult'));
+    const isChildForm = useAppSelector(selectIsChildForm(id));
     const { ref, inputState, validate } = useInitInput(id, name);
 
     useEffect(() => {
         if (!ref.current) return;
         const input = ref.current;
 
-        validateDatePerson(input, ageState.value);
+        validateDatePerson(input, ageState.value, isChildForm);
         validate(input);
     }, [inputState.value, ageState.value]);
 
