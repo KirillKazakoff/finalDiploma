@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 type Props = {
-    children: React.ReactNode;
+    children: React.ReactNode[];
     selected: string;
     cls: string;
 };
@@ -16,11 +16,12 @@ export default function FormSelect(props: Props) {
         <ul className={`options options-${cls}`}>{children}</ul>
     ) : null;
 
+    const disabledCls = children.length > 0 ? '' : 'filter-secondary';
     const onListClick = () => setActive(!isActive);
 
     return (
         <div
-            className={`input-wrapper passenger-input-wrapper select select-${cls}`}
+            className={`input-wrapper passenger-input-wrapper select select-${cls} ${disabledCls}`}
             onClick={onListClick}
         >
             <div className={`selected-option selected-option-${cls}`}>{selected}</div>

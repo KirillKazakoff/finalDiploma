@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import PassengerFormAge from './PassengerFormAge';
+import PassengerFormAge from './PassengerAge/PassengerAge';
 import PassengerFormFullName from './PassengerFullName/PassengerFullName';
 import PassengerFormCheckboxes from './PassengerCheckboxes/PassengerCheckboxes';
 import PassengerBio from './PassengerBio/PassengerBio';

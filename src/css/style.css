@@ -2378,6 +2378,7 @@ body {
 
 /* select-custom */
 .select {
+    background-color: transparent;
     position: relative;
     display: flex;
     align-items: center;
@@ -2385,8 +2386,6 @@ body {
 }
 
 .options {
-    /* unlock display to see options */
-    /* display: none; */
     position: absolute;
     left: -5px;
     right: -5px;
@@ -2402,6 +2401,10 @@ body {
     display: flex;
     justify-content: center;
     column-gap: 20px;
+}
+
+.checkbox-wrapper:disabled {
+    filter: var(--secondary-filter);
 }
 
 .checkbox {

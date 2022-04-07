@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
-type Props = { init: boolean; desc: string; cls?: string };
+type Props = { init: boolean; desc: string; cls?: string; disabled: boolean };
 
-export default function Checkbox({ init, desc, cls }: Props) {
+export default function Checkbox(props: Props) {
+    const {
+        init, desc, cls, disabled,
+    } = props;
     const [isActive, setActive] = useState(init);
     const tickImg = <img src='./svg/actions/tick.svg' alt='tick' />;
 
@@ -13,8 +16,10 @@ export default function Checkbox({ init, desc, cls }: Props) {
 
     return (
         <button
-            className={wrapperCls} onClick={onClick}
+            className={wrapperCls}
+            onClick={onClick}
             type='button'
+            disabled={disabled}
         >
             <span className='checkbox'>{isActive ? tickImg : null}</span>
             <span className='checkbox-desc'>{desc}</span>
