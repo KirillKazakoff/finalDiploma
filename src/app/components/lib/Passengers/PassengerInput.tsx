@@ -14,7 +14,6 @@ import useSelect from '../../../form/useSelect';
 import { RefT } from '../../../types/typesReact';
 import { getValidityCls } from '../../../form/getValidityCls';
 import { useAppSelector } from '../../../redux/reduxHooks';
-import { useSetError } from './useSetError';
 
 type Props = {
     name: string;

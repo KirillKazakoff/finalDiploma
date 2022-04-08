@@ -11,12 +11,14 @@ import subscribeReducer from './slices/subscribeSlice';
 import placesReducer from './slices/placesSlice';
 import { saveToLocalStorage, loadFromLocalStorage } from './storeLoaderUtils';
 import passengerReducer from './slices/passengersSlice';
+import infoReducer from './slices/infoSlice';
 
 const preloadedState = loadFromLocalStorage();
 
 export const store = configureStore({
     reducer: {
         loader: loaderReducer,
+        info: infoReducer,
         subscribe: subscribeReducer,
 
         searchForm: searchFormReducer,

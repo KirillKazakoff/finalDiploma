@@ -24,6 +24,10 @@
     --bg-main-light: #fcdc9d;
     --bg-central: #f7f5f9;
 
+    --success: #b2f6a1;
+    --error: #ffb59e;
+    --info: #fcf9a1;
+
     --btn-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     --btn-shadow-light: 0px 3px 4px rgba(0, 0, 0, 0.15);
 }
@@ -150,11 +154,11 @@ body {
 }
 
 .form-feedback-error {
-    background-color: rgba(255, 181, 158, 1);
+    background-color: var(--error);
 }
 
 .form-feedback-success {
-    background-color: #b2f6a1;
+    background-color: var(--success);
 }
 
 .form-feedback-collapse {
@@ -2933,9 +2937,7 @@ body {
 
 /* buttons */
 .btn {
-    border: 1px solid transparent;
     border-radius: 5px;
-    text-transform: uppercase;
     cursor: pointer;
 }
 
@@ -2960,7 +2962,8 @@ body {
     box-shadow: var(--btn-shadow);
 }
 
-.btn-search-tickets:hover {
+.btn-search-tickets:hover,
+.btn-info:hover {
     background-color: transparent;
     border: 1px solid var(--bg-main);
     color: var(--bg-main);
@@ -3019,6 +3022,7 @@ body {
     padding-right: 20px;
     border: 1px solid #ffffff;
     border-radius: 3px;
+    text-transform: uppercase;
 }
 
 /* buttons-content */
@@ -3032,6 +3036,7 @@ body {
     padding: 15px 20px;
     font-size: 24px;
     z-index: 1;
+    text-transform: uppercase;
 }
 
 .btn-search-tickets-inline {
@@ -3073,6 +3078,7 @@ body {
     margin-top: 100px;
     margin-bottom: 140px;
     background-color: var(--bg-main);
+    text-transform: uppercase;
 }
 
 .btn-next-section:disabled {
@@ -3119,4 +3125,13 @@ body {
 
 .btn-collapse:hover {
     filter: var(--collapse-filter);
+}
+
+/* btn-info */
+.btn-info {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--black);
+    border: 1px solid var(--black);
+    padding: 10px 65px;
 }

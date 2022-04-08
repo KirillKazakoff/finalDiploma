@@ -1,16 +1,13 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import TripDetailsDirs from '../lib/Aside/TripDetails/TripDetailsDirs';
 import PassengerForm from '../lib/Passengers/PassengerForm';
 import PassengersAdd from '../lib/Passengers/PassengersAdd';
 import PassengersNextSection from '../lib/Passengers/PassengersNextSection';
 import { useAppSelector, useAppDispatch } from '../../redux/reduxHooks';
-import { selectPlacesLengthArr } from '../../redux/slices/utils/selectPlacesLength';
-import { initState } from '../../redux/slices/passengersSlice';
+import Form from '../lib/Common/Form';
+import InfoError from '../lib/Common/Info/InfoError';
 
 export default function PassengersRoute() {
-    const dispatch = useAppDispatch();
-    const placesAmount = useAppSelector(selectPlacesLengthArr);
     const formsData = useAppSelector((state) => state.passengers);
 
     const formsLength = Object.keys(formsData).length;
@@ -23,9 +20,9 @@ export default function PassengersRoute() {
         ));
     }, [formsLength]);
 
-    // useEffect(() => {
-    //     dispatch(initState());
-    // }, []);
+    const onSubmit = () => {
+        console.log('hello');
+    };
 
     return (
         <main className='main main-central framed'>
@@ -38,7 +35,9 @@ export default function PassengersRoute() {
                     {forms}
                     <PassengersAdd />
                 </div>
-                <PassengersNextSection />
+                <Form cls='passengers-total-form' onSubmitForm={onSubmit}>
+                    <PassengersNextSection />
+                </Form>
             </section>
         </main>
     );

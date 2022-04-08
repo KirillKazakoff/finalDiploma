@@ -59,5 +59,8 @@ export const selectMsgHidden = (id: string) => (state: RootState) => {
 export const selectIsChildForm = (id: string) => (state: RootState) => {
     return state.passengers[id].isChildForm;
 };
+export const selectFormsLength = (state: RootState) => {
+    return Object.keys(state.passengers).length;
+};
 
 export default passengersSlice.reducer;

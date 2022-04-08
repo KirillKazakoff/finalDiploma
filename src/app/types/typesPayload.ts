@@ -5,9 +5,17 @@ import { FormStatusT } from '../redux/slices/searchFormSlice';
 import { ActiveCarT, PlaceT } from './typesSlices';
 import { CarInfoT } from './models/modelSeats';
 import type { InputState } from '../redux/slices/utils/reduxInputUtils';
+import type { InfoMsgT } from '../components/lib/Common/Info/messagesInfo';
+import type { InformationStatusT } from '../redux/slices/infoSlice';
 
 export type FetchStatusT = 'idle' | 'loading' | 'loaded' | 'failed';
 
+export type PayloadInformation = {
+    status: InformationStatusT;
+    msg: InfoMsgT;
+};
+
+// PayloadsInput
 export type PayloadFocus = {
     name: string;
     isActive: boolean;
