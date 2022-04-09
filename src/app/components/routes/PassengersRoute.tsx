@@ -4,6 +4,8 @@ import PassengersPlacesAdd from '../lib/Passengers/PassengersPlacesAdd';
 import PassengersAdd from '../lib/Passengers/PassengersAdd';
 import PassengersForm from '../lib/Passengers/PassengersForm';
 import PassengerForm from '../lib/Passengers/PassengerForm/PassengerForm';
+import TripDetailsDirs from '../lib/Aside/TripDetails/TripDetailsDirs';
+import PassengersTotalPlaces from '../lib/Passengers/PassengersTotalPlaces';
 
 export default function PassengersRoute() {
     const formsData = useAppSelector((state) => state.passengers);
@@ -25,6 +27,7 @@ export default function PassengersRoute() {
             </aside> */}
 
             <section className='content-central'>
+                <PassengersTotalPlaces />
                 <div className='passengers'>
                     {forms}
                     <PassengersAdd />

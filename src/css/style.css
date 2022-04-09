@@ -1846,6 +1846,18 @@ body {
 }
 
 /* passengers */
+.passengers-total-places {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: var(--secondary);
+}
+
+.passengers-total-places-count {
+    color: var(--black);
+    margin-left: 10px;
+    font-size: 20px;
+}
+
 .passengers {
     display: flex;
     flex-direction: column;
@@ -2050,6 +2062,7 @@ body {
 }
 
 .passenger-form-col-checkbox {
+    width: 40%;
     flex-direction: row;
     align-items: center;
     column-gap: 15px;

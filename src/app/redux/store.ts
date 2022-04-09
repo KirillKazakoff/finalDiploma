@@ -12,6 +12,7 @@ import placesReducer from './slices/placesSlice';
 import { saveToLocalStorage, loadFromLocalStorage } from './storeLoaderUtils';
 import passengerReducer from './slices/passengersSlice';
 import infoReducer from './slices/infoSlice';
+import alertReducer from './slices/alertSlice';
 
 const preloadedState = loadFromLocalStorage();
 
@@ -19,6 +20,7 @@ export const store = configureStore({
     reducer: {
         loader: loaderReducer,
         info: infoReducer,
+        alert: alertReducer,
         subscribe: subscribeReducer,
 
         searchForm: searchFormReducer,

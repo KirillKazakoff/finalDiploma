@@ -15,6 +15,10 @@ export type PayloadInformation = {
     msg: InfoMsgT;
 };
 
+export type PayloadAlert = {
+    alertMsg: InfoMsgT;
+};
+
 // PayloadsInput
 export type PayloadFocus = {
     name: string;
