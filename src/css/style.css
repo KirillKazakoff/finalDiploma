@@ -1681,6 +1681,11 @@ body {
     padding: 1.5px 0px;
 }
 
+.places-next-route-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 100px;
+}
 /* passengers-page */
 .trip-details-title {
     font-size: 30px;
@@ -1847,6 +1852,12 @@ body {
     row-gap: 45px;
 }
 
+.passengers-next-route-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 100px;
+}
+
 .shadowed {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     border: 1px solid var(--secondary-lighter);
@@ -1870,28 +1881,62 @@ body {
     border-top: 1px dashed var(--secondary);
 }
 
+.passenger-valid {
+    background-color: #d6fecc;
+}
+
+/* passenger-signs */
 .passenger-collapse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     border-radius: 50px;
     margin-right: 20px;
+    min-width: 36px;
+    min-height: 36px;
 }
 
+.passenger-collapse:hover {
+    box-shadow: var(--btn-shadow);
+    filter: var(--bg-main-filter);
+}
 .passenger-collapse-minus {
     border: 2px solid var(--secondary);
-    padding: 15px 7px;
 }
-
 .passenger-collapse-plus {
-    border: 2px solid var(--bg-main);
-    padding: 6px;
+    filter: var(--royalblue-filter);
+    border: 2px solid;
 }
 
+.passenger-remove {
+    width: 15px;
+    height: 15px;
+}
+.passenger-remove:hover {
+    filter: var(--red-filter);
+    width: 20px;
+    height: 20px;
+}
+
+.passenger-add {
+    width: 20px;
+    height: 20px;
+}
+.passenger-add:hover {
+    filter: var(--royalblue-filter);
+    width: 27px;
+    height: 27px;
+}
+
+/* passenger-desc */
 .passenger-desc {
     flex: 1;
     font-size: 30px;
 }
 
-.passengers-remove {
-    color: var(--secondary);
+.passenger-valid .passenger-desc {
+    color: royalblue;
 }
 
 /* passenger-data */
@@ -3070,13 +3115,11 @@ body {
 
 /* btn-next-section */
 .btn-next-section {
+    border: 1px solid transparent;
     font-weight: 500;
     font-size: 24px;
     color: white;
     padding: 15px 70px;
-    margin-left: auto;
-    margin-top: 100px;
-    margin-bottom: 140px;
     background-color: var(--bg-main);
     text-transform: uppercase;
 }
@@ -3116,6 +3159,7 @@ body {
     font-size: 24px;
     z-index: 1;
     margin: 40px auto 0 auto;
+    text-transform: uppercase;
 }
 
 /* btn-collapse */

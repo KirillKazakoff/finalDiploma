@@ -1,7 +1,10 @@
 import React from 'react';
-import { useAppSelector } from '../../../../redux/reduxHooks';
-import { selectIsChildForm, selectField } from '../../../../redux/slices/passengersSlice';
-import { FormStatusT } from '../../../../redux/slices/utils/reduxFormUtils';
+import { useAppSelector } from '../../../../../redux/reduxHooks';
+import {
+    selectIsChildForm,
+    selectField,
+} from '../../../../../redux/slices/passengersSlice';
+import { FormStatusT } from '../../../../../redux/slices/utils/reduxFormUtils';
 
 type Props = { index: number; id: string; formStatus: FormStatusT };
 

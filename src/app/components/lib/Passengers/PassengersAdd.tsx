@@ -12,7 +12,13 @@ export default function PassengersAdd() {
                 className='passenger-add' type='button'
                 onClick={onClick}
             >
-                <img src='./svg/actions/plus.svg' alt='plus' />
+                <img
+                    src='./svg/actions/plus.svg'
+                    alt='plus'
+                    width='100%'
+                    height='100%'
+                    className='passenger-add'
+                />
             </button>
         </header>
     );

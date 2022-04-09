@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { useAppSelector } from '../../../../redux/reduxHooks';
-import { selectField } from '../../../../redux/slices/passengersSlice';
-import { useSetInput } from '../useSetInput';
-import { useSetError } from '../useSetError';
+import { useAppSelector } from '../../../../../redux/reduxHooks';
+import { selectField } from '../../../../../redux/slices/passengersSlice';
+import { useSetInput } from '../../useSetInput';
+import { useSetError } from '../../useSetError';
 
 export const useGetDocOptions = (id: string) => {
     const setInput = useSetInput(id, 'document_type');

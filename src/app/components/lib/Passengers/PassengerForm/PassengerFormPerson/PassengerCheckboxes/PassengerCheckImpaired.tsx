@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
-import { useAppSelector } from '../../../../../redux/reduxHooks';
-import { selectField } from '../../../../../redux/slices/passengersSlice';
-import { IdProp } from '../../../../../types/typesPassengers';
-import Checkbox from '../../../Common/Checkbox';
-import { useSetInput } from '../../useSetInput';
+import { useAppSelector } from '../../../../../../redux/reduxHooks';
+import { selectField } from '../../../../../../redux/slices/passengersSlice';
+import { IdProp } from '../../../../../../types/typesPassengers';
+import Checkbox from '../../../../Common/Checkbox';
+import { useSetInput } from '../../../useSetInput';
 
 export default function PassengerCheckImpaired({ id }: IdProp) {
     const name = 'is_impaired';

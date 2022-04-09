@@ -12,10 +12,6 @@ export const validateDatePerson: Fn = (inputEl, isAdult, isChildForm) => {
 
     let customValidity = '';
 
-    if (dateTime.toMillis() > dateTimeNow.toMillis()) {
-        customValidity = 'futureDate';
-    }
-
     if (isAdult === 'Взрослый') {
         if (age < 10) customValidity = 'youngAge';
     }
@@ -27,6 +23,9 @@ export const validateDatePerson: Fn = (inputEl, isAdult, isChildForm) => {
     }
     if (age > 150) {
         customValidity = 'deadAge';
+    }
+    if (dateTime.toMillis() > dateTimeNow.toMillis()) {
+        customValidity = 'futureDate';
     }
     if (!value) {
         customValidity = '';

@@ -18,10 +18,16 @@ export default function PassengersPlacesAdd() {
         <header className='passenger-header framed-passengers shadowed'>
             <span className='passenger-desc'>Изменить количество мест</span>
             <button
-                className='passenger-add' type='button'
+                type='button' className='passenger-add'
                 onClick={onClick}
             >
-                <img src='./svg/actions/plus.svg' alt='plus' />
+                <img
+                    src='./svg/actions/plus.svg'
+                    alt='plus'
+                    width='100%'
+                    height='100%'
+                    className='passenger-add'
+                />
             </button>
         </header>
     );

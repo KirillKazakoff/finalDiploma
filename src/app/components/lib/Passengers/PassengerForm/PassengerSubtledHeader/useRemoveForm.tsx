@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from '../../../../redux/reduxHooks';
-import { removeForm, setInput } from '../../../../redux/slices/passengersSlice';
+import { useAppDispatch, useAppSelector } from '../../../../../redux/reduxHooks';
+import { removeForm, setInput } from '../../../../../redux/slices/passengersSlice';
 
 export const useRemoveForm = (id: string) => {
     const dispatch = useAppDispatch();

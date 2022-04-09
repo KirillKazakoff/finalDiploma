@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import { useAppSelector } from '../../../../../redux/reduxHooks';
 import {
     selectIsChildForm,
     selectField,
-} from '../../../../../redux/slices/passengersSlice';
-import { useSetInput } from '../../useSetInput';
+} from '../../../../../../redux/slices/passengersSlice';
+import { useSetInput } from '../../../useSetInput';
+import { useAppSelector } from '../../../../../../redux/reduxHooks';
 
 export const useGetAgeOptions = (id: string) => {
     const setInput = useSetInput(id, 'is_adult');

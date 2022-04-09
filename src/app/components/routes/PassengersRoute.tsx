@@ -1,11 +1,9 @@
 import React, { useMemo } from 'react';
-import TripDetailsDirs from '../lib/Aside/TripDetails/TripDetailsDirs';
-import PassengerForm from '../lib/Passengers/PassengerForm';
-import PassengersNextSection from '../lib/Passengers/PassengersNextSection';
-import { useAppSelector, useAppDispatch } from '../../redux/reduxHooks';
-import Form from '../lib/Common/Form';
-import PassengersPlacesAdd from '../lib/Passengers/PassengerPlacesAdd';
+import { useAppSelector } from '../../redux/reduxHooks';
+import PassengersPlacesAdd from '../lib/Passengers/PassengersPlacesAdd';
 import PassengersAdd from '../lib/Passengers/PassengersAdd';
+import PassengersForm from '../lib/Passengers/PassengersForm';
+import PassengerForm from '../lib/Passengers/PassengerForm/PassengerForm';
 
 export default function PassengersRoute() {
     const formsData = useAppSelector((state) => state.passengers);
@@ -20,10 +18,6 @@ export default function PassengersRoute() {
         ));
     }, [formsLength]);
 
-    const onSubmit = () => {
-        console.log('hello');
-    };
-
     return (
         <main className='main main-central framed'>
             {/* <aside className='aside-central'>
@@ -36,9 +30,7 @@ export default function PassengersRoute() {
                     <PassengersAdd />
                     <PassengersPlacesAdd />
                 </div>
-                <Form cls='passengers-total-form' onSubmitForm={onSubmit}>
-                    <PassengersNextSection />
-                </Form>
+                <PassengersForm />
             </section>
         </main>
     );

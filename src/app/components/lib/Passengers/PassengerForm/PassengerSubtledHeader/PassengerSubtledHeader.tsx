@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import useCheckStatus from '../../../../form/useCheckStatus';
-import { setFormMsgHidden } from '../../../../redux/slices/passengersSlice';
-import Form from '../../Common/Form';
+import useCheckStatus from '../../../../../form/useCheckStatus';
+import { setFormMsgHidden } from '../../../../../redux/slices/passengersSlice';
+import Form from '../../../Common/Form';
 import PassengerRemoveBtn from './PassengerRemoveBtn';
 import SubtlePassengerFormBtn from './SubtlePassengerFormBtn';
-import { useAppSelector } from '../../../../redux/reduxHooks';
+import { useAppSelector } from '../../../../../redux/reduxHooks';
 import PassengerHeaderDesc from './PassengerHeaderDesc';
-import { useAddPlacedPassenger } from '../useAddForm';
+import { useAddPlacedPassenger } from '../../useAddForm';
 
 type Props = { children: React.ReactNode; index: number; id: string };
 
 export default function PassengerSubtledHeader(props: Props) {
     const { children, index, id } = props;
-    const [isActive, setActive] = useState(true);
+    const [isActive, setActive] = useState(false);
     const onClick = () => setActive(!isActive);
 
     const statusValidity = useAppSelector((state) => state.passengers[id].statusValidity);
@@ -26,9 +26,12 @@ export default function PassengerSubtledHeader(props: Props) {
         if (checkRes) setActive(false);
     };
 
+    let headerCls = 'passenger-header framed-passengers';
+    headerCls = statusValidity === 'success' ? `${headerCls} passenger-valid` : headerCls;
+
     return (
         <Form cls='passenger-form shadowed' onSubmitForm={onSubmit}>
-            <header className='passenger-header framed-passengers'>
+            <header className={headerCls}>
                 <SubtlePassengerFormBtn onClick={onClick} isActive={isActive} />
                 <PassengerHeaderDesc
                     id={id} index={index}

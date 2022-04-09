@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PassengerInput from '../../PassengerInput';
-import { useInitInput } from '../../useInitInput';
+import { useInitInput } from '../../../useInitInput';
 
 type Props = { label: string; name: string; id: string };
 export default function FullNameInput(props: Props) {

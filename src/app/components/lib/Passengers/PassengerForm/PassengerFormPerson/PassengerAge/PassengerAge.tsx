@@ -1,7 +1,7 @@
 import React from 'react';
-import FormSelect from '../../../Common/FormSelect';
-import { useSetInput } from '../../useSetInput';
-import { IdProp } from '../../../../../types/typesPassengers';
+import { IdProp } from '../../../../../../types/typesPassengers';
+import FormSelect from '../../../../Common/FormSelect';
+import { useSetInput } from '../../../useSetInput';
 import { useGetAgeOptions } from './useGetAgeOptions';
 
 export default function PassengerAge({ id }: IdProp) {

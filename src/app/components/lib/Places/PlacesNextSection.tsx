@@ -9,5 +9,10 @@ export default function PlacesNextSection() {
     if (length > 0) {
         disabled = false;
     }
-    return <BtnNextRoute to='/passengers' disabled={disabled} />;
+
+    return (
+        <div className='places-next-route-wrapper'>
+            <BtnNextRoute to='/passengers' disabled={disabled} />
+        </div>
+    );
 }

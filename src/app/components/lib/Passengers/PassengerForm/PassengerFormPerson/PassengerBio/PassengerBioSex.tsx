@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
-import { getValidityCls } from '../../../../../form/getValidityCls';
-import { useAppSelector } from '../../../../../redux/reduxHooks';
+import { getValidityCls } from '../../../../../../form/getValidityCls';
+import { useAppSelector } from '../../../../../../redux/reduxHooks';
 import {
     selectMsgHidden,
     selectField,
-} from '../../../../../redux/slices/passengersSlice';
-import { IdProp } from '../../../../../types/typesPassengers';
-import Feedback from '../../../Common/Feedback';
-import InputWrapper from '../../../Common/InputWrapper';
-import { useSetError } from '../../useSetError';
-import { useSetInput } from '../../useSetInput';
+} from '../../../../../../redux/slices/passengersSlice';
+import { IdProp } from '../../../../../../types/typesPassengers';
+import Feedback from '../../../../Common/Feedback';
+import InputWrapper from '../../../../Common/InputWrapper';
+import { useSetError } from '../../../useSetError';
+import { useSetInput } from '../../../useSetInput';
 
 export default function PassengerBioSex({ id }: IdProp) {
     const name = 'gender';

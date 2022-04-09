@@ -1,9 +1,9 @@
 import React from 'react';
-import { selectDoctype } from '../../../../redux/slices/passengersSlice';
+import { selectDoctype } from '../../../../../redux/slices/passengersSlice';
 import PassengerDocnumber from './PassengerDocnumber';
 import PassengerDocseries from './PassengerDocseries';
 import PassengerDocType from './PassengerDocType';
-import { useAppSelector } from '../../../../redux/reduxHooks';
+import { useAppSelector } from '../../../../../redux/reduxHooks';
 
 type Props = { id: string };
 

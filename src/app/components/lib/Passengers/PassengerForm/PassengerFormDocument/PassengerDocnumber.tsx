@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import PlaceholderUnderscores from '../../Common/PlaceholderUnderscores';
+import PlaceholderUnderscores from '../../../Common/PlaceholderUnderscores';
 import PassengerInput from '../PassengerInput';
 import { mapDocClass } from './mapDocClasses';
 import { mapDocnumber } from './mapDocnumber';
-import { useInitInput } from '../useInitInput';
+import { useInitInput } from '../../useInitInput';
 import { validateDocnumber } from './validateDocnumber';
 
 type Props = { doctype: string; id: string };

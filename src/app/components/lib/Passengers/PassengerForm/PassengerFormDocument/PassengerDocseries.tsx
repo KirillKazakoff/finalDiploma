@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import PlaceholderUnderscores from '../../Common/PlaceholderUnderscores';
-import { IdProp } from '../../../../types/typesPassengers';
+import PlaceholderUnderscores from '../../../Common/PlaceholderUnderscores';
+import { IdProp } from '../../../../../types/typesPassengers';
 import PassengerInput from '../PassengerInput';
-import { useInitInput } from '../useInitInput';
+import { useInitInput } from '../../useInitInput';
 
 export default function PassengerDocseries({ id }: IdProp) {
     const name = 'document_series';

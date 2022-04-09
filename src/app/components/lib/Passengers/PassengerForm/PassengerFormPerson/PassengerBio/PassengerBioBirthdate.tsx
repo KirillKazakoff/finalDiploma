@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import { IdProp } from '../../../../../types/typesPassengers';
 import PassengerInput from '../../PassengerInput';
 import { validateDatePerson } from '../validateDatePerson';
-import { useInitInput } from '../../useInitInput';
-import { useAppSelector } from '../../../../../redux/reduxHooks';
+import { useAppSelector } from '../../../../../../redux/reduxHooks';
 import {
     selectField,
     selectIsChildForm,
-} from '../../../../../redux/slices/passengersSlice';
+} from '../../../../../../redux/slices/passengersSlice';
+import { IdProp } from '../../../../../../types/typesPassengers';
+import { useInitInput } from '../../../useInitInput';
 
 export default function PassengerBioBirthdate({ id }: IdProp) {
     const name = 'birthday';

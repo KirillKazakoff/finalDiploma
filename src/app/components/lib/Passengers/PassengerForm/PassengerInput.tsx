@@ -1,19 +1,19 @@
 /* eslint-disable react/default-props-match-prop-types */
 import React, { HTMLProps } from 'react';
-import Feedback from '../Common/Feedback';
-import InputWrapper from '../Common/InputWrapper';
+import Feedback from '../../Common/Feedback';
+import InputWrapper from '../../Common/InputWrapper';
 import {
     selectMsgHidden,
     setActive,
     setBlured,
     setInput,
-} from '../../../redux/slices/passengersSlice';
-import { InputState } from '../../../redux/slices/utils/reduxInputUtils';
-import useChange from '../../../form/useChange';
-import useSelect from '../../../form/useSelect';
-import { RefT } from '../../../types/typesReact';
-import { getValidityCls } from '../../../form/getValidityCls';
-import { useAppSelector } from '../../../redux/reduxHooks';
+} from '../../../../redux/slices/passengersSlice';
+import { InputState } from '../../../../redux/slices/utils/reduxInputUtils';
+import useChange from '../../../../form/useChange';
+import useSelect from '../../../../form/useSelect';
+import { RefT } from '../../../../types/typesReact';
+import { getValidityCls } from '../../../../form/getValidityCls';
+import { useAppSelector } from '../../../../redux/reduxHooks';
 
 type Props = {
     name: string;
