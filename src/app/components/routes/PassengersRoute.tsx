@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
 import TripDetailsDirs from '../lib/Aside/TripDetails/TripDetailsDirs';
 import PassengerForm from '../lib/Passengers/PassengerForm';
-import PassengersAdd from '../lib/Passengers/PassengersAdd';
 import PassengersNextSection from '../lib/Passengers/PassengersNextSection';
 import { useAppSelector, useAppDispatch } from '../../redux/reduxHooks';
 import Form from '../lib/Common/Form';
-import InfoError from '../lib/Common/Info/InfoError';
+import PassengersPlacesAdd from '../lib/Passengers/PassengerPlacesAdd';
+import PassengersAdd from '../lib/Passengers/PassengersAdd';
 
 export default function PassengersRoute() {
     const formsData = useAppSelector((state) => state.passengers);
@@ -34,6 +34,7 @@ export default function PassengersRoute() {
                 <div className='passengers'>
                     {forms}
                     <PassengersAdd />
+                    <PassengersPlacesAdd />
                 </div>
                 <Form cls='passengers-total-form' onSubmitForm={onSubmit}>
                     <PassengersNextSection />

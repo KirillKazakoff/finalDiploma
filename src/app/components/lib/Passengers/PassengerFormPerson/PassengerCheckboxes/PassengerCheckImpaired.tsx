@@ -20,7 +20,7 @@ export default function PassengerCheckImpaired({ id }: IdProp) {
     return (
         <div className='passenger-form-col passenger-form-col-checkbox'>
             <div className='click-wrapper' onClick={onClick}>
-                <Checkbox init={isActive} desc='ограниченная подвижность' />
+                <Checkbox isActive={isActive} desc='ограниченная подвижность' />
             </div>
         </div>
     );

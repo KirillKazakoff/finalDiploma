@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '../../../../../redux/reduxHooks';
 import { IdProp } from '../../../../../types/typesPassengers';
 import Checkbox from '../../../Common/Checkbox';
@@ -22,6 +22,7 @@ export default function PassengerCheckAddChild({ id }: IdProp) {
     const disabled = isAdultState.value === 'Детский';
     const childFormId = `${id}childform`;
 
+    console.log(id);
     const onClick = () => {
         if (disabled) return;
 
@@ -37,12 +38,16 @@ export default function PassengerCheckAddChild({ id }: IdProp) {
         setInput(value);
     };
 
+    // useEffect(() => {
+    //     setInput(seatState.value);
+    // }, [seatState.value]);
+
     return (
         <div className='passenger-form-col passenger-form-col-checkbox'>
             <div className='click-wrapper' onClick={onClick}>
                 <Checkbox
                     disabled={disabled}
-                    init={isActive}
+                    isActive={isActive}
                     desc='добавить ребенка без занятия места'
                 />
             </div>

@@ -1,24 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-type Props = { init: boolean; desc: string; cls?: string; disabled?: boolean };
+type Props = { isActive: boolean; desc: string; cls?: string; disabled?: boolean };
 
 export default function Checkbox(props: Props) {
     const {
-        init, desc, cls, disabled,
+        isActive, desc, cls, disabled,
     } = props;
-    const [isActive, setActive] = useState(init);
     const tickImg = <img src='./svg/actions/tick.svg' alt='tick' />;
 
     let wrapperCls = `checkbox-wrapper ${cls}`;
     wrapperCls = isActive ? `${wrapperCls} filter-main` : wrapperCls;
 
-    const onClick = () => setActive(!isActive);
-
     return (
         <button
-            className={wrapperCls}
-            onClick={onClick}
-            type='button'
+            className={wrapperCls} type='button'
             disabled={disabled}
         >
             <span className='checkbox'>{isActive ? tickImg : null}</span>

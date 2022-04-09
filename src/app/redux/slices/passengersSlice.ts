@@ -60,7 +60,10 @@ export const selectIsChildForm = (id: string) => (state: RootState) => {
     return state.passengers[id].isChildForm;
 };
 export const selectFormsLength = (state: RootState) => {
-    return Object.keys(state.passengers).length;
+    return Object.keys(state.passengers).reduce<number>((length, id) => {
+        if (!id.includes('childform')) length += 1;
+        return length;
+    }, 0);
 };
 
 export default passengersSlice.reducer;
