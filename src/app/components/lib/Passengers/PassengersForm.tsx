@@ -10,11 +10,9 @@ import { messagesInfo } from '../Common/Info/messagesInfo';
 import { getAges } from './checkAges';
 import PassengersNextSection from './PassengersNextSection';
 
-const { childrenOverwhelm, tooManyPlaces } = messagesInfo;
-// type FormStatusIdT = {
-//     formStatus: FormStatusT;
-
-// }
+const {
+    childrenOverwhelm, tooManyPlaces, noPassengers, fullfillForm,
+} = messagesInfo;
 
 export default function PassengersForm() {
     const dispatch = useAppDispatch();
@@ -31,7 +29,11 @@ export default function PassengersForm() {
         let msg;
         const { microPeople, adults } = getAges(forms);
         if (microPeople / adults > 3) msg = childrenOverwhelm;
-        if (placesAmount < microPeople + adults) msg = tooManyPlaces;
+
+        const total = microPeople + adults;
+        if (placesAmount < total) msg = tooManyPlaces;
+        if (total === 0) msg = noPassengers;
+        if (statusValidity !== 'success') msg = fullfillForm;
 
         if (msg) {
             dispatch(setInfo({ msg, status: 'error' }));

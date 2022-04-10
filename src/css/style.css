@@ -1,5 +1,5 @@
 :root {
-    --main-left-padding: 260px;
+    --main-left-padding: 220px;
     --main-right-padding: 140px;
     --places-padding: 20px;
     --passengers-left-padding: 30px;
@@ -691,7 +691,7 @@ body {
 /* .content-central */
 .content-central {
     flex: 1;
-    width: 60%;
+    min-width: 60%;
 }
 
 /* filtration */

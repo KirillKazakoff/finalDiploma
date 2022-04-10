@@ -1,13 +1,15 @@
-import React, { useMemo } from 'react';
-import { useAppSelector } from '../../redux/reduxHooks';
+import React, { useEffect, useMemo } from 'react';
+import { useAppSelector, useAppDispatch } from '../../redux/reduxHooks';
 import PassengersPlacesAdd from '../lib/Passengers/PassengersPlacesAdd';
 import PassengersAdd from '../lib/Passengers/PassengersAdd';
 import PassengersForm from '../lib/Passengers/PassengersForm';
 import PassengerForm from '../lib/Passengers/PassengerForm/PassengerForm';
 import TripDetailsDirs from '../lib/Aside/TripDetails/TripDetailsDirs';
 import PassengersTotalPlaces from '../lib/Passengers/PassengersTotalPlaces';
+import { setPageCount } from '../../redux/slices/loaderSlice';
 
 export default function PassengersRoute() {
+    const dispatch = useAppDispatch();
     const formsData = useAppSelector((state) => state.passengers);
 
     const formsLength = Object.keys(formsData).length;
@@ -20,11 +22,15 @@ export default function PassengersRoute() {
         ));
     }, [formsLength]);
 
+    useEffect(() => {
+        dispatch(setPageCount(2));
+    }, []);
+
     return (
         <main className='main main-central framed'>
-            {/* <aside className='aside-central'>
+            <aside className='aside-central'>
                 <TripDetailsDirs />
-            </aside> */}
+            </aside>
 
             <section className='content-central'>
                 <PassengersTotalPlaces />
