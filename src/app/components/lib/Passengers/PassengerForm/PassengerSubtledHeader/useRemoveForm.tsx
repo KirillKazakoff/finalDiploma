@@ -1,7 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../../../../redux/reduxHooks';
 import { removeForm, setInput } from '../../../../../redux/slices/passengersSlice';
-import { setThunk } from '../../../Common/Info/alertThunk';
-import { messagesAlert } from '../../../Common/Info/messagesInfo';
 
 export const useRemoveForm = (id: string) => {
     const dispatch = useAppDispatch();
@@ -14,8 +12,6 @@ export const useRemoveForm = (id: string) => {
     });
 
     const onRemoveForm = () => {
-        const { statusValidity } = forms[id];
-
         if (id.includes('childform')) {
             const parentId = id.replace(/childform/, '');
             const dispatchObj = {

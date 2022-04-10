@@ -43,21 +43,10 @@ export const infoSlice = createSlice({
         setInfoActive: (state, action: PayloadAction<boolean>) => {
             state.isActive = action.payload;
         },
-
-        setAlert: (state, action: PayloadAction<PayloadAlert>) => {
-            const { alertMsg } = action.payload;
-            state.alertMsg = alertMsg;
-            state.isAlertActive = true;
-        },
-        setAlertActive: (state, action: PayloadAction<boolean>) => {
-            state.isAlertActive = action.payload;
-        },
     },
 });
 
-export const {
-    setInfo, setInfoActive, setAlert, setAlertActive,
-} = infoSlice.actions;
+export const { setInfo, setInfoActive } = infoSlice.actions;
 
 export const selectInfo = (state: RootState) => state.info;
 export const selectAlert = (state: RootState) => state.info;

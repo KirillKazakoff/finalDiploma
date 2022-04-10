@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { InfoMsgT } from '../../components/lib/Common/Info/messagesInfo';
 import type { RootState } from '../store';
 
-type AlertResponseT = 'canceled' | 'accepted' | 'idle';
+export type AlertResponseT = 'canceled' | 'accepted' | 'idle';
 
 type AlertStateT = {
     isActive: boolean;

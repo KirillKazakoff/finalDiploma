@@ -8,9 +8,7 @@ export default function Alert() {
     const { msg } = useAppSelector(selectAlert);
     const { title, desc } = msg;
     const onAccept = () => dispatch(setStatus('accepted'));
-    const onCancel = () => {
-        dispatch(setStatus('canceled'));
-    };
+    const onCancel = () => dispatch(setStatus('canceled'));
 
     return (
         <div className='info'>
