@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../../../redux/reduxHooks';
 import { setExtraPrice } from '../../../../../../redux/slices/placesSlice';
+import { PayloadExtraPrice } from '../../../../../../types/typesPayload';
 import { ServiceProps } from '../../../../../../types/typesPlaces';
 import ServiceTip from './ServiceTip';
 
@@ -29,10 +30,17 @@ export default function Service({ service, route, children }: ServiceProps) {
 
     const onClick = () => {
         if (isIncluded) return;
-        const payload = { name, route, value: price };
+        const payload: PayloadExtraPrice = { name, route, value: price };
+
         if (statePrice > 0) payload.value = 0;
         dispatch(setExtraPrice(payload));
     };
+
+    useEffect(() => {
+        if (isIncluded) {
+            dispatch(setExtraPrice({ name, route, value: 'isIncluded' }));
+        }
+    }, []);
 
     if (price === 0 && !isIncluded) return null;
     return (

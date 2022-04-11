@@ -1,7 +1,10 @@
 import React from 'react';
+import { PlaceT } from '../../../../types/typesSlices';
 import FormSelect from '../../Common/FormSelect';
 
-export default function PasPlaceSelect() {
+type Props = { place: PlaceT };
+
+export default function PasPlaceSelect({ place }: Props) {
     const onClick = (name: string) => () => console.log('hello');
 
     const optionsList = ['Люда Людмиловна Милая', 'Гена Геншин Импакт'].map((name) => (

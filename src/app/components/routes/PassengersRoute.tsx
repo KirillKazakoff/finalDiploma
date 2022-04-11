@@ -5,7 +5,7 @@ import PassengersAdd from '../lib/Passengers/PassengersAdd';
 import PassengersForm from '../lib/Passengers/PassengersForm';
 import PassengerForm from '../lib/Passengers/PassengerForm/PassengerForm';
 import TripDetailsDirs from '../lib/Aside/TripDetails/TripDetailsDirs';
-import PassengersTotalPlaces from '../lib/Passengers/PassengersTotalPlaces';
+import PassengersPlacesInfo from '../lib/Passengers/PassengersTotalPlaces';
 import { setPageCount } from '../../redux/slices/loaderSlice';
 
 export default function PassengersRoute() {
@@ -33,7 +33,7 @@ export default function PassengersRoute() {
             </aside>
 
             <section className='content-central'>
-                <PassengersTotalPlaces />
+                <PassengersPlacesInfo />
                 <div className='passengers'>
                     {forms}
                     <PassengersAdd />

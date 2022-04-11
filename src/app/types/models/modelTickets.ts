@@ -38,13 +38,16 @@ export type ExtrasT = {
     is_express: boolean;
 };
 
-export type ExtrasPricesT = {
-    prices: {
-        [key: string]: number;
+export type ExtrasPricesCarT = {
+    [key: string]: number | 'isIncluded';
 
-        wifi_price: number;
-        linens_price: number;
-    };
+    wifi_price?: number | 'isIncluded';
+    linens_price?: number | 'isIncluded';
+    conditioner?: number | 'isIncluded';
+};
+
+export type ExtrasPricesWithCarT = {
+    prices: ExtrasPricesCarT;
     carNumber: number;
 };
 

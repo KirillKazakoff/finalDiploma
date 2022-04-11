@@ -7,6 +7,7 @@ import { CarInfoT } from './models/modelSeats';
 import type { InputState } from '../redux/slices/utils/reduxInputUtils';
 import type { InfoMsgT } from '../components/lib/Common/Info/messagesInfo';
 import type { InformationStatusT } from '../redux/slices/infoSlice';
+import { PasPlaceT } from '../redux/slices/pasPlacesSlice';
 
 export type FetchStatusT = 'idle' | 'loading' | 'loaded' | 'failed';
 
@@ -103,7 +104,7 @@ export type PayloadCarType = {
 export type PayloadExtraPrice = {
     route: string;
     name: string;
-    value: number;
+    value: number | 'isIncluded';
 };
 
 export type PayloadCar = {
@@ -128,6 +129,12 @@ export type PayloadIdError = { error: string } & PayloadWithId;
 export type PayloadField = {
     id: string;
     field: InputState & { name: string };
+};
+
+// pasPlacesTypes
+export type PayloadPasPlace = {
+    name: string;
+    value: PasPlaceT;
 };
 
 export type SetFormStatusT = ActionCreatorWithPayload<PayloadFormStatus>;

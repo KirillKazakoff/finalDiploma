@@ -66,5 +66,12 @@ export const {
 } = placesSlice.actions;
 
 export const selectActiveTicket = (state: RootState) => state.places.activeTicket;
+export const selectPlaces = (state: RootState) => state.places;
+export const selectExtras = (route: string) => (state: RootState) => {
+    const { activeCar, extras } = state.places.routes[route];
+    const index = extras.findIndex((extra) => extra.carNumber === activeCar.carNumber);
+
+    return extras[index].prices;
+};
 
 export default placesSlice.reducer;

@@ -1,7 +1,10 @@
-import { TrainInfoFullT } from '../../../types/models/modelTickets';
+import { TrainInfoFullT, ExtrasPricesCarT } from '../../../types/models/modelTickets';
 import { CarContentT, PlacesStateT } from '../../../types/typesSlices';
 
-const initExtras = { wifi_price: 0, linens_price: 0 };
+const initExtras: ExtrasPricesCarT = {
+    wifi_price: 0,
+    linens_price: 0,
+};
 
 const initialCarContent: CarContentT = {
     carriageType: 'idle',

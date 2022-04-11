@@ -25,7 +25,6 @@ export type PassengerT = {
     coach_id: string;
     person_info: PersonT;
     seat_number: number;
-    is_child: boolean;
     is_impaired: boolean;
     include_children_seat: boolean;
 };
