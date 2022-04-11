@@ -9,17 +9,16 @@ import BtnNextRouteNew from '../Common/BtnNextRouteNew';
 import Form from '../Common/Form';
 import { messagesInfo } from '../Common/Info/messagesInfo';
 import { getAges } from './checkAges';
-import PassengersNextSection from './PassengersNextSection';
 
 const {
-    childrenOverwhelm, tooManyPlaces, noPassengers, fullfillForm,
+    childrenOverwhelm, noPassengers, fullfillForm, notEqualPlaces,
 } = messagesInfo;
 
 export default function PassengersForm() {
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const forms = useAppSelector((state) => state.passengers);
-    const placesAmount = useAppSelector(selectPlacesLength);
-    const navigate = useNavigate();
+    const { biggest } = useAppSelector(selectPlacesLength);
 
     const statusValidity = Object.values(forms).reduce<FormStatusT>((status, form) => {
         if (form.statusValidity !== 'success') status = 'error';
@@ -32,9 +31,9 @@ export default function PassengersForm() {
         if (microPeople / adults > 3) msg = childrenOverwhelm;
 
         const total = microPeople + adults;
-        if (placesAmount < total) msg = tooManyPlaces;
-        if (total === 0) msg = noPassengers;
         if (statusValidity !== 'success') msg = fullfillForm;
+        if (biggest !== total) msg = notEqualPlaces(biggest);
+        if (total === 0) msg = noPassengers;
 
         if (msg) {
             dispatch(setInfo({ msg, status: 'error' }));

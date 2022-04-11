@@ -32,7 +32,7 @@ export default function PlacesRoute() {
                     />
                 </div>
 
-                <PlacesNextSection />
+                <PlacesNextSection ticketRoute={ticket.ticketRoute} />
             </section>
         </main>
     );

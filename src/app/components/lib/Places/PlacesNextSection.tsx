@@ -2,12 +2,22 @@ import React from 'react';
 import BtnNextRoute from '../Common/BtnNextRoute';
 import { useAppSelector } from '../../../redux/reduxHooks';
 import { selectPlacesLength } from '../../../redux/slices/utils/selectPlacesLength';
+import { TicketRouteT } from '../../../types/models/modelTickets';
 
-export default function PlacesNextSection() {
-    const length = useAppSelector(selectPlacesLength);
+type Props = { ticketRoute: TicketRouteT };
+export default function PlacesNextSection({ ticketRoute }: Props) {
+    const { arrival } = ticketRoute;
+    const placesLength = useAppSelector(selectPlacesLength);
+
     let disabled = true;
-    if (length > 0) {
+    if (placesLength.total > 0) {
         disabled = false;
+    }
+    if (arrival && placesLength.arrival === 0) {
+        disabled = true;
+    }
+    if (placesLength.departure === 0) {
+        disabled = true;
     }
 
     return (

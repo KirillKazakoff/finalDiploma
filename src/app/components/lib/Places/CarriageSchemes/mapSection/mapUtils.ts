@@ -12,7 +12,7 @@ export const selectMatched = (
     return seatsCopy.map((seat) => {
         const copiedSeat = seat;
         const checkMatch = places.find((place) => {
-            return place.placeNumber === seat.index && place.carNumber === carNumber;
+            return place.seat_number === seat.index && place.carNumber === carNumber;
         });
         if (checkMatch) {
             copiedSeat.selected = true;

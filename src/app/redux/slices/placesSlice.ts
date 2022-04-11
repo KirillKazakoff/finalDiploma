@@ -33,6 +33,7 @@ export const placesSlice = createSlice({
             const { name, value, route } = action.payload;
             const { carNumber } = state.routes[route].activeCar;
             const { extras } = state.routes[route];
+
             const index = extras.findIndex((extra) => extra.carNumber === carNumber);
             state.routes[route].extras[index].prices[name] = value;
         },
@@ -45,7 +46,7 @@ export const placesSlice = createSlice({
 
             const i = state.routes[route].places.findIndex((value) => {
                 const carCheck = value.carNumber === place.carNumber;
-                const placeCheck = value.placeNumber === place.placeNumber;
+                const placeCheck = value.seat_number === place.seat_number;
                 return carCheck && placeCheck;
             });
             state.routes[route].places.splice(i, 1);

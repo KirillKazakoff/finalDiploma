@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../redux/reduxHooks';
 import { removePlace, setPlace } from '../../../../redux/slices/placesSlice';
@@ -16,8 +17,9 @@ export const useClickSeat = (car: CarInfoT, route: string) => {
         } = seatsFull[+i - 1];
 
         const place: PlaceT = {
+            coach_id: car.coach._id,
             carNumber: car.carNumber,
-            placeNumber: index,
+            seat_number: index,
             placeType,
             carType,
             price,

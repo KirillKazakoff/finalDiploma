@@ -6,8 +6,8 @@ export default function PasPlacesRoute() {
     return (
         <main className='main main-central main-pas-places framed'>
             <div className='pas-places-dirs'>
-                <PasPlaceDir />
-                <PasPlaceDir />
+                <PasPlaceDir dir='to' />
+                <PasPlaceDir dir='from' />
                 <BtnNextRouteNew cls='pas-places' />
             </div>
         </main>

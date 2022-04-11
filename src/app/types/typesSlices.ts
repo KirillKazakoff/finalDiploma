@@ -76,8 +76,9 @@ export type LastTicketsStateT = { status: FetchStatusT; lastTickets: TicketRoute
 export type ActiveCarT = 'idle' | 'first' | 'second' | 'third' | 'fourth';
 
 export type PlaceT = {
+    coach_id: string;
+    seat_number: number;
     carNumber: number;
-    placeNumber: number;
     placeType: string;
     carType: string;
     price: number;

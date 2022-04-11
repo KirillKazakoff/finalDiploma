@@ -1846,16 +1846,25 @@ body {
 }
 
 /* passengers */
-.passengers-total-places {
+.passengers-places-info {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
     margin-bottom: 20px;
     font-size: 18px;
     color: var(--secondary);
 }
 
-.passengers-total-places-count {
-    color: var(--black);
-    margin-left: 10px;
-    font-size: 20px;
+.passengers-places-info-count {
+    margin-left: 5px;
+    font-size: 18px;
+    color: var(--secondary);
+}
+
+.passengers-places-info-count-dir {
+    font-size: 18px;
+    color: var(--secondary);
+    margin-left: 5px;
 }
 
 .passengers {
@@ -3275,6 +3284,7 @@ body {
 }
 
 .next-route-wrapper-pas-places {
+    margin-top: 50px;
     margin-right: 60px;
 }
 
