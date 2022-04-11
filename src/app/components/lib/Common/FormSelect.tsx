@@ -21,7 +21,7 @@ export default function FormSelect(props: Props) {
 
     return (
         <div
-            className={`input-wrapper passenger-input-wrapper select select-${cls} ${disabledCls}`}
+            className={`input-wrapper select-wrapper select select-${cls} ${disabledCls}`}
             onClick={onListClick}
         >
             <div className={`selected-option selected-option-${cls}`}>{selected}</div>

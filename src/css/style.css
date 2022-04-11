@@ -917,7 +917,7 @@ body {
     flex-direction: column;
 
     position: absolute;
-    top: 55px;
+    top: 60px;
     left: 0px;
     right: 0px;
     background-color: var(--secondary-super-light);
@@ -1862,12 +1862,7 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 45px;
-}
-
-.passengers-next-route-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 100px;
+    margin-bottom: 80px;
 }
 
 .shadowed {
@@ -1995,6 +1990,10 @@ body {
     border: 1px solid var(--secondary);
     border-radius: 5px;
     font-size: 24px;
+}
+
+.option:hover {
+    background-color: var(--bg-main-medium);
 }
 
 /* select-age-category */
@@ -2955,6 +2954,11 @@ body {
     padding-left: var(--main-left-padding);
 }
 
+.framed-main-content {
+    padding-left: 200px;
+    padding-right: 250px;
+}
+
 .framed-places {
     padding-right: var(--places-padding);
     padding-left: var(--places-padding);
@@ -2991,6 +2995,117 @@ body {
 .space25 {
     height: 1px;
     width: 25px;
+}
+
+/* pas-places */
+/* pas-places */
+.main-pas-places {
+    justify-content: center;
+}
+
+.pas-places-dirs {
+    width: 80%;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--secondary-super-light);
+    padding-bottom: 40px;
+    background-color: white;
+}
+
+.pas-places-dir-header {
+    background-color: #f9f9f9;
+    padding: 50px 40px;
+    font-size: 36px;
+}
+
+.pas-places-dir-content {
+    padding: 40px 80px 40px 40px;
+}
+
+.pas-places-dir-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+}
+
+/* .pas-places-dir-item */
+/* pas-places-item-header */
+.pas-places-item-header {
+    display: flex;
+}
+
+.pas-places-item-title {
+    font-weight: 400;
+    font-size: 28px;
+}
+
+.pas-places-item-cost {
+    display: flex;
+    column-gap: 10px;
+
+    margin-left: auto;
+    color: var(--bg-main);
+    font-size: 36px;
+    font-weight: 500;
+}
+
+/* pas-places-item-place-info */
+.pas-places-item-place-info {
+    display: flex;
+    column-gap: 20px;
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.pas-places-item-place-info-item {
+    display: flex;
+    column-gap: 5px;
+}
+
+.pas-places-item-extras {
+    font-size: 18px;
+    display: flex;
+    column-gap: 15px;
+    color: var(--secondary);
+    margin-top: 20px;
+}
+
+.pas-places-item-extra {
+    display: flex;
+    column-gap: 5px;
+}
+
+/* pas-places-add-passenger */
+.pas-places-add-passenger {
+    display: flex;
+    column-gap: 15px;
+    margin-top: 90px;
+    height: 60px;
+    width: 45%;
+}
+
+/* .select-pas-places */
+.select-pas-places {
+    justify-content: space-between;
+    border: 1px solid var(--secondary-lighter);
+    margin-top: 40px;
+    font-size: 24px;
+    color: var(--secondary);
+    width: 45%;
+    padding: 20px;
+}
+
+.options-pas-places {
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid var(--secondary-super-light);
+}
+
+.option-pas-places {
+    color: black;
+    font-weight: 200;
+    font-size: 22px;
+    font-feature-settings: 'cpsp' on;
+    padding: 15px;
 }
 
 /* buttons */
@@ -3033,7 +3148,8 @@ body {
     border: 1px solid transparent;
 }
 
-.btn-choose-another-train:hover {
+.btn-choose-another-train:hover,
+.btn-pas-places-add-passenger:hover {
     color: var(--bg-main);
     box-shadow: var(--btn-shadow-light);
 }
@@ -3142,6 +3258,26 @@ body {
     cursor: default;
 }
 
+.btn-pas-places-next-section {
+    font-weight: 400;
+    font-size: 24px;
+    color: white;
+    padding: 15px 70px;
+    margin-left: auto;
+    margin-right: 70px;
+    text-transform: uppercase;
+}
+
+/* .next-route-wrapper */
+.next-route-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.next-route-wrapper-pas-places {
+    margin-right: 60px;
+}
+
 /* btn-change && .btn-passenger-next */
 .btn-change,
 .btn-passenger-next {
@@ -3162,6 +3298,18 @@ body {
     padding: 10px 20px;
 }
 
+/* btn-pas-places-add-passenger */
+.btn-pas-places-add-passenger {
+    font-size: 24px;
+    color: var(--black);
+    border: 1px solid #292929;
+    font-weight: 400;
+    padding: 15px 50px;
+    text-transform: none;
+    flex: 1;
+}
+
+/* .btn-back */
 .btn-back {
     font-weight: 700;
     width: 47%;

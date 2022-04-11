@@ -7,6 +7,7 @@ import TicketsRoute from './components/routes/TicketsRoute';
 import ErrorRoute from './components/routes/ErrorRoute';
 import PlacesRoute from './components/routes/PlacesRoute';
 import PassengersRoute from './components/routes/PassengersRoute';
+import PasPlacesRoute from './components/routes/PasPlacesRoute';
 
 export default function App() {
     return (
@@ -17,6 +18,7 @@ export default function App() {
                     <Route path='/tickets' element={<TicketsRoute />} />
                     <Route path='/places' element={<PlacesRoute />} />
                     <Route path='/passengers' element={<PassengersRoute />} />
+                    <Route path='/pas-places' element={<PasPlacesRoute />} />
                 </Route>
                 <Route path='*' element={<ErrorRoute />} />
             </Routes>
