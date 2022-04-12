@@ -20,6 +20,7 @@ export default function PasPlaceDir({ dir, places }: Props) {
         <PasPlace
             key={place.id} place={place}
             index={index} extras={extras}
+            dir={dir}
         />
     ));
 

@@ -14,19 +14,19 @@ export type UserT = FullNameT & {
 };
 
 export type PersonT = FullNameT & {
-    is_adult: true;
-    gender: true;
+    is_adult: boolean;
+    gender: boolean;
     birthday: string;
-    document_type: 'паспорт' | 'свидетельство о рождении';
+    document_type: string;
     document_data: string;
+    is_impaired: boolean;
+    include_children_seat: boolean;
 };
 
 export type PassengerT = {
     coach_id: string;
     person_info: PersonT;
     seat_number: number;
-    is_impaired: boolean;
-    include_children_seat: boolean;
 };
 
 export type PassengerFormT = {

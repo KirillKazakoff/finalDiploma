@@ -3101,6 +3101,7 @@ body {
     color: var(--secondary);
     width: 45%;
     padding: 20px;
+    min-height: 70px;
 }
 
 .options-pas-places {
