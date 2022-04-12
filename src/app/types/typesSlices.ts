@@ -88,7 +88,6 @@ export type PlaceT = {
     placeType: string;
     carType: string;
     price: number;
-    extras: ExtrasPricesCarT;
 };
 
 export type CarContentT = {

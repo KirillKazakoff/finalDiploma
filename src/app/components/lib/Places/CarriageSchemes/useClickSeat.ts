@@ -2,18 +2,13 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 import { useAppDispatch, useAppSelector } from '../../../../redux/reduxHooks';
-import {
-    removePlace,
-    selectExtras,
-    setPlace,
-} from '../../../../redux/slices/placesSlice';
+import { removePlace, setPlace } from '../../../../redux/slices/placesSlice';
 import { CarInfoT } from '../../../../types/models/modelSeats';
 import { PlaceT } from '../../../../types/typesSlices';
 
 export const useClickSeat = (car: CarInfoT, route: string) => {
     const dispatch = useAppDispatch();
     const places = useAppSelector((state) => state.places.routes[route].places);
-    const extras = useAppSelector(selectExtras(route));
 
     const onClick = (e: React.SyntheticEvent) => {
         const { textContent: i, className } = e.currentTarget;
@@ -30,11 +25,9 @@ export const useClickSeat = (car: CarInfoT, route: string) => {
             placeType,
             carType,
             price,
-            extras,
         };
         const payload = { route, place };
 
-        console.log(place);
         if (className.includes('seat-active')) {
             dispatch(removePlace(payload));
             e.currentTarget.classList.remove('carriage-seat-active');

@@ -4,16 +4,22 @@ import { PlaceT } from '../../../types/typesSlices';
 import PasPlace from './PasPlace/PasPlace';
 import PasPlaceDirAddBtn from './PasPlaceDirAddBtn';
 import PasPlaceDirHeader from './PasPlaceDirHeader';
+import { useAppSelector } from '../../../redux/reduxHooks';
+import { selectExtras } from '../../../redux/slices/placesSlice';
 
 type Props = { places: PlaceT[] } & DirTProp;
 
 export default function PasPlaceDir({ dir, places }: Props) {
+    const route = dir === 'to' ? 'departure' : 'arrival';
+    const extras = useAppSelector(selectExtras(route));
+    console.log(extras);
+
     if (places.length === 0) return null;
 
     const placesList = places.map((place, index) => (
         <PasPlace
             key={place.id} place={place}
-            index={index}
+            index={index} extras={extras}
         />
     ));
 
