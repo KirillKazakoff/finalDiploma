@@ -1,5 +1,6 @@
-import { FormStatusT } from '../../redux/slices/searchFormSlice';
+import { FormStatusT } from '../../redux/slices/utils/reduxFormUtils';
 import { InputState } from '../../redux/slices/utils/reduxInputUtils';
+import { Fields } from '../typesForms';
 
 export type FullNameT = {
     first_name: string;
@@ -31,8 +32,6 @@ export type PassengerT = {
 
 export type PassengerFormT = {
     fields: {
-        [key: string]: InputState;
-
         is_adult: InputState;
         last_name: InputState;
         first_name: InputState;
@@ -45,7 +44,7 @@ export type PassengerFormT = {
         document_type: InputState;
         document_number: InputState;
         document_series: InputState;
-    };
+    } & Fields;
     isMsgHidden: boolean;
     statusValidity: FormStatusT;
     isChildForm: boolean;

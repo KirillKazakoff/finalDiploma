@@ -1,4 +1,4 @@
-import { PassengerFormT } from '../../../types/models/modelPerson';
+import { PassengerFormT } from '../../../../types/models/modelPerson';
 
 export const mapPassengerData = (form: PassengerFormT) => {
     const personData = {

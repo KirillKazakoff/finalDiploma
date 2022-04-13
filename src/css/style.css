@@ -280,6 +280,7 @@ body {
     position: relative;
     min-height: 45px;
     max-height: 45px;
+    background-color: white;
 }
 
 /* search-way-tips */
@@ -561,6 +562,8 @@ body {
     margin-top: 7px;
     flex-grow: 100;
     text-align: right;
+    font-weight: 500;
+    color: var(--secondary-super-light);
 }
 
 .subtle-collapse {
@@ -2139,8 +2142,16 @@ body {
 }
 
 /* payment */
+.payment-form-content {
+    margin-bottom: 100px;
+}
+
 .passenger-payment {
     padding-bottom: 80px;
+}
+
+.passenger-personal-wrapper-way {
+    border-top: 1px dashed var(--secondary);
 }
 
 .passenger-phone {
@@ -2169,7 +2180,7 @@ body {
 }
 
 .passenger-payment-ways {
-    margin-top: 30px;
+    margin-top: 40px;
     column-gap: 50px;
 }
 

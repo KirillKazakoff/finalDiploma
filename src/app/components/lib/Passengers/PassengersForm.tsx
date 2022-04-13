@@ -44,7 +44,9 @@ export default function PassengersForm() {
 
     return (
         <Form cls='passengers-total-form' onSubmitForm={onSubmit}>
-            <BtnNextRouteNew disabled={statusValidity !== 'success'} />
+            <BtnNextRouteNew disabled={statusValidity !== 'success'}>
+                Далее
+            </BtnNextRouteNew>
         </Form>
     );
 }

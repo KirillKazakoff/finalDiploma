@@ -2,7 +2,7 @@
 import React from 'react';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import type { PayloadFocus, SetFormMsgHiddenT, SetFormStatusT } from './typesPayload';
-import { FormStatusT } from '../redux/slices/searchFormSlice';
+import type { InputState } from '../redux/slices/utils/reduxInputUtils';
 
 export type InputDefaultT = {
     name: string;
@@ -53,3 +53,6 @@ export type FormFeedbackPropsT = {
 };
 
 export type FormFeedbackT = { children: React.ReactNode; isMsgHidden: boolean };
+export type Fields = {
+    [key: string]: InputState;
+};

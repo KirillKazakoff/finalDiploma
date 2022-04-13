@@ -47,12 +47,14 @@ export default function PasPlacesForm() {
             dispatch(setInfo({ status: 'error', msg: emptyMsg(allEmpty[0]) }));
             return;
         }
-        navigate('/somewhere');
+        navigate('/payment');
     };
 
     return (
         <Form onSubmitForm={onSubmit}>
-            <BtnNextRouteNew cls='pas-places' disabled={isError} />
+            <BtnNextRouteNew cls='pas-places' disabled={isError}>
+                Далее
+            </BtnNextRouteNew>
         </Form>
     );
 }

@@ -41,7 +41,9 @@ export default function PlacesNextSection({ ticketRoute }: Props) {
 
     return (
         <Form onSubmitForm={onSubmit}>
-            <BtnNextRouteNew cls='places' disabled={disabled} />
+            <BtnNextRouteNew cls='places' disabled={disabled}>
+                Далее
+            </BtnNextRouteNew>
         </Form>
     );
 }

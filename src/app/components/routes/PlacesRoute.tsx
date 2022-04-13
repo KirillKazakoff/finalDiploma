@@ -4,7 +4,7 @@ import PlacesDir from '../lib/Places/PlacesDir';
 import TripDetailsDirs from '../lib/Aside/TripDetails/TripDetailsDirs';
 import { useAppSelector } from '../../redux/reduxHooks';
 import { selectActiveTicket } from '../../redux/slices/placesSlice';
-import PlacesNextSection from '../lib/Places/PlacesNextSection';
+import PlacesNextSection from '../lib/Places/PlacesForm';
 
 export default function PlacesRoute() {
     const ticket = useAppSelector(selectActiveTicket);

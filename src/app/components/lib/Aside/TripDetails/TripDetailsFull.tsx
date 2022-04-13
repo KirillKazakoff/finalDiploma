@@ -4,7 +4,7 @@ import TripDir from './TripDir/TripDir';
 import TripPassengers from './TripPassengers/TripPassengers';
 import TripTotal from './TripTotal';
 import { useAppSelector } from '../../../../redux/reduxHooks';
-import { selectActiveTicket } from '../../../../redux/slices/ticketsSlice';
+import { selectActiveTicket } from '../../../../redux/slices/placesSlice';
 
 export default function TripDetailsFull() {
     const ticket = useAppSelector(selectActiveTicket);

@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { PassengersStateT } from '../../../types/typesSlices';
+import { FormStatusT } from './reduxFormUtils';
 import { initialInput } from './reduxInputUtils';
-import { FormStatusT } from '../searchFormSlice';
 
 export const initForm = () => {
     const form = {

@@ -1,23 +1,22 @@
-/* eslint-disable react/default-props-match-prop-types */
 import React, { HTMLProps } from 'react';
-import Feedback from '../../Common/Feedback/Feedback';
-import InputWrapper from '../../Common/InputWrapper';
+import { getValidityCls } from '../../../form/getValidityCls';
+import useChange from '../../../form/useChange';
+import useSelect from '../../../form/useSelect';
 import {
     selectMsgHidden,
     setActive,
     setBlured,
     setInput,
-} from '../../../../redux/slices/passengersSlice';
-import { InputState } from '../../../../redux/slices/utils/reduxInputUtils';
-import useChange from '../../../../form/useChange';
-import useSelect from '../../../../form/useSelect';
-import { RefT } from '../../../../types/typesReact';
-import { getValidityCls } from '../../../../form/getValidityCls';
-import { useAppSelector } from '../../../../redux/reduxHooks';
+} from '../../../redux/slices/paymentSlice';
+import { useAppSelector } from '../../../redux/reduxHooks';
+import { InputState } from '../../../redux/slices/utils/reduxInputUtils';
+import { RefT } from '../../../types/typesReact';
+import Feedback from '../Common/Feedback/Feedback';
+import InputWrapper from '../Common/InputWrapper';
 
+/* eslint-disable react/default-props-match-prop-types */
 type Props = {
     name: string;
-    id?: string;
     state: InputState;
     parrentRef: RefT<HTMLInputElement>;
     wrapperCls?: string;
@@ -27,7 +26,6 @@ export default function PassengerInput(props: Props) {
     const {
         state,
         name,
-        id,
         required,
         pattern,
         parrentRef,
@@ -40,10 +38,10 @@ export default function PassengerInput(props: Props) {
         value, formError, error, wasFocused,
     } = state;
 
-    const onChange = useChange(setInput, id);
-    const { onFocus, onBlur } = useSelect(setActive, setBlured, id);
+    const onChange = useChange(setInput);
+    const { onFocus, onBlur } = useSelect(setActive, setBlured);
     const validityCls = getValidityCls(state);
-    const isFormMsgHidden = useAppSelector(selectMsgHidden(id));
+    const isFormMsgHidden = useAppSelector(selectMsgHidden);
 
     return (
         <InputWrapper cls={`${wrapperCls} passenger-input-wrapper input-${validityCls}`}>

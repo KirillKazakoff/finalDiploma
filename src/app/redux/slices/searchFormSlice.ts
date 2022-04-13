@@ -3,8 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
 import { formInitialState, formReducers } from './utils/reduxFormUtils';
 
-export type FormStatusT = 'error' | 'success' | 'idle';
-
 const initialState = { ...formInitialState };
 export const searchFormSlice = createSlice({
     name: 'searchForm',

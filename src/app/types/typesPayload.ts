@@ -1,13 +1,13 @@
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { DateT, PickerStateT } from '../components/lib/DatePicker/utils/timeTypes';
 import { SearchedCities } from './typesSearch';
-import { FormStatusT } from '../redux/slices/searchFormSlice';
 import { ActiveCarT, PlaceT } from './typesSlices';
 import { CarInfoT } from './models/modelSeats';
 import type { InputState } from '../redux/slices/utils/reduxInputUtils';
 import type { InfoMsgT } from '../components/lib/Common/Info/messagesInfo';
 import type { InformationStatusT } from '../redux/slices/infoSlice';
 import { PasPlaceT } from '../redux/slices/pasPlacesSlice';
+import { FormStatusT } from '../redux/slices/utils/reduxFormUtils';
 
 export type FetchStatusT = 'idle' | 'loading' | 'loaded' | 'failed';
 
