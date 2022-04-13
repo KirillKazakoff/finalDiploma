@@ -1,11 +1,13 @@
 import React from 'react';
 
-type Props = { cls?: string };
+type Props = { cls?: string; disabled?: boolean };
 
-export default function BtnNextRouteNew({ cls }: Props) {
+export default function BtnNextRouteNew({ cls, disabled }: Props) {
+    const disabledCls = disabled ? 'btn-next-section-disabled' : '';
+
     return (
         <div className={`next-route-wrapper next-route-wrapper-${cls}`}>
-            <button className='btn btn-next-section' type='submit'>
+            <button className={`btn btn-next-section ${disabledCls}`} type='submit'>
                 Далее
             </button>
         </div>
@@ -14,4 +16,5 @@ export default function BtnNextRouteNew({ cls }: Props) {
 
 BtnNextRouteNew.defaultProps = {
     cls: 'default',
+    disabled: false,
 };

@@ -1,0 +1,116 @@
+/* select-custom */
+.select {
+    z-index: 10000;
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.options {
+    text-align: left;
+    position: absolute;
+    left: -5px;
+    right: -5px;
+    top: -5px;
+    background-color: #f4f3f6;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px rgba(62, 60, 65, 0.25);
+}
+
+.select-wrapper {
+    padding: 10px 20px;
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    font-size: 24px;
+    background-color: transparent;
+}
+
+.option:hover {
+    background-color: var(--bg-main-medium);
+}
+
+.select:hover {
+    border: 1px solid transparent;
+    background-color: var(--bg-main-light);
+}
+
+.select:hover .form-select-arrow {
+    transform: rotate(180deg);
+    height: 7px;
+    filter: var(--white-filter);
+}
+
+.select:hover .selected-option {
+    color: var(--black);
+}
+
+.select-disabled {
+    filter: var(--secondary-filter);
+}
+
+.select-disabled .select:hover {
+    background-color: transparent;
+}
+
+.select:disabled {
+    filter: var(--secondary-filter);
+    pointer-events: none;
+}
+
+/* select-age-category */
+.selected-option-age {
+    font-size: 24px;
+}
+
+.option-age {
+    font-size: 20px;
+    padding: 15px;
+    border-bottom: 1px solid var(--secondary-lighter);
+}
+
+/* select-doctype */
+.select-doctype {
+    flex-grow: 1;
+}
+
+.selected-option-doctype {
+    font-size: 18px;
+}
+
+.option-doctype {
+    font-size: 18px;
+    padding: 10px;
+    border-bottom: 1px solid var(--secondary-lighter);
+}
+
+/* .select-pas-places */
+.select-pas-places {
+    justify-content: space-between;
+    border: 1px solid var(--secondary-lighter);
+    margin-top: 40px;
+    font-size: 24px;
+    color: var(--secondary);
+    width: 45%;
+    padding: 20px;
+    min-height: 70px;
+}
+
+.options-pas-places {
+    background-color: white;
+    border-radius: 0px;
+    border: 1px solid var(--secondary-super-light);
+}
+
+.option-pas-places {
+    color: black;
+    font-weight: 200;
+    font-size: 22px;
+    font-feature-settings: 'cpsp' on;
+    padding: 15px;
+}
+
+.selected-option-pas-places {
+    color: var(--secondary);
+}

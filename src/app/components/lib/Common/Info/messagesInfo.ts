@@ -1,4 +1,4 @@
-import type { EmptyPlaceT } from '../../../routes/PasPlacesNextRoute';
+import type { EmptyPlaceT } from '../../../routes/PasPlacesForm';
 
 /* eslint-disable max-len */
 export type InfoMsgT = {
@@ -18,6 +18,11 @@ export const messagesInfo = {
 };
 
 export const messagesError = {
+    emptyPlaces: (route: string) => ({
+        title: 'Вы ... не заполнили места !',
+        desc: `Направление: ${route}`,
+    }),
+
     childrenOverwhelm: {
         title: 'У вас слишком много детей',
         desc: 'Больше 3 детей с собой перевозить нельзя. Удалите ребенка, либо добавьте ещё взрослого человека.',

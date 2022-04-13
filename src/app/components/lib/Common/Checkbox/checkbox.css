@@ -1,0 +1,29 @@
+/* checkbox */
+.checkbox-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+.checkbox-wrapper:disabled {
+    filter: var(--secondary-filter);
+    pointer-events: none;
+}
+
+.checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+}
+
+.checkbox-wrapper:hover .checkbox {
+    transform: rotate(25deg);
+    filter: var(--collapse-filter);
+    box-shadow: var(--btn-shadow);
+}

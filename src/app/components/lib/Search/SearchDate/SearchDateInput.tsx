@@ -6,7 +6,7 @@ import DatePickerIcon from '../../DatePicker/DatePickerIcon';
 
 import { useAppSelector } from '../../../../redux/reduxHooks';
 import { SearchDateInputProps } from '../../../../types/typesSearch';
-import Feedback from '../../Common/Feedback';
+import Feedback from '../../Common/Feedback/Feedback';
 
 import useValidateDate from './useValidateDate';
 import { getValidityCls } from '../../../../form/getValidityCls';

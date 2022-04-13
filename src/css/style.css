@@ -165,7 +165,7 @@ body {
     display: flex;
     justify-content: center;
 
-    width: 45px;
+    min-width: 45px;
     border-radius: 50px;
     padding: 14px 0px;
     background-color: white;
@@ -263,7 +263,7 @@ body {
     align-items: center;
     padding-right: 20px;
     padding-left: 15px;
-    background: #ffffff;
+    /* background: #ffffff; */
     border-radius: 3px;
     flex: 1;
 }
@@ -273,6 +273,7 @@ body {
     position: relative;
     min-height: 62px;
     max-height: 62px;
+    background-color: white;
 }
 
 .filter-input-wrapper {
@@ -314,18 +315,6 @@ body {
 
 .submitted .input-invalid {
     border: 2px solid rgb(218, 86, 86);
-}
-
-.feedback {
-    z-index: 10000;
-    font-size: 16px;
-    padding: 5px;
-    border-radius: 5px;
-    position: absolute;
-    top: -85%;
-    right: -10%;
-    width: 200px;
-    background-color: var(--bg-main);
 }
 
 .header-line {
@@ -1040,6 +1029,10 @@ body {
 }
 
 /* places */
+.places {
+    padding-bottom: 100px;
+}
+
 .places-title {
     color: var(--black);
     font-size: 30px;
@@ -1994,28 +1987,6 @@ body {
     font-size: 24px;
 }
 
-.select-wrapper {
-    padding: 10px 20px;
-    border: 1px solid var(--secondary);
-    border-radius: 5px;
-    font-size: 24px;
-}
-
-.option:hover {
-    background-color: var(--bg-main-medium);
-}
-
-/* select-age-category */
-.selected-option-age {
-    font-size: 24px;
-}
-
-.option-age {
-    font-size: 24px;
-    padding: 15px;
-    border-bottom: 1px solid var(--secondary-lighter);
-}
-
 /* passenger-fullname */
 .passenger-fullname {
     column-gap: 25px;
@@ -2050,6 +2021,22 @@ body {
     padding-top: 7px;
     padding-bottom: 7px;
     text-align: center;
+    border-radius: 5px;
+}
+
+.sex-field:first-child {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.sex-field:last-child {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.sex-field:hover {
+    background-color: var(--bg-main-medium);
+    box-shadow: var(--btn-shadow);
 }
 
 .sex-field:first-child {
@@ -2057,7 +2044,7 @@ body {
 }
 
 .sex-field-active {
-    background-color: var(--bg-main);
+    background-color: var(--bg-main-light);
 }
 
 .passenger-form-col-birthdate {
@@ -2092,20 +2079,6 @@ body {
 
 .passenger-form-col-birth-certificate {
     width: 50%;
-}
-
-.select-doctype {
-    flex-grow: 1;
-}
-
-.selected-option-doctype {
-    font-size: 18px;
-}
-
-.option-doctype {
-    font-size: 18px;
-    padding: 10px;
-    border-bottom: 1px solid var(--secondary-lighter);
 }
 
 /* .passenger-input-wrapper and underscores */
@@ -2446,48 +2419,6 @@ body {
     margin-left: auto;
 }
 
-/* select-custom */
-.select {
-    background-color: transparent;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.options {
-    position: absolute;
-    left: -5px;
-    right: -5px;
-    top: -5px;
-    background-color: #f4f3f6;
-    border-radius: 5px;
-    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.2));
-}
-
-/* checkbox */
-.checkbox-wrapper {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    column-gap: 20px;
-}
-
-.checkbox-wrapper:disabled {
-    filter: var(--secondary-filter);
-}
-
-.checkbox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 28px;
-    height: 28px;
-    border: 1px solid var(--secondary);
-    border-radius: 5px;
-}
-
 /* main-page */
 /* about-section */
 .about {
@@ -2727,6 +2658,7 @@ body {
 .subscription-input-wrapper {
     position: relative;
     flex-grow: 1;
+    background-color: white;
 }
 
 .subscription-input {
@@ -3092,32 +3024,6 @@ body {
     width: 45%;
 }
 
-/* .select-pas-places */
-.select-pas-places {
-    justify-content: space-between;
-    border: 1px solid var(--secondary-lighter);
-    margin-top: 40px;
-    font-size: 24px;
-    color: var(--secondary);
-    width: 45%;
-    padding: 20px;
-    min-height: 70px;
-}
-
-.options-pas-places {
-    background-color: white;
-    border-radius: 2px;
-    border: 1px solid var(--secondary-super-light);
-}
-
-.option-pas-places {
-    color: black;
-    font-weight: 200;
-    font-size: 22px;
-    font-feature-settings: 'cpsp' on;
-    padding: 15px;
-}
-
 /* buttons */
 .btn {
     border-radius: 5px;
@@ -3263,10 +3169,24 @@ body {
     text-transform: uppercase;
 }
 
-.btn-next-section:disabled {
+.btn-next-section-disabled {
+    background-color: var(--secondary);
+}
+
+.btn-next-section-disabled:hover {
+    color: var(--error);
+}
+
+.btn-next-section-disabled:focus {
+    background-color: var(--secondary);
+    border: 1px solid var(--secondary);
+    color: white;
+}
+
+/* .btn-next-section:disabled {
     box-shadow: none;
     cursor: default;
-}
+} */
 
 .btn-pas-places-next-section {
     font-weight: 400;

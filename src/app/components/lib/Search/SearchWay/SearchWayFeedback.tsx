@@ -1,6 +1,6 @@
 import React from 'react';
 import SpinLoader from '../../Common/SpinLoader';
-import Feedback from '../../Common/Feedback';
+import Feedback from '../../Common/Feedback/Feedback';
 import { WayStateT } from '../../../../types/typesSlices';
 import { useAppSelector } from '../../../../redux/reduxHooks';
 import { selectMsgStatus } from '../../../../redux/slices/searchFormSlice';

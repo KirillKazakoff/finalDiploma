@@ -1,4 +1,5 @@
 import React from 'react';
+import './feedback.css';
 
 type FeedbackProps = {
     error: string;
@@ -15,7 +16,12 @@ export default function Feedback(props: FeedbackProps) {
     if (!error && !formError) return null;
     if (!wasFocused && isFormMsgHidden && !formError) return null;
 
-    return <div className='feedback feedback-error'>{formError || error}</div>;
+    return (
+        <div className='feedback'>
+            <div className='feedback-arrow' />
+            <span className='feedback-content'>{formError || error}</span>
+        </div>
+    );
 }
 
 Feedback.defaultProps = {

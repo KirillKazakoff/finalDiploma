@@ -1,6 +1,6 @@
 import React from 'react';
 import { IdProp } from '../../../../../../types/typesPassengers';
-import FormSelect from '../../../../Common/FormSelect';
+import FormSelect from '../../../../Common/FormSelect/FormSelect';
 import { useSetInput } from '../../../useSetInput';
 import { useGetAgeOptions } from './useGetAgeOptions';
 
@@ -15,7 +15,7 @@ export default function PassengerAge({ id }: IdProp) {
 
     const optionsList = options.map((age) => (
         <li
-            className='option option-doctype' key={age}
+            className='option option-age' key={age}
             onClick={onClick(age)}
         >
             {age}

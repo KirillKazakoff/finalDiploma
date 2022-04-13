@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppDispatch } from '../../../../../redux/reduxHooks';
 import { refreshDoctype } from '../../../../../redux/slices/passengersSlice';
-import FormSelect from '../../../Common/FormSelect';
+import FormSelect from '../../../Common/FormSelect/FormSelect';
 import { mapDocClass } from './mapDocClasses';
 import { useSetInput } from '../../useSetInput';
 import { useGetDocOptions } from './useGetDocOptions';

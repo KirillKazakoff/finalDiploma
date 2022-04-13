@@ -1,4 +1,5 @@
 import React from 'react';
+import './checkbox.css';
 
 type Props = { isActive: boolean; desc: string; cls?: string; disabled?: boolean };
 

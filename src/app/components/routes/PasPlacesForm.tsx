@@ -32,17 +32,18 @@ export default function PasPlacesForm() {
         return emptyPlaces;
     };
 
-    const onSubmit = () => {
-        const allEmpty = Object.entries(routes).reduce<EmptyPlaceT[]>(
-            (total, [key, route]) => {
-                const routeEmpty = getEmptyPlaces(route, key);
-                total.push(...routeEmpty);
-                return total;
-            },
-            [],
-        );
+    const allEmpty = Object.entries(routes).reduce<EmptyPlaceT[]>(
+        (total, [key, route]) => {
+            const routeEmpty = getEmptyPlaces(route, key);
+            total.push(...routeEmpty);
+            return total;
+        },
+        [],
+    );
 
-        if (allEmpty.length > 0) {
+    const isError = allEmpty.length > 0;
+    const onSubmit = () => {
+        if (isError) {
             dispatch(setInfo({ status: 'error', msg: emptyMsg(allEmpty[0]) }));
             return;
         }
@@ -51,7 +52,7 @@ export default function PasPlacesForm() {
 
     return (
         <Form onSubmitForm={onSubmit}>
-            <BtnNextRouteNew cls='pas-places' />
+            <BtnNextRouteNew cls='pas-places' disabled={isError} />
         </Form>
     );
 }

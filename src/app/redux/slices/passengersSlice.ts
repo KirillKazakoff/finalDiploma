@@ -21,8 +21,11 @@ export const passengersSlice = createSlice({
         },
         refreshDoctype: (state, action: PayloadAction<string>) => {
             state[action.payload].fields.document_number.value = '';
+            state[action.payload].fields.document_number.error = '';
             state[action.payload].fields.document_number.wasFocused = false;
+
             state[action.payload].fields.document_series.value = '';
+            state[action.payload].fields.document_series.error = '';
             state[action.payload].fields.document_series.wasFocused = false;
         },
         setIsChildForm: (state, action: PayloadAction<string>) => {

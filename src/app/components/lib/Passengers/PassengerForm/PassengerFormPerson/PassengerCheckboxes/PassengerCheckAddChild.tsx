@@ -8,7 +8,7 @@ import {
     setIsChildForm,
 } from '../../../../../../redux/slices/passengersSlice';
 import { IdProp } from '../../../../../../types/typesPassengers';
-import Checkbox from '../../../../Common/Checkbox';
+import Checkbox from '../../../../Common/Checkbox/Checkbox';
 import { useSetInput } from '../../../useSetInput';
 
 export default function PassengerCheckAddChild({ id }: IdProp) {

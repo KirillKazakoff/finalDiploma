@@ -3,7 +3,7 @@ import React from 'react';
 import { useAppSelector } from '../../../../../../redux/reduxHooks';
 import { selectField } from '../../../../../../redux/slices/passengersSlice';
 import { IdProp } from '../../../../../../types/typesPassengers';
-import Checkbox from '../../../../Common/Checkbox';
+import Checkbox from '../../../../Common/Checkbox/Checkbox';
 import { useSetInput } from '../../../useSetInput';
 
 export default function PassengerCheckImpaired({ id }: IdProp) {

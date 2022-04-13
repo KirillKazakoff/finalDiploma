@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
+import './formSelect.css';
 
 type Props = {
     children: React.ReactNode[];
@@ -16,17 +17,25 @@ export default function FormSelect(props: Props) {
         <ul className={`options options-${cls}`}>{children}</ul>
     ) : null;
 
-    const disabledCls = children.length > 0 ? '' : 'filter-secondary';
+    const disabled = children.length === 0;
     const onListClick = () => setActive(!isActive);
 
     return (
-        <div
-            className={`input-wrapper select-wrapper select select-${cls} ${disabledCls}`}
+        <button
+            disabled={disabled}
+            type='button'
+            className={`input-wrapper select-wrapper select select-${cls}`}
             onClick={onListClick}
         >
             <div className={`selected-option selected-option-${cls}`}>{selected}</div>
-            <img src='./svg/actions/select-arrow.svg' alt='select-arrow' />
+
+            <img
+                src='./svg/actions/select-arrow.svg'
+                alt='select-arrow'
+                className='form-select-arrow'
+            />
+
             {optionsList}
-        </div>
+        </button>
     );
 }

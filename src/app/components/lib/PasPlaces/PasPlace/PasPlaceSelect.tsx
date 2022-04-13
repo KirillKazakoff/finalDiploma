@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 import React from 'react';
 import { PasPlaceT } from '../../../../redux/slices/pasPlacesSlice';
 import { PersonT } from '../../../../types/models/modelPerson';
-import FormSelect from '../../Common/FormSelect';
+import FormSelect from '../../Common/FormSelect/FormSelect';
 import { getFullName } from './getFullName';
 
 type Props = {

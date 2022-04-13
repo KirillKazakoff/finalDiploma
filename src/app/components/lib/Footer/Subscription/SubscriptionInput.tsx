@@ -2,7 +2,7 @@ import React, { HTMLProps, useEffect, useRef } from 'react';
 import InputWrapper from '../../Common/InputWrapper';
 import { ValidateInputT } from '../../../../types/typesForms';
 import { useAppSelector } from '../../../../redux/reduxHooks';
-import Feedback from '../../Common/Feedback';
+import Feedback from '../../Common/Feedback/Feedback';
 import SpinLoader from '../../Common/SpinLoader';
 
 type Props = { validate: ValidateInputT } & HTMLProps<HTMLInputElement>;
