@@ -38,14 +38,17 @@
     line-height: 25px;
 }
 
-.info-content-desc {
-    font-size: 18px;
-    display: block;
-}
-
 .info-content-title {
+    display: block;
     font-size: 24px;
     margin-bottom: 25px;
+}
+
+.info-content-desc {
+    white-space: pre-line;
+    line-height: 40px;
+    font-size: 18px;
+    display: block;
 }
 
 .info-content-title-note {

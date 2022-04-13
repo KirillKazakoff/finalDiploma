@@ -42,7 +42,6 @@ export default function PasPlace(props: Props) {
 
     useEffect(() => {
         if (!selected) return;
-        console.log(passengersInfo);
         const person = passengersInfo.find((passenger) => {
             return passenger.id === selected.person_info.id;
         });

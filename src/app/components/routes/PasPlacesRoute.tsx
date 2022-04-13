@@ -1,8 +1,8 @@
 import React from 'react';
-import BtnNextRouteNew from '../lib/Common/BtnNextRouteNew';
 import PasPlaceDir from '../lib/PasPlaces/PasPlaceDir';
 import { useAppSelector } from '../../redux/reduxHooks';
 import { selectPlaces } from '../../redux/slices/placesSlice';
+import PasPlacesForm from './PasPlacesForm';
 
 export default function PasPlacesRoute() {
     const { routes } = useAppSelector(selectPlaces);
@@ -13,7 +13,7 @@ export default function PasPlacesRoute() {
             <div className='pas-places-dirs'>
                 <PasPlaceDir dir='to' places={departure.places} />
                 <PasPlaceDir dir='from' places={arrival.places} />
-                <BtnNextRouteNew cls='pas-places' />
+                <PasPlacesForm />
             </div>
         </main>
     );

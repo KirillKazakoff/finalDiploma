@@ -1,3 +1,5 @@
+import type { EmptyPlaceT } from '../../../routes/PasPlacesNextRoute';
+
 /* eslint-disable max-len */
 export type InfoMsgT = {
     title: string;
@@ -13,7 +15,9 @@ export const messagesInfo = {
         title: 'Вы перешли в секцию выбора мест',
         desc: 'Добавьте новые места или отмените уже выбранные',
     },
+};
 
+export const messagesError = {
     childrenOverwhelm: {
         title: 'У вас слишком много детей',
         desc: 'Больше 3 детей с собой перевозить нельзя. Удалите ребенка, либо добавьте ещё взрослого человека.',
@@ -29,6 +33,11 @@ export const messagesInfo = {
     notEqualPlaces: (biggest: number) => ({
         title: `Количество пассажиров не равно ${biggest}`,
         desc: `Количество пассажиров не равно ${biggest} (направление с большим количеством выбранных мест)`,
+    }),
+
+    emptyPasPlace: (pasPlace: EmptyPlaceT) => ({
+        title: 'Вы ... не заполнили форму!',
+        desc: `Конкретная форма: Пассажир ${pasPlace.index} \n Направление: ${pasPlace.route}`,
     }),
 };
 

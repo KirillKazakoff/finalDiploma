@@ -7,12 +7,12 @@ import { FormStatusT } from '../../../redux/slices/utils/reduxFormUtils';
 import { selectPlacesLength } from '../../../redux/slices/utils/selectPlacesLength';
 import BtnNextRouteNew from '../Common/BtnNextRouteNew';
 import Form from '../Common/Form';
-import { messagesInfo } from '../Common/Info/messagesInfo';
+import { messagesError } from '../Common/Info/messagesInfo';
 import { getAges } from './checkAges';
 
 const {
     childrenOverwhelm, noPassengers, fullfillForm, notEqualPlaces,
-} = messagesInfo;
+} = messagesError;
 
 export default function PassengersForm() {
     const navigate = useNavigate();

@@ -17,9 +17,7 @@ export default function Info(props: Props) {
         <div className='info'>
             <header className={`info-header info-header-${cls}`}>{icon}</header>
             <div className='info-content'>
-                <span
-                    className={`info-content-desc info-content-title info-content-title-${cls}`}
-                >
+                <span className={`info-content-title info-content-title-${cls}`}>
                     {title}
                 </span>
                 <span className='info-content-desc'>{desc}</span>
