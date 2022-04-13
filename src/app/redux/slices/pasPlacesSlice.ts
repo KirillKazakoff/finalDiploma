@@ -5,7 +5,7 @@ import type { PayloadPasPlace } from '../../types/typesPayload';
 import type { RootState } from '../store';
 
 export type PasPlaceT = {
-    id: string;
+    placeId: string;
     price: number;
     coach_id: string;
     seat_number: number;
@@ -28,11 +28,11 @@ export const pasPlacesSlice = createSlice({
     name: 'pasPlaces',
     initialState,
     reducers: {
-        addPasPlace: (state, action: PayloadAction<PayloadPasPlace>) => {
+        pushPasPlace: (state, action: PayloadAction<PayloadPasPlace>) => {
             const { name, value } = action.payload;
 
             const placeMatch = state[name].findIndex((place) => {
-                return place.id === value.id;
+                return place.placeId === value.placeId;
             });
             if (placeMatch === -1) {
                 state[name].push(value);
@@ -40,11 +40,19 @@ export const pasPlacesSlice = createSlice({
                 state[name][placeMatch] = value;
             }
         },
+        removePasPlace: (state, action: PayloadAction<PayloadPasPlace>) => {
+            const { name, value } = action.payload;
+            const index = state[name].findIndex((pasPlace) => {
+                return pasPlace.placeId === value.placeId;
+            });
+
+            state[name].splice(index, 1);
+        },
         refresherAhh: () => initialState,
     },
 });
 
-export const { addPasPlace, refresherAhh } = pasPlacesSlice.actions;
+export const { pushPasPlace, removePasPlace, refresherAhh } = pasPlacesSlice.actions;
 export const selectPasPlacesRoute = (route: string) => (state: RootState) => {
     return state.pasPlaces[route];
 };

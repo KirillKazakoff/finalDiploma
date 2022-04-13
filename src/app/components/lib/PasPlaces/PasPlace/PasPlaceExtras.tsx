@@ -5,8 +5,6 @@ import { mapExtra, mapPlaceValue } from './mapExtras';
 type Props = { extras: ExtrasPricesCarT; placeType: string };
 
 export default function PasPlaceExtras({ extras, placeType }: Props) {
-    // console.log(extras);
-
     const extrasArr = Object.entries(extras).reduce<string[]>((total, [key, value]) => {
         let option = mapExtra(key);
 

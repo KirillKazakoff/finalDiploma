@@ -15,14 +15,15 @@ const getDocData = (fields: any) => {
 export const selectPassengersInfo = createSelector(
     [(state: RootState) => state.passengers],
     (passengersRes) => {
-        const passengers = Object.values(passengersRes).map((value) => {
+        const passengers = Object.entries(passengersRes).map(([key, value]) => {
             const { fields, isChildForm } = value;
 
             const passengerInfo: PassengerInfoT = {
+                id: key,
                 include_children_seat: isChildForm,
                 is_impaired: fields.is_impaired.value === 'true',
 
-                is_adult: fields.is_impaired.value === 'true',
+                is_adult: fields.is_adult.value === 'Взрослый',
                 gender: fields.gender.value === 'М',
                 birthday: fields.birthday.value,
                 document_type: fields.document_type.value,

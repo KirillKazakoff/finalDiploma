@@ -13,7 +13,7 @@ export type UserT = FullNameT & {
     payment_method: 'cash' | 'online';
 };
 
-export type PersonT = FullNameT & {
+export type PersonT = FullNameT & { id: string } & {
     is_adult: boolean;
     gender: boolean;
     birthday: string;

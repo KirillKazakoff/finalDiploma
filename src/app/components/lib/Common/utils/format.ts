@@ -1,6 +1,8 @@
 const formatCost = (cost: number) => {
-    if (cost < 1000) return cost.toString();
-    const costArr = cost.toString().split('');
+    const flooredCost = Math.floor(cost);
+    if (flooredCost < 1000) return flooredCost.toString();
+
+    const costArr = flooredCost.toString().split('');
     costArr.splice(1, 0, ' ');
 
     const formatted = costArr.join('');
