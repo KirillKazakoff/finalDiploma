@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import useValidateInput from '../../../form/useValidateInput';
 import { useAppSelector } from '../../../redux/reduxHooks';
-import { setError, selectField } from '../../../redux/slices/paymentSlice';
+import { setError, selectField } from '../../../redux/slices/paymentFieldsSlice';
 
 export const useInitPayInput = (name: string) => {
     const inputState = useAppSelector(selectField(name));

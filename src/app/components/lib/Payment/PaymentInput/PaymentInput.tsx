@@ -1,18 +1,18 @@
 import React, { HTMLProps } from 'react';
-import { getValidityCls } from '../../../form/getValidityCls';
-import useChange from '../../../form/useChange';
-import useSelect from '../../../form/useSelect';
+import { getValidityCls } from '../../../../form/getValidityCls';
+import useChange from '../../../../form/useChange';
+import useSelect from '../../../../form/useSelect';
 import {
-    selectMsgHidden,
     setActive,
     setBlured,
     setInput,
-} from '../../../redux/slices/paymentSlice';
-import { useAppSelector } from '../../../redux/reduxHooks';
-import { InputState } from '../../../redux/slices/utils/reduxInputUtils';
-import { RefT } from '../../../types/typesReact';
-import Feedback from '../Common/Feedback/Feedback';
-import InputWrapper from '../Common/InputWrapper';
+} from '../../../../redux/slices/paymentFieldsSlice';
+import { useAppSelector } from '../../../../redux/reduxHooks';
+import { InputState } from '../../../../redux/slices/utils/reduxInputUtils';
+import { RefT } from '../../../../types/typesReact';
+import Feedback from '../../Common/Feedback/Feedback';
+import InputWrapper from '../../Common/InputWrapper';
+import { selectMsgStatus } from '../../../../redux/slices/paymentFormSlice';
 
 /* eslint-disable react/default-props-match-prop-types */
 type Props = {
@@ -41,7 +41,7 @@ export default function PassengerInput(props: Props) {
     const onChange = useChange(setInput);
     const { onFocus, onBlur } = useSelect(setActive, setBlured);
     const validityCls = getValidityCls(state);
-    const isFormMsgHidden = useAppSelector(selectMsgHidden);
+    const isFormMsgHidden = useAppSelector(selectMsgStatus);
 
     return (
         <InputWrapper cls={`${wrapperCls} passenger-input-wrapper input-${validityCls}`}>

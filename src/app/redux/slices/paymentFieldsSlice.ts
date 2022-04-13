@@ -9,34 +9,26 @@ const fields = {
     first_name: { ...initialInput },
     patronymic: { ...initialInput },
     email: { ...initialInput },
+    phone: { ...initialInput },
     payment_method: { ...initialInput },
 };
 
-type StateFieldsT = typeof fields & Fields;
+type StateT = typeof fields & Fields;
 
-export const initialState = {
-    fields: {
-        last_name: { ...initialInput },
-        first_name: { ...initialInput },
-        patronymic: { ...initialInput },
-        email: { ...initialInput },
-        payment_method: { ...initialInput },
-    } as StateFieldsT,
+export const initialState: StateT = fields;
 
-    isMsgHidden: true,
-    statusValidity: 'idle' as FormStatusT,
-};
-
-export const paymentSlice = createSlice({
+export const paymentFieldsSlice = createSlice({
     name: 'payment',
     initialState,
     reducers: {
         ...inputReducers,
         ...formReducers,
+        refreshPay: () => fields,
     },
 });
 
 export const {
+    refreshPay,
     setInput,
     setActive,
     setBlured,
@@ -45,11 +37,11 @@ export const {
     clearField,
     setFormMsgHidden,
     setFormStatus,
-} = paymentSlice.actions;
+} = paymentFieldsSlice.actions;
 
 export const selectField = (name: string) => (state: RootState) => {
-    return state.payment.fields[name];
+    return state.paymentFields[name];
 };
-export const selectMsgHidden = (state: RootState) => state.payment.isMsgHidden;
+export const selectMsgHidden = (state: RootState) => state.paymentFields.isMsgHidden;
 
-export default paymentSlice.reducer;
+export default paymentFieldsSlice.reducer;

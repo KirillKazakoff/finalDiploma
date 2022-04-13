@@ -1969,6 +1969,10 @@ body {
     width: 31%;
 }
 
+.passenger-form-col-40 {
+    width: 40%;
+}
+
 /* 
 .input-wrapper {
     color: var(--black);

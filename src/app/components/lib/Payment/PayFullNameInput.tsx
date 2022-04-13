@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
-import PaymentInput from './PaymentInput';
+import PaymentInput from './PaymentInput/PaymentInput';
 import { useInitPayInput } from './useInitPayInput';
 
 type Props = { label: string; name: string };
-export default function FullNamePayInput(props: Props) {
-    const { label, name } = props;
+
+export default function PayFullNameInput({ label, name }: Props) {
     const { validate, ref, inputState } = useInitPayInput(name);
 
-    // useEffect(() => {
-    //     if (!ref.current) return;
-    //     const input = ref.current;
+    useEffect(() => {
+        if (!ref.current) return;
+        const input = ref.current;
 
-    //     validate(input);
-    // }, [inputState.value]);
+        validate(input);
+    }, [inputState.value]);
 
     return (
         <div className='passenger-form-col'>

@@ -17,6 +17,7 @@ export default function PassengerDocType({ id }: Props) {
     const { options, selected } = getOptions();
 
     const onClick = (value: string) => () => {
+        if (value === selected) return;
         setInput(value);
         dispatch(refreshDoctype(id));
     };
