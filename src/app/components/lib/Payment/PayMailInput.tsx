@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import PassengerInput from './PaymentInput/PaymentInput';
+import PaymentInput from './PaymentInput/PaymentInput';
 import { useInitPayInput } from './useInitPayInput';
+import PaymentLabel from './PaymentInput/PaymentLabel';
 
 type Props = { label: string };
 
-export default function PhonePayInput({ label }: Props) {
-    const name = 'phone';
+export default function PayMailInput({ label }: Props) {
+    const name = 'email';
     const { validate, ref, inputState } = useInitPayInput(name);
 
     useEffect(() => {
@@ -17,16 +18,14 @@ export default function PhonePayInput({ label }: Props) {
 
     return (
         <div className='passenger-form-col passenger-form-col-40'>
-            <label className='passenger-input-label label-payment' htmlFor={name}>
-                {label}
-            </label>
-            <PassengerInput
+            <PaymentLabel name={name}>{label}</PaymentLabel>
+            <PaymentInput
+                required
                 name={name}
                 parrentRef={ref}
                 state={inputState}
-                pattern='^[а-я А-Я]+$'
-                required
-                placeholder='+7 ___   ___   __   __'
+                type='email'
+                placeholder='inbox@gmail.ru'
             />
         </div>
     );

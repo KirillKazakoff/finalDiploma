@@ -1,7 +1,8 @@
 import React from 'react';
 import PayFullNameInput from './PayFullNameInput';
 import PaymentHeader from './PaymentHeader';
-import PhonePayInput from './PhonePayInput';
+import PayPhoneInput from './PayPhoneInput';
+import PayMailInput from './PayMailInput';
 
 export default function PaymentPersonalData() {
     return (
@@ -14,24 +15,10 @@ export default function PaymentPersonalData() {
                     <PayFullNameInput name='patronymic' label='Отчество' />
                 </div>
                 <div className='passenger-form-row passenger-phone'>
-                    <PhonePayInput label='Контактный телефон' />
+                    <PayPhoneInput label='Контактный телефон' />
                 </div>
                 <div className='passenger-form-row passenger-mail'>
-                    <div className='passenger-form-col'>
-                        <label
-                            className='passenger-input-label label-payment'
-                            htmlFor='mail'
-                        >
-                            E-mail
-                        </label>
-                        <div className='input-wrapper passenger-input-wrapper'>
-                            <input
-                                id='mail'
-                                className='input'
-                                placeholder='inbox@gmail.ru'
-                            />
-                        </div>
-                    </div>
+                    <PayMailInput label='E-mail' />
                 </div>
             </div>
         </div>

@@ -22,7 +22,7 @@ type Props = {
     wrapperCls?: string;
 } & HTMLProps<HTMLInputElement>;
 
-export default function PassengerInput(props: Props) {
+export default function PaymentInput(props: Props) {
     const {
         state,
         name,
@@ -32,6 +32,7 @@ export default function PassengerInput(props: Props) {
         className,
         placeholder,
         wrapperCls,
+        type,
     } = props;
 
     const {
@@ -58,6 +59,7 @@ export default function PassengerInput(props: Props) {
                 id={name}
                 className={`input ${className}`}
                 name={name}
+                type={type}
             />
             <Feedback
                 error={error}
@@ -69,7 +71,7 @@ export default function PassengerInput(props: Props) {
     );
 }
 
-PassengerInput.defaultProps = {
+PaymentInput.defaultProps = {
     id: '',
     className: '',
     wrapperCls: '',

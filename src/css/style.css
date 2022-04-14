@@ -362,7 +362,7 @@ body {
     flex-direction: column;
     row-gap: 100px;
     color: white;
-    width: 365px;
+    width: 370px;
 }
 
 .aside-part-trip {
@@ -371,7 +371,7 @@ body {
 
 .trip-section {
     padding-left: 30px;
-    padding-right: 35px;
+    padding-right: 25px;
     border-bottom: 1px solid #e5e5e5;
 }
 

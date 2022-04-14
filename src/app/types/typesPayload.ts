@@ -34,6 +34,12 @@ export type PayloadError = {
     id?: string;
 };
 
+export type PayloadInput = {
+    name: string;
+    value: string;
+    id?: string;
+};
+
 export type PayloadFormError = {
     name: string;
     formError: string;
@@ -137,9 +143,10 @@ export type PayloadPasPlace = {
     value: PasPlaceT;
 };
 
+export type SetInputT = ActionCreatorWithPayload<PayloadInput>;
+export type SetErrorT = ActionCreatorWithPayload<PayloadError>;
 export type SetFormStatusT = ActionCreatorWithPayload<PayloadFormStatus>;
 export type SetStatusT = ActionCreatorWithPayload<FetchStatusT>;
-export type SetErrorT = ActionCreatorWithPayload<PayloadError>;
 export type SetFormErrorT = ActionCreatorWithPayload<PayloadFormError>;
 export type SetFormMsgHiddenT = ActionCreatorWithPayload<PayloadFormMsg>;
 export type SetSliderFilterT = ActionCreatorWithPayload<PayloadSliderFilter>;

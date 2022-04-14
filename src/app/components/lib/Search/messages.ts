@@ -20,6 +20,11 @@ const dateState = {
     pastDate: 'Вы пытаетесь ввести прошедшую дату',
 };
 
+const mail = {
+    valueMissing: 'Введите почту',
+    typeMismatch: 'Введите правильно свою почту',
+};
+
 const inputMessages: InputMessages = {
     wayFrom: {
         valueMissing: 'Введите город, откуда вы собираетесь отправиться',
@@ -37,10 +42,10 @@ const inputMessages: InputMessages = {
         valueMissing: 'Введите дату (обратно)',
         ...dateState,
     },
-    subscribe: {
-        valueMissing: 'Введите почту',
-        typeMismatch: 'Введите правильно свою почту',
-    },
+
+    // subscribe
+    subscribe: { ...mail },
+    // passengers
     last_name: {
         valueMissing: 'Введите фамилию',
         patternMismatch: 'Введите кириллицей',
@@ -73,6 +78,13 @@ const inputMessages: InputMessages = {
         valueMissing: 'Введите серию документа',
         patternMismatch: 'Поле должно содержать 4 цифры',
     },
+
+    // payment
+    phone: {
+        valueMissing: 'Введите номер телефона',
+        patternMismatch: 'Введите номер в соответствии с патерном',
+    },
+    email: { ...mail },
 };
 
 export const searchMessages = {

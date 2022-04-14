@@ -1,7 +1,7 @@
 import { useAppDispatch } from '../../../redux/reduxHooks';
 import { setInput } from '../../../redux/slices/passengersSlice';
 
-export const useSetInput = (id: string, name: string) => {
+export const useSetInput = (name: string, id?: string) => {
     const dispatch = useAppDispatch();
 
     const setInputHandler = (value: string) => {
