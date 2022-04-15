@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = { cls?: string; disabled?: boolean; children: React.ReactNode };
 
-export default function BtnNextRouteNew({ cls, disabled, children }: Props) {
+export default function SubmitBtn({ cls, disabled, children }: Props) {
     const disabledCls = disabled ? 'btn-next-section-disabled' : '';
 
     return (
@@ -14,7 +14,7 @@ export default function BtnNextRouteNew({ cls, disabled, children }: Props) {
     );
 }
 
-BtnNextRouteNew.defaultProps = {
+SubmitBtn.defaultProps = {
     cls: 'default',
     disabled: false,
 };

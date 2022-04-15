@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { formReducers, FormStatusT } from './utils/reduxFormUtils';
 import { initialInput, inputReducers } from './utils/reduxInputUtils';
 import type { RootState } from '../store';
 import { Fields } from '../../types/typesForms';
@@ -24,7 +23,6 @@ export const paymentFieldsSlice = createSlice({
     initialState,
     reducers: {
         ...inputReducers,
-        ...formReducers,
         refreshPay: () => fields,
     },
 });
@@ -37,14 +35,11 @@ export const {
     setError,
     setFormError,
     clearField,
-    setFormMsgHidden,
-    setFormStatus,
 } = paymentFieldsSlice.actions;
 
 export const selectField = (name: string) => (state: RootState) => {
     return state.paymentFields[name];
 };
-export const selectMsgHidden = (state: RootState) => state.paymentFields.isMsgHidden;
 export const selectActiveWay = (state: RootState) => {
     const { is_cash, is_online } = state.paymentFields;
     if (is_cash.value === 'true') return 'is_cash';
@@ -53,4 +48,5 @@ export const selectActiveWay = (state: RootState) => {
     return '';
 };
 
+export const selectFields = (state: RootState) => state.paymentFields;
 export default paymentFieldsSlice.reducer;

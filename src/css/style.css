@@ -2147,7 +2147,11 @@ body {
 
 /* payment */
 .payment-form-content {
-    margin-bottom: 100px;
+    margin-bottom: 30px;
+}
+
+.payment-form-feedback {
+    height: 120px;
 }
 
 .passenger-payment {
@@ -3226,6 +3230,9 @@ body {
     margin-right: 60px;
 }
 
+.next-route-wrapper-payment {
+    margin-left: auto;
+}
 /* btn-change && .btn-passenger-next */
 .btn-change,
 .btn-passenger-next {
