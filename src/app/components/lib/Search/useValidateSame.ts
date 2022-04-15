@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../../redux/reduxHooks';
-import { setFormError, WayStateT } from '../../../redux/slices/searchWaySlice';
+import { setFormError } from '../../../redux/slices/searchWaySlice';
+import { WayStateT } from '../../../types/typesSlices';
 import { searchMessages } from './messages';
 
 type UseValidateSameT = (wayFrom: WayStateT, wayTo: WayStateT) => string;

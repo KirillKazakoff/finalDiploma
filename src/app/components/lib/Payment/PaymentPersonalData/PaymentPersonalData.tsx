@@ -1,6 +1,6 @@
 import React from 'react';
 import PayFullNameInput from './PayFullNameInput';
-import PaymentHeader from './PaymentHeader';
+import PaymentHeader from '../PaymentHeader';
 import PayPhoneInput from './PayPhoneInput';
 import PayMailInput from './PayMailInput';
 

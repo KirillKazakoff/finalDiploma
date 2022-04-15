@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import Feedback from '../components/lib/Common/Feedback';
+import Feedback from '../components/lib/Common/Feedback/Feedback';
 import InputWrapper from '../components/lib/Common/InputWrapper';
 import {
     setActive,
@@ -8,9 +8,9 @@ import {
     setInput,
 } from '../redux/slices/passengersSlice';
 import { InputState } from '../redux/slices/utils/reduxInputUtils';
-import useChange from './useChange';
-import useSelect from './useSelect';
-import useValidateInput from './useValidateInput';
+import useChange from '../form/useChange';
+import useSelect from '../form/useSelect';
+import useValidateInput from '../form/useValidateInput';
 
 type Props = { name: string; id: string; state: InputState };
 export default function InputStateValidated(props: Props) {

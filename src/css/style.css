@@ -2059,7 +2059,7 @@ body {
 }
 
 /* passenger-disable */
-.passenger-disabled {
+.passenger-checkboxes {
     margin-top: 45px;
 }
 
@@ -2178,9 +2178,10 @@ body {
     margin-top: 40px;
 }
 
-.payment-checkbox-desc {
+.payment-checkbox {
     font-size: 24px;
     font-weight: 400;
+    color: var(--black-light);
 }
 
 .passenger-payment-ways {
@@ -2195,6 +2196,7 @@ body {
 .payment-way-desc {
     font-size: 24px;
     font-weight: 500;
+    color: var(--black-light);
 }
 
 .passenger-payment-is-cash {

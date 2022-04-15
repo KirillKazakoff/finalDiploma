@@ -24,22 +24,14 @@ type Props = {
 
 export default function PaymentInput(props: Props) {
     const {
-        state,
-        name,
-        required,
-        pattern,
-        parrentRef,
-        className,
-        placeholder,
-        wrapperCls,
-        type,
+        state, className, wrapperCls, parrentRef, ...others
     } = props;
 
     const {
         value, formError, error, wasFocused,
     } = state;
 
-    const onChange = useChange(setInput);
+    // const onChange = useChange(setInput);
     const { onFocus, onBlur } = useSelect(setActive, setBlured);
     const validityCls = getValidityCls(state);
     const isFormMsgHidden = useAppSelector(selectMsgStatus);
@@ -47,19 +39,13 @@ export default function PaymentInput(props: Props) {
     return (
         <InputWrapper cls={`${wrapperCls} passenger-input-wrapper input-${validityCls}`}>
             <input
-                placeholder={placeholder}
-                autoComplete='off'
-                pattern={pattern}
-                required={required}
-                value={value}
+                {...others}
                 ref={parrentRef}
-                onChange={onChange}
+                autoComplete='off'
+                value={value}
                 onBlur={onBlur}
                 onFocus={onFocus}
-                id={name}
                 className={`input ${className}`}
-                name={name}
-                type={type}
             />
             <Feedback
                 error={error}

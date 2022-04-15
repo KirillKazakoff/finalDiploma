@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import PaymentInput from './PaymentInput/PaymentInput';
-import { useInitPayInput } from './useInitPayInput';
-import PaymentLabel from './PaymentInput/PaymentLabel';
+import PaymentInput from '../PaymentInput/PaymentInput';
+import { useInitPayInput } from '../useInitPayInput';
+import PaymentLabel from '../PaymentInput/PaymentLabel';
+import useChange from '../../../../form/useChange';
+import { setInput } from '../../../../redux/slices/paymentFieldsSlice';
 
 type Props = { label: string };
 
@@ -9,6 +11,7 @@ export default function PayMailInput({ label }: Props) {
     const name = 'email';
     const { validate, ref, inputState } = useInitPayInput(name);
 
+    const onChange = useChange(setInput);
     useEffect(() => {
         if (!ref.current) return;
         const input = ref.current;
@@ -26,6 +29,7 @@ export default function PayMailInput({ label }: Props) {
                 state={inputState}
                 type='email'
                 placeholder='inbox@gmail.ru'
+                onChange={onChange}
             />
         </div>
     );
