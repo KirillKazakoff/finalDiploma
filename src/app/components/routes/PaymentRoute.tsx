@@ -7,7 +7,7 @@ import PaymentForm from '../lib/Payment/PaymentForm';
 export default function PaymentRoute() {
     const dispatch = useAppDispatch();
     useEffect(() => {
-        // dispatch(refreshPay());
+        dispatch(refreshPay());
     }, []);
     return (
         <main className='main main-central framed'>

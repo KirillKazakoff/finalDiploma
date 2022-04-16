@@ -12,6 +12,7 @@ const fields = {
 
     is_online: { ...initialInput },
     is_cash: { ...initialInput },
+    payment_method: { ...initialInput },
 };
 
 type StateT = typeof fields & Fields;

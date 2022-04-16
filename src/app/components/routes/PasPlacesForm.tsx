@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import BtnNextRouteNew from '../lib/Common/BtnNextRouteNew';
+import SubmitBtn from '../lib/Common/BtnNextRouteNew';
 import { useAppSelector, useAppDispatch } from '../../redux/reduxHooks';
 import { RootState } from '../../redux/store';
 import { selectPlaces } from '../../redux/slices/placesSlice';
@@ -52,9 +52,9 @@ export default function PasPlacesForm() {
 
     return (
         <Form onSubmitForm={onSubmit}>
-            <BtnNextRouteNew cls='pas-places' disabled={isError}>
+            <SubmitBtn cls='pas-places' disabled={isError}>
                 Далее
-            </BtnNextRouteNew>
+            </SubmitBtn>
         </Form>
     );
 }
