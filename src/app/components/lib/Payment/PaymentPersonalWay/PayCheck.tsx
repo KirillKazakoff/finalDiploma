@@ -1,33 +1,33 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSetInput } from '../../../../form/useSetInput';
 import { useAppSelector } from '../../../../redux/reduxHooks';
-import { PayCheckboxT } from '../../../../types/typesPassengers';
 import Checkbox from '../../Common/Checkbox/Checkbox';
 import { selectField, setInput } from '../../../../redux/slices/paymentFieldsSlice';
 
-type Props = { name: string; desc: string } & PayCheckboxT;
+type Props = { name: string; desc: string };
 
 export default function PayCheck(props: Props) {
-    const {
-        name, desc, activeWay, setActiveWay,
-    } = props;
+    const { name, desc } = props;
+    const payMethod = useAppSelector(selectField('payment_method'));
 
-    const setInputH = useSetInput(name, setInput);
-    const payState = useAppSelector(selectField(name));
+    const initValue = payMethod.value === name;
+    const [isActive, setState] = useState(initValue);
 
-    const isActive = payState.value === 'true';
+    const setInputH = useSetInput('payment_method', setInput);
+
     const onClick = () => {
-        const value = isActive ? 'false' : 'true';
+        const value = isActive ? '' : name;
+        setState(!isActive);
         setInputH(value);
-        setActiveWay(name);
     };
 
     useEffect(() => {
-        if (activeWay !== name) {
-            setInputH('false');
+        const isPayMethod = name === payMethod.value;
+        if (payMethod.value && !isPayMethod) {
+            setState(false);
         }
-    }, [activeWay]);
+    }, [payMethod.value]);
 
     return (
         <div className='passenger-form-col passenger-form-col-checkbox'>

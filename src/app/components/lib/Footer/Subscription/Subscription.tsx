@@ -13,7 +13,7 @@ import SubscriptionInput from './SubscriptionInput';
 import SubscribeFormBtn from './SubscribeFormBtn';
 import { useAppSelector, useAppDispatch } from '../../../../redux/reduxHooks';
 import { fetchSubscribe } from '../../../../fetch/api/fetchSubscribe';
-import Form from '../../Common/Form';
+import Form from '../../Common/Form/Form';
 
 export default function FooterSubscription() {
     const dispatch = useAppDispatch();
@@ -35,15 +35,15 @@ export default function FooterSubscription() {
     };
 
     return (
-        <div className='subscription'>
-            <h2 className='footer-subtitle subscription-title'>Подписка</h2>
+        <div className="subscription">
+            <h2 className="footer-subtitle subscription-title">Подписка</h2>
 
-            <Form cls='subscribe-form' onSubmitForm={onSubmit}>
-                <label htmlFor='subscribe' className='label label-subscription'>
+            <Form cls="subscribe-form" onSubmitForm={onSubmit}>
+                <label htmlFor="subscribe" className="label label-subscription">
                     Будьте в курсе событий
                 </label>
 
-                <div className='subscribe-form-row'>
+                <div className="subscribe-form-row">
                     <SubscriptionInput
                         onChange={onChange}
                         onBlur={onBlur}

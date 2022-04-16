@@ -8,7 +8,7 @@ import {
 } from '../../../../../../redux/slices/passengersSlice';
 import { IdProp } from '../../../../../../types/typesPassengers';
 import Feedback from '../../../../Common/Feedback/Feedback';
-import InputWrapper from '../../../../Common/InputWrapper';
+import InputWrapper from '../../../../Common/Form/InputWrapper';
 import { useSetError } from '../../../useSetError';
 import { useSetInput } from '../../../useSetInput';
 

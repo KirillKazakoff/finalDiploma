@@ -163,13 +163,34 @@ body {
 
 .form-feedback-collapse {
     display: flex;
+    align-items: center;
     justify-content: center;
 
     min-width: 45px;
+    min-height: 45px;
+    max-height: 45px;
     border-radius: 50px;
     padding: 14px 0px;
     background-color: white;
     margin-right: 15px;
+}
+
+.form-feedback-collapse-icon-error {
+    filter: var(--error-filter);
+}
+
+.form-feedback-collapse:hover .form-feedback-collapse-icon-error {
+    width: 20px;
+    height: 20px;
+}
+
+.form-feedback-collapse-icon-success {
+    filter: var(--success-filter);
+}
+
+.form-feedback-collapse:hover .form-feedback-collapse-icon-success {
+    width: 30px;
+    height: 30px;
 }
 
 .form-feedback-desc-error {
@@ -2146,6 +2167,7 @@ body {
 }
 
 /* payment */
+
 .payment-form-content {
     margin-bottom: 30px;
 }
@@ -3079,7 +3101,8 @@ body {
     color: var(--bg-main);
 }
 
-.form-feedback-success .btn-search-tickets:hover {
+.form-feedback-success .btn-search-tickets:hover,
+.form-feedback-success .btn-next-section:hover {
     color: #77f159;
     background-color: var(--bg-main);
     border: 1px solid transparent;

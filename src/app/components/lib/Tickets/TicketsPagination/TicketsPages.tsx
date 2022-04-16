@@ -3,7 +3,7 @@ import { FetchStatusT } from '../../../../types/typesPayload';
 import { getNumbersArr } from './paginationUtils';
 import { OnPageClickT } from './usePagination';
 import TicketsPaginationLoader from './TicketsPaginationLoader';
-import SpinLoader from '../../Common/SpinLoader';
+import SpinLoader from '../../Common/SpinLoader/SpinLoader';
 
 type Props = {
     fetchStatus: FetchStatusT;

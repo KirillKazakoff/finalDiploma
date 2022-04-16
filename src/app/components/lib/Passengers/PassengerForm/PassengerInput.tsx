@@ -1,7 +1,7 @@
 /* eslint-disable react/default-props-match-prop-types */
 import React, { HTMLProps } from 'react';
 import Feedback from '../../Common/Feedback/Feedback';
-import InputWrapper from '../../Common/InputWrapper';
+import InputWrapper from '../../Common/Form/InputWrapper';
 import {
     selectMsgHidden,
     setActive,

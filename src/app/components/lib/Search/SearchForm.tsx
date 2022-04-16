@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../../redux/reduxHooks';
 import { selectFormState, setFormMsgHidden } from '../../../redux/slices/searchFormSlice';
 import { SearchFormProps } from '../../../types/typesSearch';
-import Form from '../Common/Form';
+import Form from '../Common/Form/Form';
 import { selectWayInputs } from '../../../redux/slices/searchWaySlice';
 import SearchFormBtn from './SearchFormBtn';
 import SearchFormFeedback from './SearchFormFeedback';
@@ -54,8 +54,7 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
             <SearchFormFeedback
                 waysState={waysState}
                 datesState={datesState}
-                isMsgHidden={isMsgHidden}
-            >
+                isMsgHidden={isMsgHidden}>
                 <SearchFormBtn cls={cls}>Найти билеты</SearchFormBtn>
             </SearchFormFeedback>
         </Form>

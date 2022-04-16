@@ -1,6 +1,6 @@
 import React from 'react';
-import { InputState } from '../../../redux/slices/utils/reduxInputUtils';
-import { numberToArray } from './utils/numberToArray';
+import { InputState } from '../../../../redux/slices/utils/reduxInputUtils';
+import { numberToArray } from '../utils/numberToArray';
 
 type Props = { amount: number; cls: string; state: InputState };
 export default function PlaceholderUnderscores(props: Props) {

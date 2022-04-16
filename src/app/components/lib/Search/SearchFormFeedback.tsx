@@ -1,10 +1,11 @@
 import React from 'react';
-import FormFeedback from '../Common/FormFeedback';
 import { setFormMsgHidden, setFormStatus } from '../../../redux/slices/searchFormSlice';
 import { searchMessages } from './messages';
 import useValidateSame from './useValidateSame';
 import useValidateCompare from './useValidateCompare';
 import { SearchFormFeedbackT } from '../../../types/typesSearch';
+import { reduceErrors } from '../../../form/reduceErrors';
+import FormFeedback from '../Common/Form/FormFeedback';
 
 export default function SearchFormFeedback(props: SearchFormFeedbackT) {
     const {
@@ -14,11 +15,7 @@ export default function SearchFormFeedback(props: SearchFormFeedbackT) {
     const { wayFrom, wayTo } = waysState;
     const { dateFrom, dateTo } = datesState;
 
-    const errors = [wayFrom, wayTo, dateFrom, dateTo].reduce<string[]>((total, state) => {
-        total.push(state.error);
-        total.push(state.formError);
-        return total;
-    }, []);
+    const errors = reduceErrors([wayFrom, wayTo, dateFrom, dateTo]);
 
     useValidateSame(wayFrom, wayTo);
     useValidateCompare(dateTo, dateFrom);

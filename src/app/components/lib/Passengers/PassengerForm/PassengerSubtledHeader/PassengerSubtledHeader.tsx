@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useCheckStatus from '../../../../../form/useCheckStatus';
 import { setFormMsgHidden } from '../../../../../redux/slices/passengersSlice';
-import Form from '../../../Common/Form';
+import Form from '../../../Common/Form/Form';
 import PassengerRemoveBtn from './PassengerRemoveBtn';
 import SubtlePassengerFormBtn from './SubtlePassengerFormBtn';
 import { useAppSelector } from '../../../../../redux/reduxHooks';

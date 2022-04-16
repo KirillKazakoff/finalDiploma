@@ -1,6 +1,6 @@
 import React from 'react';
 import TicketsPaginationLoader from '../TicketsPagination/TicketsPaginationLoader';
-import SpinLoader from '../../Common/SpinLoader';
+import SpinLoader from '../../Common/SpinLoader/SpinLoader';
 
 export default function TicketFiltrationLoader() {
     return (

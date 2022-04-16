@@ -4,19 +4,17 @@ import {
     setFormMsgHidden,
     setFormStatus,
 } from '../../../../redux/slices/passengersSlice';
-import FormFeedback from '../../Common/FormFeedback';
+
 import { searchMessages } from '../../Search/messages';
+import { reduceErrors } from '../../../../form/reduceErrors';
+import FormFeedback from '../../Common/Form/FormFeedback';
 
 type Props = { children: React.ReactNode; id: string };
 export default function PassengerFormFeedback(props: Props) {
     const { children, id } = props;
     const form = useAppSelector((state) => state.passengers[id]);
 
-    const errors = Object.values(form.fields).reduce<string[]>((total, state) => {
-        total.push(state.error);
-        total.push(state.formError);
-        return total;
-    }, []);
+    const errors = reduceErrors(Object.values(form.fields));
 
     const { success } = searchMessages;
 

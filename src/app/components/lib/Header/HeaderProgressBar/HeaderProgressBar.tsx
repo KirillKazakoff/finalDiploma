@@ -1,8 +1,8 @@
+import './progressLine.css';
 import React from 'react';
 import { nanoid } from 'nanoid';
 import { useAppSelector } from '../../../../redux/reduxHooks';
 import { selectPageStatus } from '../../../../redux/slices/loaderSlice';
-import '../../../../../css/progressLine.css';
 import BarPiece from './BarPiece';
 
 export default function HeaderProgressBar() {

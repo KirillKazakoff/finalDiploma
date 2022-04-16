@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { SearchWayInputProps } from '../../../../types/typesSearch';
-import InputWrapper from '../../Common/InputWrapper';
+import InputWrapper from '../../Common/Form/InputWrapper';
 import { getWayValidityCls } from './getValidityCls';
 import SearchWayFeedback from './SearchWayFeedback';
 import SearchWayTips from './SearchWayTips';

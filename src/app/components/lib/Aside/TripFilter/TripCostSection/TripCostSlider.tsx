@@ -2,7 +2,7 @@ import React from 'react';
 import CostSlider from './CostSlider';
 import { useAppSelector } from '../../../../../redux/reduxHooks';
 import { selectFetchStatus } from '../../../../../redux/slices/ticketsSlice';
-import PageLoader from '../../../Common/PageLoader';
+import PageLoader from '../../../Common/PageLoader/PageLoader';
 
 export default function TripCostSection() {
     const ticketsStatus = useAppSelector(selectFetchStatus);

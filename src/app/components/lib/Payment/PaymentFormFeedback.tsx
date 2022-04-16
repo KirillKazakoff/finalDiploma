@@ -1,5 +1,5 @@
 import React from 'react';
-import FormFeedback from '../Common/FormFeedback';
+
 import { searchMessages } from '../Search/messages';
 import { useAppSelector } from '../../../redux/reduxHooks';
 import { selectFields } from '../../../redux/slices/paymentFieldsSlice';
@@ -9,6 +9,7 @@ import {
     setFormMsgHidden,
     setFormStatus,
 } from '../../../redux/slices/paymentFormSlice';
+import FormFeedback from '../Common/Form/FormFeedback';
 
 type Props = { children: React.ReactNode };
 
@@ -18,7 +19,6 @@ export default function PaymentFormFeedback({ children }: Props) {
 
     const errors = reduceErrors(Object.values(form));
     const { success } = searchMessages;
-    console.log(isMsgHidden);
 
     return (
         <FormFeedback

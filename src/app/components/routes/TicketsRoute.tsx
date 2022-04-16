@@ -7,7 +7,7 @@ import { useAppSelector, useAppDispatch } from '../../redux/reduxHooks';
 
 import TicketsPagination from '../lib/Tickets/TicketsPagination/TicketsPagination';
 import { selectTotalCount } from '../../redux/slices/ticketsSlice';
-import PageLoader from '../lib/Common/PageLoader';
+import PageLoader from '../lib/Common/PageLoader/PageLoader';
 import { selectPageStatus, setPageCount } from '../../redux/slices/loaderSlice';
 
 export default function TicketsRoute() {

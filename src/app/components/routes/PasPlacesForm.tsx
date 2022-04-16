@@ -1,13 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import SubmitBtn from '../lib/Common/BtnNextRouteNew';
+import BtnNextRoute from '../lib/Common/Form/BtnNextRoute';
 import { useAppSelector, useAppDispatch } from '../../redux/reduxHooks';
 import { RootState } from '../../redux/store';
 import { selectPlaces } from '../../redux/slices/placesSlice';
 import { CarContentT } from '../../types/typesSlices';
 import { setInfo } from '../../redux/slices/infoSlice';
 import { messagesError } from '../lib/Common/Info/messagesInfo';
-import Form from '../lib/Common/Form';
+import Form from '../lib/Common/Form/Form';
 
 export type EmptyPlaceT = { index: number; route: string };
 const emptyMsg = messagesError.emptyPasPlace;
@@ -52,9 +52,9 @@ export default function PasPlacesForm() {
 
     return (
         <Form onSubmitForm={onSubmit}>
-            <SubmitBtn cls='pas-places' disabled={isError}>
+            <BtnNextRoute cls='pas-places' disabled={isError}>
                 Далее
-            </SubmitBtn>
+            </BtnNextRoute>
         </Form>
     );
 }

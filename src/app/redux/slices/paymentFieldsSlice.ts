@@ -9,9 +9,6 @@ const fields = {
     patronymic: { ...initialInput },
     email: { ...initialInput },
     phone: { ...initialInput },
-
-    is_online: { ...initialInput },
-    is_cash: { ...initialInput },
     payment_method: { ...initialInput },
 };
 
@@ -41,13 +38,14 @@ export const {
 export const selectField = (name: string) => (state: RootState) => {
     return state.paymentFields[name];
 };
-export const selectActiveWay = (state: RootState) => {
-    const { is_cash, is_online } = state.paymentFields;
-    if (is_cash.value === 'true') return 'is_cash';
-    if (is_online.value === 'true') return 'is_online';
-
-    return '';
-};
 
 export const selectFields = (state: RootState) => state.paymentFields;
 export default paymentFieldsSlice.reducer;
+
+// export const selectActiveWay = (state: RootState) => {
+//     const { is_cash, is_online } = state.paymentFields;
+//     if (is_cash.value === 'true') return 'is_cash';
+//     if (is_online.value === 'true') return 'is_online';
+
+//     return '';
+// };

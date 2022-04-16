@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../css/spinLoader.css';
+import './spinLoader.css';
 
 type InputLoaderProps = { cls?: string };
 

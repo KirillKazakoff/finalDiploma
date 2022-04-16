@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 type Props = { to: string; disabled: boolean; cls?: string };
 
-export default function BtnNextRoute({ to, disabled, cls }: Props) {
+export default function BtnNextRouteOld({ to, disabled, cls }: Props) {
     return (
         <NavLink className='navlink' to={to}>
             <button
@@ -17,6 +17,6 @@ export default function BtnNextRoute({ to, disabled, cls }: Props) {
     );
 }
 
-BtnNextRoute.defaultProps = {
+BtnNextRouteOld.defaultProps = {
     cls: 'default',
 };

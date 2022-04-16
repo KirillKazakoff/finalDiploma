@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../css/pageLoader.css';
+import './pageLoader.css';
 
 type PageLoaderProps = { cls?: string };
 

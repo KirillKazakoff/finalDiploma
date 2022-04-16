@@ -5,8 +5,8 @@ import { useAppDispatch, useAppSelector } from '../../../redux/reduxHooks';
 import { setInfo } from '../../../redux/slices/infoSlice';
 import { FormStatusT } from '../../../redux/slices/utils/reduxFormUtils';
 import { selectPlacesLength } from '../../../redux/slices/utils/selectPlacesLength';
-import BtnNextRouteNew from '../Common/BtnNextRouteNew';
-import Form from '../Common/Form';
+import BtnNextRouteNew from '../Common/Form/BtnNextRoute';
+import Form from '../Common/Form/Form';
 import { messagesError } from '../Common/Info/messagesInfo';
 import { getAges } from './checkAges';
 

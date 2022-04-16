@@ -1,27 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import PaymentHeader from '../PaymentHeader';
-import PayCheck from './PayCheck';
 import PayWays from './PayWays';
+import PayCheck from './PayCheck';
 import { useAppSelector } from '../../../../redux/reduxHooks';
-import { selectActiveWay } from '../../../../redux/slices/paymentFieldsSlice';
+import { selectField, setError } from '../../../../redux/slices/paymentFieldsSlice';
 import { useSetError } from '../../../../form/useSetError';
-import PayCheck2 from './PayCheck2';
 
 export default function PaymentPersonalWay() {
-    const initActiveWay = useAppSelector(selectActiveWay);
+    const name = 'payment_method';
+    const methodState = useAppSelector(selectField(name));
+    const setErrorH = useSetError(name, setError);
+
+    useEffect(() => {
+        let error = '';
+        if (!methodState.value) {
+            error = 'Не выбран способ оплаты';
+        }
+
+        setErrorH(error);
+    }, [methodState.value]);
 
     return (
         <div className='passsenger-personal-wrapper passenger-personal-wrapper-way'>
             <PaymentHeader>Способ оплаты</PaymentHeader>
             <section className='passenger-form-section framed-passenger-section passenger-payment'>
                 <div className='passenger-form-row passenger-payment-is-online'>
-                    <PayCheck2 desc='Онлайн' name='is_online' />
+                    <PayCheck desc='Онлайн' name='is_online' />
                 </div>
                 <PayWays />
             </section>
             <section className='passenger-form-section framed-passenger-section passenger-payment'>
                 <div className='passenger-form-row passenger-payment-is-cash'>
-                    <PayCheck2 desc='Наличными' name='is_cash' />
+                    <PayCheck desc='Наличными' name='is_cash' />
                 </div>
             </section>
         </div>

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
+import { useAppDispatch } from '../../../../redux/reduxHooks';
+import { FormFeedbackPropsT } from '../../../../types/typesForms';
 import FormFeedbackCollapse from './FormFeedbackCollapse';
 import FormFeedbackDesc from './FormFeedbackDesc';
-import { useAppDispatch } from '../../../redux/reduxHooks';
-import type { FormFeedbackPropsT } from '../../../types/typesForms';
 
 export default function FormFeedback(props: FormFeedbackPropsT) {
     const dispatch = useAppDispatch();

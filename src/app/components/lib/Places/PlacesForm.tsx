@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../../redux/reduxHooks';
 import { selectPlacesLength } from '../../../redux/slices/utils/selectPlacesLength';
 import { TicketRouteT } from '../../../types/models/modelTickets';
-import BtnNextRouteNew from '../Common/BtnNextRouteNew';
-import Form from '../Common/Form';
+import BtnNextRouteNew from '../Common/Form/BtnNextRoute';
+import Form from '../Common/Form/Form';
 import { setInfo } from '../../../redux/slices/infoSlice';
 import { messagesError } from '../Common/Info/messagesInfo';
 

@@ -6,8 +6,8 @@ import {
     setFormMsgHidden,
 } from '../../../redux/slices/paymentFormSlice';
 
-import SubmitBtn from '../Common/BtnNextRouteNew';
-import Form from '../Common/Form';
+import BtnNextRoute from '../Common/Form/BtnNextRoute';
+import Form from '../Common/Form/Form';
 import PaymentFormFeedback from './PaymentFormFeedback';
 import PaymentPersonalData from './PaymentPersonalData/PaymentPersonalData';
 import PaymentPersonalWay from './PaymentPersonalWay/PaymentPersonalWay';
@@ -22,14 +22,14 @@ export default function PaymentForm() {
     };
 
     return (
-        <Form onSubmitForm={onSubmit} cls=''>
-            <div className='payment-form-content shadowed'>
+        <Form onSubmitForm={onSubmit} cls="">
+            <div className="payment-form-content shadowed">
                 <PaymentPersonalData />
 
                 <PaymentPersonalWay />
             </div>
             <PaymentFormFeedback>
-                <SubmitBtn cls='payment'>Купить билеты</SubmitBtn>
+                <BtnNextRoute cls="payment">Купить билеты</BtnNextRoute>
             </PaymentFormFeedback>
         </Form>
     );

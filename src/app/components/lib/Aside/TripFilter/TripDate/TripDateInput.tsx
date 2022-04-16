@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAppSelector } from '../../../../../redux/reduxHooks';
 import { TripDateInputProps } from '../../../../../types/typesSearch';
-import InputWrapper from '../../../Common/InputWrapper';
+import InputWrapper from '../../../Common/Form/InputWrapper';
 import DatePicker from '../../../DatePicker/DatePicker';
 import DatePickerIcon from '../../../DatePicker/DatePickerIcon';
 

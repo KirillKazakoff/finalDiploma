@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormPropsT, OnSubmitFormT } from '../../../types/typesForms';
+import { FormPropsT, OnSubmitFormT } from '../../../../types/typesForms';
 
 export default function Form(props: FormPropsT) {
     const { cls, children, onSubmitForm } = props;
