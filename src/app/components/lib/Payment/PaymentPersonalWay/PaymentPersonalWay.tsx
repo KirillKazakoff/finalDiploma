@@ -25,13 +25,13 @@ export default function PaymentPersonalWay() {
             <PaymentHeader>Способ оплаты</PaymentHeader>
             <section className='passenger-form-section framed-passenger-section passenger-payment'>
                 <div className='passenger-form-row passenger-payment-is-online'>
-                    <PayCheck desc='Онлайн' name='is_online' />
+                    <PayCheck desc='Онлайн' name='online' />
                 </div>
                 <PayWays />
             </section>
             <section className='passenger-form-section framed-passenger-section passenger-payment'>
                 <div className='passenger-form-row passenger-payment-is-cash'>
-                    <PayCheck desc='Наличными' name='is_cash' />
+                    <PayCheck desc='Наличными' name='cash' />
                 </div>
             </section>
         </div>

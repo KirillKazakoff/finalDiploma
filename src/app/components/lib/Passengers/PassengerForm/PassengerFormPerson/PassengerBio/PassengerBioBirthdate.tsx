@@ -34,7 +34,7 @@ export default function PassengerBioBirthdate({ id }: IdProp) {
                 id={id}
                 required
                 parrentRef={ref}
-                pattern='^\d{2}\/\d{2}\/\d{4}$'
+                pattern='^\d{2}\.\d{2}\.\d{4}$'
             />
         </div>
     );

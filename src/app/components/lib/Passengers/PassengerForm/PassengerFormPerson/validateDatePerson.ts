@@ -6,7 +6,7 @@ type Fn = (inputEl: HTMLInputElement, isAdult: string, isChildForm: boolean) => 
 export const validateDatePerson: Fn = (inputEl, isAdult, isChildForm) => {
     const { value } = inputEl;
 
-    const dateTime = DateTime.fromFormat(value, 'dd/LL/yyyy');
+    const dateTime = DateTime.fromFormat(value, 'dd.LL.yyyy');
     const dateTimeNow = DateTime.now().startOf('day');
     const age = getAge(value);
 

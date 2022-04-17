@@ -60,7 +60,7 @@ const inputMessages: InputMessages = {
     },
     birthday: {
         valueMissing: 'Введите дату',
-        patternMismatch: 'Введите дату в формате ДД/ММ/ГГГГ цифрами',
+        patternMismatch: 'Введите дату в формате ДД.ММ.ГГГГ цифрами',
         futureDate: 'Вы пытаетесь ввести будущую дату',
         youngAge: 'Вы указали взрослый билет (от 10 лет)',
         oldAge: 'Вы указали детский билет (до 10 лет)',

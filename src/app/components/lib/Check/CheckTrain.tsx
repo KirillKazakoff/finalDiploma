@@ -20,7 +20,7 @@ export default function CheckTrain() {
                 <TicketLeft departure={routes.departure} />
                 <TicketCenter routes={routes} />
                 <TicketRight routes={routes} seatsInfoAux={activeTicket.seatsInfoAux}>
-                    <CheckChangeNavBtn to='/somewhere' desc='Изменить' />
+                    <CheckChangeNavBtn to='/tickets' desc='Изменить' />
                 </TicketRight>
             </li>
         </section>
