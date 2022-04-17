@@ -27,7 +27,7 @@ export default function PasPlaceAddBtn({ dir }: DirTProp) {
                 type='button'
                 onClick={onClick}
             >
-                Добавить пассажиров
+                Изменить пассажиров
             </button>
         </div>
     );

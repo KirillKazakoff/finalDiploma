@@ -388,6 +388,7 @@ body {
 
 .aside-part-trip {
     background-color: var(--black-light);
+    box-shadow: var(--btn-shadow-light);
 }
 
 .trip-section {
@@ -560,6 +561,11 @@ body {
 /* subtle-time */
 .trip-section-subtle {
     padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.trip-section-subtle-total {
+    padding-top: 40px;
     padding-bottom: 30px;
 }
 
@@ -943,7 +949,7 @@ body {
 
 .ticket-type-tips-arrow-decor {
     position: absolute;
-    left: 45%;
+    left: 43%;
     top: -10px;
     margin: auto;
     width: 1px;
@@ -964,7 +970,7 @@ body {
 }
 
 .ticket-amount-left {
-    margin-left: 23px;
+    margin-left: 21px;
     color: var(--bg-main);
 }
 
@@ -980,7 +986,7 @@ body {
 
 .main-cost-count-container {
     display: flex;
-    column-gap: 5px;
+    column-gap: 7px;
     font-size: 24px;
 }
 
@@ -1791,6 +1797,7 @@ body {
 }
 
 .details-person-age {
+    font-size: 18px;
     color: var(--secondary-super-light);
 }
 
@@ -1826,10 +1833,12 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 15px;
-    margin-top: 35px;
+    margin-top: 30px;
 }
 
 .details-cost-count-container {
+    display: flex;
+    column-gap: 10px;
     font-size: 24px;
 }
 
@@ -1848,12 +1857,14 @@ body {
 }
 
 .total-passengers {
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 500;
     text-transform: uppercase;
 }
 
 .total-cost-count-container {
+    display: flex;
+    column-gap: 15px;
     font-size: 48px;
 }
 
@@ -2242,6 +2253,10 @@ body {
 
 .confirmation-section {
     background-color: white;
+}
+
+.confirmation-section-payment {
+    margin-bottom: 80px;
 }
 
 .confirmation-passenger-header {
@@ -2968,8 +2983,8 @@ body {
 }
 
 .framed-ticket-right {
-    padding-left: 25px;
-    padding-right: 20px;
+    padding-left: 20px;
+    padding-right: 15px;
 }
 
 .text-left {
@@ -3260,8 +3275,9 @@ body {
 .next-route-wrapper-payment {
     margin-left: auto;
 }
+
 /* btn-change && .btn-passenger-next */
-.btn-change,
+.btn-check-change,
 .btn-passenger-next {
     text-transform: unset;
     border: 1px solid #292929;
@@ -3269,7 +3285,7 @@ body {
     font-weight: 500;
 }
 
-.btn-change {
+.btn-check-change {
     margin-top: 20px;
     padding: 5px 60px;
 }

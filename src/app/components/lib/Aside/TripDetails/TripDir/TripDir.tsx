@@ -4,7 +4,7 @@ import TripDirDestination from './TripDirDestination';
 import TripDirTrain from './TripDirTrain';
 import { formatDateNumber } from '../../../Search/SearchDate/formatDate';
 import { TripDirProps } from '../../../../../types/typesTripDetails';
-import TripDirPassengers from './TripDirPassengers';
+import TripDirPassengers from '../TripPassengers/TripDirPassengers';
 
 export default function TripDir(props: TripDirProps) {
     const {

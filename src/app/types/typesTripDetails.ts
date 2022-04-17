@@ -7,3 +7,13 @@ export type TripDirProps = {
     route: TrainRouteT;
     pasPlaces?: PasPlaceT[];
 };
+
+export type AgeInfoT = {
+    amount: number;
+    price: number;
+};
+
+export type PlacesAgeInfoT = {
+    adult: AgeInfoT;
+    microPeople: AgeInfoT;
+};

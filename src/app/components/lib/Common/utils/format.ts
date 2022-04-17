@@ -3,7 +3,11 @@ const formatCost = (cost: number) => {
     if (flooredCost < 1000) return flooredCost.toString();
 
     const costArr = flooredCost.toString().split('');
-    costArr.splice(1, 0, ' ');
+    if (flooredCost < 10000) {
+        costArr.splice(1, 0, ' ');
+    } else {
+        costArr.splice(2, 0, ' ');
+    }
 
     const formatted = costArr.join('');
     return formatted;

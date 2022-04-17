@@ -1,3 +1,4 @@
+import React from 'react';
 import type { TicketRouteT, TrainRouteT } from './models/modelTickets';
 import { StationT, TicketInfoT } from './models/modelTickets';
 import { TotalSeatsInfoT, TotalSeatsTypeT } from './models/modelSeats';
@@ -27,7 +28,7 @@ export type TicketCenterProps = {
 export type TicketRightProps = {
     routes: TrainRoutesT;
     seatsInfoAux: TotalSeatsInfoT;
-    onClick: () => void;
+    children: React.ReactNode;
 };
 
 export type TrainRouteProps = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useCheckStatus from '../../../form/useCheckStatus';
 import { useAppSelector } from '../../../redux/reduxHooks';
 import {
@@ -14,22 +15,23 @@ import PaymentPersonalWay from './PaymentPersonalWay/PaymentPersonalWay';
 
 export default function PaymentForm() {
     const statusValidity = useAppSelector(selectFormStatus);
+    const navigate = useNavigate();
 
     const checkStatus = useCheckStatus(setFormMsgHidden, statusValidity);
     const onSubmit = () => {
-        if (!checkStatus()) return false;
-        return true;
+        if (!checkStatus()) return;
+        navigate('/check');
     };
 
     return (
-        <Form onSubmitForm={onSubmit} cls="">
-            <div className="payment-form-content shadowed">
+        <Form onSubmitForm={onSubmit}>
+            <div className='payment-form-content shadowed'>
                 <PaymentPersonalData />
 
                 <PaymentPersonalWay />
             </div>
             <PaymentFormFeedback>
-                <BtnNextRoute cls="payment">Купить билеты</BtnNextRoute>
+                <BtnNextRoute cls='payment'>Купить билеты</BtnNextRoute>
             </PaymentFormFeedback>
         </Form>
     );
