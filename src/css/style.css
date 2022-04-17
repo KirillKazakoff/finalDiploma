@@ -1787,7 +1787,7 @@ body {
 .details-travel-time {
     align-self: flex-start;
     top: -23px;
-    left: 10px;
+    left: 5px;
 }
 
 .details-person-age {
@@ -1818,6 +1818,10 @@ body {
 }
 
 /* details-passengers */
+.trip-details-passengers-wrapper {
+    margin-top: 50px;
+}
+
 .trip-details-passengers {
     display: flex;
     flex-direction: column;

@@ -12,7 +12,6 @@ type Props = { places: PlaceT[] } & DirTProp;
 export default function PasPlaceDir({ dir, places }: Props) {
     const route = dir === 'to' ? 'departure' : 'arrival';
     const extras = useAppSelector(selectExtras(route));
-    console.log(extras);
 
     if (places.length === 0) return null;
 

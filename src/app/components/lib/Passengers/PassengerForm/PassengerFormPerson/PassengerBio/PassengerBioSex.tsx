@@ -18,8 +18,8 @@ export default function PassengerBioSex({ id }: IdProp) {
     const boxState = useAppSelector(selectField(id, name));
     const { error, wasFocused, formError } = boxState;
 
-    const setError = useSetError(id, name);
-    const setInput = useSetInput(id, name);
+    const setError = useSetError(name, id);
+    const setInput = useSetInput(name, id);
     const onClick = (value: string) => () => {
         setInput(value);
         setError('');

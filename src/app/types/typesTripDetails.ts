@@ -1,3 +1,9 @@
+import { PasPlaceT } from '../redux/slices/pasPlacesSlice';
 import { TrainRouteT } from './models/modelTickets';
 
-export type TripDirProps = { dir: 'to' | 'from'; desc: string; route: TrainRouteT };
+export type TripDirProps = {
+    dir: 'to' | 'from';
+    desc: string;
+    route: TrainRouteT;
+    pasPlaces?: PasPlaceT[];
+};

@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '../../../../redux/reduxHooks';
 import {
+    refresherAhh,
     removePasPlace,
     selectPasPlacesRoute,
 } from '../../../../redux/slices/pasPlacesSlice';
@@ -45,11 +46,13 @@ export default function PasPlace(props: Props) {
         const person = passengersInfo.find((passenger) => {
             return passenger.id === selected.person_info.id;
         });
+
         if (!person) {
             dispatch(removePasPlace({ name, value: selected }));
+            return;
         }
         onSelect(person)();
-    }, [passengersInfo]);
+    }, []);
 
     return (
         <li className='pas-plases-dir-item'>

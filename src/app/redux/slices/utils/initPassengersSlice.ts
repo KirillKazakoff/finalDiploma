@@ -25,9 +25,20 @@ export const initForm = () => {
         isChildForm: false,
     };
 
+    // form.fields.document_type.value = 'Паспорт РФ';
+    // form.fields.is_adult.value = 'Взрослый';
+    // form.fields.gender.error = 'Укажите пол';
+
+    form.fields.is_adult.value = 'true';
+    form.fields.last_name.value = 'Гусь';
+    form.fields.first_name.value = 'Гузло';
+    form.fields.patronymic.value = 'Мемрович';
+    form.fields.gender.value = 'М';
+    form.fields.birthday.value = '12/12/1999';
     form.fields.document_type.value = 'Паспорт РФ';
     form.fields.is_adult.value = 'Взрослый';
-    form.fields.gender.error = 'Укажите пол';
+    form.fields.document_series.value = '1234';
+    form.fields.document_number.value = '123456';
 
     return form;
 };

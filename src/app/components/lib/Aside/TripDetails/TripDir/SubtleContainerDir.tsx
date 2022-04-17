@@ -15,7 +15,7 @@ export default function SubtleContainerDir(props: TripCollapseProps) {
     const {
         children, dir, date, desc,
     } = props;
-    const [isActive, setActive] = useState(false);
+    const [isActive, setActive] = useState(true);
 
     return (
         <div className='trip-section trip-section-subtle'>

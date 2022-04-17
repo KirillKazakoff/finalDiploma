@@ -56,5 +56,6 @@ export const { pushPasPlace, removePasPlace, refresherAhh } = pasPlacesSlice.act
 export const selectPasPlacesRoute = (route: string) => (state: RootState) => {
     return state.pasPlaces[route];
 };
+export const selectPasPlaces = (state: RootState) => state.pasPlaces;
 
 export default pasPlacesSlice.reducer;
