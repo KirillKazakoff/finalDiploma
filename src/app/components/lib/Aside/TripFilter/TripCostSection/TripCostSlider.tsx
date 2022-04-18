@@ -9,7 +9,7 @@ export default function TripCostSection() {
     if (ticketsStatus !== 'loaded') {
         return (
             <div className='trip-section trip-section-cost'>
-                <PageLoader cls='page-loader-cost' />
+                <PageLoader cls='page-loader-cost' desc='Идет поиск' />
             </div>
         );
     }

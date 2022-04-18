@@ -9,9 +9,9 @@ export type FullNameT = {
 };
 
 export type UserT = FullNameT & {
-    phone: number;
+    phone: string;
     email: string;
-    payment_method: 'cash' | 'online';
+    payment_method: string;
 };
 
 export type PersonT = FullNameT & { id: string } & {
@@ -48,4 +48,32 @@ export type PassengerFormT = {
     isMsgHidden: boolean;
     statusValidity: FormStatusT;
     isChildForm: boolean;
+};
+
+// modelPerson
+export type OrderPersonInfoT = {
+    is_adult: boolean;
+    gender: boolean;
+    birthday: string;
+    document_type: string;
+    document_data: string;
+    is_impaired: boolean;
+} & FullNameT;
+
+export type OrderRouteSeatT = {
+    coach_id: string;
+    person_info: OrderPersonInfoT;
+    include_children_seat: boolean;
+    seat_number: number;
+};
+
+export type OrderRouteT = {
+    route_direction_id: string;
+    seats: OrderRouteSeatT[];
+};
+
+export type OrderT = {
+    user: UserT;
+    departure: OrderRouteT;
+    arrival?: OrderRouteT;
 };

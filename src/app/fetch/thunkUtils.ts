@@ -3,9 +3,9 @@ import { RequestType } from '../types/typesRequest';
 
 const baseUrl = 'http://80.87.192.113:3001';
 
-function timeoutMock() {
+export function timeoutMock(timeout: number) {
     return new Promise((resolve) => {
-        setTimeout(() => resolve('ok'), 1000);
+        setTimeout(() => resolve('ok'), timeout);
     });
 }
 

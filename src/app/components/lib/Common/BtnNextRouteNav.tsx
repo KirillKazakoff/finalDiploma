@@ -10,7 +10,7 @@ export default function BtnNextRouteNav(props: Props) {
 
     return (
         <div className={`next-route-wrapper next-route-wrapper-${cls}`}>
-            <NavLink className='navlink' to={to}>
+            <NavLink to={to}>
                 <button
                     className={`btn btn-next-section btn-next-section-${cls}`}
                     type='button'

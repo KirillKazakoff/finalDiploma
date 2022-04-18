@@ -23,19 +23,22 @@ export function getCitiesUrl(params: GetCitiesParams) {
     return url;
 }
 
-type GetRouteParams = any;
-export function getRoutesUrl(params: GetRouteParams) {
+export function getRoutesUrl(params: any) {
     const url = getUrl(params, 'routes');
     return url;
 }
 
-type GetSeatsParams = any;
-export function getSeatsUrl(params: GetSeatsParams) {
+export function getSeatsUrl(params: any) {
     const url = getUrl(params, `routes/${params.id}/seats`);
     return url;
 }
 
 export function getSubscribeUrl(params: any) {
     const url = getUrl(params, 'subscribe');
+    return url;
+}
+
+export function getPostOrderUrl() {
+    const url = 'order';
     return url;
 }
