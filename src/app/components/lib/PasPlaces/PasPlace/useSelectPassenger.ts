@@ -1,9 +1,5 @@
 import { useAppDispatch } from '../../../../redux/reduxHooks';
-import {
-    PasPlaceT,
-    pushPasPlace,
-    refresherAhh,
-} from '../../../../redux/slices/pasPlacesSlice';
+import { PasPlaceT, pushPasPlace } from '../../../../redux/slices/pasPlacesSlice';
 import { PersonT } from '../../../../types/models/modelPerson';
 import { PlaceT } from '../../../../types/typesSlices';
 

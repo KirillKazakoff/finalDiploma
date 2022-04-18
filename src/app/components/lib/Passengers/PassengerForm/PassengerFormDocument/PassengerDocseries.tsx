@@ -19,8 +19,8 @@ export default function PassengerDocseries({ id }: IdProp) {
     }, [inputState.value]);
 
     return (
-        <div className="passenger-form-col passenger-form-col-document">
-            <label className="passenger-input-label" htmlFor="docseries">
+        <div className='passenger-form-col passenger-form-col-document'>
+            <label className='passenger-input-label' htmlFor='docseries'>
                 Серия
             </label>
             <PassengerInput
@@ -31,9 +31,12 @@ export default function PassengerDocseries({ id }: IdProp) {
                 name={name}
                 pattern={reg}
                 placeholder={`${symbols} символа`}
-                className="input input-number input-passport"
+                className='input input-number input-passport'
             />
-            <PlaceholderUnderscores cls="passport" amount={symbols} state={inputState} />
+            <PlaceholderUnderscores
+                cls='passport' amount={symbols}
+                state={inputState}
+            />
         </div>
     );
 }

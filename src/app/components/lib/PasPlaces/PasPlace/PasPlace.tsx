@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '../../../../redux/reduxHooks';
 import {
-    refresherAhh,
     removePasPlace,
     selectPasPlacesRoute,
 } from '../../../../redux/slices/pasPlacesSlice';

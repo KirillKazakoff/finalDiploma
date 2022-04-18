@@ -11,6 +11,8 @@ export default function CheckPassengers() {
     const passengers = useAppSelector(selectPassengersInfo);
     const totalPrice = useAppSelector(selectTotalPrice);
 
+    if (totalPrice === 0) return null;
+
     const passengersList = passengers.map((passenger) => {
         const fullName = getFullName(passenger);
         const gender = matchGender(passenger.gender);

@@ -4,8 +4,9 @@ import TicketCenter from './Ticket/TicketCenter';
 import { TicketProps } from '../../../types/typesTicket';
 import TicketRight from './Ticket/TicketRight';
 import { useAppDispatch } from '../../../redux/reduxHooks';
-import { refresh, setActiveTicket } from '../../../redux/slices/placesSlice';
+import { refreshPlaces, setActiveTicket } from '../../../redux/slices/placesSlice';
 import TicketToPlaces from './Ticket/TicketToPlaces';
+import { refreshPasPlaces } from '../../../redux/slices/pasPlacesSlice';
 
 export default function Ticket({ ticket }: TicketProps) {
     const dispatch = useAppDispatch();
@@ -13,7 +14,8 @@ export default function Ticket({ ticket }: TicketProps) {
     const routes = { departure, arrival };
 
     const onClick = () => {
-        dispatch(refresh());
+        dispatch(refreshPlaces());
+        dispatch(refreshPasPlaces());
         dispatch(setActiveTicket(ticket));
     };
 

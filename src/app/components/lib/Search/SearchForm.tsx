@@ -54,7 +54,8 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
             <SearchFormFeedback
                 waysState={waysState}
                 datesState={datesState}
-                isMsgHidden={isMsgHidden}>
+                isMsgHidden={isMsgHidden}
+            >
                 <SearchFormBtn cls={cls}>Найти билеты</SearchFormBtn>
             </SearchFormFeedback>
         </Form>

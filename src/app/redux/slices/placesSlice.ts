@@ -51,7 +51,7 @@ export const placesSlice = createSlice({
             });
             state.routes[route].places.splice(i, 1);
         },
-        refresh: () => initialState,
+        refreshPlaces: () => initialState,
     },
 });
 
@@ -62,7 +62,7 @@ export const {
     setActiveCar,
     setPlace,
     removePlace,
-    refresh,
+    refreshPlaces,
 } = placesSlice.actions;
 
 export const selectActiveTicket = (state: RootState) => state.places.activeTicket;
@@ -70,6 +70,7 @@ export const selectPlaces = (state: RootState) => state.places;
 export const selectExtras = (route: string) => (state: RootState) => {
     const { activeCar, extras } = state.places.routes[route];
     const index = extras.findIndex((extra) => extra.carNumber === activeCar.carNumber);
+    if (index === -1) return false;
 
     return extras[index].prices;
 };

@@ -23,8 +23,8 @@ export default function PassengerDocnumber({ doctype, id }: Props) {
     }, [inputState.value]);
 
     return (
-        <div className="passenger-form-col passenger-form-col-document">
-            <label className="passenger-input-label" htmlFor="docnumber">
+        <div className='passenger-form-col passenger-form-col-document'>
+            <label className='passenger-input-label' htmlFor='docnumber'>
                 Номер
             </label>
 
@@ -39,7 +39,10 @@ export default function PassengerDocnumber({ doctype, id }: Props) {
                 className={`input input-number input-${clsType}`}
             />
 
-            <PlaceholderUnderscores cls={clsType} amount={symbols} state={inputState} />
+            <PlaceholderUnderscores
+                cls={clsType} amount={symbols}
+                state={inputState}
+            />
         </div>
     );
 }

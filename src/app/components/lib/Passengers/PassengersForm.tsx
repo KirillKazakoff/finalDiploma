@@ -11,7 +11,7 @@ import { messagesError } from '../Common/Info/messagesInfo';
 import { getAges } from './checkAges';
 
 const {
-    childrenOverwhelm, noPassengers, fullfillForm, notEqualPlaces,
+    childrenOverwhelm, noPassengers, fullfillForm, notEqualPlaces, emptyPrevRoute,
 } = messagesError;
 
 export default function PassengersForm() {
@@ -34,6 +34,7 @@ export default function PassengersForm() {
         if (statusValidity !== 'success') msg = fullfillForm;
         if (biggest !== total) msg = notEqualPlaces(biggest);
         if (total === 0) msg = noPassengers;
+        if (biggest === 0) msg = emptyPrevRoute;
 
         if (msg) {
             dispatch(setInfo({ msg, status: 'error' }));

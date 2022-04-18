@@ -48,11 +48,11 @@ export const pasPlacesSlice = createSlice({
 
             state[name].splice(index, 1);
         },
-        refresherAhh: () => initialState,
+        refreshPasPlaces: () => initialState,
     },
 });
 
-export const { pushPasPlace, removePasPlace, refresherAhh } = pasPlacesSlice.actions;
+export const { pushPasPlace, removePasPlace, refreshPasPlaces } = pasPlacesSlice.actions;
 export const selectPasPlacesRoute = (route: string) => (state: RootState) => {
     return state.pasPlaces[route];
 };

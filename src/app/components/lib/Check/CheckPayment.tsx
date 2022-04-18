@@ -1,11 +1,15 @@
 import React from 'react';
 import { useAppSelector } from '../../../redux/reduxHooks';
 import { selectPayMethod } from '../../../redux/slices/paymentFieldsSlice';
+import { selectTotalPrice } from '../../../redux/slices/utils/selectTotalPrice';
 import { matchPayMethod } from '../Payment/PaymentPersonalWay/matchPayMethod';
 import CheckChangeNavBtn from './CheckChangeNavBtn';
 
 export default function CheckPayment() {
     const payMethod = useAppSelector(selectPayMethod);
+    const totalPrice = useAppSelector(selectTotalPrice);
+
+    if (totalPrice === 0) return null;
 
     return (
         <section className='confirmation-section confirmation-section-payment shadowed'>

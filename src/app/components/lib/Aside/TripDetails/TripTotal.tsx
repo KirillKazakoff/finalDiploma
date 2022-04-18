@@ -6,6 +6,8 @@ import formatCost from '../../Common/utils/format';
 export default function TripTotal() {
     const total = useAppSelector(selectTotalPrice);
 
+    if (total === 0) return null;
+
     return (
         <section className='trip-section trip-section-subtle-total'>
             <div className='subtle-container total-subtle-container'>

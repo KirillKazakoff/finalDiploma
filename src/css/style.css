@@ -847,7 +847,7 @@ body {
 }
 
 .ticket-info {
-    width: 180px;
+    width: 160px;
 
     display: flex;
     flex-direction: column;
@@ -859,6 +859,7 @@ body {
 }
 
 .ticket-right {
+    flex: 1;
     margin-left: 40px;
 }
 
@@ -889,6 +890,7 @@ body {
     justify-content: center;
     position: relative;
     top: -5px;
+    left: -15px;
 }
 
 .travel-time-desc {
@@ -927,8 +929,13 @@ body {
     align-items: center;
     column-gap: 10px;
     font-size: 16px;
-    padding-top: 10px;
-    min-height: 50px;
+
+    padding-top: 20px;
+    min-height: 20px;
+}
+
+.ticket-type:first-child {
+    padding-top: 0;
 }
 
 .ticket-type-desc {
@@ -942,7 +949,7 @@ body {
     flex-direction: column;
 
     position: absolute;
-    top: 60px;
+    top: 65px;
     left: 0px;
     right: 0px;
     background-color: var(--secondary-super-light);
@@ -3154,6 +3161,7 @@ body {
 }
 
 .btn-choose-another-train:hover,
+.btn-check-change:hover,
 .btn-pas-places-add-passenger:hover {
     color: var(--bg-main);
     box-shadow: var(--btn-shadow-light);
@@ -3174,7 +3182,8 @@ body {
 
 .btn-choose-places:focus,
 .btn-next-section:focus,
-.btn-back:focus {
+.btn-back:focus,
+.btn-check-change:focus {
     background-color: transparent;
     border: 1px solid var(--bg-main);
     color: var(--bg-main);
@@ -3272,11 +3281,6 @@ body {
     color: white;
 }
 
-/* .btn-next-section:disabled {
-    box-shadow: none;
-    cursor: default;
-} */
-
 .btn-pas-places-next-section {
     font-weight: 400;
     font-size: 24px;
@@ -3363,4 +3367,26 @@ body {
     color: var(--black);
     border: 1px solid var(--black);
     padding: 10px 65px;
+}
+
+/* .btn-trip-details-empty */
+.trip-details-empty {
+    margin: auto;
+}
+
+.btn-trip-details-empty {
+    padding: 20px 5px;
+    font-size: 24px;
+    color: var(--error);
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    border: 2px solid var(--error);
+    border-radius: 0px;
+    line-height: 35px;
+}
+
+.btn-trip-details-empty:hover {
+    border-color: var(--bg-main);
+    color: var(--bg-main);
 }

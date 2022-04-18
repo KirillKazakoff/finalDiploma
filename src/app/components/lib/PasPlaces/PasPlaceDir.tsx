@@ -14,6 +14,7 @@ export default function PasPlaceDir({ dir, places }: Props) {
     const extras = useAppSelector(selectExtras(route));
 
     if (places.length === 0) return null;
+    if (!extras) return null;
 
     const placesList = places.map((place, index) => (
         <PasPlace
