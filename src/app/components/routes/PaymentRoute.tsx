@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import TripDetailsFull from '../lib/Aside/TripDetails/TripDetailsFull';
 import { useAppDispatch } from '../../redux/reduxHooks';
-import { refreshPay } from '../../redux/slices/paymentFieldsSlice';
 import PaymentForm from '../lib/Payment/PaymentForm';
 import { setPageCount } from '../../redux/slices/loaderSlice';
 

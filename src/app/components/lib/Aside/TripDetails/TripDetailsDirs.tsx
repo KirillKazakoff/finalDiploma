@@ -6,6 +6,8 @@ import { selectActiveTicket } from '../../../../redux/slices/placesSlice';
 
 export default function TripDetailsDirs() {
     const ticket = useAppSelector(selectActiveTicket);
+
+    if (!ticket) return null;
     const { arrival, departure } = ticket.ticketRoute;
     return (
         <div className='aside-part aside-part-trip'>

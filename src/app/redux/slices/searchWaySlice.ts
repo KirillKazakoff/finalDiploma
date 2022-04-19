@@ -30,6 +30,7 @@ export const searchWaySlice = createSlice({
             const { cities, inputName } = action.payload;
             state[inputName].cities = cities;
         },
+        refreshWays: () => initialState,
     },
 });
 
@@ -41,6 +42,7 @@ export const {
     setWayStatus,
     setError,
     setFormError,
+    refreshWays,
 } = searchWaySlice.actions;
 
 export const selectWayInputs = (state: RootState) => state.searchWay;

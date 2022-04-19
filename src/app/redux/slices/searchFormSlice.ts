@@ -7,10 +7,13 @@ const initialState = { ...formInitialState };
 export const searchFormSlice = createSlice({
     name: 'searchForm',
     initialState,
-    reducers: { ...formReducers },
+    reducers: {
+        ...formReducers,
+        refreshSearch: () => initialState,
+    },
 });
 
-export const { setFormMsgHidden, setFormStatus } = searchFormSlice.actions;
+export const { setFormMsgHidden, setFormStatus, refreshSearch } = searchFormSlice.actions;
 export const selectFormState = (state: RootState) => state.searchForm;
 export const selectMsgStatus = (state: RootState) => state.searchForm.isMsgHidden;
 export const selectFormStatus = (state: RootState) => state.searchForm.statusValidity;

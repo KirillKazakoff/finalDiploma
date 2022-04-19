@@ -69,6 +69,7 @@ export const searchFilterSlice = createSlice({
         setOffset: (state, action: PayloadAction<number>) => {
             state.top.offset = action.payload;
         },
+        refreshFilter: () => initialState,
     },
 });
 
@@ -80,6 +81,7 @@ export const {
     setSort,
     setLimit,
     setOffset,
+    refreshFilter,
 } = searchFilterSlice.actions;
 
 export const selectCost = (state: RootState) => state.searchFilter.aside.sliders.cost;

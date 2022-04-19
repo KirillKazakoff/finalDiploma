@@ -27,7 +27,7 @@ export default function CheckRoute() {
         dispatch(setPageCount(4));
     }, []);
 
-    if (fetchStatus !== 'loaded') {
+    if (fetchStatus === 'loading') {
         return <PageLoader cls='page-loader-main' desc='Обработка запроса...' />;
     }
 

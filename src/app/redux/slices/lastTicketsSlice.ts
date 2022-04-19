@@ -20,10 +20,11 @@ export const lastTicketsSlice = createSlice({
         setLastTickets: (state, action: PayloadAction<TicketRouteT[]>) => {
             state.lastTickets = action.payload;
         },
+        refreshLast: () => initialState,
     },
 });
 
-export const { setFetchStatus, setLastTickets } = lastTicketsSlice.actions;
+export const { setFetchStatus, setLastTickets, refreshLast } = lastTicketsSlice.actions;
 
 export const selectLast = (state: RootState) => {
     const selectedThree = [];

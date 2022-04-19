@@ -24,8 +24,8 @@ export default function Header() {
             <HeaderProgressBar />
         </>
     );
-    const HeaderOutletSuccess = <div>Success</div>;
-    const HeaderOutletError = <div>Error</div>;
+    const HeaderOutletSuccess: any = null;
+    // const HeaderOutletError = <div>Error</div>;
 
     let className = 'central';
     let HeaderOutlet = HeaderOutletContent;
@@ -38,10 +38,10 @@ export default function Header() {
         HeaderOutlet = HeaderOutletSuccess;
         className = 'success';
     }
-    if (pathname === '/error') {
-        HeaderOutlet = HeaderOutletError;
-        className = 'error';
-    }
+    // if (pathname === '/error') {
+    //     HeaderOutlet = HeaderOutletError;
+    //     className = 'error';
+    // }
 
     return (
         <header className={`header header-${className}`}>

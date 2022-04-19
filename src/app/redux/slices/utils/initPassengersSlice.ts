@@ -34,7 +34,7 @@ export const initForm = () => {
     form.fields.first_name.value = 'Гузло';
     form.fields.patronymic.value = 'Мемрович';
     form.fields.gender.value = 'М';
-    form.fields.birthday.value = '12/12/1999';
+    form.fields.birthday.value = '12.12.1999';
     form.fields.document_type.value = 'Паспорт РФ';
     form.fields.is_adult.value = 'Взрослый';
     form.fields.document_series.value = '1234';

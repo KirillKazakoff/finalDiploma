@@ -13,10 +13,13 @@ export const paymentFormSlice = createSlice({
         setFetchStatus: (state, action: PayloadAction<FetchStatusT>) => {
             state.status = action.payload;
         },
+        refreshPaymentForm: () => initialState,
     },
 });
 
-export const { setFormMsgHidden, setFormStatus, setFetchStatus } = paymentFormSlice.actions;
+export const {
+    setFormMsgHidden, setFormStatus, setFetchStatus, refreshPaymentForm,
+} = paymentFormSlice.actions;
 export const selectFormState = (state: RootState) => state.paymentForm;
 export const selectMsgStatus = (state: RootState) => state.paymentForm.isMsgHidden;
 export const selectFormStatus = (state: RootState) => state.paymentForm.statusValidity;

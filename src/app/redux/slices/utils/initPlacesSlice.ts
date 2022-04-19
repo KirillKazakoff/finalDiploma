@@ -13,12 +13,14 @@ const initialCarContent: CarContentT = {
     activeCar: null,
 };
 
+export const initRoutesPlaces = {
+    departure: { ...initialCarContent },
+    arrival: { ...initialCarContent },
+};
+
 export const initialState: PlacesStateT = {
     activeTicket: null,
-    routes: {
-        departure: { ...initialCarContent },
-        arrival: { ...initialCarContent },
-    },
+    routes: { ...initRoutesPlaces },
 };
 
 export const initExtrasRoute = (state: PlacesStateT, route: TrainInfoFullT) => {

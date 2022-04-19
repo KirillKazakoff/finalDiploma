@@ -22,17 +22,14 @@ export const loaderSlice = createSlice({
         setPageStatus: (state, action: PayloadAction<FetchStatusT>) => {
             state.pageStatus = action.payload;
         },
-        // setProgress: (state, action: PayloadAction<number>) => {
-        //     state.progress = action.payload;
-        // },
         setPageCount: (state, action: PayloadAction<number>) => {
             state.pageCount = action.payload;
         },
+        refreshLoader: () => initialState,
     },
 });
 
-export const { setPageStatus, setPageCount } = loaderSlice.actions;
-// export const selectProgress = (state: RootState) => state.loader.progress;
+export const { setPageStatus, setPageCount, refreshLoader } = loaderSlice.actions;
 export const selectPageStatus = (state: RootState) => state.loader.pageStatus;
 export const selectPageCount = (state: RootState) => state.loader.pageCount;
 

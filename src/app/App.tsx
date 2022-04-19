@@ -10,6 +10,7 @@ import PassengersRoute from './components/routes/PassengersRoute';
 import PasPlacesRoute from './components/routes/PasPlacesRoute';
 import PaymentRoute from './components/routes/PaymentRoute';
 import CheckRoute from './components/routes/CheckRoute';
+import SuccessRoute from './components/routes/SuccessRoute';
 
 export default function App() {
     return (
@@ -23,6 +24,7 @@ export default function App() {
                     <Route path='/pas-places' element={<PasPlacesRoute />} />
                     <Route path='/payment' element={<PaymentRoute />} />
                     <Route path='/check' element={<CheckRoute />} />
+                    <Route path='/success' element={<SuccessRoute />} />
                 </Route>
                 <Route path='*' element={<ErrorRoute />} />
             </Routes>

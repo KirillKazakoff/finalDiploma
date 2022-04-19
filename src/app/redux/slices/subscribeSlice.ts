@@ -24,11 +24,17 @@ export const subscribeSlice = createSlice({
         setFetchStatus: (state, action: PayloadAction<FetchStatusT>) => {
             state.status = action.payload;
         },
+        refreshSubscribe: () => initialState,
     },
 });
 
 export const {
-    setInput, setError, setActive, setBlured, setFetchStatus,
+    setInput,
+    setError,
+    setActive,
+    setBlured,
+    setFetchStatus,
+    refreshSubscribe,
 } = subscribeSlice.actions;
 
 export const selectSubscribeState = (state: RootState) => state.subscribe.subscribe;

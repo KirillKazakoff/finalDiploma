@@ -40,6 +40,7 @@ export const searchDateSlice = createSlice({
             const { name, date } = action.payload;
             state[name].activeDate = date;
         },
+        refreshDate: () => initialState,
     },
 });
 
@@ -52,6 +53,7 @@ export const {
     setError,
     setBlured,
     setFormError,
+    refreshDate,
 } = searchDateSlice.actions;
 
 export const selectDateInputs = (state: RootState) => state.searchDate;

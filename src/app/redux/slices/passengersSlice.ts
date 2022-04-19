@@ -31,6 +31,7 @@ export const passengersSlice = createSlice({
         setIsChildForm: (state, action: PayloadAction<string>) => {
             state[action.payload].isChildForm = true;
         },
+        refreshPassengers: () => getInitialState(),
     },
 });
 
@@ -48,6 +49,7 @@ export const {
     setFormMsgHidden,
     setIsChildForm,
     setFormStatus,
+    refreshPassengers,
 } = passengersSlice.actions;
 
 export const selectDoctype = (id: string) => (state: RootState) => {

@@ -21,12 +21,12 @@ export const paymentFieldsSlice = createSlice({
     initialState,
     reducers: {
         ...inputReducers,
-        refreshPay: () => fields,
+        refreshPayFields: () => fields,
     },
 });
 
 export const {
-    refreshPay,
+    refreshPayFields,
     setInput,
     setActive,
     setBlured,
