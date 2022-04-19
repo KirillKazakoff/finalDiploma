@@ -2,7 +2,7 @@ import React from 'react';
 import PasPlaceDir from '../lib/PasPlaces/PasPlaceDir';
 import { useAppSelector } from '../../redux/reduxHooks';
 import { selectPlaces } from '../../redux/slices/placesSlice';
-import PasPlacesForm from './PasPlacesForm';
+import PasPlacesForm from '../lib/PasPlaces/PasPlacesForm';
 import { useRemoveDepricated } from '../lib/PasPlaces/useRemoveDepricated';
 
 export default function PasPlacesRoute() {

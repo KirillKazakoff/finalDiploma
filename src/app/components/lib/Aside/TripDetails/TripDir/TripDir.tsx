@@ -22,7 +22,8 @@ export default function TripDir(props: TripDirProps) {
                 <TripDirTrain route={route} />
                 <TripDirDestination dir={dir} route={route} />
             </div>
-            <TripDirPassengers pasPlaces={pasPlaces} />
+
+            {pasPlaces ? <TripDirPassengers pasPlaces={pasPlaces} /> : null}
         </SubtleContainerDir>
     );
 }

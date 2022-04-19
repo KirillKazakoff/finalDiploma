@@ -1,4 +1,4 @@
-import type { EmptyPlaceT } from '../../../routes/PasPlacesForm';
+import type { EmptyPlaceT } from '../../PasPlaces/PasPlacesForm';
 
 /* eslint-disable max-len */
 export type InfoMsgT = {
@@ -49,10 +49,10 @@ export const messagesError = {
         desc: `Конкретная форма: Пассажир ${pasPlace.index} \n Направление: ${pasPlace.route}`,
     }),
 
-    checkEmptyRoute: {
+    checkRoute: (desc: string) => ({
         title: 'Вы ... не заполнили места!',
-        desc: 'Вернитесь в секцию с местами и заполните ее',
-    },
+        desc: `${desc} (Кнопка перехода подсвечена слева)`,
+    }),
 };
 
 export const messagesAlert = {
