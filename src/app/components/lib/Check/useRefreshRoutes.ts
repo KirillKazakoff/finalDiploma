@@ -21,7 +21,8 @@ export const useRefreshRoutes = () => {
         // dispatch(refreshFilter());
         // dispatch(refreshPasPlaces());
         // dispatch(refreshPlaces());
-        dispatch(setOrderSuccess(true));
+        dispatch(setOrderSuccess());
+        // dispatch(refreshLocations());
     };
 
     return refreshAll;

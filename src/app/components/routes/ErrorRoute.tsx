@@ -1,38 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import ErrorBtn from '../lib/Common/Error/ErrorBtn';
+import Error from '../lib/Common/Error/Error';
 
 export default function ErrorRoute() {
-    const onClick = () => window.history.back();
+    const navigate = useNavigate();
+    const onClick = () => navigate(-1);
 
     return (
-        <div className='error-route'>
-            <h2 className='error-title'>404 Error</h2>
-            <div className='error-desc'>
-                Something went wrong bruh, you should do something
-            </div>
-            <div className='error-pic'>
-                <div className='absolute-loader'>
-                    <div className='lds-spinner'>
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                    </div>
-                </div>
-            </div>
-            <button
-                type='button' className='btn btn-back'
-                onClick={onClick}
-            >
-                Вернуться назад
-            </button>
-        </div>
+        <Error
+            title='404 Error'
+            desc='Something went wrong bruh, you should do something'
+        >
+            <ErrorBtn onClick={onClick} desc='Вернуться назад' />
+        </Error>
     );
 }

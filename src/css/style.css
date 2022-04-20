@@ -2951,6 +2951,7 @@ body {
 
 /* error-route */
 .error-route {
+    padding: 100px 0;
     text-align: center;
     width: 60%;
     margin: auto;
