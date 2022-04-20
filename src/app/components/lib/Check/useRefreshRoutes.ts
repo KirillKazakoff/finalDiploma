@@ -1,5 +1,6 @@
 import { useAppDispatch } from '../../../redux/reduxHooks';
 import { refreshLast } from '../../../redux/slices/lastTicketsSlice';
+import { setOrderSuccess } from '../../../redux/slices/locationsSlice';
 import { refreshPasPlaces } from '../../../redux/slices/pasPlacesSlice';
 import { refreshPassengers } from '../../../redux/slices/passengersSlice';
 import { refreshPayFields } from '../../../redux/slices/paymentFieldsSlice';
@@ -14,11 +15,13 @@ export const useRefreshRoutes = () => {
     const dispatch = useAppDispatch();
 
     const refreshAll = () => {
-        dispatch(refreshDate());
-        dispatch(refreshWays());
-        dispatch(refreshLast());
-        dispatch(refreshFilter());
-        dispatch(refreshPasPlaces());
+        // dispatch(refreshDate());
+        // dispatch(refreshWays());
+        // dispatch(refreshLast());
+        // dispatch(refreshFilter());
+        // dispatch(refreshPasPlaces());
+        // dispatch(refreshPlaces());
+        dispatch(setOrderSuccess(true));
     };
 
     return refreshAll;

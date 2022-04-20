@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppSelector } from '../../../redux/reduxHooks';
-import { selectPageStatus } from '../../../redux/slices/loaderSlice';
-import { selectActiveTicket } from '../../../redux/slices/placesSlice';
+import { useAppSelector, useAppDispatch } from '../../../redux/reduxHooks';
+import { selectPageStatus, setPageStatus } from '../../../redux/slices/loaderSlice';
 
 const ErrorNavigator = (): any => {
     const navigate = useNavigate();
     const pageStatus = useAppSelector(selectPageStatus);
-
-    const ticket = useAppSelector(selectActiveTicket);
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        if (pageStatus === 'failed') navigate('/error');
+        if (pageStatus === 'failed') {
+            dispatch(setPageStatus('idle'));
+            navigate('/error');
+        }
     }, [pageStatus]);
 
     return null;

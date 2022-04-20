@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import Feedback from '../components/lib/Common/Feedback/Feedback';
-import InputWrapper from '../components/lib/Common/InputWrapper';
+import InputWrapper from '../components/lib/Common/Form/InputWrapper';
 import {
     setActive,
     setBlured,

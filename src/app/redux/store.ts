@@ -16,11 +16,13 @@ import alertReducer from './slices/alertSlice';
 import pasPlacesReducer from './slices/pasPlacesSlice';
 import paymentReducer from './slices/paymentFieldsSlice';
 import paymentFormReducer from './slices/paymentFormSlice';
+import locationReducer from './slices/locationsSlice';
 
 const preloadedState = loadFromLocalStorage();
 
 export const store = configureStore({
     reducer: {
+        locations: locationReducer,
         loader: loaderReducer,
         info: infoReducer,
         alert: alertReducer,
