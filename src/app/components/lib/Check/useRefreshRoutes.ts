@@ -22,6 +22,7 @@ export const useRefreshRoutes = () => {
         // dispatch(refreshPasPlaces());
         // dispatch(refreshPlaces());
         dispatch(setOrderSuccess());
+        dispatch(refreshPaymentForm());
         // dispatch(refreshLocations());
     };
 

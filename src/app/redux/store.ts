@@ -17,6 +17,7 @@ import pasPlacesReducer from './slices/pasPlacesSlice';
 import paymentReducer from './slices/paymentFieldsSlice';
 import paymentFormReducer from './slices/paymentFormSlice';
 import locationReducer from './slices/locationsSlice';
+import rateReducer from './slices/rateSlice';
 
 const preloadedState = loadFromLocalStorage();
 
@@ -27,6 +28,7 @@ export const store = configureStore({
         info: infoReducer,
         alert: alertReducer,
         subscribe: subscribeReducer,
+        rate: rateReducer,
 
         searchForm: searchFormReducer,
         searchFilter: searchFilterReducer,

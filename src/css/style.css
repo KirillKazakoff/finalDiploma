@@ -2501,17 +2501,27 @@ body {
 }
 
 .success-rate-stars {
+    min-width: 320px;
     display: flex;
-    column-gap: 20px;
+    flex-direction: row-reverse;
 }
 
-.success-back-to-main {
-    border: 1px solid #3e3c41;
-    font-size: 24px;
-    font-weight: 500;
-    padding: 15px 10px;
+.success-rate-star {
+    width: 20%;
+}
 
-    margin-left: auto;
+.success-rate-star:hover,
+.success-rate-star:hover ~ .success-rate-star {
+    filter: var(--royalblue-filter);
+}
+
+.star-svg {
+    color: transparent;
+}
+
+.success-rate-star:hover ~ .success-rate-star .star-svg,
+.success-rate-star:hover .star-svg {
+    color: yellow;
 }
 
 /* main-page */
@@ -3390,4 +3400,26 @@ body {
 .btn-trip-details-empty:hover {
     border-color: var(--bg-main);
     color: var(--bg-main);
+}
+
+/* .btn-success-back-to-main */
+.btn-success-back-to-main {
+    color: var(--black-light);
+    border: 2px solid var(--black-light);
+    font-size: 24px;
+    font-weight: 500;
+    padding: 15px 10px;
+
+    margin-left: auto;
+}
+
+.btn-success-back-to-main:hover {
+    color: white;
+    border-color: var(--secondary-super-light);
+}
+
+.btn-success-back-to-main:focus {
+    background-color: white;
+    color: var(--bg-main);
+    border: 1px solid transparent;
 }
