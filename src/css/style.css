@@ -909,7 +909,7 @@ body {
     min-width: 285px;
 
     align-self: stretch;
-    padding-top: 25px;
+    padding-top: 5px;
     padding-bottom: 35px;
     border-left: 1px dashed #e5e5e5;
 }
@@ -932,10 +932,6 @@ body {
 
     padding-top: 20px;
     min-height: 20px;
-}
-
-.ticket-type:first-child {
-    padding-top: 0;
 }
 
 .ticket-type-desc {
@@ -2760,7 +2756,14 @@ body {
     padding-bottom: 50px;
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
+}
+
+.footer-top-left {
+    width: 45%;
+}
+
+.footer-top-right {
+    width: 55%;
 }
 
 .footer-top-col {
@@ -3266,6 +3269,7 @@ body {
 
 /* buttons-main-page */
 .btn-know-more {
+    font-size: 24px;
     border: 1px solid #ffffff;
     border-radius: 3px;
     margin-right: 35px;

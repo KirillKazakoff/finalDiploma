@@ -34,13 +34,14 @@ export default function CheckRoute() {
     return (
         <main className='main main-central framed'>
             <aside className='aside-central'>{renderAside()}</aside>
-
-            <section className='content-central confirmation-content-central'>
-                <CheckTrain />
-                <CheckPassengers />
-                <CheckPayment />
-                <CheckForm errorDesc={desc} />
-            </section>
+            {isError ? null : (
+                <section className='content-central confirmation-content-central'>
+                    <CheckTrain />
+                    <CheckPassengers />
+                    <CheckPayment />
+                    <CheckForm errorDesc={desc} />
+                </section>
+            )}
         </main>
     );
 }

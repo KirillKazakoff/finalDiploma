@@ -16,7 +16,10 @@ export default function SuccessRate() {
         const color = index >= rate ? 'red' : 'currentColor';
 
         return (
-            <li className={cls} onClick={onClick(index)}>
+            <li
+                className={cls} key={index}
+                onClick={onClick(index)}
+            >
                 <svg
                     viewBox='100 100 100 100'
                     width='50'

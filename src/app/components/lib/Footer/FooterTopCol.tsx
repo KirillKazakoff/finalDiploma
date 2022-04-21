@@ -1,7 +1,11 @@
 import React from 'react';
 
-type FooterTopColProps = { children: React.ReactNode };
+type FooterTopColProps = { children: React.ReactNode; cls?: string };
 
-export default function FooterTopCol({ children }: FooterTopColProps) {
-    return <div className='footer-top-col'>{children}</div>;
+export default function FooterTopCol({ children, cls }: FooterTopColProps) {
+    return <div className={`footer-top-col ${cls}`}>{children}</div>;
 }
+
+FooterTopCol.defaultProps = {
+    cls: '',
+};

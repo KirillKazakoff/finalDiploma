@@ -8,10 +8,10 @@ import FooterTopCol from './FooterTopCol';
 export default function FooterTop() {
     return (
         <section className='footer-top framed'>
-            <FooterTopCol>
+            <FooterTopCol cls='footer-top-left'>
                 <FooterContacts />
             </FooterTopCol>
-            <FooterTopCol>
+            <FooterTopCol cls='footer-top-right'>
                 <Subscription />
                 <FooterSocials />
             </FooterTopCol>
