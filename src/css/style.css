@@ -2524,6 +2524,7 @@ body {
     color: yellow;
 }
 
+/* someColor:#666363 */
 /* main-page */
 /* about-section */
 .about {
@@ -2609,11 +2610,68 @@ body {
     margin-top: 150px;
 }
 
+.reviews-content-wrapper {
+    overflow-x: hidden;
+    position: relative;
+    margin-top: 80px;
+}
+
+@keyframes slide-review-prev {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    95% {
+        transform: translateX(-110%);
+    }
+    100% {
+        transform: translateX(-110%);
+    }
+}
+
+@keyframes slide-review-next {
+    0% {
+        transform: translateX(110%);
+    }
+    50% {
+        transform: translateX(110%);
+    }
+    95% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
 .reviews-content {
+    top: 0px;
+    left: 0;
+    position: relative;
+
     display: flex;
     align-items: center;
     column-gap: 85px;
-    margin-top: 80px;
+}
+
+.reviews-hidden {
+    display: none;
+}
+
+/* .reviews-content-next {
+    animation: slide-review-next 5s ease-in infinite;
+}
+
+.reviews-content-prev {
+    animation: slide-review-prev 5s ease-in infinite;
+} */
+
+.reviews-content-prev {
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .review {

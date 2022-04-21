@@ -5,3 +5,12 @@ export const numberToArray = (count: number) => {
     }
     return arr;
 };
+
+export const numberToArrayFrom = (count: number, from: number) => {
+    const arr = [];
+
+    for (let i = from; i < count + from; i += 1) {
+        arr.push(i);
+    }
+    return arr;
+};
