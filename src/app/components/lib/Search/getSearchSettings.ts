@@ -7,8 +7,8 @@ const getSearchSettings = (top: TopTypeT, ways: WaysStateT, dates: DatesStateT) 
         const searchSettings = {
             // date_start: formatDate(dates.dateTo.value),
             // date_end: formatDate(dates.dateFrom.value),
-            // date_start: '2022-03-29',
-            // date_end: '2022-03-31',
+            date_start: '2022-03-29',
+            date_end: '2022-03-31',
             from_city_id: ways.wayFrom.cities[0]._id,
             to_city_id: ways.wayTo.cities[0]._id,
             offset: top.offset,

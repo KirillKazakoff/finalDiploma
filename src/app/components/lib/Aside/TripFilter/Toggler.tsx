@@ -10,20 +10,21 @@ export default function Toggler({ children, imgName, dispatchName }: Props) {
         (state) => state.searchFilter.aside.togglers[dispatchName],
     );
 
-    const cls = isActive ? 'toggler-on' : '';
+    const containerCls = isActive ? 'toggler-on' : '';
+    const imgCls = isActive ? 'filter-main' : '';
+
     const onClick = () => {
         dispatch(setToggler({ name: dispatchName, value: !isActive }));
     };
 
     return (
-        <li className='toggler-item'>
-            <img src={`./svg/features/${imgName}.svg`} alt={imgName} />
+        <li className='toggler-item' onClick={onClick}>
+            <img
+                src={`./svg/features/${imgName}.svg`} alt={imgName}
+                className={imgCls}
+            />
             <div className='toggler-desc'>{children}</div>
-            <button
-                type='button'
-                className={`toggler-container ${cls}`}
-                onClick={onClick}
-            >
+            <button type='button' className={`toggler-container ${containerCls}`}>
                 <div className='toggler-circle' />
             </button>
         </li>

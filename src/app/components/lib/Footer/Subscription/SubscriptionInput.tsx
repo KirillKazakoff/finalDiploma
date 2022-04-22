@@ -1,9 +1,11 @@
 import React, { HTMLProps, useEffect, useRef } from 'react';
 import InputWrapper from '../../Common/Form/InputWrapper';
 import { ValidateInputT } from '../../../../types/typesForms';
-import { useAppSelector } from '../../../../redux/reduxHooks';
+import { useAppSelector, useAppDispatch } from '../../../../redux/reduxHooks';
 import Feedback from '../../Common/Feedback/Feedback';
 import SpinLoader from '../../Common/SpinLoader/SpinLoader';
+import SuccessCheck from '../../Common/SuccessCheck/SuccessCheck';
+import { setFetchStatus } from '../../../../redux/slices/subscribeSlice';
 
 type Props = { validate: ValidateInputT } & HTMLProps<HTMLInputElement>;
 
@@ -12,6 +14,7 @@ export default function SubscriptionInput(props: Props) {
         validate, onChange, onBlur, onFocus,
     } = props;
 
+    const dispatch = useAppDispatch();
     const inputEl = useRef<HTMLInputElement>(null);
     const { status, subscribe } = useAppSelector((state) => state.subscribe);
     const { value, error, wasFocused } = subscribe;
@@ -22,6 +25,12 @@ export default function SubscriptionInput(props: Props) {
 
         validate(input);
     }, [value]);
+
+    useEffect(() => {
+        if (status === 'loaded') {
+            setTimeout(() => dispatch(setFetchStatus('idle')), 2500);
+        }
+    }, [status]);
 
     return (
         <InputWrapper cls='subscription-input-wrapper'>
@@ -39,6 +48,7 @@ export default function SubscriptionInput(props: Props) {
                 autoComplete='off'
             />
             {status === 'loading' ? <SpinLoader cls='subscribe-loader' /> : null}
+            {status === 'loaded' ? <SuccessCheck /> : null}
             <Feedback error={error} wasFocused={wasFocused} />
         </InputWrapper>
     );

@@ -16,7 +16,10 @@ export default function SearchWayUno() {
     };
 
     return (
-        <button type='button' onClick={onClick}>
+        <button
+            type='button' className='btn btn-uno'
+            onClick={onClick}
+        >
             <SvgRefresh height={24} />
         </button>
     );

@@ -82,7 +82,8 @@ const inputMessages: InputMessages = {
     // payment
     phone: {
         valueMissing: 'Введите номер телефона',
-        patternMismatch: 'Введите номер в соответствии с патерном',
+        patternMismatch:
+            'Введите номер в соответствии с патерном: +7 914 856 47 43, 8 914 856 47 43',
     },
     email: { ...mail },
 };
