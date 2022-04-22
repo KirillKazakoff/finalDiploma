@@ -6,7 +6,7 @@ export default function SubtlePassengerFormBtn({ onClick, isActive }: Props) {
     const signCls = isActive ? 'minus' : 'plus';
     return (
         <button
-            className={`passenger-collapse passenger-collapse-${signCls}`}
+            className={`btn passenger-collapse passenger-collapse-${signCls}`}
             type='button'
             onClick={onClick}
         >

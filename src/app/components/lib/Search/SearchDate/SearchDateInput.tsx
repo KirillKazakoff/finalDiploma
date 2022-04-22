@@ -65,6 +65,7 @@ export default function SearchDateInput(props: SearchDateInputProps) {
                 formError={dateState.formError}
                 error={dateState.error}
                 wasFocused={dateState.wasFocused}
+                cls='top'
             />
         </InputWrapper>
     );

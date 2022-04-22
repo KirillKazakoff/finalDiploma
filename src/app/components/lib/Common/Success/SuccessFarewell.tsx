@@ -14,10 +14,12 @@ export default function SuccessFarewell() {
                     Ваш заказ успешно оформлен. В ближайшее время с вами свяжется наш
                     оператор для подтверждения.
                 </span>
+            </div>
+            <footer className='success-appeal-footer'>
                 <span className='success-thanks'>
                     Благодарим Вас за оказанное доверие и желаем приятного путешествия!
                 </span>
-            </div>
+            </footer>
         </section>
     );
 }

@@ -6,10 +6,10 @@ export default function HeaderNav() {
         <nav className='nav'>
             <div className='logo logo-header'>Лого</div>
             <ul className='nav-list'>
-                <HeaderNavItem href='/#'>О нас</HeaderNavItem>
-                <HeaderNavItem href='/#'>Как это работает</HeaderNavItem>
-                <HeaderNavItem href='/#'>Отзывы</HeaderNavItem>
-                <HeaderNavItem href='/#'>Контакты</HeaderNavItem>
+                <HeaderNavItem href='/#scroll-to'>О нас</HeaderNavItem>
+                <HeaderNavItem href='/#description'>Как это работает</HeaderNavItem>
+                <HeaderNavItem href='/#reviews'>Отзывы</HeaderNavItem>
+                <HeaderNavItem href='/#contacts'>Контакты</HeaderNavItem>
             </ul>
         </nav>
     );

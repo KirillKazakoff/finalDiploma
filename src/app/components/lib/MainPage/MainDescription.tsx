@@ -5,7 +5,7 @@ import SvgNet from '../Svg/Skills/SvgNet';
 
 export default function MainDescription() {
     return (
-        <section className='description framed'>
+        <section className='description framed' id='description'>
             <header className='description-header'>
                 <h2 className='section-title ddescription-title'>Как это работает</h2>
                 <button className='btn btn-main btn-know-more' type='button'>

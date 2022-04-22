@@ -14,7 +14,7 @@ import { useSetInput } from '../../../useSetInput';
 export default function PassengerCheckAddChild({ id }: IdProp) {
     const name = 'include_children_seat';
     const dispatch = useAppDispatch();
-    const setInput = useSetInput(id, name);
+    const setInput = useSetInput(name, id);
     const seatState = useAppSelector(selectField(id, name));
     const isAdultState = useAppSelector(selectField(id, 'is_adult'));
 

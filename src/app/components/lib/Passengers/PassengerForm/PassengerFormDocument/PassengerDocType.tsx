@@ -11,7 +11,7 @@ type Props = { id: string };
 export default function PassengerDocType({ id }: Props) {
     const name = 'document_type';
     const dispatch = useAppDispatch();
-    const setInput = useSetInput(id, name);
+    const setInput = useSetInput(name, id);
 
     const getOptions = useGetDocOptions(id);
     const { options, selected } = getOptions();

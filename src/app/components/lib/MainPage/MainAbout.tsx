@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function MainAbout() {
     return (
-        <section className='about framed'>
+        <section className='about framed' id='scroll-to'>
             <h2 className='section-title about-title'>О нас</h2>
 
             <div className='about-content'>

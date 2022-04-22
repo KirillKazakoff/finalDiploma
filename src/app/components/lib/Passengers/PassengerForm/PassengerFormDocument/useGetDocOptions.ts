@@ -5,10 +5,10 @@ import { useSetInput } from '../../useSetInput';
 import { useSetError } from '../../useSetError';
 
 export const useGetDocOptions = (id: string) => {
-    const setInput = useSetInput(id, 'document_type');
+    const setInput = useSetInput('document_type', id);
     const docTypeState = useAppSelector(selectField(id, 'document_type'));
     const isAdultState = useAppSelector(selectField(id, 'is_adult'));
-    const setError = useSetError(id, 'document_series');
+    const setError = useSetError('document_series', id);
 
     const isAdult = isAdultState.value === 'Взрослый';
 

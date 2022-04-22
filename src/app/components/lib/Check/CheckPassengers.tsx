@@ -6,6 +6,7 @@ import { getFullName } from '../PasPlaces/PasPlace/getFullName';
 import { matchGender } from '../Passengers/PassengerForm/PassengerFormPerson/PassengerBio/matchGender';
 import { selectTotalPrice } from '../../../redux/slices/utils/selectTotalPrice';
 import formatCost from '../Common/utils/format';
+import { matchAge } from '../Passengers/PassengerForm/PassengerFormPerson/PassengerAge/matchAge';
 
 export default function CheckPassengers() {
     const passengers = useAppSelector(selectPassengersInfo);
@@ -16,6 +17,7 @@ export default function CheckPassengers() {
     const passengersList = passengers.map((passenger) => {
         const fullName = getFullName(passenger);
         const gender = matchGender(passenger.gender);
+        const ageType = matchAge(passenger.is_adult, passenger.id);
 
         return (
             <li className='confirmation-list-row' key={passenger.id}>
@@ -24,7 +26,7 @@ export default function CheckPassengers() {
                         height='68px' src='./svg/ava-default.svg'
                         alt='avatar'
                     />
-                    <span className='confirmation-passenger-desc'>Взрослый</span>
+                    <span className='confirmation-passenger-desc'>{ageType}</span>
                 </div>
                 <div className='confirmation-list-col'>
                     <span className='confirmation-passenger-title'>{fullName}</span>
@@ -34,7 +36,9 @@ export default function CheckPassengers() {
                             {`Дата рождения ${passenger.birthday}`}
                         </li>
                         <li className='confirmation-passenger-detail'>
-                            {`${passenger.document_type} ${passenger.document_data}`}
+                            {`${
+                                passenger.document_type
+                            } ${passenger.document_data.toUpperCase()}`}
                         </li>
                     </ul>
                 </div>

@@ -15,7 +15,6 @@ export const useSelectPassenger = (route: string, price: number, place: PlaceT) 
             placeId: place.id,
         };
         dispatch(pushPasPlace({ name: route, value: pasPlace }));
-        // dispatch(refresherAhh());
     };
 
     return onSelect;

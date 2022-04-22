@@ -52,6 +52,7 @@ export const {
     refreshPassengers,
 } = passengersSlice.actions;
 
+export const selectPassengersForms = (state: RootState) => state.passengers;
 export const selectDoctype = (id: string) => (state: RootState) => {
     return state.passengers[id].fields.document_type.value;
 };

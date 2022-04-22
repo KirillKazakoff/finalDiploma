@@ -8,13 +8,14 @@ export default function SuccessTips() {
                     <img src='./svg/skills/success/mail.svg' alt='mail-send-pic' />
                     <span className='success-tip-desc'>
                         билеты будут отправлены на ваш
-                        <span style={{ fontWeight: '500' }}>e-mail</span>
+                        {' '}
+                        <span className='success-tip-emphasized'>e-mail</span>
                     </span>
                 </li>
                 <li className='success-tip'>
                     <img src='./svg/skills/success/print.svg' alt='mail-send-pic' />
                     <span className='success-tip-desc'>
-                        <span style={{ fontWeight: '500' }}>распечатайте</span>
+                        <span className='success-tip-emphasized'>распечатайте</span>
                         и
                         сохраняйте билеты до даты поездки
                     </span>
@@ -22,7 +23,7 @@ export default function SuccessTips() {
                 <li className='success-tip'>
                     <img src='./svg/skills/success/show.svg' alt='mail-send-pic' />
                     <span className='success-tip-desc'>
-                        <span style={{ fontWeight: '500' }}>предъявите</span>
+                        <span className='success-tip-emphasized'>предъявите</span>
                         распечатанные билеты при посадке
                     </span>
                 </li>

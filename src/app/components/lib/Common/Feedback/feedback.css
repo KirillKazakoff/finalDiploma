@@ -16,6 +16,10 @@
     background-color: var(--bg-main);
 }
 
+.feedback-top {
+    top: -110%;
+}
+
 .feedback-arrow {
     position: absolute;
     left: 43%;
@@ -27,4 +31,11 @@
     border-right: 10px solid transparent;
     border-left: 10px solid transparent;
     border-bottom: 10px solid var(--bg-main);
+}
+
+.feedback-arrow-top {
+    border-bottom: none;
+    border-top: 10px solid var(--bg-main);
+    top: unset;
+    bottom: -8px;
 }

@@ -7,7 +7,7 @@ import { useSetInput } from '../../../useSetInput';
 import { useAppSelector } from '../../../../../../redux/reduxHooks';
 
 export const useGetAgeOptions = (id: string) => {
-    const setInput = useSetInput(id, 'is_adult');
+    const setInput = useSetInput('is_adult', id);
     const isChildForm = useAppSelector(selectIsChildForm(id));
     const ageState = useAppSelector(selectField(id, 'is_adult'));
 

@@ -7,10 +7,14 @@ import PassengerForm from '../lib/Passengers/PassengerForm/PassengerForm';
 import TripDetailsDirs from '../lib/Aside/TripDetails/TripDetailsDirs';
 import PassengersPlacesInfo from '../lib/Passengers/PassengersTotalPlaces';
 import { setPageCount } from '../../redux/slices/loaderSlice';
+import {
+    refreshPassengers,
+    selectPassengersForms,
+} from '../../redux/slices/passengersSlice';
 
 export default function PassengersRoute() {
     const dispatch = useAppDispatch();
-    const formsData = useAppSelector((state) => state.passengers);
+    const formsData = useAppSelector(selectPassengersForms);
 
     const formsLength = Object.keys(formsData).length;
     const forms = useMemo(() => {
@@ -24,6 +28,7 @@ export default function PassengersRoute() {
 
     useEffect(() => {
         dispatch(setPageCount(2));
+        // dispatch(refreshPassengers());
     }, []);
 
     return (

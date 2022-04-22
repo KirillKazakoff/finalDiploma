@@ -25,6 +25,7 @@ export default function SearchWayFeedback({ wayState }: SearchWayProps) {
             formError={formError}
             wasFocused={wasFocused}
             isFormMsgHidden={isFormHidden}
+            cls='top'
         />
     );
 }

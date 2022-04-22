@@ -26,7 +26,9 @@ export const useMoveSlide = (slidersAmount: number) => {
         );
 
         const finishListener = () => {
-            prevReviewsRef.current.classList.add('reviews-hidden');
+            if (prevReviewsRef.current) {
+                prevReviewsRef.current.classList.add('reviews-hidden');
+            }
             prevAnim.removeEventListener('finish', finishListener);
         };
         prevAnim.addEventListener('finish', finishListener);

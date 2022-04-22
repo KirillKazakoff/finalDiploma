@@ -39,7 +39,7 @@ export default function MainReviews() {
     const reviewsNext = getReviews(numbersNext);
 
     return (
-        <section className='reviews framed'>
+        <section className='reviews framed' id='reviews'>
             <h2 className='section-title reviews-title'>Отзывы</h2>
 
             <div className='reviews-content-wrapper'>

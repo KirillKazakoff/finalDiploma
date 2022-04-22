@@ -6,19 +6,20 @@ type FeedbackProps = {
     wasFocused: boolean;
     formError?: string;
     isFormMsgHidden?: boolean;
+    cls?: string;
 };
 
 export default function Feedback(props: FeedbackProps) {
     const {
-        error, formError, wasFocused, isFormMsgHidden,
+        error, formError, wasFocused, isFormMsgHidden, cls,
     } = props;
 
     if (!error && !formError) return null;
-    if (!wasFocused && isFormMsgHidden && !formError) return null;
+    if (!wasFocused && isFormMsgHidden) return null;
 
     return (
-        <div className='feedback'>
-            <div className='feedback-arrow' />
+        <div className={`feedback feedback-${cls}`}>
+            <div className={`feedback-arrow feedback-arrow-${cls}`} />
             <span className='feedback-content'>{formError || error}</span>
         </div>
     );
@@ -27,4 +28,5 @@ export default function Feedback(props: FeedbackProps) {
 Feedback.defaultProps = {
     isFormMsgHidden: true,
     formError: '',
+    cls: 'default',
 };

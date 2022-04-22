@@ -8,7 +8,7 @@ import { useSetInput } from '../../../useSetInput';
 
 export default function PassengerCheckImpaired({ id }: IdProp) {
     const name = 'is_impaired';
-    const setInput = useSetInput(id, name);
+    const setInput = useSetInput(name, id);
     const ageState = useAppSelector(selectField(id, name));
 
     const isActive = ageState.value === 'true';

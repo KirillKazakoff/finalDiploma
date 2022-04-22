@@ -49,7 +49,7 @@ export default function SearchWayInput(props: SearchWayInputProps) {
                 className='input search-input'
                 placeholder={placeholder}
                 name={name}
-                value={wayState.value}
+                value={wayState.value.toLowerCase()}
                 onChange={onChange(aborter)}
                 onFocus={onFocus}
                 onBlur={onBlur}

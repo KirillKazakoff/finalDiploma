@@ -1,12 +1,15 @@
 import React from 'react';
+import { useSetInput } from '../../../useSetInput';
+// import { useSetInput } from '../../../../../../form/useSetInput';
+// import { setInput } from '../../../../../../redux/slices/passengersSlice';
 import { IdProp } from '../../../../../../types/typesPassengers';
 import FormSelect from '../../../../Common/FormSelect/FormSelect';
-import { useSetInput } from '../../../useSetInput';
 import { useGetAgeOptions } from './useGetAgeOptions';
 
 export default function PassengerAge({ id }: IdProp) {
     const name = 'is_adult';
-    const setInput = useSetInput(id, name);
+    // const setInputH = useSetInput(name, setInput, id);
+    const setInput = useSetInput(name, id);
 
     const getOptions = useGetAgeOptions(id);
     const { options, selected } = getOptions();

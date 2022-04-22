@@ -103,18 +103,27 @@ body {
     background: rgba(0, 0, 0, 0.6);
 }
 
-.nav-item {
-    font-size: 30px;
-}
-
+/* nav */
 .nav-list {
     display: flex;
-    gap: 85px;
     background: #292929;
     padding: 25px var(--main-left-padding);
     font-weight: 100;
 }
 
+.nav-link {
+    font-size: 30px;
+}
+
+.nav-link:nth-child(n + 2) {
+    padding-left: 85px;
+}
+
+.nav-link:hover {
+    filter: var(--collapse-filter);
+}
+
+/* .header-content */
 .header-content {
     padding-right: 150px;
     margin-top: 265px;
@@ -926,6 +935,7 @@ body {
     width: 100%;
     display: flex;
 
+    align-self: flex-start;
     align-items: center;
     column-gap: 10px;
     font-size: 16px;
@@ -2074,6 +2084,7 @@ body {
     padding-bottom: 7px;
     text-align: center;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .sex-field:first-child {
@@ -2305,6 +2316,8 @@ body {
     font-size: 18px;
     font-weight: 400;
     margin-top: 20px;
+    width: 120px;
+    text-align: center;
 }
 
 .confirmation-passenger-title {
@@ -2442,6 +2455,11 @@ body {
     text-align: center;
 }
 
+.success-tip-emphasized {
+    font-weight: 500;
+    display: block;
+}
+
 /* success-section-appeal */
 .success-popup-section-appeal {
     padding-top: 95px;
@@ -2470,12 +2488,10 @@ body {
 }
 
 .success-thanks {
-    position: relative;
-    left: -15px;
-
+    display: block;
+    text-align: center;
     font-size: 24px;
     font-weight: 500;
-    flex: 1;
 }
 
 /* success-popup-section-rate */
@@ -2488,7 +2504,6 @@ body {
 .success-rate-container {
     display: flex;
     align-items: center;
-    column-gap: 25px;
 }
 
 .success-rate-desc {
@@ -2500,10 +2515,16 @@ body {
     min-width: 320px;
     display: flex;
     flex-direction: row-reverse;
+    margin-left: 20px;
 }
 
 .success-rate-star {
+    cursor: pointer;
     width: 20%;
+}
+
+.success-rate-star:nth-child(n + 2) {
+    padding-right: 25px;
 }
 
 .success-rate-star:hover,
@@ -2778,11 +2799,22 @@ body {
 .contacts-list {
     display: flex;
     flex-direction: column;
-    row-gap: 30px;
     margin-top: 30px;
 }
 
-.contact {
+.contact-link {
+    width: 55%;
+}
+
+.contact-link:nth-child(n + 2) {
+    padding-top: 30px;
+}
+
+.contact-link:hover .contact-link-icon {
+    filter: var(--collapse-filter);
+}
+
+.contact-link-wrapper {
     width: 280px;
     display: flex;
     column-gap: 35px;
@@ -2837,11 +2869,14 @@ body {
 .socials-list {
     display: flex;
     align-items: flex-end;
-    column-gap: 50px;
     margin-top: 25px;
 }
 
-.social:hover {
+.social-link:nth-child(n + 2) {
+    padding-left: 50px;
+}
+
+.social-link:hover {
     filter: var(--collapse-filter);
 }
 
@@ -3484,4 +3519,8 @@ body {
     background-color: white;
     color: var(--bg-main);
     border: 1px solid transparent;
+}
+
+* {
+    scroll-behavior: smooth;
 }

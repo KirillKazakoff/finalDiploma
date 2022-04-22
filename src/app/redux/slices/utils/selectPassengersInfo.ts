@@ -2,8 +2,6 @@ import { createSelector } from '@reduxjs/toolkit';
 import { PersonT } from '../../../types/models/modelPerson';
 import { RootState } from '../../store';
 
-type PassengerInfoT = PersonT;
-
 const getDocData = (fields: any) => {
     const docNumber = fields.document_number.value;
     const docSeries = fields.document_series.value;
@@ -18,7 +16,7 @@ export const selectPassengersInfo = createSelector(
         const passengers = Object.entries(passengersRes).map(([key, value]) => {
             const { fields, isChildForm } = value;
 
-            const passengerInfo: PassengerInfoT = {
+            const passengerInfo: PersonT = {
                 id: key,
                 include_children_seat: isChildForm,
                 is_impaired: fields.is_impaired.value === 'true',
@@ -38,5 +36,19 @@ export const selectPassengersInfo = createSelector(
         });
 
         return passengers;
+    },
+);
+
+export const selectPassengersWithSeat = createSelector(
+    selectPassengersInfo,
+    (passengers) => {
+        const seatPassengers = passengers.reduce<PersonT[]>((total, passenger) => {
+            if (passenger.id.includes('childform')) return total;
+
+            total.push(passenger);
+            return total;
+        }, []);
+
+        return seatPassengers;
     },
 );

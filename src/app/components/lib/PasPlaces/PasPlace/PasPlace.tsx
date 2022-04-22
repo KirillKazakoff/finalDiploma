@@ -12,7 +12,7 @@ import PasPlaceHeader from './PasPlaceHeader';
 import PasPlaceInfo from './PasPlaceInfo';
 import PasPlaceSelect from './PasPlaceSelect';
 import { mapDirToRoot } from '../../Places/PlacesCarTypes/mapName';
-import { selectPassengersInfo } from '../../../../redux/slices/utils/selectPassengersInfo';
+import { selectPassengersWithSeat } from '../../../../redux/slices/utils/selectPassengersInfo';
 import { useSelectPassenger } from './useSelectPassenger';
 
 type Props = { place: PlaceT; index: number; extras: ExtrasPricesCarT; dir: string };
@@ -37,7 +37,7 @@ export default function PasPlace(props: Props) {
 
     if (selected && !selected.person_info.is_adult) totalPrice /= 2;
 
-    const passengersInfo = useAppSelector(selectPassengersInfo);
+    const passengersInfo = useAppSelector(selectPassengersWithSeat);
     const onSelect = useSelectPassenger(name, totalPrice, place);
 
     useEffect(() => {

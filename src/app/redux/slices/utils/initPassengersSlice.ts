@@ -37,8 +37,8 @@ export const initForm = () => {
     form.fields.birthday.value = '12.12.1999';
     form.fields.document_type.value = 'Паспорт РФ';
     form.fields.is_adult.value = 'Взрослый';
-    form.fields.document_series.value = '1234';
-    form.fields.document_number.value = '123456';
+    // form.fields.document_series.value = '1234';
+    // form.fields.document_number.value = '123456';
 
     return form;
 };
