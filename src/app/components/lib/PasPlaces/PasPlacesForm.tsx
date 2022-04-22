@@ -8,16 +8,20 @@ import Form from '../Common/Form/Form';
 import { useCheckPasPlaces } from './useCheckPasPlaces';
 
 export type EmptyPlaceT = { index: number; route: string };
-const emptyMsg = messagesError.emptyPasPlace;
+const { emptyPasPlace: emptyMsg, childrenOverwhelm: ageMsg } = messagesError;
 
 export default function PasPlacesForm() {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
-    const { isValid, allEmpty } = useCheckPasPlaces();
+    const { isValid, allEmpty, isValidAge } = useCheckPasPlaces();
     const onSubmit = () => {
         if (!isValid) {
             dispatch(setInfo({ status: 'error', msg: emptyMsg(allEmpty[0]) }));
+            return;
+        }
+        if (!isValidAge) {
+            dispatch(setInfo({ status: 'error', msg: ageMsg }));
             return;
         }
         navigate('/payment');

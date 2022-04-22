@@ -11,7 +11,7 @@ export const useCheckRoutes = () => {
     const passengersIsValid = !passengersValidityStatus;
     const paymentIsValid = paymentValidityStatus === 'success';
     const { isValid: placesIsValid } = useCheckPlaces();
-    const { isValid: pasPlacesIsValid } = useCheckPasPlaces();
+    const { allValid: pasPlacesIsValid } = useCheckPasPlaces();
 
     const error = {
         to: '',

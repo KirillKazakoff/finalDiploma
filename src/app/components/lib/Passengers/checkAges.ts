@@ -1,13 +1,13 @@
 /* eslint-disable no-param-reassign */
-import { PassengersStateT } from '../../../types/typesSlices';
+import { CarContentT, PassengersStateT } from '../../../types/typesSlices';
 
-type AgesT = {
+export type AgesT = {
     [key: string]: number;
     adults: number;
     microPeople: number;
 };
 
-const initAges: AgesT = {
+export const initAges: AgesT = {
     adults: 0,
     microPeople: 0,
 };
