@@ -15,7 +15,8 @@ export default function PhonePayInput({ label }: Props) {
     useEffect(() => {
         const input = ref.current;
         validate(input);
-    }, [inputState.value]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [inputState.value, ref]);
 
     return (
         <div className='passenger-form-col passenger-form-col-40'>

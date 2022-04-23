@@ -22,7 +22,7 @@ export default function ServiceTip({ value, containerRef, isIncluded }: Props) {
         tip.style.left = `${newPos}px`;
 
         tip.classList.remove('carriage-info-service-tip-active');
-    }, []);
+    }, [containerRef]);
 
     return (
         <div className='carriage-info-service-tip' ref={ref}>

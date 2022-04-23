@@ -1,4 +1,4 @@
-import React, { HTMLProps } from 'react';
+import React from 'react';
 
 type HeaderTitleMainProps = { plain: string; bold: string };
 

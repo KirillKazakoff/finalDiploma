@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-underscore-dangle */
 import { TopTypeT, WaysStateT, DatesStateT } from '../../../types/typesSlices';
 import { formatDate } from './SearchDate/formatDate';

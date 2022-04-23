@@ -15,7 +15,7 @@ export default function PayFullNameInput({ label, name }: Props) {
         const input = ref.current;
 
         validate(input);
-    }, [inputState.value]);
+    });
 
     const onChange = useChange(setInput);
     return (

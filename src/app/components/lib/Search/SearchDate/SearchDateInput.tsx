@@ -30,6 +30,7 @@ export default function SearchDateInput(props: SearchDateInputProps) {
 
         validateDate(input);
         validate(input);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dateState.value, disabled]);
 
     return (

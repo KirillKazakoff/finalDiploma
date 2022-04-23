@@ -11,9 +11,9 @@ export const fetchSeats: FetchSeatsT = (settings) => async (dispatch) => {
     const reqObj = { url };
     const resData = await dispatch(request(reqObj, setFetchStatus));
     if (!resData) {
-        console.log('uhhh');
         return false;
     }
+
     const trainInfo = getTrainInfo(resData);
     return trainInfo;
 };

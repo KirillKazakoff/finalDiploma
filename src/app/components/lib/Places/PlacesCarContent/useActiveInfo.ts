@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../redux/reduxHooks';
 import { mapDirToRoot } from '../PlacesCarTypes/mapName';
 import { selectActiveTicket, setActiveCar } from '../../../../redux/slices/placesSlice';
@@ -14,13 +14,16 @@ export const useActiveInfo = (dir: string) => {
         return info.routeName === route;
     });
 
-    const cars = infoT.trainInfo.seatsTrainInfo.filter((coach) => {
-        return coach.coach.class_type === carType;
-    });
+    const cars = useMemo(
+        () => infoT.trainInfo.seatsTrainInfo.filter((coach) => {
+            return coach.coach.class_type === carType;
+        }),
+        [infoT, carType],
+    );
 
     useEffect(() => {
         dispatch(setActiveCar({ route, value: cars[0] }));
-    }, [carType]);
+    }, [carType, dispatch, cars, route]);
 
     const onClick = (count: number) => () => {
         const newCar = cars.find((car) => car.carNumber === count);

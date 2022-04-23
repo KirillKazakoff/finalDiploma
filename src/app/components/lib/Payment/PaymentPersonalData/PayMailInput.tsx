@@ -17,7 +17,7 @@ export default function PayMailInput({ label }: Props) {
         const input = ref.current;
 
         validate(input);
-    }, [inputState.value]);
+    });
 
     return (
         <div className='passenger-form-col passenger-form-col-40'>

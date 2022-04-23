@@ -20,7 +20,7 @@ export default function PassengerDocnumber({ doctype, id }: Props) {
 
         validateDocnumber(input, doctype);
         validate(input);
-    }, [inputState.value]);
+    });
 
     return (
         <div className='passenger-form-col passenger-form-col-document'>

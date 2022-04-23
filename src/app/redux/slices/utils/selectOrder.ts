@@ -5,18 +5,6 @@ import { selectActiveTicket } from '../placesSlice';
 import { PasPlaceT, selectPasPlaces } from '../pasPlacesSlice';
 import { OrderRouteT, OrderPersonInfoT } from '../../../types/models/modelPerson';
 
-// export const selectOrder = (state: RootState) => {
-//     const userInfo = selectUserInfo(state);
-//     const pasPlaces = selectPasPlaces(state);
-//     const activeTicket = selectActiveTicket(state);
-
-//     console.log(pasPlaces);
-
-//     const orderInfo = {
-//         user: userInfo,
-//     };
-// };
-
 const getOrderRoute = (pasPlaces: PasPlaceT[]): OrderRouteT => {
     const seats = pasPlaces.map((pasPlace) => {
         const person_info = { ...pasPlace.person_info };
@@ -58,7 +46,6 @@ export const selectOrder = createSelector(
             arrival,
         };
 
-        console.log(orderInfo);
         return orderInfo;
     },
 );

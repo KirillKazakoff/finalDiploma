@@ -18,7 +18,7 @@ export default function PaymentPersonalWay() {
         }
 
         setErrorH(error);
-    }, [methodState.value]);
+    }, [methodState.value, setErrorH]);
 
     return (
         <div className='passsenger-personal-wrapper passenger-personal-wrapper-way'>

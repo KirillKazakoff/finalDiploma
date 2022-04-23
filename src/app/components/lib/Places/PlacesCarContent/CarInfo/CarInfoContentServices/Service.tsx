@@ -40,6 +40,7 @@ export default function Service({ service, route, children }: ServiceProps) {
         if (isIncluded) {
             dispatch(setExtraPrice({ name, route, value: 'isIncluded' }));
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (price === 0 && !isIncluded) return null;

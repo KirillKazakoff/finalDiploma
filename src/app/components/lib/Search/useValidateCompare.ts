@@ -27,7 +27,7 @@ const useValidateCompare: UseValidateCompareT = (dateTo, dateFrom) => {
         }
 
         setCompareError(formError);
-    }, [dateFrom.value, dateTo.value]);
+    });
 
     return stateError;
 };

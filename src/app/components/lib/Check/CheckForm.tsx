@@ -7,7 +7,6 @@ import { setOrderSuccess } from '../../../redux/slices/locationsSlice';
 import BtnNextRoute from '../Common/Form/BtnNextRoute';
 import Form from '../Common/Form/Form';
 import { messagesError } from '../Common/Info/messagesInfo';
-import { useRefreshRoutes } from './useRefreshRoutes';
 
 const { checkRoute } = messagesError;
 type Props = { errorDesc: string };

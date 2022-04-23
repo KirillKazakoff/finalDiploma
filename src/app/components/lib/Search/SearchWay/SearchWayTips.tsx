@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 
@@ -38,9 +36,5 @@ export default function SearchWayTips(props: Props) {
     ));
 
     if (cities.length === 0 || !isActive) return null;
-    return (
-        <ul className='search-way-tips' onBlur={() => console.log('blured')}>
-            {citiesHtml}
-        </ul>
-    );
+    return <ul className='search-way-tips'>{citiesHtml}</ul>;
 }

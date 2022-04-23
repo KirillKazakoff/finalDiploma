@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import { OnMouseT, RefDivT, SetStateT } from './typesReact';
 import { SetSliderFilterT } from './typesPayload';

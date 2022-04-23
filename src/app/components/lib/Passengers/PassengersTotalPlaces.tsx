@@ -3,9 +3,7 @@ import { useAppSelector } from '../../../redux/reduxHooks';
 import { selectPlacesLength } from '../../../redux/slices/utils/selectPlacesLength';
 
 export default function PassengersPlacesInfo() {
-    const {
-        total, arrival, departure, biggest,
-    } = useAppSelector(selectPlacesLength);
+    const { total, arrival, departure } = useAppSelector(selectPlacesLength);
 
     return (
         <div className='passengers-places-info'>

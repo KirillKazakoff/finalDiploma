@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SvgPassenger from '../../../Svg/SvgPassenger';
 import SubtlePic from '../../SubtleContainer/SubtlePic';
 import SubtleDesc from '../../SubtleContainer/SubtleDesc';

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { TicketRouteT, TrainRouteT } from './models/modelTickets';
+import type { TrainRouteT } from './models/modelTickets';
 import { StationT, TicketInfoT } from './models/modelTickets';
 import { TotalSeatsInfoT, TotalSeatsTypeT } from './models/modelSeats';
 

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import type { PayloadFocus, SetFormMsgHiddenT, SetFormStatusT } from './typesPayload';

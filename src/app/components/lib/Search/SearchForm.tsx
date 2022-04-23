@@ -26,10 +26,6 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
     const { isMsgHidden, statusValidity } = useAppSelector(selectFormState);
 
     const settings = getSearchSettings(top, waysState, datesState);
-    const onFilterChange = () => {
-        if (!settings) return;
-        dispatch(fetchRoutes(settings));
-    };
 
     const checkStatus = useCheckStatus(setFormMsgHidden, statusValidity);
     const onSubmit = () => {
@@ -45,8 +41,10 @@ export default function SearchForm({ cls, children }: SearchFormProps) {
     if (cls) className = `${className} ${className}-${cls}`;
 
     useEffect(() => {
-        onFilterChange();
-    }, [top]);
+        if (!settings) return;
+        dispatch(fetchRoutes(settings));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [top, dispatch]);
 
     return (
         <Form cls={className} onSubmitForm={onSubmit}>

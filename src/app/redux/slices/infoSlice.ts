@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { PayloadInformation, PayloadAlert } from '../../types/typesPayload';
+import { PayloadInformation } from '../../types/typesPayload';
 import type { RootState } from '../store';
 import { InfoMsgT } from '../../components/lib/Common/Info/messagesInfo';
 

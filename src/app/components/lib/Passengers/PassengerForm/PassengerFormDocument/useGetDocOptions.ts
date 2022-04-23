@@ -31,7 +31,7 @@ export const useGetDocOptions = (id: string) => {
             setInput('Свидетельство о рождении');
             setError('');
         }
-    }, [isAdultState.value]);
+    });
 
     return getOptions;
 };

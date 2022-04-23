@@ -33,6 +33,7 @@ export default function SearchWayInput(props: SearchWayInputProps) {
         checkCityMatch(input, wayState.cities, aborter);
         validateCity(input, cityCheck, status);
         validate(input);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [wayState.value, status]);
 
     return (

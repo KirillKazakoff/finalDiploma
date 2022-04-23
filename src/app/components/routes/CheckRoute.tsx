@@ -25,7 +25,7 @@ export default function CheckRoute() {
 
     useEffect(() => {
         dispatch(setPageCount(4));
-    }, []);
+    }, [dispatch]);
 
     if (fetchStatus === 'loading') {
         return <PageLoader cls='page-loader-main' desc='Обработка запроса...' />;

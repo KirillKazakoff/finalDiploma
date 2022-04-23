@@ -27,7 +27,7 @@ export default function PayCheck(props: Props) {
         if (payMethod.value && !isPayMethod) {
             setState(false);
         }
-    }, [payMethod.value]);
+    }, [payMethod.value, name]);
 
     return (
         <div className='passenger-form-col passenger-form-col-checkbox'>

@@ -30,7 +30,6 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
     const resData: TicketsResponseT = await dispatch(request(reqObj, setFetchStatus));
 
     if (!resData) {
-        console.log('uhhh');
         return false;
     }
 
@@ -80,7 +79,6 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
     dispatch(setTickets(tickets));
     dispatch(setFetchStatus('loaded'));
     dispatch(setPageStatus('loaded'));
-    // console.log(resData);
 
     return true;
 };

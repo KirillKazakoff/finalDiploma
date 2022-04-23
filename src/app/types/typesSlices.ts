@@ -4,7 +4,6 @@ import type {
     ExtrasPricesWithCarT,
     TicketInfoT,
     TicketRouteT,
-    ExtrasPricesCarT,
 } from './models/modelTickets';
 import type { FetchStatusT } from './typesPayload';
 import type { SearchedCities } from './typesSearch';

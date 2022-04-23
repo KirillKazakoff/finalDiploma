@@ -23,7 +23,7 @@ const useValidateSame: UseValidateSameT = (wayFrom, wayTo) => {
         }
 
         setSameError(formError);
-    }, [wayFrom.error, wayTo.error, wayFrom.status, wayTo.status]);
+    });
 
     return stateError;
 };

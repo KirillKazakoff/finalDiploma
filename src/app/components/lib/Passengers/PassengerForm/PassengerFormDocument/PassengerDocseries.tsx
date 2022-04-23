@@ -16,7 +16,7 @@ export default function PassengerDocseries({ id }: IdProp) {
         const input = ref.current;
 
         validate(input);
-    }, [inputState.value]);
+    });
 
     return (
         <div className='passenger-form-col passenger-form-col-document'>

@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { CarContentT, PassengersStateT } from '../../../types/typesSlices';
+import { PassengersStateT } from '../../../types/typesSlices';
 
 export type AgesT = {
     [key: string]: number;

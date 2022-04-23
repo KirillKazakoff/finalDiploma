@@ -5,7 +5,7 @@ import { SetErrorT } from '../types/typesPayload';
 const useValidateInput = (setError: SetErrorT, formId?: string) => {
     const dispatch = useAppDispatch();
 
-    return (input: HTMLInputElement) => {
+    const validate = (input: HTMLInputElement) => {
         if (!input) return;
         const validity = input.validity as ValidityState & {
             [key: string]: boolean;
@@ -30,6 +30,8 @@ const useValidateInput = (setError: SetErrorT, formId?: string) => {
 
         dispatch(setError(state));
     };
+
+    return validate;
 };
 
 export default useValidateInput;

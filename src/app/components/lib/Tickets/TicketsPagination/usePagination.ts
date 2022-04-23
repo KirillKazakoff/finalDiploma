@@ -29,7 +29,8 @@ export const usePagination = () => {
         setStartPage(1);
         setActivePage(1);
         dispatch(setOffset(0));
-    }, [limit, sort]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [limit, sort, dispatch]);
 
     const onPageClick = (page: number) => () => {
         setActivePage(page);

@@ -13,7 +13,7 @@ const ErrorNavigator = (): any => {
             dispatch(setPageStatus('idle'));
             navigate('/error');
         }
-    }, [pageStatus]);
+    }, [pageStatus, dispatch, navigate]);
 
     return null;
 };

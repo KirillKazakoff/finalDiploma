@@ -14,7 +14,7 @@ export default function TicketsRoute() {
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(setPageCount(1));
-    }, []);
+    }, [dispatch]);
 
     const totalCount = useAppSelector(selectTotalCount);
     const pageStatus = useAppSelector(selectPageStatus);

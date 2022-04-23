@@ -21,7 +21,7 @@ export default function PassengerBioBirthdate({ id }: IdProp) {
 
         validateDatePerson(input, ageState.value, isChildForm);
         validate(input);
-    }, [inputState.value, ageState.value]);
+    });
 
     return (
         <div className='passenger-form-col passenger-form-col-birthdate'>

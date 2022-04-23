@@ -12,7 +12,7 @@ export default function LastTickets() {
 
     useEffect(() => {
         dispatch(fetchLast());
-    }, []);
+    }, [dispatch]);
 
     const lastRoutes = lastTickets.map((ticket) => (
         <LastRoute key={nanoid()} ticket={ticket} />

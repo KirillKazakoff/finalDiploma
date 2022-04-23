@@ -10,7 +10,7 @@ export default function SuccessRoute() {
 
     useEffect(() => {
         return () => refreshRoutes();
-    }, []);
+    });
 
     return (
         <main className='main-success'>

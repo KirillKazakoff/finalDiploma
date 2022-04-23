@@ -27,7 +27,7 @@ export const useGetAgeOptions = (id: string) => {
 
     useEffect(() => {
         if (isChildForm) setInput('Детский');
-    }, [ageState.value]);
+    });
 
     return getOptions;
 };

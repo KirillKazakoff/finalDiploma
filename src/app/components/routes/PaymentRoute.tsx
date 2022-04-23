@@ -8,7 +8,7 @@ export default function PaymentRoute() {
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(setPageCount(3));
-    }, []);
+    });
 
     return (
         <main className='main main-central framed'>

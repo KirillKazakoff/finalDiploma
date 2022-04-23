@@ -50,3 +50,5 @@ export type DatePickerProps = {
     cls: string;
 };
 export type SetPickerActiveT = React.Dispatch<React.SetStateAction<boolean>>;
+
+export type OnDayClickT = (day: string) => () => void;

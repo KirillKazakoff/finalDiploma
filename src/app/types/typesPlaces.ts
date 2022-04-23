@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/indent */
 import React from 'react';
 import { StationT, TrainRouteT, TrainInfoFullT } from './models/modelTickets';
 import { CarInfoT, SeatFullT } from './models/modelSeats';

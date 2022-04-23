@@ -25,7 +25,7 @@ export default function SearchDate({ cls = '' }: SearchSectionProps) {
         dispatch(
             setDateTime({ name: 'dateTo', dateTime: DateTime.now().toFormat('dd/LL/yy') }),
         );
-    }, []);
+    }, [dispatch]);
 
     const onChange = useChange(setInput);
     const validate = useValidateInput(setError);

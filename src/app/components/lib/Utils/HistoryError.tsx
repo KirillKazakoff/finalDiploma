@@ -11,7 +11,7 @@ export default function HistoryError() {
 
     useEffect(() => {
         dispatch(setPageStatus('idle'));
-    }, [pageStatus]);
+    }, [pageStatus, dispatch]);
 
     const navigate = useNavigate();
     const onClick = () => navigate('/');

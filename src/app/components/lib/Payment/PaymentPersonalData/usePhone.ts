@@ -9,7 +9,7 @@ const codeCheck = (code: number) => {
 };
 
 export const getNumbersAmount = (value: string) => {
-    return value.split('').reduce<number>((total, letter, i) => {
+    return value.split('').reduce<number>((total, letter) => {
         const code = letter.charCodeAt(0);
 
         if (codeCheck(code)) total += 1;
@@ -47,8 +47,6 @@ export const usePhone = (phone: string) => {
 
     const onKeyDown = (e: React.KeyboardEvent) => {
         const code = e.key.charCodeAt(0);
-        // console.log(e.key);
-        // console.log(code);
 
         const arrow = 65;
         const plus = 43;

@@ -12,7 +12,7 @@ export default function FullNameInput(props: Props) {
         const input = ref.current;
 
         validate(input);
-    }, [inputState.value]);
+    });
 
     return (
         <div className='passenger-form-col'>

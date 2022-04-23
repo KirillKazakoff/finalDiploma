@@ -22,5 +22,5 @@ export const useRemoveDepricated = () => {
     useEffect(() => {
         removeDepricated('arrival');
         removeDepricated('departure');
-    }, []);
+    });
 };

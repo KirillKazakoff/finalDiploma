@@ -29,7 +29,7 @@ export default function FormFeedback(props: FormFeedbackPropsT) {
 
     useEffect(() => {
         dispatch(setFormStatus({ status, id: formId }));
-    }, [status]);
+    }, [status, formId, setFormStatus, dispatch]);
 
     if (isMsgHidden) return <div className={`${cls} form-feedback`}>{children}</div>;
 

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { AppThunk } from '../redux/store';
 
 export type RequestObj = {

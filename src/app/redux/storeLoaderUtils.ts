@@ -3,8 +3,9 @@ import type { RootState } from './store';
 export const saveToLocalStorage = (state: RootState) => {
     try {
         localStorage.setItem('state', JSON.stringify(state));
+        return true;
     } catch (e) {
-        console.error(e);
+        return false;
     }
 };
 
@@ -13,7 +14,6 @@ export const loadFromLocalStorage = () => {
         const stateStr = localStorage.getItem('state');
         return stateStr ? JSON.parse(stateStr) : undefined;
     } catch (e) {
-        console.error(e);
         return undefined;
     }
 };
