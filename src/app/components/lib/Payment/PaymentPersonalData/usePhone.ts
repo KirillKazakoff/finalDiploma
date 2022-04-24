@@ -17,29 +17,37 @@ export const getNumbersAmount = (value: string) => {
     }, 0);
 };
 
+export const getNumbersPosition = (value: string) => {
+    return value.split('').reduce<number[]>((total, letter, i) => {
+        const code = letter.charCodeAt(0);
+
+        if (codeCheck(code)) {
+            total.push(i);
+        }
+        return total;
+    }, []);
+};
+
 export const changePhone = (phone: string) => {
-    let copy = phone;
-    const numbersAmount = getNumbersAmount(copy);
+    const copy = phone;
 
     const lastCode = phone.charCodeAt(phone.length - 1);
     if (lastCode === 32) return copy;
 
-    if (numbersAmount === 1) {
-        copy += ' ';
-    }
+    const checkpoints = [1, 4, 7, 9];
+    const numbersAmount = getNumbersPosition(copy);
+    const arrPhone = copy.split('');
 
-    if (numbersAmount === 4) {
-        copy += ' ';
-    }
+    checkpoints.forEach((point) => {
+        const index = numbersAmount[point] - 1;
+        if (Number.isNaN(index)) return;
 
-    if (numbersAmount === 7) {
-        copy += ' ';
-    }
+        if (arrPhone[index] !== ' ') {
+            arrPhone.splice(index + 1, 0, ' ');
+        }
+    });
 
-    if (numbersAmount === 9) {
-        copy += ' ';
-    }
-    return copy;
+    return arrPhone.join('');
 };
 
 export const usePhone = (phone: string) => {
