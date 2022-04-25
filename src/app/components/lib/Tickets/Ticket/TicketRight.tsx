@@ -21,7 +21,7 @@ export default function TicketRight({
 
     return (
         <aside className='ticket-aside-right'>
-            {ticketTypes}
+            <div className='ticket-types'>{ticketTypes}</div>
             <footer className='ticket-footer framed-ticket-right'>
                 <Extras extras={extras} filter='filter-secondary' />
                 {children}

@@ -4,14 +4,17 @@ import PlacesCarType from './PlacesCarType';
 
 export default function PlacesCarTypes(props: DirTProp & SeatsInfoProp) {
     const { seatsInfo, dir } = props;
-    const carTypes = Object.keys(seatsInfo.trainInfo.typesInfo).map((carType) => {
-        return (
-            <PlacesCarType
-                dispatchName={carType} key={carType}
-                dir={dir}
-            />
-        );
-    });
+    const carTypes = Object.entries(seatsInfo.trainInfo.typesInfo).map(
+        ([carType, value]) => {
+            if (value.total === 0) return null;
+            return (
+                <PlacesCarType
+                    dispatchName={carType} key={carType}
+                    dir={dir}
+                />
+            );
+        },
+    );
 
     return (
         <section className='places-section places-section-carriage'>

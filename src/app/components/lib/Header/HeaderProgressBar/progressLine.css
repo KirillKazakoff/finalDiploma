@@ -63,7 +63,6 @@
     background-position: center right 1px;
     background-size: cover;
     position: relative;
-    z-index: 100;
 }
 
 .bar-svg {

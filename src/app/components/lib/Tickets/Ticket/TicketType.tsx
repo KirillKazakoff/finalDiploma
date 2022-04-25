@@ -28,6 +28,7 @@ export default function TicketType({ typeKey, typeInfo }: TicketTypeProps) {
             );
         });
     }
+    if (typeInfo.availableType.total === 0) return null;
     return (
         <li className='ticket-type framed-ticket-right'>
             {ticketTypeTips ? (

@@ -12,7 +12,6 @@ import placesReducer from './slices/placesSlice';
 import { saveToLocalStorage, loadFromLocalStorage } from './storeLoaderUtils';
 import passengerReducer from './slices/passengersSlice';
 import infoReducer from './slices/infoSlice';
-import alertReducer from './slices/alertSlice';
 import pasPlacesReducer from './slices/pasPlacesSlice';
 import paymentReducer from './slices/paymentFieldsSlice';
 import paymentFormReducer from './slices/paymentFormSlice';
@@ -26,7 +25,6 @@ export const store = configureStore({
         locations: locationReducer,
         loader: loaderReducer,
         info: infoReducer,
-        alert: alertReducer,
         subscribe: subscribeReducer,
         rate: rateReducer,
 
