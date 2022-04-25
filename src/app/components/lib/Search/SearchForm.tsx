@@ -12,7 +12,7 @@ import { fetchRoutes } from '../../../fetch/api/fetchRoutes';
 import { selectSearchFilter } from '../../../redux/slices/searchFilterSlice';
 import { fetchRoutesFirst } from '../../../fetch/api/fetchRoutesFirst';
 import getSearchSettings from './getSearchSettings';
-import useCheckStatus from '../../../form/useCheckStatus';
+import useCheckStatus from '../Common/Form/useCheckStatus';
 
 export default function SearchForm({ cls, children }: SearchFormProps) {
     const dispatch = useAppDispatch();

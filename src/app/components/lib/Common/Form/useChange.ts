@@ -1,5 +1,5 @@
-import { UseChangeT } from '../types/typesForms';
-import { useAppDispatch } from '../redux/reduxHooks';
+import { useAppDispatch } from '../../../../redux/reduxHooks';
+import { UseChangeT } from '../../../../types/typesForms';
 
 const useChange: UseChangeT = (changeInput, formId?: string) => {
     const dispatch = useAppDispatch();

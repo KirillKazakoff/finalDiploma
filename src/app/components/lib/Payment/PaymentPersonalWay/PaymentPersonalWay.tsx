@@ -4,7 +4,7 @@ import PayWays from './PayWays';
 import PayCheck from './PayCheck';
 import { useAppSelector } from '../../../../redux/reduxHooks';
 import { selectField, setError } from '../../../../redux/slices/paymentFieldsSlice';
-import { useSetError } from '../../../../form/useSetError';
+import { useSetError } from '../../Common/Form/useSetError';
 
 export default function PaymentPersonalWay() {
     const name = 'payment_method';

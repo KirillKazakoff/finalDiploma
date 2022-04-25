@@ -1,6 +1,6 @@
-import { useAppDispatch } from '../redux/reduxHooks';
-import inputMessages from '../components/lib/Search/messages';
-import { SetErrorT } from '../types/typesPayload';
+import { useAppDispatch } from '../../../../redux/reduxHooks';
+import { SetErrorT } from '../../../../types/typesPayload';
+import inputMessages from '../../Search/messages';
 
 const useValidateInput = (setError: SetErrorT, formId?: string) => {
     const dispatch = useAppDispatch();

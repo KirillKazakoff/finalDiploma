@@ -1,19 +1,19 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import useChange from '../../../../form/useChange';
 import {
     setActive,
     setBlured,
     setError,
     setInput,
 } from '../../../../redux/slices/subscribeSlice';
-import useValidateInput from '../../../../form/useValidateInput';
-import useSelect from '../../../../form/useSelect';
 import SubscriptionInput from './SubscriptionInput';
 import SubscribeFormBtn from './SubscribeFormBtn';
 import { useAppSelector, useAppDispatch } from '../../../../redux/reduxHooks';
 import { fetchSubscribe } from '../../../../fetch/api/fetchSubscribe';
 import Form from '../../Common/Form/Form';
+import useChange from '../../Common/Form/useChange';
+import useSelect from '../../Common/Form/useSelect';
+import useValidateInput from '../../Common/Form/useValidateInput';
 
 export default function FooterSubscription() {
     const dispatch = useAppDispatch();

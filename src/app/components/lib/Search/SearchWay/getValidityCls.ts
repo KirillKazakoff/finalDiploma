@@ -1,4 +1,4 @@
-import { getValidityCls } from '../../../../form/getValidityCls';
+import { getValidityCls } from '../../Common/Form/getValidityCls';
 import { WayStateT } from '../../../../types/typesSlices';
 
 export const getWayValidityCls = (wayState: WayStateT) => {

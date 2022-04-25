@@ -6,8 +6,8 @@ import {
 } from '../../../../redux/slices/passengersSlice';
 
 import { searchMessages } from '../../Search/messages';
-import { reduceErrors } from '../../../../form/reduceErrors';
 import FormFeedback from '../../Common/Form/FormFeedback';
+import { reduceErrors } from '../../Common/Form/reduceErrors';
 
 type Props = { children: React.ReactNode; id: string };
 export default function PassengerFormFeedback(props: Props) {

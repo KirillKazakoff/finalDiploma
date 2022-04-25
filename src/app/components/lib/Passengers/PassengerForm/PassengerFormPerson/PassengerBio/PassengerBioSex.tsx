@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
-import { getValidityCls } from '../../../../../../form/getValidityCls';
+import { getValidityCls } from '../../../../Common/Form/getValidityCls';
 import { useAppSelector } from '../../../../../../redux/reduxHooks';
 import {
     selectMsgHidden,

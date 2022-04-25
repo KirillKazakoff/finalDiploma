@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react';
-import { useSetInput } from '../../../../form/useSetInput';
 import { useAppSelector } from '../../../../redux/reduxHooks';
 import Checkbox from '../../Common/Checkbox/Checkbox';
 import { selectField, setInput } from '../../../../redux/slices/paymentFieldsSlice';
+import { useSetInput } from '../../Common/Form/useSetInput';
 
 type Props = { name: string; desc: string };
 

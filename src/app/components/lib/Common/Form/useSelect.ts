@@ -1,6 +1,6 @@
-import { useAppDispatch } from '../redux/reduxHooks';
-import { PayloadFocus } from '../types/typesPayload';
-import { OnFocusT, UseSelectT } from '../types/typesForms';
+import { useAppDispatch } from '../../../../redux/reduxHooks';
+import { UseSelectT, OnFocusT } from '../../../../types/typesForms';
+import { PayloadFocus } from '../../../../types/typesPayload';
 
 const useSelect: UseSelectT = (setActive, setBlured, formId) => {
     const dispatch = useAppDispatch();

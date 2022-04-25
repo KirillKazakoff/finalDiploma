@@ -1,7 +1,7 @@
 import { useRef } from 'react';
-import useValidateInput from '../../../form/useValidateInput';
 import { useAppSelector } from '../../../redux/reduxHooks';
 import { selectField, setError } from '../../../redux/slices/passengersSlice';
+import useValidateInput from '../Common/Form/useValidateInput';
 
 export const useInitInput = (id: string, name: string) => {
     const inputState = useAppSelector(selectField(id, name));

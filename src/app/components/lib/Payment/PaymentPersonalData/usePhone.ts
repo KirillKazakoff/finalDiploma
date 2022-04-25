@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import React, { FormEvent, useState } from 'react';
-import useChange from '../../../../form/useChange';
 import { setInput } from '../../../../redux/slices/paymentFieldsSlice';
+import useChange from '../../Common/Form/useChange';
 
 const codeCheck = (code: number) => {
     if (code < 48 || code > 57) return false;

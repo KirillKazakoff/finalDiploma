@@ -4,8 +4,8 @@ import { searchMessages } from './messages';
 import useValidateSame from './useValidateSame';
 import useValidateCompare from './useValidateCompare';
 import { SearchFormFeedbackT } from '../../../types/typesSearch';
-import { reduceErrors } from '../../../form/reduceErrors';
 import FormFeedback from '../Common/Form/FormFeedback';
+import { reduceErrors } from '../Common/Form/reduceErrors';
 
 export default function SearchFormFeedback(props: SearchFormFeedbackT) {
     const {

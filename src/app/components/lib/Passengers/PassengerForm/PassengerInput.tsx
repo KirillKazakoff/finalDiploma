@@ -9,11 +9,11 @@ import {
     setInput,
 } from '../../../../redux/slices/passengersSlice';
 import { InputState } from '../../../../redux/slices/utils/reduxInputUtils';
-import useChange from '../../../../form/useChange';
-import useSelect from '../../../../form/useSelect';
 import { RefT } from '../../../../types/typesReact';
-import { getValidityCls } from '../../../../form/getValidityCls';
+import { getValidityCls } from '../../Common/Form/getValidityCls';
 import { useAppSelector } from '../../../../redux/reduxHooks';
+import useChange from '../../Common/Form/useChange';
+import useSelect from '../../Common/Form/useSelect';
 
 type Props = {
     name: string;

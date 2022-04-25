@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import useCheckStatus from '../../../../../form/useCheckStatus';
 import { setFormMsgHidden } from '../../../../../redux/slices/passengersSlice';
 import Form from '../../../Common/Form/Form';
 import PassengerRemoveBtn from './PassengerRemoveBtn';
@@ -7,6 +6,7 @@ import SubtlePassengerFormBtn from './SubtlePassengerFormBtn';
 import { useAppSelector } from '../../../../../redux/reduxHooks';
 import PassengerHeaderDesc from './PassengerHeaderDesc';
 import { useAddPlacedPassenger } from '../../useAddForm';
+import useCheckStatus from '../../../Common/Form/useCheckStatus';
 
 type Props = { children: React.ReactNode; index: number; id: string };
 

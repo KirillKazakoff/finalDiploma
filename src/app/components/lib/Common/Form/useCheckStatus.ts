@@ -1,6 +1,6 @@
-import { SetFormMsgHiddenT } from '../types/typesPayload';
-import { useAppDispatch } from '../redux/reduxHooks';
-import { FormStatusT } from '../redux/slices/utils/reduxFormUtils';
+import { useAppDispatch } from '../../../../redux/reduxHooks';
+import { FormStatusT } from '../../../../redux/slices/utils/reduxFormUtils';
+import { SetFormMsgHiddenT } from '../../../../types/typesPayload';
 
 const useCheckStatus = (
     setFormMsg: SetFormMsgHiddenT,

@@ -1,7 +1,6 @@
 /* eslint-disable react/default-props-match-prop-types */
 import React, { HTMLProps } from 'react';
-import { getValidityCls } from '../../../../form/getValidityCls';
-import useSelect from '../../../../form/useSelect';
+import { getValidityCls } from '../../Common/Form/getValidityCls';
 import { setActive, setBlured } from '../../../../redux/slices/paymentFieldsSlice';
 import { useAppSelector } from '../../../../redux/reduxHooks';
 import { InputState } from '../../../../redux/slices/utils/reduxInputUtils';
@@ -9,6 +8,7 @@ import { RefT } from '../../../../types/typesReact';
 import Feedback from '../../Common/Feedback/Feedback';
 import InputWrapper from '../../Common/Form/InputWrapper';
 import { selectMsgStatus } from '../../../../redux/slices/paymentFormSlice';
+import useSelect from '../../Common/Form/useSelect';
 
 type Props = {
     name: string;

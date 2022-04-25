@@ -1,5 +1,5 @@
-import { useAppDispatch } from '../redux/reduxHooks';
-import { SetInputT } from '../types/typesPayload';
+import { useAppDispatch } from '../../../../redux/reduxHooks';
+import { SetInputT } from '../../../../types/typesPayload';
 
 type UseSetInputT = (
     name: string,

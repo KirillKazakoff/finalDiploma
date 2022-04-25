@@ -1,4 +1,4 @@
-import { InputState } from '../redux/slices/utils/reduxInputUtils';
+import { InputState } from '../../../../redux/slices/utils/reduxInputUtils';
 
 export const reduceErrors = (states: InputState[]) => {
     return states.reduce<string[]>((total, state) => {

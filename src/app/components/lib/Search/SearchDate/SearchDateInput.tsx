@@ -9,7 +9,7 @@ import { SearchDateInputProps } from '../../../../types/typesSearch';
 import Feedback from '../../Common/Feedback/Feedback';
 
 import useValidateDate from './useValidateDate';
-import { getValidityCls } from '../../../../form/getValidityCls';
+import { getValidityCls } from '../../Common/Form/getValidityCls';
 
 export default function SearchDateInput(props: SearchDateInputProps) {
     const {

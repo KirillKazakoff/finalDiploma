@@ -1,15 +1,14 @@
 import React from 'react';
-
 import { searchMessages } from '../Search/messages';
 import { useAppSelector } from '../../../redux/reduxHooks';
 import { selectFields } from '../../../redux/slices/paymentFieldsSlice';
-import { reduceErrors } from '../../../form/reduceErrors';
 import {
     selectMsgStatus,
     setFormMsgHidden,
     setFormStatus,
 } from '../../../redux/slices/paymentFormSlice';
 import FormFeedback from '../Common/Form/FormFeedback';
+import { reduceErrors } from '../Common/Form/reduceErrors';
 
 type Props = { children: React.ReactNode };
 

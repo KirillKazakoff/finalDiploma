@@ -4,7 +4,7 @@ import SearchRowTitle from '../SearchRowTitle';
 import SearchFormRow from '../SearchFormRow';
 import SearchDateFrom from './SearchDateFrom';
 import SearchDateTo from './SearchDateTo';
-import useChange from '../../../../form/useChange';
+
 import {
     setInput,
     setDateTime,
@@ -14,10 +14,11 @@ import {
 } from '../../../../redux/slices/searchDateSlice';
 
 import { useAppDispatch } from '../../../../redux/reduxHooks';
-import useValidateInput from '../../../../form/useValidateInput';
-import useSelect from '../../../../form/useSelect';
 import useCheckDisabled from './useCheckDisabled';
 import { SearchSectionProps } from '../../../../types/typesSearch';
+import useChange from '../../Common/Form/useChange';
+import useSelect from '../../Common/Form/useSelect';
+import useValidateInput from '../../Common/Form/useValidateInput';
 
 export default function SearchDate({ cls = '' }: SearchSectionProps) {
     const dispatch = useAppDispatch();

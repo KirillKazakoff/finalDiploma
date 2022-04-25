@@ -1,5 +1,5 @@
-import { useAppDispatch } from '../redux/reduxHooks';
-import { SetErrorT } from '../types/typesPayload';
+import { useAppDispatch } from '../../../../redux/reduxHooks';
+import { SetErrorT } from '../../../../types/typesPayload';
 
 type UseSetErrorT = (
     name: string,

@@ -13,15 +13,15 @@ import {
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 import SearchWayFrom from './SearchWayFrom';
 import SearchWayTo from './SearchWayTo';
-import inputDelay from '../../../../form/inputDelay';
-import useChange from '../../../../form/useChange';
-import useSelect from '../../../../form/useSelect';
 import { OnChangeFetchT } from '../../../../types/typesForms';
-import useValidateInput from '../../../../form/useValidateInput';
 import useAbortFetch from './useAbort';
 import SearchWayUno from './SearchWayUno';
 import { SearchSectionProps } from '../../../../types/typesSearch';
 import { fetchCities } from '../../../../fetch/api/fetchCities';
+import inputDelay from '../../Common/Form/inputDelay';
+import useChange from '../../Common/Form/useChange';
+import useSelect from '../../Common/Form/useSelect';
+import useValidateInput from '../../Common/Form/useValidateInput';
 
 export default function SearchWay({ cls = '' }: SearchSectionProps) {
     const dispatch = useAppDispatch();

@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import PaymentInput from '../PaymentInput/PaymentInput';
 import PaymentLabel from '../PaymentInput/PaymentLabel';
 import { useInitPayInput } from '../useInitPayInput';
-import useChange from '../../../../form/useChange';
 import { setInput } from '../../../../redux/slices/paymentFieldsSlice';
+import useChange from '../../Common/Form/useChange';
 
 type Props = { label: string; name: string };
 

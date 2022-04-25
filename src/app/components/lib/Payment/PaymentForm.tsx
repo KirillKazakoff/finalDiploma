@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import useCheckStatus from '../../../form/useCheckStatus';
 import { useAppSelector } from '../../../redux/reduxHooks';
 import {
     selectFormStatus,
@@ -9,6 +8,7 @@ import {
 
 import BtnNextRoute from '../Common/Form/BtnNextRoute';
 import Form from '../Common/Form/Form';
+import useCheckStatus from '../Common/Form/useCheckStatus';
 import PaymentFormFeedback from './PaymentFormFeedback';
 import PaymentPersonalData from './PaymentPersonalData/PaymentPersonalData';
 import PaymentPersonalWay from './PaymentPersonalWay/PaymentPersonalWay';
