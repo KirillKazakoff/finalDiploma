@@ -11,7 +11,7 @@ import {
 import { setFetchStatus, setTickets } from '../../redux/slices/ticketsSlice';
 import { AppThunk } from '../../redux/store';
 import { getRoutesUrl } from '../getUrl';
-import { request } from '../thunkUtils';
+import { request, timeoutMock } from '../thunkUtils';
 import { fetchSeats } from './fetchSeats';
 import getMinPrices from '../../components/lib/Tickets/getMinPrices';
 import { SeatsTypesInfoT } from '../../types/models/modelSeats';
@@ -75,6 +75,7 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
         tickets: ticketsInfo,
     };
 
+    await timeoutMock(1000);
     dispatch(initLimitCosts(resData));
     dispatch(setTickets(tickets));
     dispatch(setFetchStatus('loaded'));

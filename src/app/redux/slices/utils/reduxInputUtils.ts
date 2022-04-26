@@ -50,10 +50,17 @@ export const inputReducers = {
         else state[name].isActive = isActive;
     },
     setBlured: (state: any, action: PayloadAction<PayloadFocus>) => {
-        const { name, wasFocused, id } = action.payload;
+        const {
+            name, wasFocused, id, isActive,
+        } = action.payload;
 
-        if (id) state[id].fields[name].wasFocused = wasFocused;
-        else state[name].wasFocused = wasFocused;
+        if (id) {
+            state[id].fields[name].wasFocused = wasFocused;
+            state[id].fields[name].isActive = isActive;
+        } else {
+            state[name].wasFocused = wasFocused;
+            state[name].isActive = isActive;
+        }
     },
     clearField: (state: any, action: PayloadAction<PayloadClear>) => {
         const { name, id } = action.payload;

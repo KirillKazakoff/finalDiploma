@@ -4,12 +4,18 @@ import SuccessTips from '../lib/Common/Success/SuccessTips';
 import SuccessFarewell from '../lib/Common/Success/SuccessFarewell';
 import SuccessFooter from '../lib/Common/Success/SuccessFooter';
 import { useRefreshRoutes } from '../lib/Check/useRefreshRoutes';
+import { useAppDispatch } from '../../redux/reduxHooks';
+import { setOrderSuccess } from '../../redux/slices/locationsSlice';
 
 export default function SuccessRoute() {
+    const dispatch = useAppDispatch();
     const refreshRoutes = useRefreshRoutes();
 
     useEffect(() => {
-        return () => refreshRoutes();
+        return () => {
+            dispatch(setOrderSuccess());
+            refreshRoutes();
+        };
     });
 
     return (

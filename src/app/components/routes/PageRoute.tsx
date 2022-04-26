@@ -6,10 +6,21 @@ import ErrorNavigator from '../lib/Utils/ErrorNavigator';
 import Information from '../lib/Utils/Information';
 import LocationNavigator from '../lib/Utils/LocationNavigator';
 import { useCheckLocation } from '../lib/Utils/useCheckLocation';
+import { useRefreshRoutes } from '../lib/Check/useRefreshRoutes';
+import { useAppDispatch } from '../../redux/reduxHooks';
+import { refreshFields } from '../lib/Common/Form/useRefreshFields';
 
 export default function PageRoute() {
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const checkLocation = useCheckLocation();
+    const { checkLocation, activeLocation } = useCheckLocation();
+
+    const refreshRoutes = useRefreshRoutes();
+
+    useEffect(() => {
+        // refreshRoutes();
+        dispatch(refreshFields());
+    }, [activeLocation, dispatch]);
 
     useEffect(() => {
         if (!checkLocation) navigate('/history-error');

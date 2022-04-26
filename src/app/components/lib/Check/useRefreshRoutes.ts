@@ -1,6 +1,5 @@
 import { useAppDispatch } from '../../../redux/reduxHooks';
 import { refreshLast } from '../../../redux/slices/lastTicketsSlice';
-import { setOrderSuccess } from '../../../redux/slices/locationsSlice';
 import { refreshPasPlaces } from '../../../redux/slices/pasPlacesSlice';
 import { refreshPaymentForm } from '../../../redux/slices/paymentFormSlice';
 import { refreshPlaces } from '../../../redux/slices/placesSlice';
@@ -19,7 +18,6 @@ export const useRefreshRoutes = () => {
         dispatch(refreshFilter());
         dispatch(refreshPasPlaces());
         dispatch(refreshPlaces());
-        dispatch(setOrderSuccess());
         dispatch(refreshPaymentForm());
         dispatch(refreshSubscribe());
     };

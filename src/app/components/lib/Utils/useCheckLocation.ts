@@ -10,11 +10,11 @@ export const useCheckLocation = () => {
         return activeLocation.key === location.key;
     });
 
-    let outletRes = true;
+    let checkLocation = true;
     const path = activeLocation.pathname;
     if (foundLoc && foundLoc.wasOrderSucceded && path !== '/') {
-        outletRes = false;
+        checkLocation = false;
     }
 
-    return outletRes;
+    return { checkLocation, activeLocation };
 };
