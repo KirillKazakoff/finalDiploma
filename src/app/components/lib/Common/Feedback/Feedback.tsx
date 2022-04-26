@@ -16,7 +16,7 @@ export default function Feedback(props: FeedbackProps) {
 
     if (!error && !formError) return null;
     if (!wasFocused && isFormMsgHidden) return null;
-    console.log(props);
+
     return (
         <div className={`feedback feedback-${cls}`}>
             <div className={`feedback-arrow feedback-arrow-${cls}`} />

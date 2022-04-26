@@ -1,6 +1,11 @@
 import React from 'react';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
-import type { PayloadFocus, SetFormMsgHiddenT, SetFormStatusT } from './typesPayload';
+import type {
+    PayloadBlur,
+    PayloadFocus,
+    SetFormMsgHiddenT,
+    SetFormStatusT,
+} from './typesPayload';
 import type { InputState } from '../redux/slices/utils/reduxInputUtils';
 
 export type InputDefaultT = {
@@ -24,7 +29,7 @@ export type UseChangeT = (
 
 export type UseSelectT = (
     setActive: ActionCreatorWithPayload<PayloadFocus>,
-    setBlured: ActionCreatorWithPayload<PayloadFocus>,
+    setBlured: ActionCreatorWithPayload<PayloadBlur>,
     formId?: string
 ) => {
     onFocus: OnFocusT;

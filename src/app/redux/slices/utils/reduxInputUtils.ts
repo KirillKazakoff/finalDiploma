@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { PayloadAction } from '@reduxjs/toolkit';
 import type {
+    PayloadBlur,
     PayloadClear,
     PayloadError,
     PayloadFocus,
@@ -49,17 +50,15 @@ export const inputReducers = {
         if (id) state[id].fields[name].isActive = isActive;
         else state[name].isActive = isActive;
     },
-    setBlured: (state: any, action: PayloadAction<PayloadFocus>) => {
-        const {
-            name, wasFocused, id, isActive,
-        } = action.payload;
+    setBlured: (state: any, action: PayloadAction<PayloadBlur>) => {
+        const { name, id, wasFocused } = action.payload;
 
         if (id) {
             state[id].fields[name].wasFocused = wasFocused;
-            state[id].fields[name].isActive = isActive;
+            state[id].fields[name].isActive = false;
         } else {
             state[name].wasFocused = wasFocused;
-            state[name].isActive = isActive;
+            state[name].isActive = false;
         }
     },
     clearField: (state: any, action: PayloadAction<PayloadClear>) => {

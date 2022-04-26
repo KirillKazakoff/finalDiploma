@@ -27,7 +27,7 @@ export default function FooterSubscription() {
         if (error) return;
         const settings = { email: value };
         if (!value) {
-            dispatch(setBlured({ name: 'subscribe', isActive: true, wasFocused: true }));
+            dispatch(setBlured({ name: 'subscribe', wasFocused: true }));
             dispatch(setError({ name: 'subscribe', error: 'Введите почту' }));
             return;
         }

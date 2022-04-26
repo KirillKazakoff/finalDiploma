@@ -1,6 +1,6 @@
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 import { UseSelectT, OnFocusT } from '../../../../types/typesForms';
-import { PayloadFocus } from '../../../../types/typesPayload';
+import { PayloadBlur, PayloadFocus } from '../../../../types/typesPayload';
 
 const useSelect: UseSelectT = (setActive, setBlured, formId) => {
     const dispatch = useAppDispatch();
@@ -17,17 +17,22 @@ const useSelect: UseSelectT = (setActive, setBlured, formId) => {
 
     const onBlur: OnFocusT = (e) => {
         const { name } = e.currentTarget;
-        const input: PayloadFocus = {
+        const inputBlur: PayloadBlur = {
             name,
-            isActive: false,
             wasFocused: true,
             id: formId,
         };
 
+        const inputFocus: PayloadFocus = {
+            name,
+            id: formId,
+            isActive: false,
+        };
+
         // predict bluring
         setTimeout(() => {
-            dispatch(setActive(input));
-            dispatch(setBlured(input));
+            dispatch(setActive(inputFocus));
+            dispatch(setBlured(inputBlur));
         }, 180);
     };
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import TripFilter from '../lib/Aside/TripFilter/TripFilter';
 import LastTickets from '../lib/Aside/LastTickets/LastTickets';
 import TicketsFiltration from '../lib/Tickets/TicketFiltration/TicketsFiltration';
@@ -7,8 +7,8 @@ import { useAppSelector, useAppDispatch } from '../../redux/reduxHooks';
 
 import TicketsPagination from '../lib/Tickets/TicketsPagination/TicketsPagination';
 import { selectTotalCount } from '../../redux/slices/ticketsSlice';
-import PageLoader from '../lib/Common/PageLoader/PageLoader';
 import { selectPageStatus, setPageCount } from '../../redux/slices/loaderSlice';
+import PageLoaderScrolled from '../lib/Common/PageLoader/PageLoaderScrolled';
 
 export default function TicketsRoute() {
     const dispatch = useAppDispatch();
@@ -19,18 +19,8 @@ export default function TicketsRoute() {
     const totalCount = useAppSelector(selectTotalCount);
     const pageStatus = useAppSelector(selectPageStatus);
 
-    const ref = useRef<HTMLDivElement>(null);
-    useEffect(() => {
-        if (!ref.current) return;
-        ref.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, []);
-
     if (pageStatus !== 'loaded') {
-        return (
-            <div ref={ref}>
-                <PageLoader cls='page-loader-main' desc='Идет поиск...' />
-            </div>
-        );
+        return <PageLoaderScrolled />;
     }
 
     return (

@@ -15,6 +15,6 @@ export const fetchSubscribe: FetchSubscribeT = (settings) => async (dispatch) =>
 
     await timeoutMock(1000);
     dispatch(setInput({ name: 'subscribe', value: '' }));
-    dispatch(setBlured({ name: 'subscribe', wasFocused: false, isActive: false }));
+    dispatch(setBlured({ name: 'subscribe', wasFocused: false }));
     dispatch(setFetchStatus('loaded'));
 };

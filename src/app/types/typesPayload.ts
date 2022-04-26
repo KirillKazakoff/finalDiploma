@@ -56,6 +56,12 @@ export type PayloadFormStatus = {
     id?: string;
 };
 
+export type PayloadBlur = {
+    name: string;
+    id?: string;
+    wasFocused: boolean;
+};
+
 export type PayloadClear = {
     name: string;
     id?: string;
