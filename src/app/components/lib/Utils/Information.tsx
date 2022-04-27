@@ -6,11 +6,8 @@ import InfoNote from '../Common/Info/InfoNote';
 
 export default function Information() {
     const { isActive, status, msg } = useAppSelector(selectInfo);
+    const cls = !isActive ? 'info-hidden' : '';
 
-    if (isActive) {
-        if (status === 'note') return <InfoNote msg={msg} />;
-        return <InfoError msg={msg} />;
-    }
-
-    return null;
+    if (status === 'note') return <InfoNote msg={msg} cls={cls} />;
+    return <InfoError msg={msg} cls={cls} />;
 }

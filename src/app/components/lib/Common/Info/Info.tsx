@@ -4,17 +4,19 @@ import { InfoMsgT } from './messagesInfo';
 import { useAppDispatch } from '../../../../redux/reduxHooks';
 import { setInfoActive } from '../../../../redux/slices/infoSlice';
 
-type Props = { msg: InfoMsgT; icon: React.ReactNode; cls: string };
+type Props = { msg: InfoMsgT; icon: React.ReactNode; cls: string; containerCls: string };
 
 export default function Info(props: Props) {
     const dispatch = useAppDispatch();
-    const { msg, icon, cls } = props;
+    const {
+        msg, icon, cls, containerCls,
+    } = props;
     const { title, desc } = msg;
 
     const onClick = () => dispatch(setInfoActive(false));
 
     return (
-        <div className='info'>
+        <div className={`info ${containerCls}`}>
             <header className={`info-header info-header-${cls}`}>{icon}</header>
             <div className='info-content'>
                 <span className={`info-content-title info-content-title-${cls}`}>

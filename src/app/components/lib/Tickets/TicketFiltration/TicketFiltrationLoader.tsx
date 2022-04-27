@@ -6,7 +6,7 @@ export default function TicketFiltrationLoader() {
     return (
         <TicketsPaginationLoader>
             <div className='filtration-loader'>
-                <div className='filtration-loader-desc'>идет поиск билетов:</div>
+                <div className='filtration-loader-desc'>идет поиск:</div>
                 <SpinLoader cls='loader-found' />
             </div>
         </TicketsPaginationLoader>

@@ -23,7 +23,7 @@ export default function PasPlace(props: Props) {
         place, index, extras, dir,
     } = props;
     const {
-        price, carNumber, seat_number, placeType,
+        price, carNumber, seat_number, placeType, carType,
     } = place;
     const name = mapDirToRoot(dir);
 
@@ -57,7 +57,10 @@ export default function PasPlace(props: Props) {
         <li className='pas-plases-dir-item'>
             <PasPlaceHeader index={index} price={totalPrice} />
             <PasPlaceInfo carNumber={carNumber} seat_number={seat_number} />
-            <PasPlaceExtras extras={extras} placeType={placeType} />
+            <PasPlaceExtras
+                extras={extras} placeType={placeType}
+                carType={carType}
+            />
             <PasPlaceSelect
                 passengersInfo={passengersInfo}
                 selected={selected}

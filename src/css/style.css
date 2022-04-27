@@ -1,5 +1,5 @@
 :root {
-    --main-left-padding: 220px;
+    --main-left-padding: 205px;
     --main-right-padding: 140px;
     --places-padding: 20px;
     --passengers-left-padding: 30px;
@@ -696,10 +696,6 @@ html {
     display: block;
 }
 
-.last-cost-money-symbol {
-    margin-left: 10px;
-}
-
 /* ticket-common */
 .cost {
     display: flex;
@@ -740,6 +736,7 @@ html {
     display: flex;
     column-gap: 50px;
     margin-bottom: 50px;
+    min-height: 35px;
 }
 
 .filtration-found {
@@ -935,7 +932,6 @@ html {
 .ticket-types {
     display: flex;
     flex-direction: column;
-    row-gap: 15px;
     flex: 1;
 }
 
@@ -3058,6 +3054,10 @@ html {
 
 .date-picker-day-sunday {
     font-weight: 700;
+}
+
+.date-picker-icon {
+    cursor: pointer;
 }
 
 .date-picker-icon:hover {

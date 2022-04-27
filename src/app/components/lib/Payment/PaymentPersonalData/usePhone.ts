@@ -60,12 +60,13 @@ export const usePhone = (phone: string) => {
         const plus = 43;
         const inNumbersArea = code < 48 || code > 57;
 
-        if (code === plus && phone.length === 0) return;
+        if (code === plus) return;
         if (e.code === 'Tab') return;
         if (e.code === 'Backspace') {
             setBack(true);
             return;
         }
+
         if (code === arrow) return;
         if (inNumbersArea) e.preventDefault();
         if (getNumbersAmount(phone) > 10) e.preventDefault();

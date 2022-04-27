@@ -1,19 +1,19 @@
 import React from 'react';
 import { useAppSelector, useAppDispatch } from '../../../../redux/reduxHooks';
-import { selectRate, setRate } from '../../../../redux/slices/rateSlice';
+import { selectInversedRate, setRate } from '../../../../redux/slices/rateSlice';
 import { numberToArray } from '../utils/numberToArray';
 
 export default function SuccessRate() {
-    const rate = useAppSelector(selectRate);
+    const inversedRate = useAppSelector(selectInversedRate);
     const dispatch = useAppDispatch();
     const onClick = (index: number) => () => {
-        dispatch(setRate(index));
+        dispatch(setRate(5 - index));
     };
 
     const starsList = numberToArray(5).map((index) => {
         let cls = 'success-rate-star';
-        cls = index === rate ? `${cls} ${cls}-active` : cls;
-        const color = index >= rate ? 'red' : 'currentColor';
+        cls = index === inversedRate ? `${cls} ${cls}-active` : cls;
+        const color = index >= inversedRate ? 'red' : 'currentColor';
 
         return (
             <li

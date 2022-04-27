@@ -1,10 +1,13 @@
 import React from 'react';
 import { ExtrasPricesCarT } from '../../../../types/models/modelTickets';
 import { mapExtra, mapPlaceValue } from './mapExtras';
+import { mapNameToRus } from '../../Places/PlacesCarTypes/mapName';
 
-type Props = { extras: ExtrasPricesCarT; placeType: string };
+type Props = { extras: ExtrasPricesCarT; placeType: string; carType: string };
 
-export default function PasPlaceExtras({ extras, placeType }: Props) {
+export default function PasPlaceExtras({ extras, placeType, carType }: Props) {
+    const carTypeDesc = mapNameToRus(carType);
+
     const extrasArr = Object.entries(extras).reduce<string[]>((total, [key, value]) => {
         let option = mapExtra(key);
 
@@ -26,7 +29,7 @@ export default function PasPlaceExtras({ extras, placeType }: Props) {
             <li className='pas-places-item-extra pas-places-item-extra-placetype'>
                 <span className='pas-places-item-extra-desc'>Тип:</span>
                 <span className='pas-places-item-extra-value'>
-                    {mapPlaceValue(placeType)}
+                    {`${mapPlaceValue(placeType)} (${carTypeDesc})`}
                 </span>
             </li>
             <li className='pas-places-item-extra pas-places-item-extra-extraservices'>

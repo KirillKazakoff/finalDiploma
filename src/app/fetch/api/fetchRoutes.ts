@@ -75,7 +75,7 @@ export const fetchRoutes: FetchRoutesT = (settings) => async (dispatch) => {
         tickets: ticketsInfo,
     };
 
-    await timeoutMock(1000);
+    await timeoutMock(500);
     dispatch(initLimitCosts(resData));
     dispatch(setTickets(tickets));
     dispatch(setFetchStatus('loaded'));

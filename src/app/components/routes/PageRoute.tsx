@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Header from '../lib/Header/Header';
 import Footer from '../lib/Footer/Footer';
@@ -6,7 +6,6 @@ import ErrorNavigator from '../lib/Utils/ErrorNavigator';
 import Information from '../lib/Utils/Information';
 import LocationNavigator from '../lib/Utils/LocationNavigator';
 import { useCheckLocation } from '../lib/Utils/useCheckLocation';
-import { useRefreshRoutes } from '../lib/Check/useRefreshRoutes';
 import { useAppDispatch } from '../../redux/reduxHooks';
 import { refreshFields } from '../lib/Common/Form/useRefreshFields';
 
@@ -15,10 +14,7 @@ export default function PageRoute() {
     const navigate = useNavigate();
     const { checkLocation, activeLocation } = useCheckLocation();
 
-    const refreshRoutes = useRefreshRoutes();
-
     useEffect(() => {
-        // refreshRoutes();
         dispatch(refreshFields());
     }, [activeLocation, dispatch]);
 
@@ -26,7 +22,15 @@ export default function PageRoute() {
         if (!checkLocation) navigate('/history-error');
     }, [checkLocation, navigate]);
 
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!ref.current) return;
+        ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, [activeLocation]);
+
     if (!checkLocation) return null;
+
     return (
         <>
             <Information />
@@ -34,7 +38,9 @@ export default function PageRoute() {
             <ErrorNavigator />
 
             <Header />
-            <Outlet />
+            <div ref={ref}>
+                <Outlet />
+            </div>
             <Footer />
         </>
     );
