@@ -5,6 +5,7 @@
     "license": "MIT",
     "scripts": {
         "predeploy": "yarn build",
+        "deploy": "gh-pages -d dist",
         "startDev": "webpack-dev-server --mode development",
         "build": "webpack --mode production",
         "lint": "eslint .",
@@ -52,6 +53,7 @@
         "eslint-plugin-react": "^7.27.1",
         "eslint-plugin-react-hooks": "^4.3.0",
         "html-webpack-plugin": "^5.5.0",
+        "jest": "^27.0.6",
         "mini-css-extract-plugin": "^1.6.0",
         "push-dir": "^0.4.1",
         "style-loader": "^3.3.1",
