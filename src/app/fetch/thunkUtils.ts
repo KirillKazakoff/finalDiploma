@@ -2,6 +2,7 @@ import { setPageStatus } from '../redux/slices/loaderSlice';
 import { RequestType } from '../types/typesRequest';
 
 const baseUrl = 'http://80.87.192.113:3001';
+// const baseUrl = 'https://fe-diplom.herokuapp.com';
 
 export function timeoutMock(timeout: number) {
     return new Promise((resolve) => {
@@ -23,6 +24,7 @@ export const request: RequestType = (reqObj, setStatus) => async (dispatch) => {
             dispatch(setPageStatus('failed'));
         }
 
+        console.log(e);
         dispatch(setStatus('failed'));
         return false;
     }

@@ -6,8 +6,8 @@ import { formatDate } from './SearchDate/formatDate';
 const getSearchSettings = (top: TopTypeT, ways: WaysStateT, dates: DatesStateT) => {
     try {
         const searchSettings = {
-            // date_start: formatDate(dates.dateTo.value),
-            // date_end: formatDate(dates.dateFrom.value),
+            date_start: formatDate(dates.dateTo.value),
+            date_end: formatDate(dates.dateFrom.value),
             // date_start: '2022-05-20',
             // date_end: '2022-05-27',
             from_city_id: ways.wayFrom.cities[0]._id,
